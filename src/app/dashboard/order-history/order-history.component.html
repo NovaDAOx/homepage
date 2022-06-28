@@ -1,0 +1,291 @@
+<mat-progress-bar *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+
+<div class="container max_width">
+  <div id="order_his">
+    <div class="metamask-block">
+      <div class="mb-3 d-flex align-items-center">
+        <div class="back_arrow"><mat-icon routerLink="/shop"> arrow_back</mat-icon> </div>
+        
+        <div><h4 class="h4table ms-2">Order-History</h4></div>
+        
+      </div>
+      <form
+        [formGroup]="filterForm"
+        *ngIf="filterForm"
+        (submit)="searchOrder()"
+      >
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label
+            >Search by Order Id, Item Title, Item Color</mat-label
+          >
+          <input
+            matInput
+            (keyup)="searchOrder()"
+            formControlName="searchTxt"
+            placeholder="Search by Order Id, Item Title, Item Color,"
+          />
+          <mat-icon
+            matSuffix
+            *ngIf="filterForm?.get('searchTxt')?.value == ''; else elseBlock"
+            style="cursor: pointer"
+            (click)="searchOrder()"
+          >
+            search
+          </mat-icon>
+          <ng-template #elseBlock>
+            <mat-icon
+              matSuffix
+              style="cursor: pointer"
+              (click)="resetProductSearchForm()"
+            >
+              close
+            </mat-icon>
+          </ng-template>
+        </mat-form-field>
+      </form>
+      <span
+        *ngIf="
+          filterForm?.get('searchTxt')?.value !== '' &&
+          filterForm?.get('searchTxt')?.value !== null
+        "
+        class="search_result"
+      >
+        Showing {{ dataSource?.length }} results for '{{
+          filterForm?.get("searchTxt")?.value
+        }}'
+      </span>
+
+      <span
+        *ngIf="
+          filterForm?.get('searchTxt')?.value === '' ||
+          filterForm?.get('searchTxt')?.value === null
+        "
+        class="search_result"
+      >
+        Showing {{ dataSource?.length }} results
+      </span>
+      <div class="orderhistory_block" *ngIf="dataSource.length > 0">
+        <div class="example-container-table od_history_table">
+          <!-- <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="productImg">
+              <th mat-header-cell *matHeaderCellDef>Images</th>
+              <td mat-cell *matCellDef="let element" class="first_proimg">
+                <div class="productImg">
+                  <img [src]="element.productImg" alt="" srcset="" />
+                </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="productName">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let element" class="secound-col">
+                <div class="productName">
+                  <p class="mb-0">
+                    {{ element.productName }}
+                  </p>
+                </div>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="orderhistorId">
+              <th mat-header-cell *matHeaderCellDef>Order ID</th>
+              <td mat-cell *matCellDef="let element">
+                <p class="mb-0">{{ element.orderhistorId }}</p>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="dateAndtime">
+              <th mat-header-cell *matHeaderCellDef>Date and Time</th>
+              <td mat-cell *matCellDef="let element" class="third-col">
+                <div class="text-left">
+                  <p class="mb-0">{{ element.dateAndtime | date: "medium" }}</p>
+
+                </div>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="productQty">
+              <th mat-header-cell *matHeaderCellDef>Qty</th>
+              <td mat-cell *matCellDef="let element" class="fourth-col">
+                <div class="qty_pro">
+                  <p class="d-flex justify-content-center">
+                    {{ element.productQty }}
+                  </p>
+                </div>
+              </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table> -->
+
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            class="wd-100 order_list_table"
+          >
+            <!-- Order ID Column -->
+            <ng-container matColumnDef="orderId">
+              <th mat-header-cell *matHeaderCellDef>Order ID</th>
+              <td mat-cell *matCellDef="let element">{{ element.orderId }}</td>
+            </ng-container>
+
+            <!-- Order Date Column -->
+            <ng-container matColumnDef="createdAt">
+              <th mat-header-cell *matHeaderCellDef class="order_date">Order Date</th>
+              <td mat-cell *matCellDef="let element" class="order_date">
+                {{ element.createdAt | date:'medium' }} 
+              </td>
+            </ng-container>
+
+            <!-- Total Items Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef  class="product_qty">Total Quantity</th>
+              <td mat-cell *matCellDef="let element"  class="product_qty">{{ element.quantity }}</td>
+            </ng-container>
+            <!-- Total Collection Column -->
+
+            <ng-container matColumnDef="collection">
+              <th mat-header-cell *matHeaderCellDef  class="product_qty">Collection</th>
+              <td mat-cell *matCellDef="let element"  class="product_qty">{{element.collection}}</td>
+            </ng-container>
+            <!-- Total Token  Column -->
+
+            <ng-container matColumnDef="tokenId">
+              <th mat-header-cell *matHeaderCellDef  class="product_qty">Token ID</th>
+              <td mat-cell *matCellDef="let element"  class="product_qty">{{element.tokenId}}</td>
+            </ng-container>
+  
+
+            <!-- payment Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Order Status</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.orderstatus| titlecase }}
+                <button class="pay_remaining_amt_btn" *ngIf="element.orderstatus==='pending'" matTooltip={{element.pendingAmount}}   (click)="sendTransaction(element)">Pay </button>
+              </td>
+            </ng-container>
+
+            <!-- payment Column -->
+            <ng-container matColumnDef="orderCost">
+              <th mat-header-cell *matHeaderCellDef>Order Cost</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.orderCost.toFixed(6)  + ' ETH' }}
+              </td>
+            </ng-container>
+
+
+
+            <!-- payment Column -->
+            <!-- <ng-container matColumnDef="txnHash">
+              <th mat-header-cell *matHeaderCellDef>Payment Hash</th>
+              <td mat-cell *matCellDef="let element">
+                <a
+                  class="mb-0 d-flex"
+                  target="_blank"
+                  [href]="hashLink + element.txnHash"
+                >
+                  {{ element.txnHash }}
+                </a>
+              </td>
+            </ng-container> -->
+            <!-- Item description Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Item Title</th>
+              <td mat-cell *matCellDef="let element">
+                <p class="mb-0 d-flex">
+                  <span>{{ element.description }}</span>
+                </p>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="size">
+              <th mat-header-cell *matHeaderCellDef>Item Size</th>
+              <td mat-cell *matCellDef="let element">
+                <p class="mb-0 d-flex">
+                  <span>{{ element.size }}</span>
+                </p>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="color">
+              <th mat-header-cell *matHeaderCellDef>Item Color</th>
+              <td mat-cell *matCellDef="let element">
+                <p class="mb-0 d-flex">
+                  <span>{{ element.color }}</span>
+                </p>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>Shipping Address</th>
+              <td mat-cell *matCellDef="let element">
+                <a class="mb-0 d-flex" href="javascript:void(0)" (click)="showShippingDetails(element)">
+                  View Shipping Details
+                </a>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="txnHash">
+              <th mat-header-cell *matHeaderCellDef>Action</th>
+              <td mat-cell *matCellDef="let element " class="txt_center">
+                <button mat-button  class="mb-0" [matMenuTriggerFor]="menu" > <mat-icon>visibility</mat-icon></button>
+                <mat-menu #menu="matMenu" class="mat_menu_panel_txnhash">
+                <button mat-menu-item *ngFor="let item of element.txnHash" [value]="item">
+                  <a
+                    class="mb-0 d-flex"
+                    target="_blank"
+                    [href]="hashLink + item"
+                  >
+                  <span class="txn_link_detail"><span class="txn_id">{{item.slice(0,4)}}....{{item.slice(-4)}}</span> <mat-icon>open_in_new</mat-icon></span>
+                  
+                  </a>
+                </button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+        </div>
+        <mat-paginator
+        class="pagination"
+        #paginator
+        [length]="recordCount"
+        [pageSize]="Size"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+      </div>
+
+      <div class="no-data-center" *ngIf="dataSource.length === 0 && resultflag">
+        <div>
+          <img src="../../../assets/Images/no_history_img.png" alt="">
+          <!-- <img src="../../../assets/Images/no-data.png" alt="" /> -->
+        </div>
+        <div>
+          <p class="no-data-found-txt">
+            You don't have any order in your history
+          </p>
+          <div class="custom_btn" routerLink="/shop">
+            <button class="custom_outline_btn">
+              <mat-icon class="me-2">arrow_back</mat-icon>
+              Back to Marketplace
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="divLoading" *ngIf="loader">
+  <div class="loader">
+    <i class="fa fa-spinner fa-spin fa-2x mr-2"></i>
+  </div>
+</div>

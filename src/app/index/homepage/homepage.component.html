@@ -1,0 +1,509 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+  <div class="container topcontainer">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        class="newlogo me-2"
+        src="../../../assets/Images/novadao_logo/icon.png"
+        alt=""
+      />
+      <span class="newlogo_heading">Nova DAO</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+      <div class="customalign">
+        <ul class="navbar-nav custom_links">
+          <li class="nav-item">
+            <a
+              class="nav-link top_links"
+              routerLink="/home"
+              [routerLinkActive]="['active']"
+              >Home</a
+            >
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/lore"
+              >Lore
+              <span class="cs_text">Coming Soon</span>
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/mint"
+              >Mint
+              <!-- <span class="cs_text">Coming Soon</span> -->
+            </a>
+          </li>
+          <li
+            class="nav-item connect_wallet_mobile_view"
+            *ngIf="!isConnected"
+            (click)="showMetamaskContent()"
+          >
+            <a class="nav-link top_links" href="javascript:void(0)"
+              >Connect Wallet</a
+            >
+          </li>
+          <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+            <a class="nav-link top_links" href="javascript:void(0)">
+              <span
+                >{{ isConnected.substring(0, 8) }}...{{
+                  isConnected.substring(
+                    isConnected.length - 4,
+                    isConnected.length
+                  )
+                }}</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="connect_wallet_web_view">
+      <button
+        mat-flat-button
+        class="newconnect_btn"
+        *ngIf="!isConnected"
+        (click)="showMetamaskContent()"
+      >
+        Connect Wallet
+      </button>
+      <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
+        <span
+          >{{ isConnected.substring(0, 8) }}...{{
+            isConnected.substring(isConnected.length - 4, isConnected.length)
+          }}</span
+        >
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="main_section">
+  <div class="new_topsection">
+    <img class="newbiglogo" src="../../../assets/Images/novadao_logo/logo_medium.png" alt="" />
+    <p>The Web3 Grants Network</p>
+    <img
+      class="animated_star2"
+      src="../../../assets/Images/starimg.png"
+      alt="animate_img"
+    />
+
+    <button
+      mat-flat-button
+      class="newconnect_btn"
+      *ngIf="!isConnected"
+      (click)="showMetamaskContent()"
+    >
+      Connect Wallet
+    </button>
+    <img
+      class="animated_star1"
+      src="../../../assets/Images/starimg.png"
+      alt="animate_img"
+    />
+  </div>
+  <!-- <div class="caurosel_section">
+    <p>7500 unique characters for DAO membership</p>
+    <img
+      class="animated_star3"
+      src="../../../assets/Images/starimg.png"
+      alt="animate_img"
+    />
+
+    <owl-carousel-o [options]="customOptions" class="sliderimgcontainer">
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg1.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg2.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg3.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg4.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg5.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg6.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg7.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg8.png"
+          alt=""
+        />
+      </ng-template>
+      <ng-template carouselSlide class="sliderimgbox">
+        <img
+          class="sliderimg"
+          src="../../../assets/Images/sliderimg9.png"
+          alt=""
+        />
+      </ng-template>
+    </owl-carousel-o>
+
+    <button mat-stroked-button class="new_strokedbtn" routerLink="/mint">
+      Mint
+    </button>
+    <img
+      class="animated_star4"
+      src="../../../assets/Images/starimg.png"
+      alt="animate_img"
+    />
+  </div> -->
+  <div class="bottomsection">
+    <div class="daowork_container">
+      <p class="daoheading">
+        How does the <span class="colortxt">DAO</span> work?
+      </p>
+      <p class="new_content">
+        We’re a DAO governed Grants Network & incubation platform for Web3 builders. $NOVA is used to fractionalize our treasury. These tokens can be burned in order to direct treasury funds to back chosen builders. $NOVA is earned by staking our NFTs and will also be available on DEXs. Our 3 main aims are:
+      </p>
+      <div class="custom_points">
+        <div class="points">
+          <img
+            class="me-2"
+            src="../../../assets/Images/novadao_logo/icon.png"
+            alt=""
+          />
+          <p>
+            Bring early opportunities to all in an equal and permissionless manner.
+          </p>
+        </div>
+        <div class="points">
+          <img
+            class="me-2"
+            src="../../../assets/Images/novadao_logo/icon.png"
+            alt=""
+          />
+          <p>
+            Use community and network in order to aid founders & develop projects.
+          </p>
+        </div>
+        <div class="points">
+          <img
+            class="me-2"
+            src="../../../assets/Images/novadao_logo/icon.png"
+            alt=""
+          />
+          <p>
+            Create tangible frameworks for feasible DAO governance of future projects.
+          </p>
+        </div>
+        <div class="strokedbtns d-flex">
+          <a
+            href="https://medium.com/@Nova.DAO/novadao-whitepaper-v2-44c9e9e1ddd"
+            target="blank"
+          >
+            <button mat-stroked-button class="new_strokedbtn me-2 removespace">
+              WHITEPAPER
+            </button>
+          </a>
+          <a
+            href="https://medium.com/@Nova.DAO/novanomics-78a1f9edf7d5"
+            target="blank"
+          >
+            <button mat-stroked-button class="new_strokedbtn ms-2 removespace">
+              $NOVANOMICS
+            </button>
+          </a>
+        </div>
+      </div>
+      <!-- <div class="customnft_img">
+        <img src="../../../assets/Images/nftimg.svg" alt="" />
+      </div> -->
+      <div class="new_roadmap">
+        <p>Roadmap 1.0</p>
+        <div class="new_roadmap_content">
+          <div class="points new_roadmaps">
+            <div class="line default"></div>
+            <div class="line draw"></div>
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>25th May 2022:</p>
+              <p class="custom_equal_height">
+                <span class="colortext"> Mint day!!</span> 7500 NFTs at 0.1E each.
+              </p>
+            </div>
+          </div>
+          <div class="points new_roadmaps">
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>Mid-Late July 2022:</p>
+              <p class="custom_equal_height">
+                <span class="colortext">Staking goes live!</span>
+                Stake to earn <span class="colortext">$NOVA</span>
+              </p>
+            </div>
+          </div>
+          <div class="points new_roadmaps">
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>Q3 2022:</p>
+              <p class="custom_equal_height">
+                <span class="colortext">Liquidity Pool goes live! </span>Once sufficient staking rewards have been claimed, we will set up the LP for $NOVA.
+              </p>
+            </div>
+          </div>
+          <div class="points new_roadmaps">
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>Early Q4 2022:</p>
+              <p class="custom_equal_height">
+                <span class="colortext">DAO + Platform goes live!</span>
+                We launch our DAO platform with voting protocols etc along with our application & fundraising platform.
+              </p>
+            </div>
+          </div>
+          <div class="points new_roadmaps">
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>Late Q4 2022:</p>
+              <p class="custom_equal_height">
+                First cohort of projects gets backed!
+              </p>
+            </div>
+          </div>
+          <div class="points new_roadmaps">
+            <div class="linebox">
+              <img
+                class="me-2"
+                src="../../../assets/Images/novadao_logo/icon.png"
+                alt=""
+              />
+            </div>
+            <div class="new_mapscontent">
+              <p>Q1 2023:</p>
+              <p class="custom_equal_height">
+                <span class="colortext"> Roadmap 2.0</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="distribution_chart">
+        <img class="allscreenview" src="../../../assets/Images/chart.svg" alt="" />
+        <img  class="mobileview" src="../../../assets/Images/chart_mob.svg" alt="">
+      </div>
+      <div class="knowteam_box">
+        <img
+          class="animated_star5"
+          src="../../../assets/Images/starimg.png"
+          alt="animate_img"
+        />
+        <p class="newteamheading">Know the Team</p>
+        <div class="new_members">
+          <div class="team_members">
+            <div class="member_img">
+              <img src="../../../assets/Images/raghav1.png" alt="" />
+            </div>
+            <div class="member_title">
+              <p>Raghav (aka Cryptanosaurus)</p>
+            </div>
+            <div class="member_detail">
+              <p>
+                I studied Mathematics & Economics from UCLA. I handle business
+                operations & product development for the venture. I love poker,
+                cocktails and anything that can make me think.
+              </p>
+            </div>
+            <div class="newicons">
+              <div class="me-2">
+                <a
+                  class="round_box"
+                  href=" https://www.instagram.com/raghav.gupta.28/"
+                  target="_blank"
+                >
+                  <i class="fab fa-instagram" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div>
+                <a
+                  class="round_box"
+                  href="https://twitter.com/cryptanosaurus"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="team_members">
+            <div class="member_img">
+              <img src="../../../assets/Images/anav.png" alt="" />
+            </div>
+            <div class="member_title">
+              <p>Anav (aka 0xAnav)</p>
+            </div>
+            <div class="member_detail">
+              <p>
+                I’m 23 years old and have been avidly into crypto/ Web 3.0 since
+                early 2017. I studied Public Policy at Vanderbilt, which is the
+                same time I got into the crypto space. DAO’s are the culmination
+                of both for me, and as such, I could not be more excited to work
+                in the space.
+              </p>
+            </div>
+            <div class="newicons">
+              <div>
+                <a
+                  class="round_box"
+                  href="https://twitter.com/0xAnav"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div> -->
+          <div class="team_members">
+            <div class="member_img">
+              <img src="../../../assets/Images/CaptainJames1.png" alt="" />
+            </div>
+            <div class="member_title">
+              <p>Captain James</p>
+            </div>
+            <div class="member_detail">
+              <p>
+                I studied a marketing masters which led to a career working at
+                the university, lecturing in subjects of marketing, branding and
+                market research. I am currently doing my PhD in the consumer
+                jouney of NFTs observing how consumers buy NFTs from aquisition
+                to disposal. During the last year I have worked for a number of
+                NFT projects, launched my own books (as NFTs) and now part of
+                managing new projects within the space.
+              </p>
+            </div>
+            <div class="newicons">
+              <div>
+                <a
+                  class="round_box"
+                  href="https://twitter.com/JamesDiMartino9"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="newfooterbox">
+        <img
+          class="animated_star6"
+          src="../../../assets/Images/starimg.png"
+          alt="animate_img"
+        />
+
+        <div class="newlogofooter d-flex align-items-center">
+          <img
+            class="newlogo me-2"
+            src="../../../assets/Images/novadao_logo/icon.png"
+            alt=""
+          />
+          <span class="newlogo_heading">Nova DAO</span>
+        </div>
+        <div class="new_footer_icons">
+          <div>
+            <a
+              class="footerround_box"
+              href="https://discord.gg/D7FKzVFztf"
+              target="_blank"
+            >
+              <i class="fab fa-discord" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box ms-2 me-2"
+              href="https://medium.com/@Nova.DAO"
+              target="_blank"
+            >
+              <i class="fab fa-medium-m" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box"
+              href="https://twitter.com/NovaDaoNFT"
+              target="_blank"
+            >
+              <i class="fab fa-twitter" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="spacebox"></div>
+    </div>
+  </div>
+</div>

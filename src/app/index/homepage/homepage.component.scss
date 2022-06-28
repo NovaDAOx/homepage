@@ -1,0 +1,535 @@
+.body {
+  font-family: "Space Grotesk" !important;
+}
+
+.newbiglogo {
+  width: 154px;
+  height: 154px;
+  margin-bottom: 23px;
+}
+.long_custom_btn {
+  width: 278px !important;
+  max-width: 278px !important;
+}
+
+.new_topsection {
+  text-align: center;
+  padding-top: 75px !important;
+
+  p {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 82px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    max-width: 871px;
+    margin-bottom: 58px;
+    position: relative;
+    z-index: 50;
+  }
+  .newconnect_btn {
+    width: 278px !important;
+    max-width: 278px;
+    position: relative;
+    z-index: 50;
+  }
+}
+
+.main_section {
+  background-image: url("../../../assets/Images/newhomebg_opt.png");
+  background-color: #0d0116 !important;
+  color: #ffffff !important;
+  background-position: top;
+  background-repeat: repeat;
+  background-size: contain;
+  padding: 120px 20px 0px 20px;
+}
+.daoheading {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.bottomsection {
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+.caurosel_section {
+  text-align: center;
+  p {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    margin-top: 122px;
+    margin-bottom: 40px !important;
+    position: relative;
+    z-index: 50;
+  }
+}
+.sliderimgcontainer {
+  .owl-theme {
+    margin-bottom: 50px !important;
+  }
+}
+.colortxt {
+  color: #fac905 !important;
+}
+.custom_points {
+  max-width: 580px;
+  margin: 0 auto;
+}
+.new_strokedbtn {
+  border-color: #fac905 !important;
+  border-radius: 8px !important;
+  padding: 16px 24px 16px 24px !important;
+  color: #fac905;
+  width: 278px !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px !important;
+  font-family: "Space Grotesk" !important;
+}
+.new_content {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 30px !important;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.points {
+  display: flex;
+  img {
+    width: 25px;
+    height: 25px;
+  }
+  p {
+    text-align: left !important;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    margin-top: -3px !important;
+    margin-bottom: 20px !important;
+  }
+}
+.strokedbtns {
+  margin-top: 38px !important;
+  margin-bottom: 85px;
+}
+.customnft_img {
+  img {
+    max-width: 950px;
+    // margin-bottom: 100px !important;
+  }
+}
+.new_roadmap {
+  p {
+    font-size: 48px !important;
+    // line-height: 61px !important;
+    margin-bottom: 52px !important;
+  }
+}
+.colortext {
+  color: #fac905;
+  font-weight: 500;
+}
+.custom_equal_height {
+  height: 54px;
+}
+.member_img {
+  width: 380px !important;
+  img {
+    border-radius: 20px !important;
+    width: 100%;
+  }
+}
+.line {
+  width: 1px;
+  margin-left: 12.3px;
+  position: absolute;
+  margin-top: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  // border-left: 5px solid #fff;
+  z-index: 5;
+}
+.line.default {
+  height: calc(153px * 6);
+}
+.line.draw {
+  background-color: #fac905;
+  height: 0;
+}
+.linecolor {
+  background: #f5f5f5;
+}
+.yellowline {
+  background: #fac905 !important;
+}
+.sliderimg {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px;
+}
+.owl-item {
+  filter: brightness(0.5);
+}
+.owl-item.center {
+  opacity: 1 !important;
+  filter: brightness(1);
+  padding: 5px !important;
+}
+.caurosel_section .owl-carousel.owl-drag .owl-item {
+  // width: 250px !important;
+  // height: 250px !important;
+  // margin-right: 20px;
+  padding: 20px;
+}
+
+.linebox {
+  position: relative;
+  img {
+    z-index: 99;
+    position: relative;
+    background-color: #14091d;
+    
+  }
+}
+.top_links {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: #f5f5f5 !important;
+  margin-right: 40px;
+}
+
+.team_members {
+  max-width: 380px;
+  text-align: left;
+  margin-right: 40px;
+}
+.member_title {
+  margin-top: 24px !important;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.member_detail {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-top: 12px !important;
+  height: 260px !important;
+  margin-bottom: 30px !important;
+}
+.newicons {
+  display: flex;
+  a {
+    text-decoration: none !important;
+  }
+}
+.round_box {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #fac905;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    color: #1e1818;
+    font-size: 20px;
+  }
+}
+.new_members {
+  display: flex;
+  // justify-content: space-between;
+  justify-content: center;
+}
+.knowteam_box {
+  margin-top: 100px;
+}
+.newteamheading {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin-bottom: 50px !important;
+}
+.distribution_chart {
+  max-width: 1180px;
+  margin-top: 100px;
+  img {
+    width: 100%;
+  }
+}
+.new_roadmaps {
+  border-radius: 18px;
+  max-width: 780px !important;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #14091d;
+  margin-bottom: 32px !important;
+  padding-top: 25px !important;
+}
+
+.new_mapscontent {
+  p:nth-child(1) {
+    font-size: 30px !important;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    margin-bottom: 16px !important;
+  }
+  p:nth-child(2) {
+    font-size: 18px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    margin-bottom: 5px !important;
+  }
+}
+
+.customnft_img {
+  margin-bottom: 80px;
+}
+.points:nth-last-child(1) {
+  .line {
+    display: none;
+  }
+}
+.daowork_container {
+  margin-top: 80px;
+}
+
+@media (max-width: 767px) {
+  .new_members {
+    flex-direction: column;
+  }
+  .member_detail {
+    height: auto !important;
+  }
+  .team_members {
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    margin-bottom: 55px !important;
+  }
+  .member_img {
+    // max-width: 280px !important;
+    // margin: 0 auto;
+  }
+  .customnft_img {
+    max-width: 650px !important;
+    margin-bottom: 50px !important;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  .distribution_chart {
+    max-width: 650px !important;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  .strokedbtns {
+    flex-direction: column;
+  }
+  .new_strokedbtn:nth-child(1) {
+    margin-bottom: 20px !important;
+  }
+  .new_topsection p {
+    font-size: 42px !important;
+    line-height: normal !important;
+  }
+  .removespace {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  .caurosel_section p {
+    font-size: 32px;
+    margin-top: 60px;
+  }
+  .daoheading {
+    font-size: 32px;
+  }
+
+  .new_roadmap p {
+    font-size: 35px !important;
+  }
+  .mobile_btn {
+    background-color: transparent;
+    padding: 10px !important;
+    border: 1px solid #fac905 !important;
+  }
+}
+@media (max-width: 670px) {
+  .custom_equal_height {
+    height: 100px;
+  }
+  .main_section {
+    padding-top: 65px !important;
+  }
+  .line.default {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: calc(153px * 7);
+  }
+  .new_mapscontent p:nth-child(2) {
+    font-size: 14px !important;
+    line-height: unset !important;
+  }
+  .new_mapscontent p:nth-child(1) {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+  }
+  .newteamheading {
+    font-size: 38px !important;
+  }
+  .newfooterbox {
+    flex-direction: column !important;
+  }
+  .new_footer_icons {
+    justify-content: center !important;
+  }
+  .newlogofooter {
+    justify-content: center !important;
+    margin-bottom: 15px;
+  }
+  .new_topsection p {
+    font-size: 35px !important;
+    line-height: normal !important;
+  }
+  .topcontainer {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    // padding-bottom: 30px !important;
+  }
+  .animated_star2 {
+    top: 142px;
+    left: 9px;
+    width: 50px;
+  }
+  .animated_star1 {
+    top: 456px;
+    right: 79px;
+    width: 50px;
+  }
+  .animated_star4 {
+    width: 50px;
+    top: 2134px;
+    left: 163px;
+  }
+  @keyframes example {
+    50% {
+      transform: translate(20px, 20px);
+    }
+  }
+
+  @keyframes example2 {
+    50% {
+      transform: translate(30px, 30px);
+    }
+  }
+
+  @keyframes example3 {
+    50% {
+      transform: translate(25px, 25px);
+    }
+  }
+  .animated_star3 {
+    width: 50px;
+    top: 662px;
+    right: 120px;
+  }
+  .animated_star4 {
+    width: 50px;
+    top: 2134px;
+    left: 163px;
+  }
+  .animated_star5 {
+    width: 50px;
+    top: 1331px;
+    right: 120px;
+  }
+  .animated_star6 {
+    width: 50px;
+    top: 852px;
+    left: 197px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .distribution_chart {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .team_members {
+    max-width: 250px;
+    margin: 4px;
+  }
+  .member_img {
+    // max-width: 248px;
+    width: unset !important;
+  }
+  .customnft_img {
+    max-width: 760px;
+    margin-bottom: 85px !important;
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  // .topcontainer{
+  //   padding-left: 50px;
+  //   padding-right: 50px;
+  // }
+  .new_members {
+    justify-content: space-evenly;
+  }
+  .member_detail {
+    height: unset !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 816px) {
+  .member_img {
+    width: 245px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px !important;
+  }
+}
+
+.hide {
+  background-color: rgb(20 9 29 / 64%);
+  color: gray;
+
+  .colortext {
+    color: gray;
+  }
+}
+
+.mobileview{
+  display: none !important;
+}
+
+@media (max-width: 480px){
+  .mobileview{
+    display:block !important;
+  }
+  .allscreenview{
+    display: none;
+  }
+  .distribution_chart {
+    margin-top: 60px !important;
+    margin-bottom: -40px !important;
+  }
+}

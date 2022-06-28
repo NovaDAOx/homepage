@@ -1,0 +1,263 @@
+.main_section {
+  background-image: url("../../../assets/Images/newhomebg_opt.png");
+  background-color: #0d0116 !important;
+  color: #ffffff !important;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 120px 20px 0px 20px;
+}
+.mintsection {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 1150px;
+}
+.mint_now_section {
+  flex-basis: 48%;
+  border-radius: 18px;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06)
+    ),
+    rgba(13, 1, 22, 0.9);
+}
+.mintnow_heading {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 69px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+.mint_mainsection {
+  margin-top: 100px;
+}
+.yellow_color_txt {
+  color: #fac905;
+}
+.other_mint_txt {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px !important;
+}
+.mint_now_section {
+  padding: 45px;
+}
+.sm_txt {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.04em;
+}
+.lg_div {
+  width: 150px;
+  background: linear-gradient(0deg, #180029, #180029), #0d0116;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+}
+.sm_div {
+  width: 75px;
+  border-radius: 18px;
+  background: linear-gradient(0deg, #180029, #180029), #0d0116;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+.number_txt {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+.slash {
+  position: relative;
+  bottom: 6px;
+  margin-right: 10px;
+}
+.increment_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 52px !important;
+  max-width: 200px;
+  margin: 0 auto;
+}
+.mint_btn {
+  max-width: 285px !important;
+  width: 285px;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+.mint_imgs_section {
+  flex-basis: 48%;
+  display: flex;
+  flex: 1 1 1;
+  flex-wrap: wrap;
+  filter: drop-shadow(0px 17px 22px rgba(250, 201, 5, 0.17));
+  border-radius: 20px;
+  border: solid 1px rgba(250, 201, 5, 0.17);
+  justify-content: center;
+  align-items: center;
+}
+.mint_imgs {
+  border: 1px solid #0d0116;
+  flex-basis: 33.22%;
+}
+.left_top_img {
+  border-radius: 20px 0px 0px 0px;
+}
+.left_bottom_img {
+  border-radius: 0px 0px 0px 20px;
+}
+.right_top_img {
+  border-radius: 0px 20px 0px 0px;
+}
+.right_bottom_img {
+  border-radius: 0px 0px 20px 0px;
+}
+.animated_star_mint {
+  width: 100px;
+  animation: example2 20s linear infinite;
+  position: absolute;
+  top: 76px;
+  left: 121px;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .mint_now_section {
+    flex-basis: 42%;
+  }
+  .mint_imgs_section {
+    flex-basis: 56%;
+  }
+}
+@media (max-width: 1023px) {
+  .mintsection {
+    flex-direction: column;
+  }
+  .mint_now_section {
+    margin-bottom: 50px;
+    order: 1;
+  }
+  .mint_imgs_section {
+    order: 2;
+  }
+  .main_section {
+    background-repeat: repeat;
+  }
+}
+@media (max-width: 768px) {
+  .mint_imgs_section {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .mint_imgs {
+    width: 33%;
+  }
+  .other_mint_txt {
+    margin-top: 15px;
+    margin-bottom: 30px !important;
+  }
+  .lg_div {
+    width: 120px;
+    padding: 22px;
+  }
+}
+@media (max-width: 425px) {
+  .mint_btn {
+    width: 190px;
+  }
+  .other_mint_txt {
+    font-size: 32px;
+  }
+  .mintnow_heading {
+    font-size: 40px;
+  }
+  .number_txt {
+    font-size: 40px;
+  }
+}
+@media (max-width: 670px) {
+  .animated_star_mint {
+    top: 110px;
+    left: 9px;
+    width: 50px;
+  }
+}
+.container {
+  padding: 0px !important;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px !important;
+  }
+}
+
+.custom-fadein {
+  animation: fadein linear 1s;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.ceffect {
+  animation: fadeout linear 1s;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.pausedAnimation {
+  opacity: 0.001;
+}
+
+.mint_imgs_logo_div{
+  width: 470px;
+}
+
+.mint_imgs_logo{
+  width: 100%;
+}
