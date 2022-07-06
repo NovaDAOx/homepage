@@ -1,0 +1,65 @@
+<div class="order-summary-content">
+  <div class="order-content">
+    <img
+      src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png"
+      alt=""
+      style="width: 125px; height: 120px"
+    />
+    <p class="thankyou-txt">Thank You For Your Order!</p>
+  </div>
+  <div class="order-detail">
+    <p class="other-detail">
+    Your order #{{ orderData.orderId }} is successfully placed.
+    </p>
+
+    <div class="confirmation-heading mb-3">
+      <span>Order Confirmation #</span>
+      <span>{{ orderData.orderId }}</span>
+    </div>
+    <div class="details-order">
+      <div class="confirmation-detail mb-2">
+        <span>Purchase</span>
+        <span>{{ orderData.cost }} ETH</span>
+      </div>
+      <div class="confirmation-detail mb-2">
+        <span>Shipping</span>
+        <span>0</span>
+      </div>
+      <div class="confirmation-detail mb-2">
+        <span>Sales Tax</span>
+        <span>0</span>
+      </div>
+      <hr />
+      <div class="total-paytxt">
+        <span>TOTAL</span>
+        <span>{{ orderData.cost }} ETH</span>
+      </div>
+      <hr />
+    </div>
+
+    <div class="address">
+      <div class="adrresses">
+        <span class="address-heading"> Delivery Address </span>
+        <span>
+          <strong>{{ orderData.shippingDetail.name }}</strong>
+          <div>
+            <span>{{ orderData.shippingDetail.streetAddress }}</span
+            >,
+            <span>{{ orderData.shippingDetail.city }}</span>
+            ,
+            <span>{{ orderData.shippingDetail.state }}</span
+            >-<span>{{ orderData.shippingDetail.zip }} , </span>
+            <span>{{ orderData.shippingDetail.country }}</span>
+            <span>{{ orderData.shippingDetail.phone }}</span>
+
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="back">
+    <button mat-raised-button class="back-btn" routerLink="/shop">
+      Back to MarketPlace
+    </button>
+  </div>
+</div>

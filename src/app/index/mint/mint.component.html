@@ -1,0 +1,234 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+  <div class="container topcontainer">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        class="newlogo me-2"
+        src="../../../assets/images/novadao_logo/icon.png"
+        alt=""
+      />
+      <span class="newlogo_heading">Nova DAO</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+      <div class="customalign">
+        <ul class="navbar-nav custom_links">
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/">Home</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/lore"
+              >Lore
+
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a
+              class="nav-link top_links"
+              routerLink="/mint"
+              [routerLinkActive]="['active']"
+              >Mint
+              <!-- <span class="cs_text">Coming Soon</span> -->
+            </a>
+          </li>
+          <li
+            class="nav-item connect_wallet_mobile_view"
+            *ngIf="!isConnected"
+            (click)="showMetamaskContent()"
+          >
+            <a class="nav-link top_links" href="javascript:void(0)"
+              >Connect Wallet</a
+            >
+          </li>
+          <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+            <a class="nav-link top_links" href="javascript:void(0)">
+              <span
+                >{{ isConnected.substring(0, 8) }}...{{
+                  isConnected.substring(
+                    isConnected.length - 4,
+                    isConnected.length
+                  )
+                }}</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="connect_wallet_web_view">
+      <button
+        mat-flat-button
+        class="newconnect_btn"
+        *ngIf="!isConnected"
+        (click)="showMetamaskContent()"
+      >
+        Connect Wallet
+      </button>
+      <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
+        <span
+          >{{ isConnected.substring(0, 8) }}...{{
+            isConnected.substring(isConnected.length - 4, isConnected.length)
+          }}</span
+        >
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="main_section mint_mainsection">
+  <div class="mintsection">
+    <img
+      class="animated_star_mint"
+      src="../../../assets/images/starimg.png"
+      alt="animate_img"
+    />
+    <div class="mint_imgs_section">
+      <div class="mint_imgs_logo_div">
+        <img class="mint_imgs_logo"
+        src="../../../assets/images/novadao_logo/mint.png"
+        alt=""
+      />
+      </div>
+
+      <!-- <img
+        id="image2"
+        class="mint_imgs"
+        src="../../../assets/Images/mint_images_folder/2.png"
+        alt=""
+      />
+      <img
+        id="image3"
+        class="mint_imgs right_top_img"
+        src="../../../assets/Images/mint_images_folder/3.png"
+        alt=""
+      />
+      <img
+        id="image4"
+        class="mint_imgs"
+        src="../../../assets/Images/mint_images_folder/4.png"
+        alt=""
+      />
+      <img
+        id="image5"
+        class="mint_imgs"
+        src="../../../assets/Images/mint_images_folder/5.png"
+        alt=""
+      />
+      <img
+        id="image6"
+        class="mint_imgs"
+        src="../../../assets/Images/mint_images_folder/6.png"
+        alt=""
+      />
+      <img
+        id="image7"
+        class="mint_imgs left_bottom_img"
+        src="../../../assets/Images/mint_images_folder/7.png"
+        alt=""
+      />
+      <img
+        id="image8"
+        class="mint_imgs"
+        src="../../../assets/Images/mint_images_folder/8.png"
+        alt=""
+      />
+      <img
+        id="image9"
+        class="mint_imgs right_bottom_img"
+        src="../../../assets/Images/mint_images_folder/9.png"
+        alt=""
+      /> -->
+    </div>
+    <div class="mint_now_section">
+      <p class="mintnow_heading">Mint Now</p>
+      <p class="other_mint_txt">
+        {{ counter }}
+        <span class="slash">/</span>
+        <span class="yellow_color_txt">7500</span>
+        <span class="sm_txt"> minted</span>
+      </p>
+      <div class="increment_section">
+        <div class="sm_div" (click)="increaseQty()">
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="lg_div ms-2 me-2">
+          <span class="number_txt">{{ nftQuantity }}</span>
+        </div>
+        <div class="sm_div" (click)="decreaseQty()">
+          <i class="fas fa-minus"></i>
+        </div>
+      </div>
+      <button
+        mat-flat-button
+        class="newconnect_btn mint_btn" (click)="newMintNFT()"
+      >
+        {{nftDefaultPrice}} ETH   |  Mint Now
+
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="newfooterbox">
+      <img
+        class="animated_star3"
+        src="../../../assets/images/starimg.png"
+        alt="animate_img"
+      />
+      <div class="newlogofooter d-flex align-items-center">
+        <img
+          class="newlogo me-2"
+          src="../../../assets/images/novadao_logo/icon.png"
+          alt=""
+        />
+        <span class="newlogo_heading">Nova DAO</span>
+      </div>
+      <div class="new_footer_icons">
+        <div>
+          <a
+            class="footerround_box"
+            href="https://discord.gg/D7FKzVFztf"
+            target="_blank"
+          >
+            <i class="fab fa-discord" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div>
+          <a
+            class="footerround_box ms-2 me-2"
+            href="https://medium.com/@Nova.DAO"
+            target="_blank"
+          >
+            <i class="fab fa-medium-m" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div>
+          <a
+            class="footerround_box"
+            href="https://twitter.com/NovaDaoNFT"
+            target="_blank"
+          >
+            <i class="fab fa-twitter" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+      <!-- <img class="animated_star1" src="../../../assets/Images/starimg.png" alt="animate_img"> -->
+    </div>
+
+    <div class="spacebox"></div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="transparent !important"
+  size="medium"
+  color="grey"
+  type="square-jelly-box"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
