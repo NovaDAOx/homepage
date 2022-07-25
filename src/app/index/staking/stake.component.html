@@ -1,0 +1,270 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+  <div class="container topcontainer">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        class="newlogo me-2"
+        src="../../../assets/images/novadao_logo/icon.png"
+        alt=""
+      />
+      <span class="newlogo_heading">Nova DAO</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+      <div class="customalign">
+        <ul class="navbar-nav custom_links">
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/stake">
+              Staking
+              <!-- <span class="cs_text">Coming Soon</span> -->
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link top_links"
+              routerLink="/mint"
+              [routerLinkActive]="['active']"
+              >Mint
+            </a>
+          </li> -->
+          <li
+            class="nav-item connect_wallet_mobile_view"
+            *ngIf="!isConnected"
+            (click)="showMetamaskContent()"
+          >
+            <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+          </li>
+          <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+            <a class="nav-link top_links" href="javascript:void(0)">
+              <span>
+                {{ isConnected.substring(0, 8) }}...{{
+                  isConnected.substring(
+                    isConnected.length - 4,
+                    isConnected.length
+                  )
+                }}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="connect_wallet_web_view">
+      <button
+        mat-flat-button
+        class="newconnect_btn"
+        *ngIf="!isConnected"
+        (click)="showMetamaskContent()"
+        >
+        Connect Wallet
+      </button>
+      <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
+        <span>
+          {{ isConnected.substring(0, 8) }}...{{
+            isConnected.substring(isConnected.length - 4, isConnected.length)
+          }}
+        </span>
+      </button>      
+    </div>
+  </div>
+</nav>
+
+<div class="main_section stake_mainsection">
+
+  <div class="stakingsection" *ngIf="NFTbtn">
+    <button
+    mat-flat-button
+    class="newconnect_btn"
+    
+    (click)="interact()"
+    >
+    Contract Call
+    </button>
+  
+    </div>
+    <br/>
+  <div class="stakingsection">
+    <div class="stakingLoading" *ngIf="!isConnected">
+      Wallet not Connected!
+      </div>
+    <div class="stakingLoading" *ngIf="loading">
+      Loading...
+      </div>
+      <div class="stakingLoading" *ngIf="NFTtoadx">
+       iotoadx  NFT collection not found in this "Wallet Address"
+        </div>
+    <app-nfts [nft]="list" *ngFor="let lis of list">{{lis}}</app-nfts>
+    </div>
+  <div class="stake-topcontent container">
+    <div class="staking-box">
+
+      <!-- <mat-card class="w-100 custom_matcard">
+         <div class="stake-box">
+           <p class="stake-heading custom_font_new">
+             Stake :
+           </p>
+           <div class="stake_all_container">
+             <div class="staking-container">
+               <div class="custom_icon_address">
+                 <div class="image_icon">
+                   <img src="../../../assets/images/anav.jpg" alt="">
+                 </div>
+                 <div class="stake-address ms-3 me-3">
+                   <a href="">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</a>
+                 </div>
+               </div>
+               <div class="unstake-btn">
+                 <button mat-flat-button class="unstake-custom-btn" >Unstake</button>
+               </div>
+             </div>
+             <div class="staking-container">
+               <div class="custom_icon_address">
+                 <div class="image_icon">
+                   <img src="../../../assets/images/anav.jpg" alt="">
+                 </div>
+                 <div class="stake-address ms-3 me-3">
+                   <a href="">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</a>
+                 </div>
+               </div>
+               <div class="unstake-btn">
+                 <button mat-flat-button class="unstake-custom-btn" >Unstake</button>
+               </div>
+             </div>
+             <div class="staking-container">
+               <div class="custom_icon_address">
+                 <div class="image_icon">
+                   <img src="../../../assets/images/anav.jpg" alt="">
+                 </div>
+                 <div class="stake-address ms-3 me-3">
+                   <a href="">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</a>
+                 </div>
+               </div>
+               <div class="unstake-btn">
+                 <button mat-flat-button class="unstake-custom-btn" >Unstake</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </mat-card>
+       <mat-card class="w-100 custom_matcard">
+         <div class="rewards-box">
+           <div class="stake">
+             <span class="stake-heading custom_font_new">
+               Total Rewards :
+             </span>
+             <span class="textcolor"> 20 </span>
+ 
+           </div>
+         </div>
+       </mat-card>
+       <mat-card class="w-100 custom_matcard">
+         <div class="availabilty-stake-box">
+           <span class="stake-heading custom_font_new">
+             Available to Stakes :
+            </span>
+            
+            <mat-form-field appearance="standard">
+              <mat-label class="select-stake-txt custom_font_new">Select your Stake</mat-label>
+              <mat-select>
+                <mat-option value="option1">
+                 <div class="stake option-stake stake_option_custom">
+                     <img class="img-icon me-3" src="../../../assets/images/anav.jpg" alt="">
+                     <p>
+                       bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</p>
+                 </div>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+       </div>
+       </mat-card>
+       <div class="custom-button">
+         <div class="stake-button ">
+           <button mat-flat-button class="unstake-custom-btn stake-btn" >Stake</button>
+         </div>
+       </div> -->
+       
+      
+    </div>
+  </div>
+  <div class="stake_mainsection">
+    <div class="stakingsection">
+      <p>
+        As the genesis NFT drop for our on chain E-commerce marketplace, the Nova
+        Deus collection stands as our first-free to mint NFTs. Intended as a proof
+        of concept for how we envision real world commerce to be transformed on
+        chain, they will provide passive staking rewards fueled by activity on our
+        marketplace.
+      </p>
+    </div>
+  </div>
+
+   <div>
+    <div class="container">
+      <div class="newfooterbox">
+        <img
+          class="animated_star3"
+          src="../../../assets/images/starimg.png"
+          alt="animate_img"
+        />
+        <div class="newlogofooter d-flex align-items-center">
+          <img
+            class="newlogo me-2"
+            src="../../../assets/images/novadao_logo/icon.png"
+            alt=""
+          />
+          <span class="newlogo_heading">Nova DAO</span>
+        </div>
+        <div class="new_footer_icons">
+          <div>
+            <a
+              class="footerround_box"
+              href="https://discord.gg/D7FKzVFztf"
+              target="_blank"
+            >
+              <i class="fab fa-discord" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box ms-2 me-2"
+              href="https://medium.com/@Nova.DAO"
+              target="_blank"
+            >
+              <i class="fab fa-medium-m" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box"
+              href="https://twitter.com/NovaDaoNFT"
+              target="_blank"
+            >
+              <i class="fab fa-twitter" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="spacebox"></div>
+    </div>
+   </div>
+     <ngx-spinner
+       bdColor="rgba(0, 0, 0, 0.8)"
+       size="medium"
+       color="#fff"
+       type="square-jelly-box"
+       [fullScreen]="true"
+       >
+        <p style="color: white">Loading...</p>
+      </ngx-spinner>
+ </div>
+ 

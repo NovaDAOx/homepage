@@ -1,0 +1,17 @@
+.member_img {
+    // max-width: 248px;
+    width: unset !important;
+  }
+  @media (min-width: 768px) and (max-width: 816px) {
+    .member_img {
+      width: 245px !important;
+    }
+  }
+  .member_img {
+    width: 380px !important;
+    img {
+      border-radius: 20px !important;
+      width: 100%;
+    }
+  }
+  

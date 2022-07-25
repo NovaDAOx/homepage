@@ -1,0 +1,23 @@
+.shipping-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+}
+.align-content {
+  display: flex;
+  justify-content: space-between;
+}
+.wallet_meta_connect .row .col-md-6:nth-child(1){
+  font-weight: 500;
+}
+.custom-shipping-modal-box{
+  // min-height: 585px !important;
+  min-width: 500px !important;
+}
+
+@media (max-width:767px){
+  .custom-shipping-modal-box{
+    // min-height: 585px !important;
+    min-width: 0px !important;
+  } 
+}
