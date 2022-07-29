@@ -46,20 +46,49 @@ constructor(
 
 )
  {}
-interact()
+ STAKEbtn:any = null;
+ NFTbtn: any = null;
+ loading2:any = null;
+async interact()
 {
-  this.etherService.interact().then(data => {
+  this.etherService.setApproval().then(data => {
     console.log(',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,',data)
+    if(data)
+    {
+      const co  =document.getElementById('stakingsection').style
+      co.backgroundColor = '#200028';
+      co.opacity = '1'
+      this.NFTbtn = null;
+      this.loading2 = null;
+      this.STAKEbtn = 'show'
+    }
+    else
+    {
+      this.STAKEbtn = null;
+      this.NFTbtn = 'show';
+      this.loading2 = 'show';
+    }
+    return data
     
   })
 }
+async approveall()
+{
+  console.log('interact',await this.interact())
+  const userAddress = localStorage.getItem('walletId')
+  if(userAddress)
+  {
+    this.allNFT();
+    const co  =await document.getElementById('stakingsection').style
+    co.backgroundColor = "gray"
+    co.opacity = '0.7'
+       
+  }
+ 
+}
   allNFT()
  {
-   const userAddress = localStorage.getItem('walletId')
-   if(userAddress) 
-   {
-     
-   console.log('this is user address from staking page',userAddress)
+  
     this.moralisservice.getnfts().then(data => {
     console.log('stake.companent',data)
     this.list=data
@@ -73,23 +102,21 @@ interact()
     console.log('2116',this.list)
     
   })
-}
-else
-{
-  console.log('please connet wallet ');
-  
-}
+
+
 }
 dialogConfig = new MatDialogConfig();
 'dialogueReference': MatDialogRef<MetamaskComponent>;
 isConnected: any = null;
 loading: any = null;
 NFTtoadx: any =null;
-NFTbtn: any = null;
+
+
+checkuser:any = null;
 
 
   ngOnInit(): void {
-    this.allNFT();
+   this.approveall()
     
     // if (history.state.routedFrom == 'stake') {
     //   location.href = 'home#roadmap';

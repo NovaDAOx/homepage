@@ -22,6 +22,12 @@
     align-items: center;
     flex-wrap: nowrap;
 }  
+.wid1
+{
+    max-width:285px;
+   
+}
+
 @media (max-width: 767px) {
     .container {
         padding: 20px !important;
@@ -318,4 +324,107 @@ img.img-icon{
     .stake-heading{
         margin-bottom: 0px !important;
     }
+}
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+	background-image: url("../../../assets/images/newhomebg_opt.png");
+    background-color: black;
+	color: white;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.stream {
+	width: 70%;
+    margin-top:9rem !important;
+	display: inline-block;
+}
+
+.heading {
+	color: gold;
+	width: 100%;
+}
+
+.value {
+	color: white;
+	font-size: 2em;
+}
+
+.mintButton {
+	display: inline-block;
+	background-color: #300038;
+	border: none;
+	color: white;
+	text-align: center;
+	height: 3em;
+	width: 32%;
+}
+
+.mintButton:hover {
+	background-color: #00FFA0;
+}
+
+.full {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	height: 195px;
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+.thirds {
+	display: inline-block;
+	width: 31%;
+	padding: 5px;
+	text-align: center;
+	height: 400px;
+}
+
+.twothirds {
+	display: inline-block;
+	width: 62%;
+	vertical-align: top;
+	padding: 5px;
+	text-align: center;
+	height: 400px;
+}
+
+.halfs {
+	display: inline-block;
+	width: 48%;
+	padding: 5px;
+	text-align: center;
+}
+
+.container {
+	background-color: #200028;
+	border-radius: 20px;
+	height: 100%;
+}
+
+
+/* Revision for Mobile devices only */
+@media only screen and (max-width: 600px) {	
+	.stream {
+		width: 98%;
+	}
+	
+	.thirds {
+		width: 100%;
+	}
+	
+	.twothirds {
+		width: 100%;
+	}
+	
+	.halfs {
+		width: 100%;
+	}
 }

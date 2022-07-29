@@ -9,7 +9,7 @@
     providedIn: 'root'
   })
   export class MoralisService {
-    private userBS = new BehaviorSubject<Moralis.User | undefined>(undefined);
+    
 
     constructor() { }
 
@@ -22,7 +22,7 @@
         )
       );
     }
-    
+    private userBS = new BehaviorSubject<Moralis.User | undefined>(undefined);
     public observeUser(): Observable<Moralis.User | undefined> {
       return this.userBS.asObservable();
     }
@@ -30,6 +30,7 @@
     {
       const userAddress = localStorage.getItem('walletId');
       console.log('userAddress',userAddress)
+      console.log('started dave')
    
       const userEthNFTs = await Moralis.Web3.getNFTs({chain:'rinkeby', address:userAddress});
       // const balances = await Moralis.Web3.getAllERC20();
