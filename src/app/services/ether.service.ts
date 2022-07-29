@@ -43,64 +43,21 @@ import { MoralisService } from './moralis.service';
           
                 const provider = new ethers.providers.Web3Provider(window.ethereum)
                 const data = await provider.send("eth_requestAccounts", []);
-                console.log('davedata',data[0])
+                
           
                 let NOVAcon = new web3.eth.Contract(this.ABI_DAO, this.DAO);
-                console.log('000000000000000000000000000',NOVAcon)
-
+                
                 let set =await NOVAcon.methods.setApprovalForAll(this.STAKE,true).send({from : data[0],value:0});
-                console.log('approved',set)
-
-			// const setApproval = 	await NOVAcon.methods.setApprovalForAll(this.STAKE, true).send({from: data[0], value: 0});
-          
-         
+                
             const getsigner = provider.getSigner()
-          // let NOVAcon = new ethers.Contract(this.DAO,this.ABI_DAO)
-          // await NOVAcon.methods.setApprovalForAll(STAKE, true).send({from: wallet[0], value: 0});
-if(set.status == true)
-         {
-          return set
-         }
+          
+            if(set.status == true)
+             {
+                 return set
+              }
         }
       }
         
       }
-  //     public async interact(): Promise<any> {
-  //       if (window && window.ethereum && window.ethereum.isMetaMask) {
-        
-  //       const provider = new ethers.providers.Web3Provider(window.ethereum)
-  //     const data = await provider.send("eth_requestAccounts", []);
-  //         const getsigner = provider.getSigner()
-        
-  //       const Contract = new ethers.Contract(this.contractAddress,NFTAbi3,getsigner);
-        
-  //        const nftContract = await Contract.functions.setNFTcontract(data[0])
-  //       //  const balance = await Contract.function.balanceOf(data[0]).call();
-         
-         
-  //        const nova = await 
-  //       // const nftContract = Contract.functions.setNFTcontract(userAddress);
-  //       // const nft2d = Contract.functions.name
-
-  //       console.log('Contract',Contract)
-        
-  //       console.log('NFTContract',nftContract)
-
-  //       // console.log('Contrat',balance)
-
-  //       // console.log('ccccccccccccccccccccccccccccccccccc',nft2d)
-    
-        
-        
-  //       const balanceprovider = await provider.getBalance(data[0])
-
-  //       console.log('Balance from provider ', balanceprovider)
-                
-
-  //       return getsigner
-      
-  //   }
-  // }
-  
     }
     

@@ -112,7 +112,7 @@
     getUsers()
     {  
         this.githubservice.getuser()
-        console.log('222222222222222222222',this.githubservice.getuser()) 
+       
         this.team=this.githubservice.getuser()
         
     }
@@ -128,7 +128,7 @@
         window.localStorage.setItem('logout', 'false');
       }
       this.metaMaskService.accountChanged.subscribe((data) => {
-        console.log('metamask',data)
+        
         if (
           this.loadFirstTime == false &&
           data &&
@@ -190,8 +190,7 @@
       });
 
       this.dialogueReference.afterClosed().subscribe((result) => {
-        console.log('dialog dave',result)
-        console.log('The dialog was closed');
+       
       });
     }
 
