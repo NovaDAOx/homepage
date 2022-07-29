@@ -149,18 +149,25 @@
             <div class="stakingLoading" *ngIf="NFTtoadx">
               No NFTs under contract . Procure an NFT or contact support through
               </div>
-              
                 <button
                 mat-flat-button
                 class="mintButton"
-                *ngIf="STAKEbtn"
+                *ngIf="Selectbtn"
                 
-                (click)="interact()"
+                (click)="select_all()"
                 >
                 Select All
                 </button>
-              
-              
+                
+                <button
+                mat-flat-button
+                class="mintButton"
+                *ngIf="Deselectbtn"
+                
+                (click)="deselect_all()"
+                >
+                Deselect All
+                </button>
               <app-nfts [nft]="list" *ngFor="let lis of list">{{lis}}</app-nfts>
           </div>
     </div>

@@ -49,6 +49,30 @@ constructor(
  STAKEbtn:any = null;
  NFTbtn: any = null;
  loading2:any = null;
+ Selectbtn:any = null;
+ Deselectbtn:any = null;
+ async select_all()
+ {
+    this.Deselectbtn = 'show';
+    this.Selectbtn = null;
+    const allElements = Array.from(
+      document.querySelectorAll('input[type=checkbox]')
+    );
+    allElements.forEach(element => {
+      element.setAttribute('checked', 'checked');
+    });
+ }
+ async deselect_all()
+ {
+    this.Selectbtn = 'show';
+    this.Deselectbtn = null;
+    const allElements = Array.from(
+      document.querySelectorAll('input[type=checkbox]')
+    );
+    allElements.forEach(element => {
+      element.removeAttribute('checked');
+    });    
+ }
 async interact()
 {
   this.etherService.setApproval().then(data => {
@@ -60,11 +84,14 @@ async interact()
       co.opacity = '1'
       this.NFTbtn = null;
       this.loading2 = null;
-      this.STAKEbtn = 'show'
+      this.STAKEbtn = 'show';
+      this.Selectbtn = 'show';
     }
     else
     {
       this.STAKEbtn = null;
+      this.Selectbtn = null;
+      this.Deselectbtn = null;
       this.NFTbtn = 'show';
       this.loading2 = 'show';
     }
