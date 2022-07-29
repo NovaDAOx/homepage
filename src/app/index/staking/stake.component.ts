@@ -76,10 +76,9 @@ constructor(
  }
  async interact()
 {
-// const load = await document.getElementById('infotxt')
-// load.addEventListener("click",this.show)
+
   this.etherService.setApproval().then(data => {
-    console.log(',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,',data)
+    
     if(data)
     {
       const co = document.getElementById('stakingsection').style
@@ -109,7 +108,7 @@ constructor(
 
 async approveall()
 {
-  console.log('interact',await this.interact())
+  
   const userAddress = localStorage.getItem('walletId')
   if(userAddress)
   {
@@ -125,7 +124,7 @@ async approveall()
  {
   
     this.moralisservice.getnfts().then(data => {
-    console.log('stake.companent',data)
+    
     this.list=data
     this.NFTbtn='show'
     this.loading=null;
@@ -139,7 +138,7 @@ async approveall()
     {
       this.approvebtn = 'show'
     }
-    console.log('2116',this.list)
+   
     
   })
 
@@ -209,9 +208,7 @@ checkuser:any = null;
     } else {
       localStorage.setItem('walletId', this.isConnected);
       this.moralisservice.startMoralis().subscribe(() => console.log('Started Moralis'));
-      this.loading = 'Loading...'
-      console.log('Loading....')
-      this.userOb.subscribe(console.log);
+     
       this.allNFT();
 
     }
@@ -227,7 +224,7 @@ checkuser:any = null;
       }),
     });
     this.dialogueReference.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+    
     });
   }
 
