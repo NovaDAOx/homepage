@@ -7,6 +7,14 @@
     background-size: contain;
     padding: 120px 20px 0px 20px;
 }
+.infotxt
+{
+    display: none;
+}
+.infobtn:hover + .infotxt
+{
+    display: flex;
+}
 
 .container {
     padding: 0px !important;
@@ -51,10 +59,42 @@
 .newfooterbox {
     margin-top: 4rem;
 }
+.infobtn
+{
+    border-radius: 50% !important;
+    background-color:#FAC905;
+    width:30px;
+    height:30px;
+    margin-top: -2rem;
+    margin-left: 2rem;
+    position: absolute;
+}
+@media (max-width:375px){
+    .wid1
+    {
+        margin-left:-2rem !important;
+    }
+    // .mar
+    // {
+    //     margin-left:-12rem !important;
+    // }
+    .infobtn
+    {
+        margin-left: 7rem !important;
+        margin-top: -6rem;
+    }
+}
 
+.inline
+{
+    display: block;
 
-
-
+}
+.mar
+{
+    margin-left:-12rem !important;
+    margin-top:2rem !important;
+}
 .staking-container{
     display: flex;
     align-items: center;

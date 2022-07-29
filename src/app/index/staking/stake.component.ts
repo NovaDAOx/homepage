@@ -49,29 +49,64 @@ constructor(
  STAKEbtn:any = null;
  NFTbtn: any = null;
  loading2:any = null;
-async interact()
+ approvebtn:any = null;
+ Selectbtn:any = null;
+ Deselectbtn:any = null;
+ async select_all()
+ {
+    this.Deselectbtn = 'show';
+    this.Selectbtn = null;
+    const allElements = Array.from(
+      document.querySelectorAll('input[type=checkbox]')
+    );
+    allElements.forEach(element => {
+      element.setAttribute('checked', 'checked');
+    });
+ } 
+ async deselect_all()
+ {
+    this.Selectbtn = 'show';
+    this.Deselectbtn = null;
+    const allElements = Array.from(
+      document.querySelectorAll('input[type=checkbox]')
+    );
+    allElements.forEach(element => {
+      element.removeAttribute('checked');
+    });    
+ }
+ async interact()
 {
+// const load = await document.getElementById('infotxt')
+// load.addEventListener("click",this.show)
   this.etherService.setApproval().then(data => {
     console.log(',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,',data)
     if(data)
     {
-      const co  =document.getElementById('stakingsection').style
+      const co = document.getElementById('stakingsection').style
       co.backgroundColor = '#200028';
+      co.pointerEvents = 'auto';
       co.opacity = '1'
       this.NFTbtn = null;
       this.loading2 = null;
       this.STAKEbtn = 'show'
+      this.approvebtn = null;
+      
     }
     else
     {
       this.STAKEbtn = null;
       this.NFTbtn = 'show';
       this.loading2 = 'show';
+      this.approvebtn = null;
+    
     }
+    
     return data
     
   })
 }
+
+
 async approveall()
 {
   console.log('interact',await this.interact())
@@ -79,12 +114,12 @@ async approveall()
   if(userAddress)
   {
     this.allNFT();
-    const co  =await document.getElementById('stakingsection').style
+    
+    const co  = await document.getElementById('stakingsection').style
     co.backgroundColor = "gray"
-    co.opacity = '0.7'
-       
+    co.pointerEvents = 'none';
+    co.opacity = '0.7'      
   }
- 
 }
   allNFT()
  {
@@ -98,6 +133,11 @@ async approveall()
     {
       this.NFTtoadx="notoadx collection found"
       this.NFTbtn=null;
+      
+    }
+    if(data.length != 0)
+    {
+      this.approvebtn = 'show'
     }
     console.log('2116',this.list)
     

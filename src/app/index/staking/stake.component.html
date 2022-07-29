@@ -116,17 +116,21 @@
       </span>
       
       
-        <div class="stakingsection" *ngIf="NFTbtn" >
+        <div class="stakingsection inline" *ngIf="approvebtn" >
+          
           <button
           mat-flat-button
           class="newconnect_btn wid1"
-          
+         
           (click)="interact()"
           >
           Allow Nova to Stake NFTs
-          <span>i</span>
+          
           </button>
-        
+          <button class="infobtn">
+            i
+          </button>
+          <span class="infotxt">Staking NFTs requires two steps, first you must approve Nova to interact or stake your NFTs, second you'll select the NFTs you wish to stake and run the Stake command. Allowing Nove to interact with your NFTs is key is it also allows us to Unstake your NFTs and issue your rewards</span>
           </div>
           <br/>
         <div class="stakingsection" id="stakingsection">
@@ -140,12 +144,15 @@
         Log in to Metamask to Stake
       </button>
             </div>
-            <div class="stakingLoading" *ngIf="loading2">
+            <!-- <div class="stakingLoading" *ngIf="loading2">
               Loading...
-              </div>
-          <div class="stakingLoading" *ngIf="loading">
+              </div> -->
+          <div class="stakingLoading" *ngIf="loading" id="infotxt">
             Loading...
             </div>
+           
+
+  
             <div class="stakingLoading" *ngIf="NFTtoadx">
               No NFTs under contract . Procure an NFT or contact support through
               </div>
@@ -154,14 +161,23 @@
                 mat-flat-button
                 class="mintButton"
                 *ngIf="STAKEbtn"
+                (click)="select_all()"
                 
-                (click)="interact()"
+                
                 >
                 Select All
                 </button>
               
-              
-              <app-nfts [nft]="list" *ngFor="let lis of list">{{lis}}</app-nfts>
+                <button
+                mat-flat-button
+                class="mintButton"
+                *ngIf="Deselectbtn"
+
+                (click)="deselect_all()"
+                >
+                Deselect All
+                </button>
+              <app-nfts [nft]="list" *ngFor="let lis of list" class="mar">{{lis}}</app-nfts>
           </div>
     </div>
   </div>
