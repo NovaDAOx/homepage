@@ -233,6 +233,32 @@
   height: 260px !important;
   margin-bottom: 30px !important;
 }
+.blog_frame {
+  width: 300px;
+  margin-top: 22px;
+  height: 70px;
+  padding: 0px;
+  border: none;
+}
+@media (max-width:991px){
+  .blog_frame{
+    display: none;
+  }
+}
+.blog_frame_collapsible {
+  width: 320px;
+  height: 70px;
+  margin-top: 15px;
+  margin-left: -10px;
+}
+@media (min-width:991px) {
+  .blog_frame_collapsible{
+    display: none;
+  }  
+}
+.navbar>.container {
+  justify-content: center !important;
+}
 .newicons {
   display: flex;
   margin-top:10rem;
