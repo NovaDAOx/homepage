@@ -30,6 +30,7 @@ import { Router } from '@angular/router';
 list:String[]
 loadFirstTime: boolean = true;
 isMetamask:boolean = true ;
+
 public userOb = this.moralisservice.observeUser();
 
 
@@ -49,6 +50,7 @@ constructor(
  STAKEbtn:any = null;
  NFTbtn: any = null;
  loading2:any = null;
+ loading1:any = null;
  approvebtn:any = null;
  Selectbtn:any = null;
  Deselectbtn:any = null;
@@ -76,17 +78,20 @@ constructor(
  }
  async interact()
 {
-
   this.etherService.setApproval().then(data => {
-    
+
+
     if(data)
     {
+
+
       const co = document.getElementById('stakingsection').style
       co.backgroundColor = '#200028';
       co.pointerEvents = 'auto';
       co.opacity = '1'
       this.NFTbtn = null;
       this.loading2 = null;
+      
       this.STAKEbtn = 'show'
       this.approvebtn = null;
       
@@ -97,6 +102,7 @@ constructor(
       this.NFTbtn = 'show';
       this.loading2 = 'show';
       this.approvebtn = null;
+
     
     }
     
@@ -113,6 +119,7 @@ async approveall()
   if(userAddress)
   {
     this.allNFT();
+    this.loading1 = 'show';
     
     const co  = await document.getElementById('stakingsection').style
     co.backgroundColor = "gray"
@@ -126,14 +133,19 @@ async approveall()
     this.moralisservice.getnfts().then(data => {
     
     this.list=data
+    
     this.NFTbtn='show'
-    this.loading=null;
+    if(data)
+    {
+      this.loading1 = null;
+    }
     if(data.length == 0)
     {
       this.NFTtoadx="notoadx collection found"
       this.NFTbtn=null;
       
     }
+    
     if(data.length != 0)
     {
       this.approvebtn = 'show'
@@ -147,7 +159,7 @@ async approveall()
 dialogConfig = new MatDialogConfig();
 'dialogueReference': MatDialogRef<MetamaskComponent>;
 isConnected: any = null;
-loading: any = null;
+
 NFTtoadx: any =null;
 
 
@@ -170,7 +182,7 @@ checkuser:any = null;
         window.localStorage.getItem('logout') == 'false'
       ) {
         this.isConnected = null;
-        this.loading = null;
+       
         this.NFTbtn= null;
         this.checkIfUserWalletConnected();
       } else if (
@@ -185,7 +197,6 @@ checkuser:any = null;
     this.metaMaskService.firstTimeMetamaskConnect.subscribe((data: any) => {
       if (data === 'firstTimeMetamaskConnect') {
         this.isConnected = null;
-        this.loading = null ;
         this.NFTbtn = null;
         this.checkIfUserWalletConnected();
       }
