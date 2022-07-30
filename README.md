@@ -1,10 +1,19 @@
-# rugs
+# NovaDAO Homepage 
 
+Homepage for https://novadao.xyz
+
+## Starting up 
+`npm install`
+`ng serve` / `npm run start`
+
+Deployment is handled by Vercel. Push to main or dev to make changes live online.
+
+## Information
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4228/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
