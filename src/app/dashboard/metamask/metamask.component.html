@@ -1,0 +1,64 @@
+<div class="metamask-block h-100" *ngIf="metamaskContent === true">
+  <div class="d-flex justify-content-end mb-3">
+    <button
+      [disabled]="loader"
+      mat-icon-button
+      mat-dialog-close
+      (click)="closeDialog()"
+    >
+      <mat-icon *ngIf="loader === false"> close </mat-icon>
+    </button>
+  </div>
+  <div class="wallet_meta_connect">
+    <div class="text-center wallet_head">
+      <div>
+        <p>connect wallet</p>
+        <p>Please select a wallet to connect</p>
+      </div>
+    </div>
+    <div class="conct_wallet_link mt-4 mb-auto" (click)="connectMetamask()">
+      <div class="wallet_img">
+        <img src="../../assets/images/fox.png" alt="" srcset="" />
+      </div>
+      <div class="ms-3">
+        <p class="mb-0" routerLinkActive="router-link-active">MetaMask</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="metamask-block" *ngIf="metamaskContent === false">
+  <div class="d-flex justify-content-end mb-3">
+    <button
+      [disabled]="loader"
+      mat-icon-button
+      mat-dialog-close
+      (click)="closeDialog()"
+    >
+      <mat-icon *ngIf="loader === false"> close </mat-icon>
+    </button>
+  </div>
+
+
+  <!-- after connect ui start -->
+  <h4 class="text-center connected_label">You're connected</h4>
+  <div class="connected_wallet">
+    <img src="../../assets/images/qualify.png" alt="" srcset="" />
+  </div>
+  <div class="see_products_you text-center">
+    <p class="d-flex align-items-center justify-content-center">
+      See Products for
+      <span class="bold_arrow" (click)="closeDialog()">
+        YOU
+        <span
+          ><img
+            class="conect-icon-right"
+            src="../../assets/images/arrow-connect.svg"
+            alt=""
+            srcset=""
+        /></span>
+      </span>
+    </p>
+  </div>
+  <!-- after connect ui end -->
+</div>

@@ -1,0 +1,55 @@
+<div class="custom-shipping-modal-box">
+  <div class="align-content mb-3">
+    <span class="shipping-heading">Shipping Details</span>
+    <button mat-icon-button mat-dialog-close (click)="closeDialog()">
+      <mat-icon> close </mat-icon>
+    </button>
+  </div>
+
+  <div class="wallet_meta_connect">
+    <div class="row">
+      <div class="col-md-6">Name</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.name }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">Email</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.email }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">Address</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.streetAddress }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">City</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.city }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">State</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.state }}</div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="col-md-6">Country</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.country }}</div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-6">Zip</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.zip }}</div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-6">Phone</div>
+      <div class="col-md-6">{{ shippingDetails?.shipping?.phone }}</div>
+    </div>
+  </div>
+</div>
