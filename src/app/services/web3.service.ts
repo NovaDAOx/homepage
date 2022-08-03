@@ -25,7 +25,7 @@ export class Web3Service {
   /***
    * Get Account of Metamask Wallet
    */
-   
+
 
   public async getAccount(): Promise<any> {
     try {
