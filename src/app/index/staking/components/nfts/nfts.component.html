@@ -1,4 +1,5 @@
 <form action="" method="">
+<<<<<<< HEAD
   <!-- <div class="name" >
    <p style="color:white"> {{nft[0]['name']}}</p>
      </div> -->
@@ -30,3 +31,35 @@
 
   <!-- <p>token_address:{{nft[0]['Address']}}</p> -->
 </form>
+=======
+
+ <!-- <div class="name" >
+   <p style="color:white"> {{nft[0]['name']}}</p>
+     </div> -->
+      <!-- <div style="display:flex">
+        <p>amount:{{nft[0]['amount']}}</p>
+       
+         
+           </div> -->
+           <div *ngFor="let lis of nft">
+
+           <table id="checklist">
+            
+             <tr>
+              <td> <div class="member_img"><img src="{lis['url']}" /></div></td>   
+               <td><input id="checklists" type="checkbox" name="checklist" value="{{lis['TokenId']}}"></td> 
+               <td>{{lis['TokenId']}}</td>
+              </tr>
+             <tr>
+             
+              <td> <p style="color:white;margin-top:0.3rem;">{{lis['name']}}</p></td>
+               </tr>
+             </table>
+             
+              
+       
+        
+  </div>      
+  </form>
+  
+>>>>>>> c83c47808cce1e45361265423154455ac32083fa

@@ -150,7 +150,7 @@
     border-radius: 20px !important;
     width: 100%;
   }
- 
+
 }
 .line {
   width: 1px;
@@ -203,7 +203,7 @@
     z-index: 99;
     position: relative;
     background-color: #14091d;
-    
+
   }
 }
 .top_links {
@@ -233,36 +233,10 @@
   height: 260px !important;
   margin-bottom: 30px !important;
 }
-.blog_frame {
-  width: 300px;
-  margin-top: 22px;
-  height: 70px;
-  padding: 0px;
-  border: none;
-}
-@media (max-width:991px){
-  .blog_frame{
-    display: none;
-  }
-}
-.blog_frame_collapsible {
-  width: 320px;
-  height: 70px;
-  margin-top: 15px;
-  margin-left: -10px;
-}
-@media (min-width:991px) {
-  .blog_frame_collapsible{
-    display: none;
-  }  
-}
-.navbar>.container {
-  justify-content: center !important;
-}
 .newicons {
   display: flex;
   margin-top:10rem;
-  
+
   a {
     text-decoration: none !important;
   }
@@ -285,10 +259,10 @@
   // justify-content: space-between;
   justify-content: center;
   display: flex;
-  
+
   justify-content: space-between;
   flex-wrap: wrap;
-  
+
 }
 .knowteam_box {
   margin-top: 100px;
@@ -436,7 +410,7 @@
   }
   .newfooterbox {
     flex-direction: column !important;
-    
+
   }
   .new_footer_icons {
     justify-content: center !important;
@@ -582,4 +556,32 @@
     margin-top: 60px !important;
     margin-bottom: -40px !important;
   }
+}
+
+.blog_frame {
+  width: 300px;
+  margin-top: 22px;
+  height: 70px;
+  padding: 0px;
+  display: block;
+  border: none;
+}
+@media (max-width:991px){
+  .blog_frame{
+    display: none;
+  }
+}
+.blog_frame_collapsible {
+  width: 320px;
+  height: 70px;
+  margin-top: 15px;
+  margin-left: -10px;
+}
+@media (min-width:991px) {
+  .blog_frame_collapsible{
+    display: none;
+  }
+}
+.navbar>.container {
+  justify-content: center !important;
 }
