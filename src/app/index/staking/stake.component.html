@@ -41,7 +41,9 @@
             *ngIf="!isConnected"
             (click)="showMetamaskContent()"
           >
-            <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+            <a class="nav-link top_links" href="javascript:void(0)"
+              >Connect Wallet</a
+            >
           </li>
           <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
             <a class="nav-link top_links" href="javascript:void(0)">
@@ -64,7 +66,7 @@
         class="newconnect_btn"
         *ngIf="!isConnected"
         (click)="showMetamaskContent()"
-        >
+      >
         Connect Wallet
       </button>
       <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
@@ -73,118 +75,112 @@
             isConnected.substring(isConnected.length - 4, isConnected.length)
           }}
         </span>
-      </button>      
+      </button>
     </div>
   </div>
 </nav>
 <div class="stream">
   <!-- Start HTML Reel -->
-  
-  
-  
+
   <div id="connectButton">
     <!-- blank on page start, button injected by js -->
   </div>
   <div class="thirds">
     <div class="full">
       <div class="container">
-        <br>
+        <br />
         <div class="heading">$NOVA Rewards</div>
-        <br><br>
+        <br /><br />
         <div class="value" id="rewards">Unavailable</div>
       </div>
     </div>
     <div class="full">
       <div class="container">
-        <br>
+        <br />
         <div class="heading">Current Staked</div>
-        <br><br>
+        <br /><br />
         <div class="value" id="staked">Unavailable</div>
       </div>
     </div>
   </div>
-  
+
   <div class="twothirds">
     <div class="container">
-      <br>
+      <br />
       <div class="heading">Stake your $NOVA</div>
-      <br>
+      <br />
       <span id="stakingButtons" *ngIf="STAKEbtn">
-        <button class='mintButton'>STAKE</button>
-        <button class='mintButton'>UNSTAKE</button>
-        <button class='mintButton'>OTHER</button>
+        <button class="mintButton">STAKE</button>
+        <button class="mintButton">UNSTAKE</button>
+        <button class="mintButton">OTHER</button>
       </span>
-      
-      
-        <div class="stakingsection inline" *ngIf="approvebtn" >
-          
-          <button
+
+      <div class="stakingsection inline" *ngIf="approvebtn">
+        <button
           mat-flat-button
           class="newconnect_btn wid1"
-         
           (click)="interact()"
-          >
-          Allow Nova to Stake NFTs
-          
-          </button>
-          <button class="infobtn">
-            i
-          </button>
-          <span class="infotxt">Staking NFTs requires two steps, first you must approve Nova to interact or stake your NFTs, second you'll select the NFTs you wish to stake and run the Stake command. Allowing Nove to interact with your NFTs is key is it also allows us to Unstake your NFTs and issue your rewards</span>
-          </div>
-          <br/>
-        <div class="stakingsection" id="stakingsection">
-          <div  *ngIf="!isConnected">
-            <button
-        mat-flat-button
-        class="newconnect_btn wid1"
-        *ngIf="!isConnected"
-        (click)="showMetamaskContent()"
         >
-        Log in to Metamask to Stake
-      </button>
-            </div>
-            <!-- <div class="stakingLoading" >
-              <div class="lds-ring"><div></div><div></div><div></div><div></div></div> 
-            </div> -->
-            <div class="stakingLoading" *ngIf="loading1">
-              <div class="lds-ring"><div></div><div></div><div></div><div></div></div> 
-            </div>
-           
+          Allow Nova to Stake NFTs
+        </button>
+        <button class="infobtn">i</button>
+        <span class="infotxt"
+          >Staking NFTs requires two steps, first you must approve Nova to
+          interact or stake your NFTs, second you'll select the NFTs you wish to
+          stake and run the Stake command. Allowing Nove to interact with your
+          NFTs is key is it also allows us to Unstake your NFTs and issue your
+          rewards</span
+        >
+      </div>
+      <br />
+      <div class="stakingLoading" *ngIf="isConnected && NFTtoadx">
+        No NFTs under contract . Procure an NFT or contact support through
+      </div>
+      <div *ngIf="!isConnected">
+        <button
+          mat-flat-button
+          class="newconnect_btn wid1"
+          *ngIf="!isConnected"
+          (click)="showMetamaskContent()"
+        >
+          Log in to Metamask to Stake
+        </button>
+      </div>
+      <div class="stakingLoading" *ngIf="loading1">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="stakingsection" id="stakingsection" *ngIf="isConnected && !NFTtoadx && loadingFlag">
+        <button
+          mat-flat-button
+          class="mintButton"
+          *ngIf="STAKEbtn"
+          (click)="select_all()"
+        >
+          Select All
+        </button>
 
-  
-            <div class="stakingLoading" *ngIf="NFTtoadx">
-              No NFTs under contract . Procure an NFT or contact support through
-              </div>
-              
-                <button
-                mat-flat-button
-                class="mintButton"
-                *ngIf="STAKEbtn"
-                (click)="select_all()"
-                
-                
-                >
-                Select All
-                </button>
-              
-                <button
-                mat-flat-button
-                class="mintButton"
-                *ngIf="Deselectbtn"
+        <button
+          mat-flat-button
+          class="mintButton"
+          *ngIf="Deselectbtn"
+          (click)="deselect_all()"
+        >
+          Deselect All
+        </button>
+        <div *ngFor="let lis of list">
+          <app-nfts [nft]="lis"  class="mar">{{
+            lis
+          }}</app-nfts>
+        </div>
 
-                (click)="deselect_all()"
-                >
-                Deselect All
-                </button>
-              <app-nfts [nft]="list" *ngFor="let lis of list" class="mar">{{lis}}</app-nfts>
-          </div>
+      </div>
     </div>
   </div>
-  
-  
-  
-  
+
   <!-- End HTML Reel -->
-  </div>
-  
+</div>

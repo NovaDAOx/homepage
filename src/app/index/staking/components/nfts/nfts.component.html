@@ -1,28 +1,32 @@
 <form action="" method="">
-
- <!-- <div class="name" >
+  <!-- <div class="name" >
    <p style="color:white"> {{nft[0]['name']}}</p>
      </div> -->
-      <!-- <div style="display:flex">
+  <!-- <div style="display:flex">
         <p>amount:{{nft[0]['amount']}}</p>
-       
-         
+
+
            </div> -->
-           <table id="checklist">
-            <button onclick="checkall()"> </button>
-             <tr>
-               <td> <div class="member_img"><img src="{nft[0]['url']}" /></div></td>   
-               <td><input id="checklists" type="checkbox"  value="{{nft[0]['token_url']}}"></td>
-              </tr>
-             <tr>
-             
-              <td> <p style="color:white;margin-top:0.3rem;">{{nft[0]['name']}}</p></td>
-               </tr>
-             </table>
-             
-              
-        <!-- <p>token_address:{{nft[0]['Address']}}</p> -->
-        
-        
-  </form>
-  
+  <table id="checklist">
+    <button onclick="checkall()"></button>
+    <tr>
+      <td>
+        <div class="member_img" *ngIf="nft['url']!==''"><img src="{{nft['url']}}" /></div>
+      </td>
+      <td>
+        <input
+          id="checklists"
+          type="checkbox"
+          value="{{ nft['token_url'] }}"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style="color: white; margin-top: 0.3rem">{{ nft["name"] }}</p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- <p>token_address:{{nft[0]['Address']}}</p> -->
+</form>
