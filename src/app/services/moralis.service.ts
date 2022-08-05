@@ -41,7 +41,7 @@ export class MoralisService {
     var array = [];
     var listContacts = function () {
       for (var i = 0; i < userEthNFTs.length; i++) {
-        if (userEthNFTs[i].name == "toadx") {
+        if (userEthNFTs[i].name == "ntp") {
           const json = {
             name: userEthNFTs[i].name,
             url: userEthNFTs[i].token_uri,
