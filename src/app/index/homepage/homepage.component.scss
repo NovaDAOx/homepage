@@ -559,29 +559,17 @@
 }
 
 .blog_frame {
-  width: 300px;
-  margin-top: 22px;
-  height: 70px;
+  width: 320px;
+  height: 83px;
   padding: 0px;
-  display: block;
   border: none;
 }
+.blog_frame_div {
+  text-align: end;
+}
 @media (max-width:991px){
-  .blog_frame{
-    display: none;
+  .blog_frame_div{
+    text-align: center;
+    padding-top: 45px;
   }
-}
-.blog_frame_collapsible {
-  width: 320px;
-  height: 70px;
-  margin-top: 15px;
-  margin-left: -10px;
-}
-@media (min-width:991px) {
-  .blog_frame_collapsible{
-    display: none;
-  }  
-}
-.navbar>.container {
-  justify-content: center !important;
 }
