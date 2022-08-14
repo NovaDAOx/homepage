@@ -1,0 +1,283 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+  <div class="container topcontainer">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        class="newlogo me-2"
+        src="../../../assets/images/novadao_logo/icon.png"
+        alt=""
+      />
+      <span class="newlogo_heading">Nova DAO</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+      <div class="customalign">
+        <ul class="navbar-nav custom_links">
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link top_links" routerLink="/stake">
+              Staking
+              <!-- <span class="cs_text">Coming Soon</span> -->
+            </a>
+          </li>
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link top_links"
+              routerLink="/mint"
+              [routerLinkActive]="['active']"
+              >Mint
+            </a>
+          </li> -->
+          <li
+            class="nav-item connect_wallet_mobile_view"
+            *ngIf="!isConnected"
+            (click)="showMetamaskContent()"
+          >
+            <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+          </li>
+          <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+            <a class="nav-link top_links" href="javascript:void(0)">
+              <span>
+                {{ isConnected.substring(0, 8) }}...{{
+                  isConnected.substring(
+                    isConnected.length - 4,
+                    isConnected.length
+                  )
+                }}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="connect_wallet_web_view">
+      <button
+        class="new_strokedbtn"
+        *ngIf="!isConnected"
+        (click)="showMetamaskContent()"
+        >
+        Connect Wallet
+      </button>
+      <button class="new_strokedbtn" *ngIf="isConnected">
+        <span>
+          {{ isConnected.substring(0, 8) }}...{{
+            isConnected.substring(isConnected.length - 4, isConnected.length)
+          }}
+        </span>
+      </button>      
+    </div>
+  </div>
+</nav>
+<div class="stream">
+  <!-- Start HTML Reel -->
+  
+  
+  
+  <div id="connectButton">
+    <!-- blank on page start, button injected by js -->
+  </div>
+  <div class="thirds">
+    <div class="full">
+      <div class="container">
+        <br>
+        <div class="heading">$NOVA Rewards</div>
+        <br>
+        <div class="value" id="rewards">Unavailable</div>
+        <br><br>
+        <div class="btn_center" id="claimDiv" >
+        <button class="new_strokedbtn"
+        *ngIf="STAKEbtn || unstakingbtnControl"
+        id="claimBTN"
+          
+        (click)="claim()"  >Claim</button>
+          </div>
+          <br><br>
+      </div>
+    </div>
+    <div class="full">
+      <div class="container">
+        <br>
+        <div class="heading">Current Staked</div>
+         <br>
+        <div class="value" id="staked">Unavailable</div>
+        <br>
+        <div class="btn_center">
+        <button class='new_strokedbtn'
+              (click)="unstakingPAGE()"
+              *ngIf="unstakingbtnControl"
+              id="unstakingpageBtn"
+              >UNSTAKING PAGE</button>
+              <button class='new_strokedbtn dis'
+              (click)="stakingPAGE()"
+              
+              id="stakingpageBtn"
+              >STAKING PAGE</button></div>
+              <br><br>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="twothirds" id="stakingPage">
+    <div class="container container_no_background">
+        <div class="stakingsection  container_no_background" *ngIf="approvebtn" >
+          <button
+          mat-flat-button
+          class="newconnect_btn wid1 new_strokedbtn"
+         (click)="show()"
+          (click)="interact()"
+          *ngIf="!loading3"
+          >
+          Allow Nova to Stake NFTs
+          
+          </button>
+          <button
+          mat-flat-button
+          class="newconnect_btn wid1 btn_x"
+         (click)="show()"
+          (click)="interact()"
+          *ngIf="loading3"
+          >
+          Approval in progress
+          
+          </button>      
+
+          <button class="infobtn">
+            i
+          </button>
+
+
+
+          <span class="infotxt"><br>Staking NFTs requires two steps <br>
+             1. Approve Nova to interact with your NFTs <br> 
+             2. Select the NFTs you wish to stake and run the Stake command.<br>
+             Allowing Nova to interact with your NFTs is key as it also allows us to unstake your NFTs and issue your rewards.</span>
+        </div>
+
+
+        <br/>
+
+        <div class="stakingsection grayone" id="stakingsection">
+          <div  *ngIf="!isConnected">
+                <button
+                  mat-flat-button
+                  class="newconnect_btn wid1 btn_x"
+                  *ngIf="!isConnected"
+                  (click)="showMetamaskContent()"
+                  
+                >
+                Log in to Metamask to Stake
+              </button>
+          </div>
+
+
+          <div class="" *ngIf="loading1">
+          <div
+          class="newconnect_btn wid1 high1 btn_x">  
+            Checking wallet status. <br>Please wait...
+            <br><br>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+         
+          </div> </div>
+          
+          
+
+  
+            <div class="stakingLoading" *ngIf="NFTtoadx">
+              No valid NFTs found. Procure a valid NFT or contact support through
+            </div>
+
+              <button class='new_strokedbtn'
+              (click)="stake()"
+              *ngIf="STAKEbtn"
+              >STAKE</button>
+
+
+                <button
+
+                class="new_strokedbtn"
+                *ngIf="STAKEbtn"
+                (click)="select_all()"
+                (click)="tokenID()"
+                
+                
+                >
+                Select All
+                </button>
+              
+                <button
+  
+                class="new_strokedbtn"
+                *ngIf="Deselectbtn"
+
+                (click)="deselect_all()"
+                >
+                Deselect All
+                </button>
+
+                <app-nfts [nft]="list"  class=" nft_info"></app-nfts>
+          </div>
+    </div>
+  </div>
+  <div class="twothirds unstakingpage" id="unstakingPage">
+    <div class="container container_no_background">
+      <div class="stakingsection  container_no_background"  >
+        <div class="stakingsection grayone" >
+                  <div class="" *ngIf="loading1">
+          <div
+          class="newconnect_btn wid1 high1 btn_x">  
+            Checking wallet status. <br>Please wait...
+            <br><br>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+         
+          </div> </div>
+          
+          <button class='new_strokedbtn'
+          (click)="unstakeAll()"
+          *ngIf="UnSTAKEbtn"
+          >UNSTAKEALL</button>
+          <button class='new_strokedbtn'
+          (click)="unstake()"
+          *ngIf="unstakebtn2"
+          >UNSTAKE SElECTED</button>
+        <!-- <button
+
+        class="new_strokedbtn"
+        *ngIf="UnSTAKEbtn"
+        (click)="select_all()"
+        (click)="tokenID()"
+        
+        
+        >
+        Select All
+        </button> -->
+      
+        <button
+
+        class="new_strokedbtn"
+        *ngIf="Deselectbtn"
+
+        (click)="deselect_all()"
+        >
+        Deselect All
+        </button>
+
+          <app-staked-nfts [STAKEDnft]="StakedNFTs"   [callbackFunction]="myCallbackFunction" class=" nft_info"></app-staked-nfts>
+        </div>
+        </div>
+  </div>
+  
+  
+  
+  
+  <!-- End HTML Reel -->
+  </div>
+  

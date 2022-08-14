@@ -1,0 +1,125 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+    <div class="container topcontainer">
+        <a class="navbar-brand" routerLink="/">
+            <img class="newlogo me-2" src="../../../assets/images/novadao_logo/icon.png" alt="">
+            <span class="newlogo_heading">Nova DAO</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+            <div class="customalign">
+                <ul class="navbar-nav custom_links">
+                    <li class="nav-item">
+                        <a class="nav-link top_links" routerLink="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link top_links">Lore
+                            <!-- <span class="cs_text">Coming Soon</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link top_links" routerLink="/mint">Mint
+                            <!-- <span class="cs_text">Coming Soon</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item connect_wallet_mobile_view" *ngIf="!isConnected"
+                        (click)="showMetamaskContent()">
+                        <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+                    </li>
+                    <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+                        <a class="nav-link top_links" href="javascript:void(0)">
+                            <span>{{ isConnected.substring(0, 8) }}...{{
+
+                                isConnected.substring(isConnected.length - 4, isConnected.length)
+
+                                }}</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+
+        </div>
+        <div class="connect_wallet_web_view">
+            <button mat-flat-button class="newconnect_btn " *ngIf="!isConnected" (click)="showMetamaskContent()">Connect
+                Wallet</button>
+            <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
+                <span>{{ isConnected.substring(0, 8) }}...{{
+
+                    isConnected.substring(isConnected.length - 4, isConnected.length)
+
+                    }}</span>
+            </button>
+        </div>
+
+    </div>
+</nav>
+<div class="main_section lore_mainsection">
+    <div class="loresection">
+    <img class="animated_star2" src="../../../assets/images/starimg.png" alt="animate_img">
+
+        <div class="lorecontentbox">
+            <div class="lore_logo">
+                <img src="../../../assets/images/lore_logo.svg" alt="">
+            </div>
+            <p class="lore_heading">NOVA DEUS</p>
+            <div class="loretxt">
+                <p class="normal_lore_txt"><span class="italictxt">"I don't have much time... listen to me.... The Dark one is coming."</span>
+                    said The Creator, struggling to speak.</p>
+                <p class="normal_lore_txt">The rain was deafening, the fog...blinding.</p>
+                <p class="italictxt"> "That's impossible, we sealed him away, we gave our home to trap him inside the seventh gate!"</p>
+                <p class="normal_lore_txt">The apprentice said as he slammed his fist. </p>
+                <p class="normal_lore_txt">
+                    <span class="italictxt">
+                        "It would seem we failed…find the Deus...or all hope is lost!"
+                    </span>
+                    Said the Creator as the color of his eyes faded and so to did his life.
+                </p>
+                <p class="normal_lore_txt margin_space">...just like that... the world as we knew it changed...  </p>
+                <p class="normal_lore_txt">  Forced to leave their celestial abode, the Deus now exist among us disguised as mere mortals. The Dark One has returned, and he's on a mission. Sealed by the Gods a millennia ago, only to escape and once again go for his final frontier…Earth. The Deus are the last line of defence, but stuck in a foreign world, they must adapt to the new conditions…and they must do it quickly. But before that, lies another problem. Where are they? They parted ways centuries ago and most haven’t seen each other since…some still live in the past.
+                    Now it all falls to one to reunite them all and lead them into battle to save their own creation, humanity.
+                    Join this legendary journey through time & space as one “man” is forced to call upon his past to save everyone’s future. </p>
+
+            </div>
+
+            <div class="bottom_lore_img">
+                <img src="../../../assets/images/bottom_lore_img.svg" alt="">
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="newfooterbox">
+            <img class="animated_star3" src="../../../assets/images/starimg.png" alt="animate_img">
+            <div class="newlogofooter d-flex align-items-center">
+                <img class="newlogo me-2" src="../../../assets/images/novadao_logo/icon.png" alt="">
+                <span class="newlogo_heading">Nova DAO</span>
+            </div>
+            <div class="new_footer_icons">
+                <div>
+                    <a class="footerround_box" href="https://discord.gg/D7FKzVFztf" target="_blank">
+                        <i class="fab fa-discord " aria-hidden="true"></i></a>
+                </div>
+                <div>
+                    <a class="footerround_box ms-2 me-2" href="https://medium.com/@Nova.DAO" target="_blank">
+                        <i class="fab fa-medium-m" aria-hidden="true"></i></a>
+                </div>
+                <div>
+                    <a class="footerround_box" href="https://twitter.com/NovaDaoNFT"
+                        target="_blank">
+                        <i class="fab fa-twitter" aria-hidden="true"></i></a>
+                </div>
+
+            </div>
+            <img class="animated_star1" src="../../../assets/images/starimg.png" alt="animate_img">
+
+        </div>
+
+        <div class="spacebox">
+        </div>
+
+    </div>
+
+</div>
