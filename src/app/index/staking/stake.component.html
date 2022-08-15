@@ -92,6 +92,19 @@
         <br>
         <div class="value" id="rewards">Unavailable</div>
         <br><br>
+        <div class="btn_center js-con">
+          <button 
+          class="ba-kc"
+          (click)="refreshData()"
+          *ngIf="STAKEbtn || unstakingbtnControl">
+        
+        <img
+        class="newlogo me-2"
+        src="../../../assets/images/icons8-refresh-64.png"
+        alt=""
+      />
+          </button>
+          </div>
         <div class="btn_center" id="claimDiv" >
         <button class="new_strokedbtn"
         *ngIf="STAKEbtn || unstakingbtnControl"

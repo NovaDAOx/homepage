@@ -536,6 +536,18 @@ body {
 .mintButton:hover {
 	background-color: #00FFA0;
 }
+.js-con
+{
+    display: flex;
+    justify-content: flex-start !important;
+    
+    align-items: center;
+}
+.ba-kc
+{
+    background-color: none;
+    background-color: transparent;
+}
 
 .full {
 	display: inline-block;
