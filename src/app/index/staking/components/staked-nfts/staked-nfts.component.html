@@ -1,33 +1,35 @@
-
 <!-- {{STAKEDnft}} -->
 <form class="nft_list" action="" method="">
-
-    <!-- <div class="name" >
+  <!-- <div class="name" >
       <p style="color:white"> {{nft[0]['name']}}</p>
         </div> -->
-         <!-- <div style="display:flex">
+  <!-- <div style="display:flex">
            <p>amount:{{nft[0]['amount']}}</p>
-          
-            
+
+
               </div> -->
-              <div class="list_format"  *ngFor="let lis of STAKEDnft">
-               <ul>
-                 <li>
-   
-                 <div class="nft_format"> <div class="member_img"><img src="{lis['tokenURL']}" /></div> 
-                  <div class="nft_format"><input id="checklists" type="checkbox" name="checklist" value="{{lis['tokenID']}}" (change)="callbackFunction(lis['tokenID']);" ></div> 
-                  <!-- <div class="nft_format">{{lis}}</div> -->
-                  <div class="nft_format">{{lis['tokenID']}}</div>                 
-                
-                 <div class="nft_format"> <p style="color:white;margin-top:0.3rem;">{{lis['name']}}</p></div>
-               </div>  
-               </li>
-             </ul>
-                 
-                
-                 
-          
-           
-     </div>      
-     </form>
-     
+  <div class="list_format" *ngFor="let lis of STAKEDnft">
+    <ul>
+      <li>
+        <div class="nft_format">
+          <div class="member_img"><img src="{lis['tokenURL']}" /></div>
+          <div class="nft_format">
+            <input
+              id="checklists"
+              type="radio"
+              name="checklist"
+              value="{{ lis['tokenID'] }}"
+              (change)="callbackFunction(lis['tokenID'])"
+            />
+          </div>
+          <!-- <div class="nft_format">{{lis}}</div> -->
+          <div class="nft_format">{{ lis["tokenID"] }}</div>
+
+          <div class="nft_format">
+            <p style="color: white; margin-top: 0.3rem">{{ lis["name"] }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</form>

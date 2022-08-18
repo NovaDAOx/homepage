@@ -41,7 +41,9 @@
             *ngIf="!isConnected"
             (click)="showMetamaskContent()"
           >
-            <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+            <a class="nav-link top_links" href="javascript:void(0)"
+              >Connect Wallet</a
+            >
           </li>
           <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
             <a class="nav-link top_links" href="javascript:void(0)">
@@ -63,7 +65,7 @@
         class="new_strokedbtn"
         *ngIf="!isConnected"
         (click)="showMetamaskContent()"
-        >
+      >
         Connect Wallet
       </button>
       <button class="new_strokedbtn" *ngIf="isConnected">
@@ -72,225 +74,226 @@
             isConnected.substring(isConnected.length - 4, isConnected.length)
           }}
         </span>
-      </button>      
+      </button>
     </div>
   </div>
 </nav>
 <div class="stream">
   <!-- Start HTML Reel -->
-  
-  
-  
+
   <div id="connectButton">
     <!-- blank on page start, button injected by js -->
   </div>
   <div class="thirds">
     <div class="full">
       <div class="container">
-        <br>
+        <br />
         <div class="heading">$NOVA Rewards</div>
-        <br>
+        <br />
         <div class="value" id="rewards">Unavailable</div>
-        <br><br>
+        <br /><br />
         <div class="btn_center js-con">
-          <button 
-          class="ba-kc"
-          (click)="refreshData()"
-          *ngIf="STAKEbtn || unstakingbtnControl">
-        
-        <img
-        class="newlogo me-2"
-        src="../../../assets/images/icons8-refresh-64.png"
-        alt=""
-      />
+          <button
+            class="ba-kc"
+            (click)="refreshData()"
+            *ngIf="STAKEbtn || unstakingbtnControl"
+          >
+            <img
+              class="newlogo me-2"
+              src="../../../assets/images/icons8-refresh-64.png"
+              alt=""
+            />
           </button>
-          </div>
-        <div class="btn_center" id="claimDiv" >
-        <button class="new_strokedbtn"
-        *ngIf="STAKEbtn || unstakingbtnControl"
-        id="claimBTN"
-          
-        (click)="claim()"  >Claim</button>
-          </div>
-          <br><br>
+        </div>
+        <div class="btn_center" id="claimDiv">
+          <button
+            class="new_strokedbtn"
+            *ngIf="STAKEbtn || unstakingbtnControl"
+            id="claimBTN"
+            (click)="claim()"
+          >
+            Claim
+          </button>
+        </div>
+        <br /><br />
       </div>
     </div>
     <div class="full">
       <div class="container">
-        <br>
+        <br />
         <div class="heading">Current Staked</div>
-         <br>
+        <br />
         <div class="value" id="staked">Unavailable</div>
-        <br>
+        <br />
         <div class="btn_center">
-        <button class='new_strokedbtn'
-              (click)="unstakingPAGE()"
-              *ngIf="unstakingbtnControl"
-              id="unstakingpageBtn"
-              >UNSTAKING PAGE</button>
-              <button class='new_strokedbtn dis'
-              (click)="stakingPAGE()"
-              
-              id="stakingpageBtn"
-              >STAKING PAGE</button></div>
-              <br><br>
+          <button
+            class="new_strokedbtn"
+            (click)="unstakingPAGE()"
+            *ngIf="unstakingbtnControl"
+            id="unstakingpageBtn"
+          >
+            UNSTAKING PAGE
+          </button>
+          <button
+            class="new_strokedbtn dis"
+            (click)="stakingPAGE()"
+            id="stakingpageBtn"
+          >
+            STAKING PAGE
+          </button>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </div>
+
+  <div class="twothirds" id="stakingPage">
+    <div class="container container_no_background">
+      <div class="stakingsection container_no_background" *ngIf="approvebtn">
+        <button
+          mat-flat-button
+          class="newconnect_btn wid1 new_strokedbtn"
+          (click)="show()"
+          (click)="interact()"
+          *ngIf="!loading3"
+        >
+          Allow Nova to Stake NFTs
+        </button>
+        <button
+          mat-flat-button
+          class="newconnect_btn wid1 btn_x"
+          (click)="show()"
+          (click)="interact()"
+          *ngIf="loading3"
+        >
+          Approval in progress
+        </button>
+
+        <button class="infobtn">i</button>
+
+        <span class="infotxt"
+          ><br />Staking NFTs requires two steps <br />
+          1. Approve Nova to interact with your NFTs <br />
+          2. Select the NFTs you wish to stake and run the Stake command.<br />
+          Allowing Nova to interact with your NFTs is key as it also allows us
+          to unstake your NFTs and issue your rewards.</span
+        >
+      </div>
+
+      <br />
+
+      <div class="stakingsection grayone" id="stakingsection">
+        <div *ngIf="!isConnected">
+          <button
+            mat-flat-button
+            class="newconnect_btn wid1 btn_x"
+            *ngIf="!isConnected"
+            (click)="showMetamaskContent()"
+          >
+            Log in to Metamask to Stake
+          </button>
+        </div>
+
+        <div class="" *ngIf="loading1">
+          <div class="newconnect_btn wid1 high1 btn_x">
+            Checking wallet status. <br />Please wait... <br /><br />
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stakingLoading" *ngIf="NFTtoadx">
+          No valid NFTs found. Procure a valid NFT or contact support through
+        </div>
+
+        <button class="new_strokedbtn" (click)="stake()" *ngIf="STAKEbtn">
+          STAKE
+        </button>
+
+        <button
+          class="new_strokedbtn"
+          *ngIf="STAKEbtn"
+          (click)="select_all()"
+          (click)="tokenID()"
+        >
+          Select All
+        </button>
+
+        <button
+          class="new_strokedbtn"
+          *ngIf="Deselectbtn"
+          (click)="deselect_all()"
+        >
+          Deselect All
+        </button>
+
+        <app-nfts [nft]="list" [callbackFunction]="stakeCallbackFunction" class="nft_info"></app-nfts>
 
       </div>
     </div>
   </div>
-  
-  <div class="twothirds" id="stakingPage">
-    <div class="container container_no_background">
-        <div class="stakingsection  container_no_background" *ngIf="approvebtn" >
-          <button
-          mat-flat-button
-          class="newconnect_btn wid1 new_strokedbtn"
-         (click)="show()"
-          (click)="interact()"
-          *ngIf="!loading3"
-          >
-          Allow Nova to Stake NFTs
-          
-          </button>
-          <button
-          mat-flat-button
-          class="newconnect_btn wid1 btn_x"
-         (click)="show()"
-          (click)="interact()"
-          *ngIf="loading3"
-          >
-          Approval in progress
-          
-          </button>      
-
-          <button class="infobtn">
-            i
-          </button>
-
-
-
-          <span class="infotxt"><br>Staking NFTs requires two steps <br>
-             1. Approve Nova to interact with your NFTs <br> 
-             2. Select the NFTs you wish to stake and run the Stake command.<br>
-             Allowing Nova to interact with your NFTs is key as it also allows us to unstake your NFTs and issue your rewards.</span>
-        </div>
-
-
-        <br/>
-
-        <div class="stakingsection grayone" id="stakingsection">
-          <div  *ngIf="!isConnected">
-                <button
-                  mat-flat-button
-                  class="newconnect_btn wid1 btn_x"
-                  *ngIf="!isConnected"
-                  (click)="showMetamaskContent()"
-                  
-                >
-                Log in to Metamask to Stake
-              </button>
-          </div>
-
-
-          <div class="" *ngIf="loading1">
-          <div
-          class="newconnect_btn wid1 high1 btn_x">  
-            Checking wallet status. <br>Please wait...
-            <br><br>
-            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-         
-          </div> </div>
-          
-          
-
-  
-            <div class="stakingLoading" *ngIf="NFTtoadx">
-              No valid NFTs found. Procure a valid NFT or contact support through
-            </div>
-
-              <button class='new_strokedbtn'
-              (click)="stake()"
-              *ngIf="STAKEbtn"
-              >STAKE</button>
-
-
-                <button
-
-                class="new_strokedbtn"
-                *ngIf="STAKEbtn"
-                (click)="select_all()"
-                (click)="tokenID()"
-                
-                
-                >
-                Select All
-                </button>
-              
-                <button
-  
-                class="new_strokedbtn"
-                *ngIf="Deselectbtn"
-
-                (click)="deselect_all()"
-                >
-                Deselect All
-                </button>
-
-                <app-nfts [nft]="list"  class=" nft_info"></app-nfts>
-          </div>
-    </div>
-  </div>
   <div class="twothirds unstakingpage" id="unstakingPage">
     <div class="container container_no_background">
-      <div class="stakingsection  container_no_background"  >
-        <div class="stakingsection grayone" >
-                  <div class="" *ngIf="loading1">
-          <div
-          class="newconnect_btn wid1 high1 btn_x">  
-            Checking wallet status. <br>Please wait...
-            <br><br>
-            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-         
-          </div> </div>
-          
-          <button class='new_strokedbtn'
-          (click)="unstakeAll()"
-          *ngIf="UnSTAKEbtn"
-          >UNSTAKEALL</button>
-          <button class='new_strokedbtn'
-          (click)="unstake()"
-          *ngIf="unstakebtn2"
-          >UNSTAKE SElECTED</button>
-        <!-- <button
+      <div class="stakingsection container_no_background">
+        <div class="stakingsection grayone">
+          <div class="" *ngIf="loading1">
+            <div class="newconnect_btn wid1 high1 btn_x">
+              Checking wallet status. <br />Please wait... <br /><br />
+              <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
 
-        class="new_strokedbtn"
-        *ngIf="UnSTAKEbtn"
-        (click)="select_all()"
-        (click)="tokenID()"
-        
-        
-        >
-        Select All
-        </button> -->
-      
-        <button
+          <button
+            class="new_strokedbtn"
+            (click)="unstakeAll()"
+            *ngIf="UnSTAKEbtn"
+          >
+            UNSTAKEALL
+          </button>
+          <button
+            class="new_strokedbtn"
+            (click)="unstake()"
+            *ngIf="unstakebtn2"
+          >
+            UNSTAKE SElECTED
+          </button>
 
-        class="new_strokedbtn"
-        *ngIf="Deselectbtn"
+          <button
+            class="new_strokedbtn"
+            *ngIf="Deselectbtn"
+            (click)="deselect_all()"
+          >
+            Deselect All
+          </button>
 
-        (click)="deselect_all()"
-        >
-        Deselect All
-        </button>
-
-          <app-staked-nfts [STAKEDnft]="StakedNFTs"   [callbackFunction]="myCallbackFunction" class=" nft_info"></app-staked-nfts>
+          <app-staked-nfts
+            [STAKEDnft]="StakedNFTs"
+            [callbackFunction]="myCallbackFunction"
+            class="nft_info"
+          ></app-staked-nfts>
         </div>
-        </div>
+      </div>
+    </div>
+
+    <!-- End HTML Reel -->
   </div>
-  
-  
-  
-  
-  <!-- End HTML Reel -->
-  </div>
-  
+</div>
+
+<ngx-spinner
+  bdColor="transparent !important"
+  size="medium"
+  color="grey"
+  type="square-jelly-box"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
