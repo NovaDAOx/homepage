@@ -19,6 +19,7 @@
 import { arrayify } from 'ethers/lib/utils';
 import { CdkAccordion } from '@angular/cdk/accordion';
 import { threadId } from 'worker_threads';
+import { prepareEventListenerParameters } from '@angular/compiler/src/render3/view/template';
 
 
     @Component({
@@ -349,13 +350,15 @@ import { threadId } from 'worker_threads';
 
       this.etherService.estimateClaim().then(data =>{
         console.log('this is estimated ccc',data)
-        if(data == 0)
+        if(data > 0)
         {
             this.etherService.claim().then(data => {
+              console.log('calling claim...',data.status)
               
-              const Callclaim  = data.methods.claim().send({from:userAddress,value:0})
-              console.log('calling claim ',Callclaim)
+            
+              
             })
+            
         }
         })
       }

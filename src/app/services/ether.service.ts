@@ -6,7 +6,7 @@
       const { ABI_STAKEJ,ABI_COINJ,ABI_DAOJ } = require('../abi/Abi_Contract.js'); 
       import Web3 from 'web3';
       import { MoralisService } from './moralis.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+      import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
       let web3 = new Web3(Web3.givenProvider);
 
     
@@ -120,24 +120,24 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
           console.log('estimated claim ',estimateClaim)
           
           
-          const claim = await STAKEcon.methods.claim().encodeABI()
+          const claim = await STAKEcon.methods.claim().send({from:userAddress,value:0})
           console.log('$$$$$$$$$$$$$$claim $$$$$',claim)
-          return STAKEcon
+          return claim
           }
           else
           {}
         }
         async refreshData()
         {
-          this.estimateClaim();
+          
           const userAddress = localStorage.getItem('walletId')
           if (userAddress) {
             let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
-            let cycle =await STAKEcon.methods.cycleStart().call()
-            console.log('this is cycle start',cycle)
+            // let cycle =await STAKEcon.methods.cycleStart().call()
+            // console.log('this is cycle start',cycle)
             
-            let COINcon = new web3.eth.Contract(this.ABI_COIN, this.COIN);
-            console.log('this is coin contract',COINcon)
+            // let COINcon = new web3.eth.Contract(this.ABI_COIN, this.COIN);
+            // console.log('this is coin contract',COINcon)
             document.getElementById('rewards').textContent = "Loading...";
             const staked = document.getElementById('staked')
             staked.textContent='Loading...';

@@ -16,6 +16,10 @@
 {
     display: none;
 }
+.zPad
+{
+    padding:0px !important;
+}
 .unstakingpage
 {
     display:none !important;
@@ -539,14 +543,14 @@ body {
 .js-con
 {
     display: flex;
-    justify-content: flex-start !important;
+    // justify-content: flex-start !important;
     
     align-items: center;
 }
 .ba-kc
 {
-    background-color: none;
-    background-color: transparent;
+    // background-color: none;
+    // background-color: transparent;
 }
 
 .full {
