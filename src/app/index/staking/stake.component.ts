@@ -6,7 +6,7 @@
     import { Web3Service } from 'src/app/services/web3.service';
     import {EtherService} from 'src/app/services/ether.service';
     import { MatSnackBar } from '@angular/material/snack-bar';
-
+    
     import { NgxSpinnerService } from 'ngx-spinner';
     import { NftService } from 'src/app/services/nft.service';
     import { MetamaskComponent } from 'src/app/dashboard/metamask/metamask.component';
@@ -168,7 +168,7 @@ import { prepareEventListenerParameters } from '@angular/compiler/src/render3/vi
           this.loading1 = null; 
           this.STAKEbtn = 'show'
           this.unstakingbtnControl ='show'
-          this.estimateClaim()
+          // this.estimateClaim()
           this.approvebtn = null;
           this.refreshData();
         }
@@ -277,17 +277,29 @@ import { prepareEventListenerParameters } from '@angular/compiler/src/render3/vi
     async stake()
     {
       const wallet = localStorage.getItem('walletId')
-      
+      tokenids=this.tokenids
      
-      this.etherService.stakeMany(this.tokenids).then(data => {
+      this.etherService.stakeMany(tokenids).then(data => {
         
-        console.log('these are array of tokenids',this.tokenids)  
-        const stakeMany = data.methods.stakeMany(this.tokenids).send({from : wallet,value:0});
-        console.log('this is stake many ',stakeMany) 
         if(data)
         {
           this.refreshData();
         }  
+        if(data.status == true)
+        {
+          this.snack.open("successful. NFT's Staked ", "X", {
+            duration:5000,
+            panelClass: ["success-order"],
+            horizontalPosition: "end",
+          }); 
+        }
+        else
+        {
+          this.snack.open("failed.", "X", { 
+            panelClass: ["error-snackbar"],
+            horizontalPosition: "end",
+          });
+        }
       })
      this.refreshData();
     
@@ -305,7 +317,25 @@ import { prepareEventListenerParameters } from '@angular/compiler/src/render3/vi
         //   this.refreshData();
         //   return unstake
         // }
-        return data
+        if(data.status == true)
+        {
+          
+          this.snack.open("successful. Unstaked", "X", {
+            duration:5000,
+            panelClass: ["success-order"],
+            horizontalPosition: "end",
+          });
+          return data   
+        }
+        else
+        {
+          this.snack.open("failed. Not unstakable yet", "X", {
+          
+            panelClass: ["error-snackbar"],
+            horizontalPosition: "end",
+          });
+        }
+       
       })
     }
      
@@ -344,6 +374,8 @@ import { prepareEventListenerParameters } from '@angular/compiler/src/render3/vi
     }
     async claim()
     {
+      try
+      {
       const userAddress = localStorage.getItem('walletId')
       if(userAddress)
       {
@@ -354,33 +386,106 @@ import { prepareEventListenerParameters } from '@angular/compiler/src/render3/vi
         {
             this.etherService.claim().then(data => {
               console.log('calling claim...',data.status)
+              if(data.status == true)
+              {
+                this.snack.open("successful. claimed ", "X", {
+                  duration:5000,
+                  panelClass: ["success-order"],
+                  horizontalPosition: "end",
+                });
+              }
+              else
+          {
+            this.snack.open("failed.", "X", {
+              
+              panelClass: ["error-snackbar"],
+              horizontalPosition: "end",
+            });
+
+          }
               
             
               
-            })
+        })
             
         }
         })
       }
+     
     }
-    async unstake()
+    catch(e)
     {
+      this.snack.open(e, "X", {
+        
+        panelClass: ["error-snackbar"],
+        horizontalPosition: "end",
+      });
+    }
+    }
+    async  unstake()
+    {
+      
       const wallet = localStorage.getItem('walletId')
-      this.etherService.unstake().then(data =>{
-        console.log('this is unstaking part',data)
-       
+      
           const tokenids = this.tokeniDs
           console.log('this is the best',tokenids.length)
           console.log('this is token id',tokenids)
           for(var i=0; i < tokenids.length ; i++)
           {
-          const unstake = data.methods.unstakePass(tokenids[i]).send({from:wallet,value:0});
-          console.log('unstaked',unstake)
-          console.log(tokenids[i])
+           
+            this.etherService.unstake(tokenids[i]).then(unstake => {
+              console.log('this is unstaking part',unstake)
+             
+          //    const unstake =data.methods.unstakePass(tokenids[i]).send({from:wallet,value:0})
+         
+              console.log('this is it ',unstake)
+
+             
+            
+          
+          
+          if(unstake.status == true)
+          {
+            this.snack.open("unstaked succesfully", "X", {
+              duration:5000,
+              panelClass: ["success-order"],
+              horizontalPosition: "end",
+            });
+
           }
-          this.refreshData();
+          if(!unstake)
+          {
+            this.snack.open("Unstaking Failed", "X", {
+              
+              panelClass: ["error-snackbar"],
+              horizontalPosition: "end",
+            });
+
+          }
+          else
+          {
+            this.snack.open("Unstaking Failed", "X", {
+              
+              panelClass: ["error-snackbar"],
+              horizontalPosition: "end",
+            });
+
+          }
+      //     console.log(tokenids[i])
+      //     }
+      //     this.refreshData();
         
-      })
+      // })
+    // }
+    // catch(e)
+    // {
+    //   this.snack.open("this is the error " ,"X", {
+       
+    //     panelClass: ["error-snackbar"],
+    //     horizontalPosition: "end",
+      });
+
+    }
     }
     async unstakingPAGE()
     {
@@ -432,7 +537,7 @@ async refreshData()
     if (data.length !=0)
     {
      this.unstakingbtnControl = 'show' 
-     this.estimateClaim()
+    
 
      
     }

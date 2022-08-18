@@ -8,6 +8,9 @@
       import { MoralisService } from './moralis.service';
       import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
       let web3 = new Web3(Web3.givenProvider);
+      import { MatSnackBar } from '@angular/material/snack-bar';
+import { StakeComponent } from '../index/staking/stake.component';
+    
 
     
 
@@ -34,7 +37,7 @@
       tokensStaked = [];
       ArrayofStakedtkn =[];
       const userAddress  = localStorage.getItem('walletId')
-        constructor(private http:HttpClient, private moralisservice:MoralisService) { }
+        constructor(private http:HttpClient, private moralisservice:MoralisService, private snack: MatSnackBar) { }
         async checkapproval()
         {
           const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -71,7 +74,8 @@
         }
           
         }
-        async stakeMany(tokenIds) {
+        async stakeMany(tokenids) {
+          console.log('token ids mamamamam',tokenids)
           const userAddress = localStorage.getItem('walletId');
           if (window && window.ethereum && window.ethereum.isMetaMask) {
 
@@ -80,18 +84,23 @@
             const token = []
             const provider = new ethers.providers.Web3Provider(window.ethereum)
             const wallet = await provider.send("eth_requestAccounts", []);
-            let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);      
+            let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);   
+            try
+            {
+            let data = await STAKEcon.methods.stakeMany(tokenids).send({from : wallet,value:0});   
             console.log('this is stake con dave STAKEcon',STAKEcon)
-            // let test1 = await STAKEcon.methods.dailyReward().call();
-            // let claim = await STAKEcon.methods.claim().call();
-
-            // console.log('---------claim------------',test1)
-            // console.log('----------test1',claim)
-            // let test2 = await STAKEcon.methods.claim().call();
-            // console.log('this is claim ',test2)
-        
             
             return STAKEcon
+            }
+            catch(e)
+            {
+              this.snack.open("failed.", "X", {
+            
+                panelClass: ["error-snackbar"],
+                horizontalPosition: "end",
+              });
+  
+            }
           } else {
           console.log('not staked')
           }
@@ -133,14 +142,11 @@
           const userAddress = localStorage.getItem('walletId')
           if (userAddress) {
             let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
-            // let cycle =await STAKEcon.methods.cycleStart().call()
-            // console.log('this is cycle start',cycle)
-            
-            // let COINcon = new web3.eth.Contract(this.ABI_COIN, this.COIN);
-            // console.log('this is coin contract',COINcon)
-            document.getElementById('rewards').textContent = "Loading...";
+                        document.getElementById('rewards').textContent = "Loading...";
             const staked = document.getElementById('staked')
             staked.textContent='Loading...';
+            try
+            {
             const rewards = await STAKEcon.methods.estimateClaim( userAddress ).call();
             console.log('rewards',rewards)
           const Totalrewards = rewards / this.FINNEY; // Must account for 18 decimals
@@ -159,7 +165,14 @@
             const name =await NOVAcon.methods.name().call()
             console.log('this is name ',name)
           return tokensStaked
-          }
+        
+        }
+        catch(e)
+        {
+          console.log(e.message)
+        }
+        }
+
         }
         async stakedNFTS()
         {
@@ -191,23 +204,50 @@
           {
             // let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
             let UNSTAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
-            const unstake = UNSTAKEcon.methods.unstakeAll().send({from:userAddress,value:0})
-            
-           
+            try{
+
+            const unstake =await UNSTAKEcon.methods.unstakeAll().send({from:userAddress,value:0})
             return unstake
+                }
+          catch(e)
+          {
+            
+            this.snack.open("failed. Not unstakable yet", "X", {
+            
+              panelClass: ["error-snackbar"],
+              horizontalPosition: "end",
+            });
+
+          }
+           
+            
           }
         }
 
-        async unstake() {
+        async unstake(tokenids) {
           const userAddress = localStorage.getItem('walletId')
+          
           if(userAddress)
           {
             // let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
             let UNSTAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
+            try
+            {
+            let data = await UNSTAKEcon.methods.unstakePass(tokenids).send({from:userAddress,value:0})
+            return data
+            }
+            catch(e)
+            {
+              console.log('nnnnnnnn',e.message)
+              this.snack.open("failed. Not unstakable yet", "X", {
+              
+                panelClass: ["error-snackbar"],
+                horizontalPosition: "end",
+              });
+            } 
+          }
             
-           
-            return UNSTAKEcon
           }
         }
-      }
+      
       
