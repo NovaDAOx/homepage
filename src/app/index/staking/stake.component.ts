@@ -246,7 +246,7 @@ export class StakeComponent implements OnInit {
 
     if (this.tokenids.length === 0) {
       this.snack.open("Please select at least one nft to stake", "X", {
-        duration: 4000,
+        duration: 10000,
         panelClass: ["error-snackbar"],
         horizontalPosition: "end",
       });
@@ -260,7 +260,7 @@ export class StakeComponent implements OnInit {
       if (txn) {
         this.spinner.hide();
         this.snack.open("NFT has been staked sucessfully", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["success-order"],
           horizontalPosition: "end",
         });
@@ -269,14 +269,14 @@ export class StakeComponent implements OnInit {
       } else {
         this.spinner.hide();
         this.snack.open("Transaction has been cancelled or failed", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["error-snackbar"],
           horizontalPosition: "end",
         });
       }
     } else {
       this.snack.open("Please connect metamask manually", "X", {
-        duration: 4000,
+        duration: 10000,
         panelClass: ["error-snackbar"],
         horizontalPosition: "end",
       });
@@ -303,13 +303,14 @@ export class StakeComponent implements OnInit {
       const txn = await this.etherService.unstakeAll(userAddress);
       if (txn) {
         this.spinner.hide();
+        this.refreshData();
         this.snack.open("All NFT has been unstaked sucessfully", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["success-order"],
           horizontalPosition: "end",
         });
         console.log("txn", txn);
-        this.refreshData();
+
       } else {
         this.spinner.hide();
         this.snack.open("Transaction has been cancelled or failed", "X", {
@@ -365,7 +366,7 @@ export class StakeComponent implements OnInit {
         if (txn) {
           this.spinner.hide();
           this.snack.open("Reward has been claimed sucessfully", "X", {
-            duration: 4000,
+            duration: 10000,
             panelClass: ["success-order"],
             horizontalPosition: "end",
           });
@@ -374,7 +375,7 @@ export class StakeComponent implements OnInit {
         } else {
           this.spinner.hide();
           this.snack.open("Transaction has been cancelled or failed", "X", {
-            duration: 4000,
+            duration: 10000,
             panelClass: ["error-snackbar"],
             horizontalPosition: "end",
           });
@@ -382,14 +383,14 @@ export class StakeComponent implements OnInit {
       } else {
         this.spinner.hide();
         this.snack.open("No rewards available to claim", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["error-snackbar"],
           horizontalPosition: "end",
         });
       }
     } else {
       this.snack.open("Please connect metamask manually", "X", {
-        duration: 4000,
+        duration: 10000,
         panelClass: ["error-snackbar"],
         horizontalPosition: "end",
       });
@@ -419,7 +420,7 @@ export class StakeComponent implements OnInit {
       if (txn) {
         this.spinner.hide();
         this.snack.open("NFT has been unstaked sucessfully", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["success-order"],
           horizontalPosition: "end",
         });
@@ -428,14 +429,14 @@ export class StakeComponent implements OnInit {
       } else {
         this.spinner.hide();
         this.snack.open("Transaction has been cancelled or failed", "X", {
-          duration: 4000,
+          duration: 10000,
           panelClass: ["error-snackbar"],
           horizontalPosition: "end",
         });
       }
     } else {
       this.snack.open("Please connect metamask manually", "X", {
-        duration: 4000,
+        duration: 10000,
         panelClass: ["error-snackbar"],
         horizontalPosition: "end",
       });

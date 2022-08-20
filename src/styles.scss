@@ -1686,7 +1686,7 @@ h1 {
 .extracontainer {
   padding: 1rem;
   margin: 3rem auto;
-  border-radius: 0.2rem;
+  // border-radius: 0.2rem;
   counter-reset: pagination;
   text-align: center;
   &:after {
@@ -2635,8 +2635,11 @@ text-shadow: none;
   }
 }
 
-div{ 
-  background-color: rgba(15,5,20,.65)!important;
+div, mat-dialog-container{ 
+  background-color: rgba(15,5,20,.85)!important;
   border-radius: 1rem;
-
+  border-width: 0;
+  color: white;
+  padding:0!important;
+  background: none;
 }

@@ -1,4 +1,4 @@
-<div class="metamask-block h-100" *ngIf="metamaskContent === true">
+<div class="metamask-block " *ngIf="metamaskContent === true">
   <div class="d-flex justify-content-end mb-3">
     <button
       [disabled]="loader"
@@ -16,7 +16,7 @@
         <p>Please select a wallet to connect</p>
       </div>
     </div>
-    <div class="conct_wallet_link mt-4 mb-auto" (click)="connectMetamask()">
+    <div class="conct_wallet_link new_strokedbtn mb-auto" (click)="connectMetamask()">
       <div class="wallet_img">
         <img src="../../assets/images/fox.png" alt="" srcset="" />
       </div>
