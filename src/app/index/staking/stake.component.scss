@@ -495,11 +495,16 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+    background: rgba(0,0,0,0.5);
 }
-
+.wid1{
+    font-size: 2rem !important;
+    font-kerning: auto !important;
+    line-height: 2rem !important;
+}
 body {
-	background-image: url("../../../assets/images/newhomebg_opt.png");
-    background-color: black;
+	background-image: url("../../../assets/images/newhomebg_opt_black.png");
+    // background-color: black;
 	color: white;
 	padding: 0;
 	margin: 0;

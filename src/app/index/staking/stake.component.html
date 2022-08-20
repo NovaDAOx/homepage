@@ -92,20 +92,19 @@
         <br />
         <div class="value" id="rewards">Unavailable</div>
         <br /><br />
-        <div class="btn_center js-con">
-          <button
-            class="ba-kc"
-            (click)="refreshData()"
-            *ngIf="STAKEbtn || unstakingbtnControl"
-          >
-            <img
-              class="newlogo me-2"
-              src="../../../assets/images/icons8-refresh-64.png"
-              alt=""
-            />
-          </button>
-        </div>
+
         <div class="btn_center" id="claimDiv">
+          <button
+          class="new_strokedbtn"
+          (click)="refreshData()"
+          *ngIf="STAKEbtn || unstakingbtnControl"
+        >
+          <img
+            class="claim_refresh"
+            src="../../../assets/images/icons8-refresh-64.png"
+            alt=""
+          />
+        </button>
           <button
             class="new_strokedbtn"
             *ngIf="STAKEbtn || unstakingbtnControl"
@@ -196,7 +195,7 @@
 
         <div class="" *ngIf="loading1">
           <div class="newconnect_btn wid1 high1 btn_x">
-            Checking wallet status. <br />Please wait... <br /><br />
+            Checking wallet... <br /><br />
             <div class="lds-ring">
               <div></div>
               <div></div>
@@ -264,7 +263,7 @@
             (click)="unstake()"
             *ngIf="unstakebtn2"
           >
-            UNSTAKE SElECTED
+            UNSTAKE SELECTED
           </button>
 
           <button
@@ -289,11 +288,14 @@
 </div>
 
 <ngx-spinner
-  bdColor="transparent !important"
-  size="medium"
+  className="spinner"
+  bdColor="rgba(0,0,0.8) !important"
+  size="large"
   color="grey"
+  backgroundColor="rgba(0,0,100,1)"
+  backgroundSize="200%"
   type="square-jelly-box"
   [fullScreen]="true"
 >
-  <p style="color: white">Loading...</p>
+  <h1 style="color: white">Please check wallet --OR-- Transaction in progress...</h1>
 </ngx-spinner>

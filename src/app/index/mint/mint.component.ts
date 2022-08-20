@@ -99,7 +99,7 @@ export class MintComponent implements OnInit {
     // this.allDivs = document.getElementsByClassName('mint_imgs');
     // setInterval(() => {
     //   this.setBG();
-    // }, 4000);
+    // }, 10000);
 
     this.getCounter();
     if (!window.localStorage.getItem('logout')) {
@@ -199,7 +199,7 @@ export class MintComponent implements OnInit {
           const logsresult = await this.web3Service.getTransactionResults(tx);
           //console.log('logsresult', logsresult);
           this.snack.open('NFT has been minted sucessfully', 'X', {
-            duration: 4000,
+            duration: 10000,
             panelClass: ['success-order'],
             horizontalPosition: 'end',
           });
@@ -209,9 +209,10 @@ export class MintComponent implements OnInit {
           this.spinner.hide();
           //this.checkStatus(userAddress);
           this.snack.open('Transaction has been cancelled or failed', 'X', {
-            duration: 4000,
+            duration: 10000,
             panelClass: ['error-snackbar'],
-            horizontalPosition: 'end',
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
           });
         }
       } else {
@@ -222,7 +223,7 @@ export class MintComponent implements OnInit {
             userTotalNFT + 'NFT.',
           'X',
           {
-            duration: 4000,
+            duration: 10000,
             panelClass: ['error-snackbar'],
             horizontalPosition: 'end',
           }
@@ -231,7 +232,7 @@ export class MintComponent implements OnInit {
     } else {
       this.spinner.hide();
       this.snack.open('Please connect metamask manually', 'X', {
-        duration: 4000,
+        duration: 10000,
         panelClass: ['error-snackbar'],
         horizontalPosition: 'end',
       });

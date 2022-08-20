@@ -1823,13 +1823,16 @@ h1 {
 .error-snackbar {
   transform: scale(1);
   opacity: 1;
-  background-color: #ff4141;
+
+  font-size: 2rem !important;
+  background-color: #ff4141 !important;
   .mat-simple-snackbar-action {
     color: white !important;
   }
 }
 
 .success-order {
+
   background-color: #43ab47;
   .mat-simple-snackbar-action {
     color: white !important;
@@ -2313,6 +2316,10 @@ text-shadow: none;
   // padding-right: 134px;
   background-color: #0D0116;
 }
+.claim_refresh{
+  width: 1.5rem;
+  height: 1.5rem;
+}
 .newlogo{
   width: 42px;
   height: 42px;
@@ -2631,5 +2638,8 @@ text-shadow: none;
 div{ 
   background-color: rgba(15,5,20,.65)!important;
   border-radius: 1rem;
-  padding: 1rem;
+  // padding: 1rem;
+}
+.spinner{
+color: red;
 }
