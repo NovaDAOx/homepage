@@ -1,9 +1,9 @@
 export const environment = {
   moralis: {
-     appId : "xoAlRuF14AeLFxhYQe85ULfLxSX32kbyaLq5CCXB",
-     serverUrl : "https://jkj5ryrhl8gp.usemoralis.com:2053/server",
+     appId : "R2oNeWK3a6JIlgAC880udwgE1fV0bxzgH2p9J0o8",
+     serverUrl : "https://ovu1n07quq91.usemoralis.com:2053/server",
   },
-  production: false,
+  production: true,
   apiEndPoint: 'http://api.rugslocal.com',
   //apiEndPoint: 'http://localhost:3027',
   clientUrl: 'http://rugslocal.com',

@@ -39,6 +39,13 @@
 }
 html {
   scroll-behavior: smooth;
+  background: conic-gradient(from var(--angle) at -25% -20%, #80E8DD,#7CC2F6, #AF81E4,#E784BA,#F9C1A0, #B7F6AF, #80E8DD),
+  conic-gradient( from var(--angle) at 200%, rgba(200,200,200,.5),white, rgba(200,200,200,.5),white, rgba(200,200,200,.5)),
+  conic-gradient( from var(--angle) at 600%, rgba(200,200,200,.5),white, rgba(200,200,200,.5),white, rgba(200,200,200,.5)) !important;
+  opacity: 1;
+  animation:  spin 30s linear infinite !important;
+  background-size: 600% 600% !important;
+  z-index: -9;
 }
 .custom_font {
   font-family: "Conv_geek";
@@ -54,10 +61,13 @@ html {
 html,
 body {
   height: 100%;
+
+
 }
 
 body {
   margin: 0;
+background-color: transparent;
   // font-family: "Dosis", sans-serif;
   // font-family: "Cormorant", serif;
   font-family: 'Space Grotesk', sans-serif;
@@ -106,12 +116,12 @@ body {
   conic-gradient( from var(--angle) at 200%, rgba(200,200,200,1),white, rgba(200,200,200,1),white, rgba(200,200,200,1)),
   conic-gradient( from var(--angle) at 600%, rgba(200,200,200,1),white, rgba(200,200,200,1),white, rgba(200,200,200,1)) !important;
   opacity: 0.8;
-  animation:  spin 10s linear infinite !important;
+  animation:  spin 30s linear infinite !important;
   background-blend-mode: difference !important;
-  opacity: 0.99;
+  opacity: 1;
   background-size: 300%;
   background-position: 300% 0;
-
+  z-index: -2;
 }
 
 
@@ -174,7 +184,7 @@ body {
   background: red;
   background-size: 200% 100%;
   background-position: 0 0;
-  animation: animatex 10s ease-in-out infinite;
+  animation: animatex 30s ease-in-out infinite;
   z-index: 98;
   width: 20rem;
 	height: 5rem;
@@ -182,7 +192,7 @@ body {
 
 .btn3:hover::after{
   background: var(--gradient-shadow);
-  animation: animatex 10s ease-in-out infinite;
+  animation: animatex 30s ease-in-out infinite;
 }
 
 
@@ -216,7 +226,7 @@ body {
 	width: calc(100% - 4px);
 	height: calc(100% - 4px);
   z-index: -1 ;
-	animation: animatex 20s linear infinite;
+	animation: animatex 30s linear infinite;
 }
  .new_strokedbtn:after
  {
@@ -229,7 +239,7 @@ body {
 	width: calc(100% - 4px);
 	height: calc(100% - 4px);
   z-index: -10 ;
-	animation: animatex 20s linear infinite;
+	animation: animatex 30s linear infinite;
 }
 
 .new_strokedbtn:after {
@@ -305,7 +315,7 @@ body {
 	width: calc(100% - 4px);
 	height: calc(100% - 4px);
   z-index: -1 ;
-	animation: animate 20s linear infinite;
+	animation: animate 30s linear infinite;
 }
 
 
@@ -508,6 +518,7 @@ $secoundary-color: #fbf9f6;
 .main_content {
   width: 100%;
   height: 100%;
+  background: red;
 }
 
 .social_link_fott {
@@ -703,7 +714,11 @@ $secoundary-color: #fbf9f6;
     grid-template-columns: auto;
   }
 }
-
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Dosis", sans-serif;
+}
 @media (min-width: 768px) {
   .web_hide {
     display: none;
@@ -2396,7 +2411,7 @@ text-shadow: none;
   }
   .animated_star2 {
     width: 100px;
-    animation: example2 20s linear infinite;
+    animation: example2 30s linear infinite;
     position: absolute;
     top: 202px;
     left: 121px;
@@ -2415,7 +2430,7 @@ text-shadow: none;
       }
       .animated_star4 {
         width: 100px;
-        animation: example2 20s linear infinite;
+        animation: example2 30s linear infinite;
         position: absolute;
         top: 1134px;
         left: 163px;
@@ -2424,7 +2439,7 @@ text-shadow: none;
         }
         .animated_star5 {
           width: 100px;
-          animation: example 20s linear infinite;
+          animation: example 30s linear infinite;
           position: absolute;
           top:2558px;;
           left: 163px;
@@ -2433,7 +2448,7 @@ text-shadow: none;
           }
           .animated_star6 {
             width: 100px;
-            animation: example2 20s linear infinite;
+            animation: example2 30s linear infinite;
             position: absolute;
             bottom: -3583px;
             left: 539px;
@@ -2611,4 +2626,10 @@ text-shadow: none;
   .container{
     padding: 20px !important;
   }
+}
+
+div{ 
+  background-color: rgba(15,5,20,.65)!important;
+  border-radius: 1rem;
+  padding: 1rem;
 }
