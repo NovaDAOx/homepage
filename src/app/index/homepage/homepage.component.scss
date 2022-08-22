@@ -5,31 +5,8 @@
 
 .color_text {
 	background: linear-gradient(-45deg, 
-  #88fa6e,
-  #4af77c,
-  #00f28d,
-  #00eda1,
-  #00e7b6,
-  #00e0cd,
-  #00d9e4,
-  #00d1fa,
-  #00c9ff, 
-  #00b6ff,
-  #00acff,
-
-  #0091ff,
-  #00b6ff,
-  #00e7b6,
-  #00e0cd,
-
-
-
-  #88fa6e,
-  #88fa6e,
-  #4af77c,
-  #00f28d,
-  #88fa6e
-  );
+  #FFFFFF, #FFFFAC, #D1B464, #FEDB37 , #FDB931, #9f7928 , #D1B464, #FEDB37, #FFFFAC, #FFFFFF);
+  
   border-radius: 1rem;
 	background-size: 300%;
   padding: 5px;
@@ -38,7 +15,7 @@
 	text-transform: uppercase;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	animation: animated_text 10s ease-in-out infinite;
+	animation: animated_text 20s ease-in-out infinite;
 	-moz-animation: animated_text 10s ease-in-out infinite;
 	-webkit-animation: animated_text 10s ease-in-out infinite;
 }
@@ -58,7 +35,7 @@
   padding: 20px;
   height: 300px;
   --angle: 0deg;
-  min-width: 500px;
+  min-width: min(100vw,300px);
   max-width: min(600px,100vw);
    display: flex;
   align-items: center;

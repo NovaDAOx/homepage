@@ -39,11 +39,9 @@
 }
 html {
   scroll-behavior: smooth;
-  background: conic-gradient(from var(--angle) at -25% -20%, #80E8DD,#7CC2F6, #AF81E4,#E784BA,#F9C1A0, #B7F6AF, #80E8DD),
-  conic-gradient( from var(--angle) at 200%, rgba(200,200,200,.5),white, rgba(200,200,200,.5),white, rgba(200,200,200,.5)),
-  conic-gradient( from var(--angle) at 600%, rgba(200,200,200,.5),white, rgba(200,200,200,.5),white, rgba(200,200,200,.5)) !important;
-  opacity: 1;
-  animation:  spin 30s linear infinite !important;
+  background: conic-gradient(from var(--angle) at -25% -20%, #FFFFFF, #FFFFAC, #D1B464, #FEDB37 , #FDB931, #9f7928 , #D1B464, #FEDB37, #FFFFAC, #FFFFFF);
+   opacity: 1;
+  animation:  spin 60s linear infinite !important;
   background-size: 600% 600% !important;
   z-index: -9;
 }
@@ -83,39 +81,16 @@ background-color: transparent;
 :root {
 --gradient-shadow: linear-gradient(
 		45deg,
-    #88fa6e,
-    #4af77c,
-    #00f28d,
-    #00eda1,
-    #00e7b6,
-    #00e0cd,
-    #00d9e4,
-    #00d1fa,
-    #00c9ff,
-    #00c0ff,
-    #00b6ff,
-    #00acff,
-    #009fff,
-    #0091ff,
-    #0081ff,
-    #006dff,
-    #1554ff,
-    #7d2eff,
-    #0081ff,
-    #00b6ff,
-    #00eda1,
-    #88fa6e
-	);
+    #FFFFFF, #FFFFAC, #D1B464, #FEDB37 , #FDB931, #9f7928 , #D1B464, #FEDB37, #FFFFAC, #FFFFFF ) ;
 }
 
 
 
 .holo{
   --angle: 0deg;
-  background: conic-gradient(from var(--angle) at -25% -20%, #80E8DD,#7CC2F6, #AF81E4,#E784BA,#F9C1A0, #B7F6AF, #80E8DD),
-  conic-gradient( from var(--angle) at 200%, rgba(200,200,200,1),white, rgba(200,200,200,1),white, rgba(200,200,200,1)),
-  conic-gradient( from var(--angle) at 600%, rgba(200,200,200,1),white, rgba(200,200,200,1),white, rgba(200,200,200,1)) !important;
-  opacity: 0.8;
+  background:
+  conic-gradient(from var(--angle) at -25% -20%,  #FFFFFF, #FFFFAC, #D1B464, #FEDB37 , #FDB931, #9f7928 , #D1B464, #FEDB37, #FFFFAC, #FFFFFF);
+  opacity: 1;
   animation:  spin 30s linear infinite !important;
   background-blend-mode: difference !important;
   opacity: 1;
@@ -243,11 +218,11 @@ background-color: transparent;
 }
 
 .new_strokedbtn:after {
-	filter: blur(10px);
+	filter: blur(5px);
 }
 
 .new_strokedbtn:hover::after{
-  filter: blur(30px);
+  filter: blur(20px);
 }
 .new_strokedbtn:hover::before{
   background: black;
@@ -320,11 +295,11 @@ background-color: transparent;
 
 
 .btn_x:hover {
-filter: blur(30px);
+filter: blur(20px);
 }
 
 .btn_x:after {
-	filter: blur(30px);
+	filter: blur(20px);
 }
 
 @keyframes animate {
@@ -388,7 +363,7 @@ $primary-color: rgb(16, 97, 240);
   background: #000;
   color: #fff;
   // backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
   // background-color: rgb(255 255 255 / 7%);
   border-radius: 8px;
   border: 1px solid rgb(160 134 97 / 0%);
@@ -2150,7 +2125,7 @@ text-shadow: none;
   padding: 10px;
   cursor: pointer;
   //color: #fff;
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
   border-radius: 8px;
   border: 1px solid rgb(160 134 97 / 0%);
   min-width: 45px;
