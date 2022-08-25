@@ -201,7 +201,11 @@
 @media (max-width:375px){
     .wid1
     {
-        margin-left:-2rem !important;
+        position:absolute !important;
+        right:0px !important;
+        left: 0px !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
     }
     // .mar
     // {
