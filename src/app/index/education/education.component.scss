@@ -1,0 +1,179 @@
+.main_section {
+  background-image: url("../../../assets/images/newhomebg_opt.png");
+  background-color: #0d0116 !important;
+  color: #ffffff !important;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 120px 20px 0px 20px;
+}
+.new_topsection {
+  text-align: center;
+  padding-top: 15px !important;
+
+  p {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 82px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    max-width: 871px;
+    margin-bottom: 58px;
+    position: relative;
+    z-index: 50;
+  }
+  .newconnect_btn {
+    width: 278px !important;
+    max-width: 278px;
+    position: relative;
+    z-index: 50;
+  }
+}
+.animated_star2 {
+  top: 142px;
+  left: 9px;
+  width: 50px;
+}
+.animated_star1 {
+  top: 456px;
+  right: 79px;
+  width: 50px;
+}
+.subscribe{
+  font-family: "Space Grotesk" !important;
+  color: black !important;
+  margin: auto;
+  padding: 20px;
+  height: 300px;
+  --angle: 0deg;
+  min-width: 500px;
+  max-width: min(600px,100vw);
+   display: flex;
+  align-items: center;
+  text-align: center;
+  background:conic-gradient(from var(--angle), 
+  #000000,
+
+  #001000,
+
+  #100000,
+
+  #000010,
+  #000000,
+
+  ) ;
+  background-size: 300%;
+  border-radius: 1rem;
+  animation: animated_text 10s linear infinite;
+	-moz-animation: animated_text 10s linear infinite;
+	-webkit-animation: animated_text 10s linear infinite;
+}
+.daoheading {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.education_subjects_section{
+  padding: 50px;
+}
+.subjects{
+  flex-basis: 48%;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06)
+    ),
+    rgba(13, 1, 22, 0.9);
+}
+.subjects p{
+  font-size: 25px;
+  margin: 0px;
+  color: #ffffff;
+}
+.subject_detail{
+  margin: 5px 0px 25px 0px;
+  border: solid;
+  padding: 10px;
+  border-radius: 18px;
+  border-color: #1e1326;
+  border-width: 3px;
+
+
+}
+.question{
+  background: #1e1326;
+  border: none;
+  padding: 9px;
+  border-radius: 9px;
+  display: block;
+  margin-bottom: 10px;
+}
+.question p{
+  text-align: justify;
+  color: #ffffff;
+  margin: 0px;
+}
+.answer{
+  margin: 0px 0px 10px 50px;
+}
+.answer p{
+  text-align: justify;
+  color: #ffffff;
+
+}
+
+
+
+
+
+
+.newbiglogo {
+  width: 154px;
+  height: 154px;
+  margin-bottom: 23px;
+}
+.educationsection {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-between;
+  max-width: 1150px;
+}
+.education_mainsection {
+  margin-top: 10px;
+}
+
+@media (max-width: 1023px) {
+  .educationsection {
+    flex-direction: column;
+  }
+  .main_section {
+    background-repeat: repeat;
+  }
+}
+@media (max-width: 768px) {
+  .other_education_txt {
+    margin-top: 15px;
+    margin-bottom: 30px !important;
+  }
+  .lg_div {
+    width: 120px;
+    padding: 22px;
+  }
+}
+.container {
+  padding: 0px !important;
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 20px !important;
+  }
+}
