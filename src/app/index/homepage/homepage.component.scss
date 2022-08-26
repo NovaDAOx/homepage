@@ -820,3 +820,15 @@ background-color: transparent!important;
   left:0px !important;
  }
 }
+
+@media (max-width:670px){
+  .newbiglogo{
+    margin-top:2rem !important;
+  }
+
+}
+@media (min-width:671px){
+  .newbiglogo{
+    margin-top:7.9rem !important;
+  }
+}
