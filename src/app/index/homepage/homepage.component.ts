@@ -119,10 +119,19 @@
         }
         
     }
+    iframe()
+    {
+      // this.snack.open(document.getElementById('iframe').style.display = 'block', "X", {
+      // })
 
+      document.getElementById('ifraContainer').style.display = 'block';
+    }
     ngOnInit(): void {
       this.gotoTop();
       this.getTeams();
+      setTimeout(()=>{                          
+     this.iframe();
+    }, 5000)
       if (history.state.routedFrom == 'mint') {
         location.href = 'home#roadmap';
       }

@@ -37,7 +37,7 @@
   --angle: 0deg;
   min-width: min(100vw,300px);
   max-width: min(600px,100vw);
-   display: flex;
+   display: none;
   align-items: center;
   text-align: center;
 
@@ -813,6 +813,7 @@ background-color: transparent!important;
  iframe
  {
    width: 98% !important;
+   display: none;
  }
  .embed-page .substack-watermark
  {

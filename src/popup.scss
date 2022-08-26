@@ -1,0 +1,178 @@
+.popUp
+{
+  display: none;
+}
+div, mat-dialog-container{ 
+    background-color: rgba(15,5,20,.85)!important;
+    border-radius: 1rem;
+    border-width: 0;
+    color: white;
+    padding:0!important;
+    background: none;
+  }
+  @media (max-width:480px){
+    .embed-page .substack-watermark
+    {
+     right:0px !important;
+     left:0px !important;
+    }
+   }
+   .cdk-overlay-pane
+  {
+      position: absolute !important;
+      margin-bottom: 0px !important;
+      margin-right: 0px !important;
+      top: 50 !important;
+      bottom: 50% !important;
+  }
+  .cdk-global-overlay-wrapper
+  {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+.blog_frame {
+    width: auto;
+    margin-top: 22px;
+    height: auto;
+    // padding: 0px;
+    // display: block;
+    border: none;
+  
+  }
+  @media (max-width:991px){
+    .blog_frame{
+      display: none;
+    }
+  }
+  .blog_frame_collapsible {
+    width: 320px;
+    height: 70px;
+    margin-top: 15px;
+    margin-left: -10px;
+  }
+  @media (min-width:991px) {
+    .blog_frame_collapsible{
+      display: none;
+    }  
+  }
+  .navbar>.container {
+    justify-content: center !important;
+  }
+  @media (max-width:800px){
+    .d-bl{
+      
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+  }
+  @media (max-width:480px){
+   .bigger_btn
+   {
+     font-size:2rem !important;
+   }
+   .subscribe
+   {
+     min-width: 0px !important;
+     flex-direction: column !important;
+   }
+   iframe
+   {
+     width: 98% !important;
+     display: none;
+   }
+   .embed-page .substack-watermark
+   {
+    right:0px !important;
+    left:0px !important;
+   }
+  }
+  .error-snackbar {
+    transform: scale(1);
+    opacity: 1;
+  
+    font-size: 2rem !important;
+    background-color: #ff4141 !important;
+    .mat-simple-snackbar-action {
+      color: white !important;
+    }
+  }
+  
+  .success-order {
+  
+    background-color: #43ab47;
+    .mat-simple-snackbar-action {
+      color: white !important;
+    }
+  }
+  
+  .wid1
+{
+    max-width:285px;
+   
+}
+@media (max-width:375px){
+    .wid1
+    {
+        margin-left:-2rem !important;
+    }
+    // .mar
+    // {
+    //     margin-left:-12rem !important;
+    // }
+    .infobtn
+    {
+        margin-left: 7rem !important;
+        margin-top: -6rem;
+    }
+}
+.wid1{
+    font-size: 1rem !important;
+    font-kerning: auto !important;
+    line-height: 1rem !important;
+}
+.stakingLoading
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}  
+.custom-modalbox {
+    width: 100%;
+    max-width: 500px !important;
+    max-height: 400px;
+    height: 100%;
+  }
+  
+  @media (max-width: 767px) {
+    .custom-modalbox {
+      width: auto;
+      max-width: 90vw !important;
+      max-height: 70vh;
+      max-height: 350px;
+    }
+    .wallet_meta_connect .wallet_head {
+      margin-top: 10px !important;
+    }
+  }
+// product_pending_list
+.modalPending_list {
+    max-width: 950px;
+    width: 80vw !important;
+    height: 80vh;
+  }
+  @media (max-width: 767px) {
+    .modalPending_list {
+      max-width: 90vw !important;
+      height: 80vh;
+    }
+    .table_width_mob {
+      min-width: 767px;
+    }
+  }
+    

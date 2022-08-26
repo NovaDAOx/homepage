@@ -34,7 +34,9 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/popup.scss"
+
             ],
             "scripts": []
           },
@@ -103,7 +105,8 @@
             "assets": ["src/favicon.ico", "src/assets","src"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/popup.scss"
             ],
             "scripts": []
           }

@@ -1795,25 +1795,6 @@ h1 {
 
 }
 
-.error-snackbar {
-  transform: scale(1);
-  opacity: 1;
-
-  font-size: 2rem !important;
-  background-color: #ff4141 !important;
-  .mat-simple-snackbar-action {
-    color: white !important;
-  }
-}
-
-.success-order {
-
-  background-color: #43ab47;
-  .mat-simple-snackbar-action {
-    color: white !important;
-  }
-}
-
 .pending_qty {
   p {
     word-break: break-word;
@@ -2610,18 +2591,3 @@ text-shadow: none;
   }
 }
 
-div, mat-dialog-container{ 
-  background-color: rgba(15,5,20,.85)!important;
-  border-radius: 1rem;
-  border-width: 0;
-  color: white;
-  padding:0!important;
-  background: none;
-}
-@media (max-width:480px){
-  .embed-page .substack-watermark
-  {
-   right:0px !important;
-   left:0px !important;
-  }
- }

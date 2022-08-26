@@ -153,11 +153,7 @@
     align-items: center;
     flex-wrap: nowrap;
 }  
-.wid1
-{
-    max-width:285px;
-   
-}
+
 
 @media (max-width: 767px) {
     .container {
@@ -193,21 +189,6 @@
     margin-top: -2rem;
     margin-left: 2rem;
     position: absolute;
-}
-@media (max-width:375px){
-    .wid1
-    {
-        margin-left:-2rem !important;
-    }
-    // .mar
-    // {
-    //     margin-left:-12rem !important;
-    // }
-    .infobtn
-    {
-        margin-left: 7rem !important;
-        margin-top: -6rem;
-    }
 }
 
 .inline
@@ -497,11 +478,7 @@ html, body {
     margin: 0;
     background: rgba(0,0,0,0.5);
 }
-.wid1{
-    font-size: 1rem !important;
-    font-kerning: auto !important;
-    line-height: 1rem !important;
-}
+
 body {
 	background-image: url("../../../assets/images/newhomebg_opt_black.png");
     // background-color: black;
@@ -741,3 +718,4 @@ body {
       transform: rotate(360deg);
     }
   }
+  
