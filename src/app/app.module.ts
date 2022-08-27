@@ -20,8 +20,7 @@ import { UsernameComponent } from './index/homepage/components/username/username
 import { StakeComponent } from './index/staking/stake.component'
 import { NftsComponent } from './index/staking/components/nfts/nfts.component';
 import { StakedNFTSComponent } from './index/staking/components/staked-nfts/staked-nfts.component';
-
-
+import { Education } from './index/education/education.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +32,7 @@ import { StakedNFTSComponent } from './index/staking/components/staked-nfts/stak
     StakeComponent,
     NftsComponent,
     StakedNFTSComponent,
-    
-    
-   
+    Education,    
   ],
   imports: [
     BrowserModule,
