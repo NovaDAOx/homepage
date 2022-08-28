@@ -191,10 +191,10 @@ background-color: transparent!important;
   background-image: url("../../../assets/images/newhomebg_opt_black.png");
   color: #ffffff !important;
   background-position: top;
-  background-color: transparent!important;
+  background-color: black 50%;
   background-repeat: repeat;
-  background-size: 125%;
-  padding: 120px 20px 0px 20px;
+  background-size: 80%;
+  padding: 1rem;
   z-index:-10 !important;
 }
 .team
@@ -212,6 +212,9 @@ background-color: transparent!important;
   max-width: 1180px;
   margin: 0 auto;
   text-align: center;
+  background: rgba(20,7,20, 0.95);
+  border-radius: 1rem;
+  padding: 2rem;
 }
 .caurosel_section {
   text-align: center;

@@ -52,14 +52,6 @@
           alt="animate_img"
         />
       </div>
-      <div class="popUp" id="ifraContainer">
-        <div class="d-flex subscribe holo" >
-            <p class="daoheading">
-            Get NOVA news
-            </p><br>
-            <iframe src="https://thesupernova.substack.com/embed" class="" id="iframe"  width="480" height="320" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
       <div class="education_subjects_section">
         <button class="subjects" (click)="subject('eth')" ><p>Ethereum</p></button>
         <div class="subject_detail"  *ngIf="eth" id="eth">
@@ -89,7 +81,7 @@
           </div>
           <button class="question" (click)="showAnswer('eth7')"><p>What is Layer-1?</p></button>
           <div class="answer" *ngIf="eth7">
-            <p>A layer-1 (L1) network is the name ofr the base blockchain. Ethereum (ETH) and Bitcoin (BTC) are layer-1 protocols. They are both considered the main networks in their respective ecosystem.</p>
+            <p>A layer-1 (L1) network is the name of the base blockchain. Ethereum (ETH) and Bitcoin (BTC) are layer-1 protocols. They are both considered the main networks in their respective ecosystem.</p>
           </div>
           <button class="question" (click)="showAnswer('eth8')"><p>What is Layer-2?</p></button>
           <div class="answer" *ngIf="eth8">
