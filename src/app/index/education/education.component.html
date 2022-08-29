@@ -261,23 +261,33 @@
         <div class="subject_detail"  *ngIf="gud">
           <button class="question" (click)="showAnswer('gud1')"><p>How to set up a coinspot account.</p></button>
           <div class="answer" *ngIf="gud1">
-            <p><a href='https://www.youtube.com/watch?v=QNu4U2GQZLc&ab_channel=CryptoCoaching'>https://www.youtube.com/watch?v=QNu4U2GQZLc&ab_channel=CryptoCoaching</a></p>
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/QNu4U2GQZLc" title="Coinspot account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
           <button class="question" (click)="showAnswer('gud2')"><p>How to set up a Metamask account.</p></button>
           <div class="answer" *ngIf="gud2">
-            <p><a href='https://www.youtube.com/watch?v=Af_lQ1zUnoM&ab_channel=MoneyZG'>https://www.youtube.com/watch?v=Af_lQ1zUnoM&ab_channel=MoneyZG</a></p>
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/Af_lQ1zUnoM" title="Metamask account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
           <button class="question" (click)="showAnswer('gud3')"><p>How to set up a Ledger Nano X account (Hardware wallet).</p></button>
           <div class="answer" *ngIf="gud3">
-            <p><a href='https://www.youtube.com/watch?v=GPpZxOjvU10&ab_channel=Boxmining'>https://www.youtube.com/watch?v=GPpZxOjvU10&ab_channel=Boxmining</a></p>
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/GPpZxOjvU10" title="Ledger Nano X account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
           <button class="question" (click)="showAnswer('gud4')"><p>How to use Opensea</p></button>
           <div class="answer" *ngIf="gud4">
-            <p><a href='https://www.youtube.com/watch?v=2tBPp8MLS9E&ab_channel=DataSlayer'>https://www.youtube.com/watch?v=2tBPp8MLS9E&ab_channel=DataSlayer</a></p>
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/2tBPp8MLS9E" title="Using Opensea" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
           <button class="question" (click)="showAnswer('gud5')"><p>How to use uniswap</p></button>
           <div class="answer" *ngIf="gud5">
-            <p><a href='https://www.youtube.com/watch?v=dcZ7kVC2-6g&ab_channel=EveryBitHelps'>https://www.youtube.com/watch?v=dcZ7kVC2-6g&ab_channel=EveryBitHelps</a></p>
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/QNu4U2GQZLc" title="Using Uniswap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
         <button class="subjects" (click)="subject('acc')"><p>Acronyms</p></button>
