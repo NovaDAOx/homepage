@@ -53,7 +53,7 @@
         />
       </div>
       <div class="education_subjects_section">
-        <button class="subjects" (click)="subject('eth')" ><p>Ethereum</p></button>
+        <button id="ethereum" class="subjects" (click)="subject('eth')" ><p>Ethereum</p></button>
         <div class="subject_detail"  *ngIf="eth" id="eth">
           <button class="question" (click)="showAnswer('eth1')"><p>What is Ethereum?</p></button>
           <div class="answer" *ngIf="eth1">
@@ -92,7 +92,7 @@
             <p>The merge represents the joining of the Ethereum Mainnet (what we use at present) with its proof-of-stake Beacon Chain. This changes the consensus of Proof-of-work to a Proof-of-Stake model that scales, is more secure and provides far greater sustainability. For more information on the Ethereum merge please visit the Ethereum Foundation webpage https://ethereum.org/en/upgrades/merge/</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('nft')"><p>NFTs</p></button>
+        <button id="nfts" class="subjects" (click)="subject('nft')"><p>NFTs</p></button>
         <div class="subject_detail"  *ngIf="nft">
           <button class="question" (click)="showAnswer('nft1')"><p>What is a Non-Fungible Token (NFT)?</p></button>
           <div class="answer" *ngIf="nft1">
@@ -150,7 +150,7 @@
             <p>The second way to create a NFT is to go through the custom contract on NFT marketplaces. Opensea has an easy to follow guide, process for creating new artworks as NFTs.</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('nftfaq')"><p>NFT FAQ</p></button>
+        <button id="nft_faq" class="subjects" (click)="subject('nftfaq')"><p>NFT FAQ</p></button>
         <div class="subject_detail"  *ngIf="nftfaq">
           <button class="question" (click)="showAnswer('nftfaq1')"><p>I am an Artist, how do I create my own project?</p></button>
           <div class="answer" *ngIf="nftfaq1">
@@ -173,7 +173,7 @@
             <p>Once you connect your wallet to Opensea webpage you can view your profile of NFTs.</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('dao')"><p>DAOs</p></button>
+        <button id="daos" class="subjects" (click)="subject('dao')"><p>DAOs</p></button>
         <div class="subject_detail"  *ngIf="dao">
           <button class="question" (click)="showAnswer('dao1')"><p>What are Decentralized Autonomous Organisations (DAOs)</p></button>
           <div class="answer" *ngIf="dao1">
@@ -200,7 +200,7 @@
             <p>DAOs provide a number of benefits in the form of decentralized governance, membership, share-based membership and reputation-based memberships. For more information on DAOs please visit the Ethereum foundation website on DAOs. <a href='https://ethereum.org/en/dao/'>https://ethereum.org/en/dao/</a></p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('def')"><p>DeFi</p></button>
+        <button id="defi" class="subjects" (click)="subject('def')"><p>DeFi</p></button>
         <div class="subject_detail"  *ngIf="def">
           <button class="question" (click)="showAnswer('def1')"><p>What is Decentralized Finance (Defi)?</p></button>
           <div class="answer" *ngIf="def1">
@@ -215,7 +215,7 @@
             <p>Other sources. The Ethereum foundation has a great insight into Defi with DAPPS and documents on understanding decentralised finance -<a href='https://ethereum.org/en/developers/docs/dapps/'>https://ethereum.org/en/developers/docs/dapps/</a>.</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('wal')"><p>Digital Wallets</p></button>
+        <button id="digital_wallets" class="subjects" (click)="subject('wal')"><p>Digital Wallets</p></button>
         <div class="subject_detail"  *ngIf="wal">
           <button class="question" (click)="showAnswer('wal1')"><p>What is a digital wallet?</p></button>
           <div class="answer" *ngIf="wal1">
@@ -238,7 +238,7 @@
             <p>The seed phase is a 16 word security code that enables users to encrypt their funds without another person having access to it. If a person loses their 16 word security code then there is no way to access the funds.</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('eco')"><p>Ecosystem Terms</p></button>
+        <button id="ecosystem_terms" class="subjects" (click)="subject('eco')"><p>Ecosystem Terms</p></button>
         <div class="subject_detail"  *ngIf="eco">
           <button class="question" (click)="showAnswer('eco1')"><p>Airdrops</p></button>
           <div class="answer" *ngIf="eco1">
@@ -257,7 +257,7 @@
             <p>The new internet. Decentralised and open source allows for anyone to build a new application. Digital ownership is enabled by the Blockchain.</p>
           </div>
         </div>
-        <button class="subjects" (click)="subject('gud')"><p>Guides</p></button>
+        <button id="guides" class="subjects" (click)="subject('gud')"><p>Guides</p></button>
         <div class="subject_detail"  *ngIf="gud">
           <button class="question" (click)="showAnswer('gud1')"><p>How to set up a coinspot account.</p></button>
           <div class="answer" *ngIf="gud1">
@@ -290,7 +290,7 @@
             </div>
           </div>
         </div>
-        <button class="subjects" (click)="subject('acc')"><p>Acronyms</p></button>
+        <button id="acronyms" class="subjects" (click)="subject('acc')"><p>Acronyms</p></button>
         <div class="subject_detail"  *ngIf="acc">
           <button class="question" (click)="showAnswer('acc1')"><p>NFT</p></button>
           <div class="answer" *ngIf="acc1">
