@@ -176,10 +176,48 @@ export class Education implements OnInit {
       case 'acc9': this.acc9 = this.reverse(this.acc9); break;
     }
   }
+  scroll() {
+    let hash = window.location.hash;
+    if (hash != '#/education') {
+      switch (hash) {
+        case '#/education#ethereum': document.getElementById("ethereum").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#nfts': document.getElementById("nfts").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#nft_faq': document.getElementById("nft_faq").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#daos': document.getElementById("daos").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#defi': document.getElementById("defi").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#digital_wallets': document.getElementById("digital_wallets").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#ecosystem_terms': document.getElementById("ecosystem_terms").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#guides': document.getElementById("guides").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+        case '#/education#acronyms': document.getElementById("acronyms").scrollIntoView({ behavior: "smooth", block: "start",inline: "nearest",}); break;
+      }
+    }
+  }
+  show() {
+    let hash = window.location.hash;
+    if (hash != '#/education') {
+      switch (hash) {
+        case '#/education#ethereum': this.eth = 'show'; break;
+        case '#/education#nfts': this.nft = 'show'; break;
+        case '#/education#nft_faq': this.nftfaq = 'show'; break;
+        case '#/education#daos': this.dao = 'show'; break;
+        case '#/education#defi': this.def = 'show'; break;
+        case '#/education#digital_wallets': this.wal = 'show'; break;
+        case '#/education#ecosystem_terms': this.eco = 'show'; break;
+        case '#/education#guides': this.gud = 'show'; break;
+        case '#/education#acronyms': this.acc = 'show'; break;
+      }
+    }
+  }
   iframe() {
     document.getElementById('ifraContainer').style.display = 'block';
   }
   ngOnInit(): void {
+    setTimeout(()=>{                          
+        this.scroll();
+    }, 2000)
+    setTimeout(()=>{                          
+        this.show();
+    }, 1000)
     setTimeout(()=>{                          
         this.iframe();
     }, 5000)
