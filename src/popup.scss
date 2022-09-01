@@ -229,3 +229,23 @@ div, mat-dialog-container{
   border-radius: 1rem;
 background-color: transparent!important;
 }
+.closebtn
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.popUpH
+{
+  display: flex !important;
+  visibility: hidden;
+
+  /* right: 0px; */
+  /* position: absolute; */
+  /* left: 0px; */
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  
+}

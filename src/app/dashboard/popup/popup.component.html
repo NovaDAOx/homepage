@@ -1,5 +1,16 @@
     <div class="popUp" id="ifraContainer" *ngIf="popupContent === true">
-        <div class="d-flex subscribe holo" >
+      
+      <div class="d-flex subscribe holo" >
+        <div class="closebtn">
+          <button
+            [disabled]="loader"
+            mat-icon-button
+            mat-dialog-close
+            (click)="closeDialog()"
+          >
+            <mat-icon *ngIf="loader === false"> close </mat-icon>
+          </button>
+        </div>  
           <p class="daoheading">
             Get NOVA news
           </p><br>

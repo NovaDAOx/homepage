@@ -138,9 +138,10 @@ import { threadId } from 'worker_threads';
         // console.log('dv',Div)
       this.popupreference = this.dialog.open(PopupComponent, {
         panelClass: 'popUp',
-        disableClose: true,
+        disableClose: false,
         data: (this.dialogConfig.data = {
           popupContent: true,
+          loader:true,
         }),
       });
       
@@ -148,7 +149,7 @@ import { threadId } from 'worker_threads';
         console.log(result)
         
       });
-
+     
       // this.snack.open(x.className = 'show', "X", {
       //   duration: 10000,
       //   panelClass: ["popUp"],
@@ -211,7 +212,10 @@ import { threadId } from 'worker_threads';
     
     }
   
-  
+    subscribeHome()
+    {
+      document.getElementById('ifraContainer2').style.visibility = 'visible';
+    }
     ngOnInit(): void {
       this.gotoTop();
       this.getTeams();
@@ -221,7 +225,9 @@ import { threadId } from 'worker_threads';
         
        }, 5000 )
 
-   
+       setTimeout(()=>{
+        this.subscribeHome();
+       },16000)
       if (history.state.routedFrom == 'mint') {
         location.href = 'home#roadmap';
       }

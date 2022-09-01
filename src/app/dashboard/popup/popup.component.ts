@@ -9,7 +9,9 @@ import { FormBuilder } from '@angular/forms';
 })
 
 export class PopupComponent implements OnInit {
-popupContent = false;
+popupContent = false
+loader = false
+da = document.getElementsByClassName('form')
 checkoutForm = this.formBuilder.group({
   email: '',
   address: ''
@@ -30,5 +32,7 @@ private formBuilder: FormBuilder,
   }
   ngOnInit(): void {
   }
-
+  closeDialog() {
+    this.dailogRef.close();
+  }
 }
