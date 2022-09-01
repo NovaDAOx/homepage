@@ -99,10 +99,7 @@ import { threadId } from 'worker_threads';
       status: '',
       txnHash: '',
     };
-    checkoutForm = this.formBuilder.group({
-      email: '',
-      address: ''
-    });
+
   
     constructor(
       private router: Router,
@@ -188,38 +185,32 @@ import { threadId } from 'worker_threads';
       //  }, 5000 )
       console.log(data,'datadaaa')
     }
-    async subscribe()
-    {
-      const Submitbtn = document.getElementsByClassName("button")
-      // const TBemail = await document.getElementsByClassName("")
-      const SignedupDiv = document.getElementsByName("is-fully-subscribed")
+    // async subscribe()
+    // {
+    //   const Submitbtn = document.getElementsByClassName("button")
+    //   // const TBemail = await document.getElementsByClassName("")
+    //   const SignedupDiv = document.getElementsByName("is-fully-subscribed")
 
-      const test  = document.getElementsByClassName("subscribe-widget")
-      if (SignedupDiv)
-      {
-        console.log("you have got it",SignedupDiv)
-      }
-      if(Submitbtn)
-      {
-        console.log("this is submit button",Submitbtn)
-      }
+    //   const test  = document.getElementsByClassName("subscribe-widget")
+    //   if (SignedupDiv)
+    //   {
+    //     console.log("you have got it",SignedupDiv)
+    //   }
+    //   if(Submitbtn)
+    //   {
+    //     console.log("this is submit button",Submitbtn)
+    //   }
       
-      console.log('this is test 1 ',test)
+    //   console.log('this is test 1 ',test)
 
      
 
-    }
+    // }
     
     ngAfterViewInit(): void {
     
     }
-    onSubmit(): void {
-      // Process checkout data here
-     
-      console.warn('Your order has been submitted', this.checkoutForm.value);
-      console.log('yes yes yes')
-      
-    }
+  
   
     ngOnInit(): void {
       this.gotoTop();
