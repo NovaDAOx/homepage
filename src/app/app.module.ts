@@ -21,7 +21,7 @@ import { StakeComponent } from './index/staking/stake.component'
 import { NftsComponent } from './index/staking/components/nfts/nfts.component';
 import { StakedNFTSComponent } from './index/staking/components/staked-nfts/staked-nfts.component';
 import { Education } from './index/education/education.component';
-
+import { MenuBarComponent } from './index/components/menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { Education } from './index/education/education.component';
     NftsComponent,
     StakedNFTSComponent,
     Education,
-    
+    MenuBarComponent,  
   ],
   imports: [
     BrowserModule,
