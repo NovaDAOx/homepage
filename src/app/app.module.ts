@@ -22,6 +22,7 @@ import { NftsComponent } from './index/staking/components/nfts/nfts.component';
 import { StakedNFTSComponent } from './index/staking/components/staked-nfts/staked-nfts.component';
 import { Education } from './index/education/education.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { Education } from './index/education/education.component';
     StakeComponent,
     NftsComponent,
     StakedNFTSComponent,
-    Education,    
+    Education,
+    
   ],
   imports: [
     BrowserModule,

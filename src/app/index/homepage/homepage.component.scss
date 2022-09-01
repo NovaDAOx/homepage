@@ -28,22 +28,6 @@
 .bigger_btn{
   font-size: 3rem !important;
 }
-.subscribe{
-  font-family: "Space Grotesk" !important;
-  color: black !important;
-  margin: auto;
-  padding: 20px;
-  height: 300px;
-  --angle: 0deg;
-  min-width: min(100vw,300px);
-  max-width: min(600px,100vw);
-   display: none;
-  align-items: center;
-  text-align: center;
-
-  border-radius: 1rem;
-background-color: transparent!important;
-}
 
 @property --angle {
   syntax: '<angle>';
@@ -773,13 +757,13 @@ background-color: transparent!important;
   margin-top: 22px;
   height: auto;
   // padding: 0px;
-  // display: block;
+  display: block;
   border: none;
 
 }
 @media (max-width:991px){
   .blog_frame{
-    display: none;
+    display: block;
   }
 }
 .blog_frame_collapsible {
@@ -790,7 +774,7 @@ background-color: transparent!important;
 }
 @media (min-width:991px) {
   .blog_frame_collapsible{
-    display: none;
+    display: block;
   }  
 }
 .navbar>.container {
@@ -808,20 +792,17 @@ background-color: transparent!important;
  {
    font-size:2rem !important;
  }
- .subscribe
- {
-   min-width: 0px !important;
-   flex-direction: column !important;
- }
+ 
  iframe
  {
    width: 98% !important;
-   display: none;
+   
  }
  .embed-page .substack-watermark
  {
   right:0px !important;
   left:0px !important;
+  display: block;
  }
 }
 

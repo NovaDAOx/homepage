@@ -104,12 +104,14 @@
       src="../../../assets/images/starimg.png"
       alt="animate_img"
     />
-    <div class="popUp" id="ifraContainer">
+    <div class="popUp" id="ifraContainer" *ngIf="displayed">
     <div class="d-flex subscribe holo" >
       <p class="daoheading">
         Get NOVA news
       </p><br>
-      <iframe src="https://thesupernova.substack.com/embed" class="" id="iframe" width="480" height="320" frameborder="0" scrolling="no"></iframe>
+      <form>
+      <iframe src="https://thesupernova.substack.com/embed" class="fff" id="iframe" width="480" height="320" frameborder="0" scrolling="no"></iframe>
+        </form>
     </div>
     </div>
     <div class="daowork_container">

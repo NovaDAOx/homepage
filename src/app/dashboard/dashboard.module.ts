@@ -15,6 +15,7 @@ import { MetamaskComponent } from './metamask/metamask.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { NgxMatTelInputModule } from 'ngx-mat-tel-input';
 import { ShippingComponent } from './shipping/shipping.component';
+import { PopupComponent } from './popup/popup.component';
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -23,7 +24,8 @@ import { ShippingComponent } from './shipping/shipping.component';
     OrderHistoryComponent,
     MetamaskComponent,
     OrderSummaryComponent,
-    ShippingComponent
+    ShippingComponent,
+    PopupComponent
   ],
   imports: [
     CommonModule,

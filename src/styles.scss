@@ -86,19 +86,6 @@ margin-top: 100px;
 
 
 
-.holo{
-  --angle: 0deg;
-  background:
-  conic-gradient(from var(--angle) at -25% -20%, #FFFFAC, #D1B464, #FEDB37, #FDB931, #FFFFAC, #D1B464 , #D1B464, #FEDB37, #FFFFAC);
-  opacity: 1;
-  animation:  spin 30s linear infinite !important;
-  background-blend-mode: difference !important;
-  opacity: 1;
-  background-size: 300%;
-  background-position: 300% 0;
-  z-index: -2;
-}
-
 
 @keyframes spin  {
   0% { /* radial-gradient(farthest-corner at top right, ..) */

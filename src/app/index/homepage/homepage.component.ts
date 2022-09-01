@@ -1,6 +1,8 @@
   import { GithubService } from 'src/app/services/github.service'; 
   import { HttpClient } from '@angular/common/http';
   import {
+    AfterViewChecked,
+    AfterViewInit,
     Component,
     ElementRef,
     HostListener,
@@ -23,6 +25,9 @@
   import { NgxSpinnerService } from 'ngx-spinner';
   import { NftService } from 'src/app/services/nft.service';
   import { MetamaskComponent } from 'src/app/dashboard/metamask/metamask.component';
+import { PopupComponent } from 'src/app/dashboard/popup/popup.component';
+import { FormBuilder } from '@angular/forms';
+import { threadId } from 'worker_threads';
 
 
   @Component({
@@ -31,7 +36,7 @@
     styleUrls: ['./homepage.component.scss'],
     encapsulation: ViewEncapsulation.None,
   })
-  export class HomepageComponent implements OnInit {
+  export class HomepageComponent implements OnInit,AfterViewInit {
     customOptions: OwlOptions = {
       loop: true,
       mouseDrag: true,
@@ -72,6 +77,7 @@
 
     isMetamask: boolean = false;
     isConnected: any = null;
+    displayed: any = null;
     customData: any;
     pendingNFT: any = [];
     projectcount: number = 0;
@@ -79,6 +85,8 @@
     loadFirstTime: boolean = true;
     dialogConfig = new MatDialogConfig();
     'dialogueReference': MatDialogRef<MetamaskComponent>;
+    'popupreference' : MatDialogRef<PopupComponent>;
+
     walletAddress = '';
     mintObj: any = {
       walletAddress: '',
@@ -91,7 +99,11 @@
       status: '',
       txnHash: '',
     };
-
+    checkoutForm = this.formBuilder.group({
+      email: '',
+      address: ''
+    });
+  
     constructor(
       private router: Router,
       public dialog: MatDialog,
@@ -102,10 +114,12 @@
       private nftService: NftService,
       private titleService: Title,
       private githubservice:GithubService,
-      private http: HttpClient
+      private http: HttpClient,
+      private formBuilder: FormBuilder
     ) {
       this.titleService.setTitle('Nova Dao');
     }
+
       team:String[]  
 
     
@@ -119,19 +133,104 @@
         }
         
     }
-    iframe()
+    async iframepopup()
     {
-      // this.snack.open(document.getElementById('iframe').style.display = 'block', "X", {
-      // })
+        
+     
+      
+        // console.log('dv',Div)
+      this.popupreference = this.dialog.open(PopupComponent, {
+        panelClass: 'popUp',
+        disableClose: true,
+        data: (this.dialogConfig.data = {
+          popupContent: true,
+        }),
+      });
+      
+      this.popupreference.afterClosed().subscribe((result) => {
+        console.log(result)
+        
+      });
 
-      document.getElementById('ifraContainer').style.display = 'block';
+      // this.snack.open(x.className = 'show', "X", {
+      //   duration: 10000,
+      //   panelClass: ["popUp"],
+      //   horizontalPosition: "center",
+      // });
+      
     }
+     checkIfLoaded() {
+      var data = null;
+      window.addEventListener("load", function (event) {
+        console.log("All resources finished loading!");
+        const test  =  document.getElementsByClassName("subscribe-widget")
+        const Submitbtn =  document.getElementsByClassName("button")
+        
+      setTimeout(()=>{                          
+        
+        const iframe = document.getElementById('ifraContainer')                               
+                iframe.style.visibility = "visible"
+        
+       }, 5000 )
+        
+       
+
+
+        data = true
+       
+        return event
+        
+      });
+      
+      // setTimeout(()=>{                          
+        
+        
+      //  }, 5000 )
+      console.log(data,'datadaaa')
+    }
+    async subscribe()
+    {
+      const Submitbtn = document.getElementsByClassName("button")
+      // const TBemail = await document.getElementsByClassName("")
+      const SignedupDiv = document.getElementsByName("is-fully-subscribed")
+
+      const test  = document.getElementsByClassName("subscribe-widget")
+      if (SignedupDiv)
+      {
+        console.log("you have got it",SignedupDiv)
+      }
+      if(Submitbtn)
+      {
+        console.log("this is submit button",Submitbtn)
+      }
+      
+      console.log('this is test 1 ',test)
+
+     
+
+    }
+    
+    ngAfterViewInit(): void {
+    
+    }
+    onSubmit(): void {
+      // Process checkout data here
+     
+      console.warn('Your order has been submitted', this.checkoutForm.value);
+      console.log('yes yes yes')
+      
+    }
+  
     ngOnInit(): void {
       this.gotoTop();
       this.getTeams();
+      this.checkIfLoaded(); 
       setTimeout(()=>{                          
-     this.iframe();
-    }, 5000)
+       this.iframepopup(); 
+        
+       }, 5000 )
+
+   
       if (history.state.routedFrom == 'mint') {
         location.href = 'home#roadmap';
       }

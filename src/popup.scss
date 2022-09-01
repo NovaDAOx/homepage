@@ -1,7 +1,22 @@
 .popUp
 {
-  display: none;
+  display: flex !important;
+  visibility: hidden;
+
+  /* right: 0px; */
+  /* position: absolute; */
+  /* left: 0px; */
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  
 }
+.flex-flex
+{
+  display: flex;
+}
+
 div, mat-dialog-container{ 
     background-color: rgba(15,5,20,.85)!important;
     border-radius: 1rem;
@@ -73,13 +88,18 @@ div, mat-dialog-container{
    }
    .subscribe
    {
-     min-width: 0px !important;
+    //  min-width: 0px !important;
      flex-direction: column !important;
+     height: 365px !important;
+   }
+   .embed-page
+   {
+    margin-top:-2.7rem;
    }
    iframe
    {
      width: 98% !important;
-     display: none;
+     display: flex !important;
    }
    .embed-page .substack-watermark
    {
@@ -176,3 +196,36 @@ div, mat-dialog-container{
     }
   }
     
+.holo{
+  --angle: 0deg;
+  background:
+  conic-gradient(from var(--angle) at -25% -20%, #FFFFAC, #D1B464, #FEDB37, #FDB931, #FFFFAC, #D1B464 , #D1B464, #FEDB37, #FFFFAC);
+  opacity: 1;
+  animation:  spin 30s linear infinite !important;
+  background-blend-mode: difference !important;
+  opacity: 1;
+  background-size: 300%;
+  background-position: 300% 0;
+  z-index: 5;
+}
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing 
+{
+  opacity: 0.5 !important;
+}
+.subscribe{
+  font-family: "Space Grotesk" !important;
+  color: black !important;
+  margin: auto;
+  padding: 20px;
+  height: 300px;
+  --angle: 0deg;
+  min-width: min(100vw,300px);
+  max-width: min(600px,100vw);
+   display: none;
+   position: absolute;
+  align-items: center;
+  text-align: center;
+
+  border-radius: 1rem;
+background-color: transparent!important;
+}

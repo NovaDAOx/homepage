@@ -1,0 +1,11 @@
+    <div class="popUp" id="ifraContainer" *ngIf="popupContent === true">
+        <div class="d-flex subscribe holo" >
+          <p class="daoheading">
+            Get NOVA news
+          </p><br>
+          <form  [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+          <iframe src="https://thesupernova.substack.com/embed" width="480" height="320" frameborder="0" scrolling="no"></iframe>
+        </form>
+        </div>
+        </div>
+
