@@ -172,7 +172,10 @@ export class HomepageComponent implements OnInit,AfterViewInit {
         const faded = document.getElementsByClassName('cdk-overlay-container')[0]
         faded.style.visibility = 'visible'
      }, 5000 )
-      
+      this.setTimeout(()=>{
+        const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
+        daoworkContainer.style.marginTop = "180px"
+      },8000)
      
 
 
@@ -229,7 +232,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 
      setTimeout(()=>{
       this.subscribeHome();
-     },16000)
+     },12000)
     if (history.state.routedFrom == 'mint') {
       location.href = 'home#roadmap';
     }

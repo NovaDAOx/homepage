@@ -196,6 +196,7 @@
   max-width: 1180px;
   margin: 0 auto;
   text-align: center;
+  margin-top:-4rem;
   background: rgba(20,7,20, 0.95);
   border-radius: 1rem;
   padding: 2rem;
@@ -515,9 +516,9 @@
     display: none;
   }
 }
-.daowork_container {
-  margin-top: 80px;
-}
+// .daowork_container {
+//   margin-top: 80px;
+// }
 
 @media (max-width: 767px) {
   .new_members {

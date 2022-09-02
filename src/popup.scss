@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin-top:6rem;
   
 }
 .flex-flex
@@ -82,7 +83,11 @@ div, mat-dialog-container{
     }
   }
   @media (max-width:480px){
-   .bigger_btn
+   .daowork_container
+   {
+    marign-top:216px !important;
+   }
+    .bigger_btn
    {
      font-size:2rem !important;
    }
@@ -91,6 +96,7 @@ div, mat-dialog-container{
     //  min-width: 0px !important;
      flex-direction: column !important;
      height: 365px !important;
+     margin-top:4rem !important;
    }
    .embed-page
    {
@@ -247,9 +253,14 @@ background-color: transparent!important;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  margin-top: 6rem;
   
 }
 .cdk-overlay-container
 {
   visibility: hidden;
 }
+// .daowork_container
+// {
+//   margin-top:180px !important;
+// }
