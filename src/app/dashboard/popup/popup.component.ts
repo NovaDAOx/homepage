@@ -23,14 +23,16 @@ private formBuilder: FormBuilder,
       this.popupContent = data.popupContent;
     }
   }
-  onSubmit(): void {
-    // Process checkout data here
+  // onSubmit(): void {
+  //   // Process checkout data here
    
-    console.warn('Your order has been submitted', this.checkoutForm.value);
-    console.log('yes yes yes')
+  //   console.warn('Your order has been submitted', this.checkoutForm.value);
+  //   console.log('yes yes yes')
     
-  }
+  // }
+
   ngOnInit(): void {
+
   }
   closeDialog() {
     this.dailogRef.close();
