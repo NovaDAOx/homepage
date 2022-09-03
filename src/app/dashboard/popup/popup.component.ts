@@ -37,8 +37,13 @@ private formBuilder: FormBuilder,
   }
   closeDialog() {
     this.dailogRef.close();
+    this.popupContent = false;
     const faded = document.getElementsByClassName('cdk-overlay-container')[0]
     faded.style.visibility = 'hidden'
     console.log('div dis')
+    const homepageSubscription = document.getElementById('ifraContainer2')
+    homepageSubscription.style.visibility = "visible"
+    const scroller = document.getElementsByClassName('cdk-global-scrollblock')[0]
+    scroller.style.position = 'unset'
   }
 }

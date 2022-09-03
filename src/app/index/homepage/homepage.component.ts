@@ -81,6 +81,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   displayed: any = null;
   customData: any;
   pendingNFT: any = [];
+  scroll:any = [];
   projectcount: number = 0;
   number: Number = 100;
   loadFirstTime: boolean = true;
@@ -139,16 +140,17 @@ export class HomepageComponent implements OnInit,AfterViewInit {
       // console.log('dv',Div)
     this.popupreference = this.dialog.open(PopupComponent, {
       panelClass: 'popUp',
-      disableClose: false,
+      disableClose: true,
       data: (this.dialogConfig.data = {
         popupContent: true,
-        loader:true,
+        loader:false,
       }),
     });
     
     this.popupreference.afterClosed().subscribe((result) => {
-      console.log(result)
+      this.dialog.closeAll()
       
+    
     });
    
     // this.snack.open(x.className = 'show', "X", {
@@ -173,23 +175,24 @@ export class HomepageComponent implements OnInit,AfterViewInit {
         const faded = document.getElementsByClassName('cdk-overlay-container')[0]
         faded.style.visibility = 'visible'
         const iframee = document.getElementById('iframe2')
+        
         // var innerDoc = iframee.contentDocument || iframee.contentWindow.document;
-        console.log('iframe iframe iframe',iframee.contentWindow.document.getElementById('entry'))
+        
     }, 5000 )
       this.setTimeout(()=>{
         document.getElementById('ifraContainer2').style.visibility = 'visible';
         const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
         daoworkContainer.style.marginTop = "180px"
-        window.addEventListener('message', event => {
-            if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
-              // The data was sent from your site. It sent with postMessage is stored in event.data:
-              console.log(event.data,'////////////////////');
-            } else {
-              // The data was NOT sent from your site!
-              console.log(event.data,'```````````````````');
-              return;
-            }
-          });
+        // window.addEventListener('message', event => {
+        //     if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
+        //       // The data was sent from your site. It sent with postMessage is stored in event.data:
+        //       console.log(event.data,'////////////////////');
+        //     } else {
+        //       // The data was NOT sent from your site!
+        //       console.log(event.data,'```````````````````');
+        //       return;
+        //     }
+        //   });
     },8000)
      
 
@@ -226,24 +229,25 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 
    
 
-  // }
-  sub()
-  {
-    window.onload = function() {
-    function receiveMessage(e) {
-    document.documentElement.style.setProperty('--header_bg', e.data.wl.header_bg);
-    document.documentElement.style.setProperty('--header_text', e.data.wl.header_text);
-    document.documentElement.style.setProperty('--button_bg', e.data.wl.button_bg);
-    //alert(e.data.data.header_bg);
-}
-    }
-  }
-  send()
+//   // }
+//   sub()
+//   {
+//     window.onload = function() {
+//     function receiveMessage(e) {
+//     document.documentElement.style.setProperty('--header_bg', e.data.wl.header_bg);
+//     document.documentElement.style.setProperty('--header_text', e.data.wl.header_text);
+//     document.documentElement.style.setProperty('--button_bg', e.data.wl.button_bg);
+//     //alert(e.data.data.header_bg);
+// }
+//     }
+//   }
+  async send()
   {
     const frame = document.getElementById('iframe');
     const data = 'done'
     frame.contentWindow.postMessage(data, 'http://localhost:4228');
     console.log('poseted')
+    console.log('this this this',this.sc)
   }
   message()
   {
@@ -265,6 +269,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   subscribeHome()
   {
     document.getElementById('ifraContainer2').style.visibility = 'visible';
+    document.getElementsByClassName('daowork_container')[0].style.marginTop = '180px'
   }
   ngOnInit(): void {
     this.gotoTop();
@@ -273,14 +278,11 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.send();
    
-    setTimeout(()=>{                          
-     this.iframepopup(); 
-      
-     }, 5000 )
+    
 
-    //  setTimeout(()=>{
-    //   this.subscribeHome();
-    //  },12000)
+     setTimeout(()=>{
+      this.subscribeHome();
+     },12000)
     if (history.state.routedFrom == 'mint') {
       location.href = 'home#roadmap';
     }
@@ -374,7 +376,13 @@ export class HomepageComponent implements OnInit,AfterViewInit {
       y: top + height / 2 + window.pageYOffset,
     };
   }
-
+  @HostListener('window:load')
+  async test()
+  {
+    
+      this.iframepopup(); 
+       console.log('loaded')
+      }
   @HostListener('window:scroll')
   checkScroll() {
     let defaultLine = document.querySelector('.line.default') as HTMLElement;
