@@ -164,21 +164,36 @@ export class HomepageComponent implements OnInit,AfterViewInit {
       console.log("All resources finished loading!");
       const test  =  document.getElementsByClassName("subscribe-widget")
       const Submitbtn =  document.getElementsByClassName("button")
-      
+        
     setTimeout(()=>{                          
       
+       
       const iframe = document.getElementById('ifraContainer')                               
               iframe.style.visibility = "visible"
         const faded = document.getElementsByClassName('cdk-overlay-container')[0]
         faded.style.visibility = 'visible'
-     }, 5000 )
+        const iframee = document.getElementById('iframe2')
+        // var innerDoc = iframee.contentDocument || iframee.contentWindow.document;
+        console.log('iframe iframe iframe',iframee.contentWindow.document.getElementById('entry'))
+    }, 5000 )
       this.setTimeout(()=>{
+        document.getElementById('ifraContainer2').style.visibility = 'visible';
         const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
         daoworkContainer.style.marginTop = "180px"
-      },8000)
+        window.addEventListener('message', event => {
+            if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
+              // The data was sent from your site. It sent with postMessage is stored in event.data:
+              console.log(event.data,'////////////////////');
+            } else {
+              // The data was NOT sent from your site!
+              console.log(event.data,'```````````````````');
+              return;
+            }
+          });
+    },8000)
      
 
-
+     
       data = true
      
       return event
@@ -212,9 +227,39 @@ export class HomepageComponent implements OnInit,AfterViewInit {
    
 
   // }
-  
+  sub()
+  {
+    window.onload = function() {
+    function receiveMessage(e) {
+    document.documentElement.style.setProperty('--header_bg', e.data.wl.header_bg);
+    document.documentElement.style.setProperty('--header_text', e.data.wl.header_text);
+    document.documentElement.style.setProperty('--button_bg', e.data.wl.button_bg);
+    //alert(e.data.data.header_bg);
+}
+    }
+  }
+  send()
+  {
+    const frame = document.getElementById('iframe');
+    const data = 'done'
+    frame.contentWindow.postMessage(data, 'http://localhost:4228');
+    console.log('poseted')
+  }
+  message()
+  {
+    window.addEventListener('message', event => {
+        if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
+          // The data was sent from your site. It sent with postMessage is stored in event.data:
+          console.log(event.data,'////////////////////');
+        } else {
+          // The data was NOT sent from your site!
+          console.log(event.data,'```````````````````');
+          return;
+        }
+      });
+  }
   ngAfterViewInit(): void {
-  
+   
   }
 
   subscribeHome()
@@ -225,14 +270,17 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     this.gotoTop();
     this.getTeams();
     this.checkIfLoaded(); 
+    
+    this.send();
+   
     setTimeout(()=>{                          
      this.iframepopup(); 
       
      }, 5000 )
 
-     setTimeout(()=>{
-      this.subscribeHome();
-     },12000)
+    //  setTimeout(()=>{
+    //   this.subscribeHome();
+    //  },12000)
     if (history.state.routedFrom == 'mint') {
       location.href = 'home#roadmap';
     }

@@ -4,6 +4,10 @@
 
   <!-- header section -->
   
+    <div id="custom-substack-embed"></div>
+
+
+    
   <div class="bottomsection">
     <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
     <h1>The Web3 Grants Network</h1>
@@ -25,9 +29,27 @@
       <p class="daoheading">
         Get NOVA news
       </p><br>
-      <form>
-      <iframe src="https://thesupernova.substack.com/embed" class="fff" id="iframe" width="480" height="320" frameborder="0" scrolling="no"></iframe>
-        </form>
+      
+      
+      <iframe src="https://thesupernova.substack.com/embed" class="fff" id="iframe" width="480" height="320" frameborder="0" scrolling="no">
+        <div id="custom-substack-embed"></div>
+
+<script>
+  window.CustomSubstackWidget = {
+    substackUrl: "https://thesupernova.substack.com/embed",
+    theme: "custom",
+    colors: {
+      primary: "#23A29B",
+      input: "#BAAFAF",
+      email: "#FFFFFF",
+      text: "#000000",
+    }
+  };
+</script>
+<script src="https://substackapi.com/widget.js" async></script>
+              
+      </iframe>
+        
     </div>
     </div>
     <div class="daowork_container">
@@ -266,4 +288,3 @@
   </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.2/web3.min.js" integrity="sha512-mYc+D+NmmyR0Gcrzyae7q5HguBCS4cBHAsIk7gGhu0/ZyGg4z2YZDjyR2YQA/IMCMTNs4mnlw3vVdERzewpekQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	

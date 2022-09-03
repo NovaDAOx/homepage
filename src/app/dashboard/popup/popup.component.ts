@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
@@ -36,5 +37,8 @@ private formBuilder: FormBuilder,
   }
   closeDialog() {
     this.dailogRef.close();
+    const faded = document.getElementsByClassName('cdk-overlay-container')[0]
+    faded.style.visibility = 'hidden'
+    console.log('div dis')
   }
 }
