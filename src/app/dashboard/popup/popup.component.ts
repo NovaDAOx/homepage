@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
 
@@ -45,5 +45,11 @@ private formBuilder: FormBuilder,
     homepageSubscription.style.visibility = "visible"
     const scroller = document.getElementsByClassName('cdk-global-scrollblock')[0]
     scroller.style.position = 'unset'
+
   }
+  @HostListener('window:load')
+test2()
+{
+  console.log('this popup component')
+}
 }

@@ -134,10 +134,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   }
   async iframepopup()
   {
-      
-   
-    
-      // console.log('dv',Div)
+        
     this.popupreference = this.dialog.open(PopupComponent, {
       panelClass: 'popUp',
       disableClose: true,
@@ -149,8 +146,9 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.popupreference.afterClosed().subscribe((result) => {
       this.dialog.closeAll()
-      
-    
+      const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+      cdk.style.visibility = 'visible'
+   
     });
    
     // this.snack.open(x.className = 'show', "X", {
@@ -166,10 +164,10 @@ export class HomepageComponent implements OnInit,AfterViewInit {
       console.log("All resources finished loading!");
       const test  =  document.getElementsByClassName("subscribe-widget")
       const Submitbtn =  document.getElementsByClassName("button")
-        
+        console.log('ttttttttttttt',test)
     setTimeout(()=>{                          
       
-       
+       console.log('t2t2t2t2t2t2t2',test)
       const iframe = document.getElementById('ifraContainer')                               
               iframe.style.visibility = "visible"
         const faded = document.getElementsByClassName('cdk-overlay-container')[0]
@@ -202,8 +200,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
       return event
       
     });
-    
-    // setTimeout(()=>{                          
+        // setTimeout(()=>{                          
       
       
     //  }, 5000 )
@@ -241,20 +238,27 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 // }
 //     }
 //   }
-  async send()
+  send()
   {
-    const frame = document.getElementById('iframe');
-    const data = 'done'
+    const data = 'this is the msg'
+    const frame = document.getElementById('iframe');    
     frame.contentWindow.postMessage(data, 'http://localhost:4228');
-    console.log('poseted')
-    console.log('this this this',this.sc)
+    console.log('data poseted')
   }
-  message()
+  HearMsg()
+    {
+      window.addEventListener('message',function(event){
+        console.log('envent event event',event)
+      })
+    }
+
+async message()
   {
     window.addEventListener('message', event => {
         if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
           // The data was sent from your site. It sent with postMessage is stored in event.data:
           console.log(event.data,'////////////////////');
+          console.log(event)
         } else {
           // The data was NOT sent from your site!
           console.log(event.data,'```````````````````');
@@ -270,19 +274,26 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   {
     document.getElementById('ifraContainer2').style.visibility = 'visible';
     document.getElementsByClassName('daowork_container')[0].style.marginTop = '180px'
+    
+   
   }
   ngOnInit(): void {
     this.gotoTop();
     this.getTeams();
-    this.checkIfLoaded(); 
-    
-    this.send();
+    this.checkIfLoaded();   
+    this.message();
    
-    
-
+   
      setTimeout(()=>{
       this.subscribeHome();
      },12000)
+     setTimeout(()=>{
+      this.send();
+      
+     },13000)
+     setTimeout(()=>{
+      this.HearMsg()
+     },14000)
     if (history.state.routedFrom == 'mint') {
       location.href = 'home#roadmap';
     }
@@ -377,12 +388,23 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     };
   }
   @HostListener('window:load')
-  async test()
+  async ipop()
   {
     
       this.iframepopup(); 
        console.log('loaded')
-      }
+       
+  }
+  @HostListener('window:message',['$event'])
+  test()
+  {
+    this.send();
+  }
+  onMessage(event) {
+    
+    console.log('data data data',event)
+  }
+
   @HostListener('window:scroll')
   checkScroll() {
     let defaultLine = document.querySelector('.line.default') as HTMLElement;
@@ -394,7 +416,6 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 
     if (windowDistance >= defaultLineDistance - windowHeight) {
       let line = windowDistance - defaultLineDistance + windowHeight / 1.415;
-
       if (line <= defaultLineHeight) {
         lineToDraw.style.height = Math.round(line) + 4 + 'px'; // draw line
         // if (lineToDraw.clientHeight >= defaultLine.clientHeight) this.isLineFilled = true;
@@ -402,7 +423,6 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     }
 
     let roadmapElems = document.querySelectorAll('.points.new_roadmaps');
-
     for (let i = 0; i < roadmapElems.length; i++) {
       if (
         window.pageYOffset + 300 >= this.getCenterCoords(roadmapElems[i]).y &&

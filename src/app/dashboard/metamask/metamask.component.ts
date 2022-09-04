@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MetamaskService } from 'src/app/services/metamask.service';
@@ -33,11 +34,19 @@ export class MetamaskComponent implements OnInit {
 
   closeDialog() {
     this.dailogRef.close();
+    const faded = document.getElementsByClassName('cdk-overlay-container')[0]
+    faded.style.visibility = 'hidden'
   }
-
+visible()
+{
+  
+}
   connectMetamask() {
     this.dailogRef.close();
+     
     this.metaMaskService.navigationUser(this.routing);
     window.localStorage.setItem('logout', 'false');
+    const faded = document.getElementsByClassName('cdk-overlay-container')[0]
+    faded.style.visibility = 'visible'   
   }
 }

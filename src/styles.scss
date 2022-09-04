@@ -862,6 +862,7 @@ h1 {
   max-height: 585px;
   .mat-dialog-container {
     padding: 10px 20px;
+    margin-top:12rem !important;
   }
   .mat-dialog-container::-webkit-scrollbar {
     width: 0;
@@ -2578,3 +2579,8 @@ text-shadow: none;
   }
 }
 
+.mat-dialog-container
+{
+  margin-top:12rem !important;
+  overflow: unset !important;
+}
