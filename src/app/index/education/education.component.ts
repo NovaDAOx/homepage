@@ -208,9 +208,6 @@ export class Education implements OnInit {
       }
     }
   }
-  iframe() {
-    document.getElementById('ifraContainer').style.display = 'block';
-  }
   ngOnInit(): void {
     setTimeout(()=>{                          
         this.scroll();
@@ -218,8 +215,5 @@ export class Education implements OnInit {
     setTimeout(()=>{                          
         this.show();
     }, 1000)
-    setTimeout(()=>{                          
-        this.iframe();
-    }, 5000)
   }
 }

@@ -177,13 +177,12 @@ margin-top: 100px;
   z-index: 50 !important;
   transition: .15s;
 }
-.new_strokedbtn:before,
+.new_strokedbtn:before
  {
 	content: "";
 	position: absolute;
 	top: 2px;
 	left: 2px;
-	background:black;
 	background-size: 400%;
 	width: calc(100% - 4px);
 	height: calc(100% - 4px);
@@ -212,7 +211,6 @@ margin-top: 100px;
   filter: blur(20px);
 }
 .new_strokedbtn:hover::before{
-  background: black;
   opacity: 0.65;
   
   // background: linear-gradient(0deg, rgb(18, 24, 29), rgb(18, 25, 29));
@@ -690,6 +688,7 @@ h1 {
 // dialog/css
 .conct_wallet_link {
   display: flex;
+  color: black;
   justify-content: center;
   align-items: center;
   cursor: pointer;

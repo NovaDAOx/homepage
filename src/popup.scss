@@ -18,8 +18,10 @@
   display: flex;
 }
 
-div, mat-dialog-container{ 
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
     background-color: rgba(15,5,20,.85)!important;
+}
+div mat-dialog-container{ 
     border-radius: 1rem;
     border-width: 0;
     color: white;
@@ -32,6 +34,10 @@ div, mat-dialog-container{
      right:0px !important;
      left:0px !important;
     }
+   }
+   snack-bar-container {
+    position: fixed !important;
+    bottom: 0;
    }
    .cdk-overlay-pane
   {
@@ -213,10 +219,6 @@ div, mat-dialog-container{
   background-size: 300%;
   background-position: 300% 0;
   z-index: 5;
-}
-.cdk-overlay-backdrop.cdk-overlay-backdrop-showing 
-{
-  opacity: 0.5 !important;
 }
 .subscribe{
   font-family: "Space Grotesk" !important;
