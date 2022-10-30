@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg custom_topheader navbar-dark fixed_header">
+    <div class="container topcontainer">
+      <a class="navbar-brand" routerLink="/">
+        <img
+          class="newlogo me-2"
+          src="../../../../assets/images/novadao_logo/icon.png"
+          alt=""
+        />
+        <span class="newlogo_heading">Nova DAO</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse newcenterlinks" id="collapsibleNavbar">
+        <div class="customalign">
+          <ul class="navbar-nav custom_links">
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/mint">Mint</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/stake">Stake</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/education">Education</a>
+            </li>
+             <li class="nav-item dropdownProject">
+              <a  class="nav-link top_links dropbtn" (click)="toggle()" >Projects <span (click)="toggle()"  class="fa fa-chevron-down"></span></a>
+              <div id="myDropdown" class="dropdown-content">
+                <a routerLink = "/review">Latest projects</a>
+                <a routerLink = "/projectsduration">Past Projects</a>
+                <!-- <a routerLink = "/project">Project page</a> -->
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/DAO">DAO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link top_links" routerLink="/application">Apply</a>
+              </li>
+            <li
+                class="nav-item connect_wallet_mobile_view"
+                *ngIf="!isConnected"
+                (click)="showMetamaskContent()"
+            >
+                <a class="nav-link top_links" href="javascript:void(0)">Connect Wallet</a>
+            </li>
+            <li class="nav-item connect_wallet_mobile_view" *ngIf="isConnected">
+                <a class="nav-link top_links" href="javascript:void(0)">
+                    <span>
+                        {{ isConnected.substring(0, 8) }}...{{
+                            isConnected.substring(
+                            isConnected.length - 4,
+                            isConnected.length
+                            )
+                        }}
+                    </span>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    <div class="connect_wallet_web_view">
+        <button
+          mat-flat-button
+          class="newconnect_btn"
+          *ngIf="!isConnected"
+          (click)="showMetamaskContent()"
+        >
+          Connect Wallet
+        </button>
+        <button mat-flat-button class="newconnect_btn" *ngIf="isConnected">
+          <span
+            >{{ isConnected.substring(0, 8) }}...{{
+              isConnected.substring(isConnected.length - 4, isConnected.length)
+            }}</span
+          >
+        </button>
+      </div>
+    </div>
+  </nav>

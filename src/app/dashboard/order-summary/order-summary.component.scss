@@ -1,0 +1,131 @@
+.order-summary-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.order-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+  margin: 0px auto;
+  margin-top: 50px;
+}
+.check-circle {
+  font-size: 80px;
+  color: green;
+  text-align: center;
+}
+.Successful-order-txt {
+  color: green;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.thankyou-txt {
+  letter-spacing: 1px;
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 36px;
+  color: #333333;
+  margin-bottom: 0px;
+}
+.other-detail {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #777777;
+  margin-bottom: 30px;
+}
+.confirmation-heading {
+  background-color: #eeeeee;
+  width: 100%;
+
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  padding: 10px;
+  color: #212529;
+}
+
+.confirmation-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: normal;
+}
+.total-paytxt {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 900;
+}
+.address-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+hr {
+  height: 2px;
+  color: #6c757ddb;
+}
+.address-detail {
+  font-size: 18px;
+  margin-top: 25px;
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+.details-order {
+  padding-left: 12px;
+  padding-right: 20px;
+}
+.order-detail {
+  max-width: 800px;
+  margin: 10px auto;
+  margin-bottom: 30px;
+}
+.back {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.back-btn {
+  width: 100%;
+  border: 0.5px solid #333333;
+  color: #333333;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+.address {
+  display: flex;
+}
+.adrresses {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+// MEDIA QUERY
+
+@media (max-width: 767px) {
+  .address-detail {
+    font-size: 16px;
+  }
+  .details-order {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .address {
+    flex-direction: column;
+  }
+  .address-heading {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,22 @@
+    <div class="popUp" id="ifraContainer" *ngIf="popupContent === true">
+      
+      <div class="d-flex subscribe holo" >
+        <div class="closebtn">
+          <button
+            [disabled]="loader"
+            mat-icon-button
+            mat-dialog-close
+            (click)="closeDialog()"
+          >
+            <mat-icon *ngIf="loader === false"> close </mat-icon>
+          </button>
+        </div>  
+          <p class="daoheading">
+            Get NOVA news
+          </p><br>
+          <form  [formGroup]="checkoutForm" >
+          <iframe src="https://thesupernova.substack.com/embed" id="iframe2" width="480" height="320" frameborder="0" scrolling="no"></iframe>
+        </form>
+        </div>
+        </div>
+

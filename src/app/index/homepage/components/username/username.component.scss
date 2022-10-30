@@ -1,0 +1,55 @@
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+.member_img
+{
+    --angle: 0deg;
+    margin-top:2rem !important;
+    // background: conic-gradient(
+	// 	from var(--angle),
+    // #88fa6e,
+    // #4af77c,
+    // #00f28d,
+    // #00eda1,
+    // #00e7b6,
+    // #00e0cd,
+    // #00d9e4,
+    // #00d1fa,
+    // #00c9ff, 
+    // #00b6ff,
+    // #00acff,
+
+    // #0091ff,
+    // #00b6ff,
+    // #00e7b6,
+    // #00e0cd,
+  
+
+ 
+    // #88fa6e,
+    // #88fa6e,
+    // #4af77c,
+    // #00f28d,
+    // #88fa6e
+	// );
+    // animation: 10s rotate linear infinite;
+    background-size: 600%;
+    background-position: right;
+    border-radius: 20px;
+    padding: .2rem;
+}
+
+@keyframes animatex2 {
+	0% {
+		background-position: 0% 0;
+	}
+	50% {
+		background-position: 300% 0;
+	}
+	100% {
+		background-position:  0% 0;
+	}
+}

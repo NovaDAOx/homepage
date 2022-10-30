@@ -1,0 +1,418 @@
+.main_section {
+  background-image: url("../../../assets/images/newhomebg_opt.png");
+  background-color: #0d0116 !important;
+  color: #ffffff !important;
+  background-position: top;
+  background-repeat: no-repeat;
+  margin-top:6rem !important;
+  background-size: contain;
+  padding: 120px 20px 0px 20px;
+}
+.new_topsection {
+  text-align: center;
+  padding-top: 15px !important;
+
+  p {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 82px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    max-width: 871px;
+    margin-bottom: 58px;
+    position: relative;
+    z-index: 50;
+  }
+  .newconnect_btn {
+    width: 278px !important;
+    max-width: 278px;
+    position: relative;
+    z-index: 50;
+  }
+}
+#landing
+{
+  padding:16px !important;
+}
+
+.whole
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+  .buttonIn {
+    width: 80%;
+    position: relative;
+}
+.Sicon
+  {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    font-size: 1.5rem;
+    left: 11px;
+    bottom: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon
+  {
+    padding-left:3rem;
+    color:white;
+  }
+  .srchbtn
+    {
+      display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  gap: 4px;
+
+  width: 118px;
+  height: 44px;
+
+  background: #FAC905;
+  border-radius: 2px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+    }
+    .inH
+    {
+      
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 18px
+  
+    }
+    .lbl
+  {
+    // width: 58px;
+  height: 20px;
+
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 20px;
+  padding-right: 23px;
+  color: #FFFFFF;
+
+  opacity: 0.8;
+  }
+  .btnH
+  {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    width:6%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:-11px;
+    
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px 10px 16px;
+  gap: 8px;
+
+  width: 106px;
+  height: 40px;
+
+  background: #190E22 !important;
+  border: 1px solid rgba(29, 36, 42, 0.08);
+  border-radius: 2px;
+  }
+
+  .dropdown-contentAp {
+    display: none;
+    /* position: absolute; */
+    background-color: #f1f1f1;
+    min-width: 78px;
+    position:absolute;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+
+    background:rgba(15, 5, 20, 0.85)  !important;
+    border-radius: 0 !important;
+    margin-left: 5.1rem;
+    // width: 5% !important;
+    margin-top: -6px;
+  }
+
+
+
+  .buttonIn {
+      width: 80%;
+      position: relative;
+  }
+  .Ref
+  {
+    text-decoration: none;
+      color: inherit;
+  }
+  .appsection {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1150px;
+  }
+
+  input
+  {
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 8px 8px 8px 20px;
+gap: 10px;
+
+
+width: 100%;
+height: 60px;
+left: 130px;
+top: 236px;
+
+background: #110D1B;
+border: 1px solid rgba(255, 255, 255, 0.12);
+border-radius: 4px;
+  }
+
+.srchBtn {
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+  right: 0px;
+  z-index: 2;
+  border: none;
+  top: 2px;
+  
+  cursor: pointer;
+  color: white;
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px 32px;
+gap: 4px;
+
+width: 118px;
+height: 55px;
+
+background: #FAC905;
+border-radius: 2px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.Pin
+{
+  background: #190E22 !important;
+  width: 317px !important;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top:1rem !important;
+
+}
+.funtT
+{
+  width: 77px;
+  height: 12px;
+  
+  font-family: 'Clash Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  // font-size: 10px;
+  line-height: 12px;
+  
+  
+color: #FAC905 !important;
+
+}
+.funreq
+{
+  display: flex;
+  flex-direction: row;
+  background: transparent !important;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  width:100%;
+}
+
+.funreqin
+{
+  background:rgba(15, 5, 20, 0.85) !important;
+  opacity: 0.7;
+  font-size: 12px !important;
+  text-align:center !important;
+  margin-top:2px !important;
+  border-radius: 3px;
+  padding: 5px;
+ height: 14px !important;
+
+
+}
+.funt
+{
+  width: 121px;
+  height: 12px;
+  
+  font-family: 'Clash Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  // font-size: 10px;
+  line-height: 12px;
+  
+  color: #FFFFFF;
+}
+.left
+{
+  text-align: left !important;
+  margin-top:6px ;
+}
+.marYT
+{
+  margin-top:-3px !important;
+}
+.funreqint
+{
+  background:transparent !important;
+  height: 14px !important;
+ 
+}
+.BF
+{
+  display: flex;
+  margin-top: 1.1rem;
+  height: 47px;
+  width: 100%;
+  padding: 23px !important;
+  left: 0px;
+  text-align: center !important;
+  background: #2D2335 !important;
+  border-radius: 2px;
+  padding: 0px 8px 0px 8px;
+  justify: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+.Fv
+{
+  height: 30px;
+  width: 94px;
+  left: 273px;
+  border-radius: 37px;
+  background: #110A17 !important;
+  color: white !important;
+  align-items: center;
+  align-items: flex;
+  align-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 0px;
+}
+.div
+{
+  background-color: transparent !important;
+}
+.mat-primary
+{
+  margin-top:3rem !important;
+}
+.mat-progress-bar
+{
+  height: 8px !important;
+  width:100% !important; 
+  background-color: #47D7AC !important;
+}
+.PDiv
+{
+  width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0px!important;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.PHolder
+{
+  padding:16px !important;
+  background-color:transparent !important;
+}
+.mat-progress-bar-fill::after 
+{
+  background-color: #47D7AC !important;
+}
+.mat-progress-bar .mat-progress-bar-buffer
+{
+    background-color: #190E22 !important;
+}
+.MarFun
+{
+  margin-top:27px !important;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+element.style {
+}
+@media (max-width: 799px)
+{
+.whole{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: flex-start;
+}
+}
+.imgPro
+{
+  width:100% !important;
+  height:173px !important;
+}
+.Precieved
+{
+  margin-top: 1.6rem;
+    font-size: 14px;
+    position: absolute ;
+}
+.faded
+{
+  opacity: 0.5 !important;
+}

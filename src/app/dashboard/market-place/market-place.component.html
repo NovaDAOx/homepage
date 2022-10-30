@@ -1,0 +1,381 @@
+<div class="container max_width">
+  <p class="p-list-text">
+    Rock your PFP wherever you go.<br />
+    These 1/1 custom iterations of classic silhouettes include detailed,
+    hand-painted drawings of your favorite NFTs, and serve as a testament to our
+    commitment and expertise.
+  </p>
+
+  <div id="marketBlock">
+    <form [formGroup]="filterForm" *ngIf="filterForm">
+      <div class="header_market_block">
+        <div class="header_right_box">
+          <div class="search_form">
+            <mat-form-field
+              class="example-full-width search_box"
+              appearance="outline"
+            >
+              <mat-icon matPrefix>search</mat-icon>
+              <input
+                class="custum_width"
+                (keyup)="searchData($event)"
+                matInput
+                placeholder="Search"
+                formControlName="searchTxt"
+              />
+            </mat-form-field>
+            <mat-form-field class="select_type_product" appearance="outline">
+              <mat-select
+                class="category-select"
+                panelClass="check-mat-icon"
+                formControlName="category"
+              >
+                <mat-option
+                  *ngFor="let collection of collectionList"
+                  (click)="filterCollection(collection)"
+                  [value]="collection._id"
+                >
+                  {{ collection.category }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="sortby_market">
+          <mat-form-field appearance="fill">
+            <div class="position-absolute">
+              <i class="fas fa-sort-amount-up"></i>
+            </div>
+            <mat-select panelClass="check-mat-icon" formControlName="sorting">
+              <mat-option
+                (click)="updateSelectedOption('AllProducts')"
+                value="AllProducts"
+              >
+                All Products</mat-option
+              >
+              <mat-option
+                (click)="updateSelectedOption('NewestFirst')"
+                value="NewestFirst"
+                >Newest First</mat-option
+              >
+              <mat-option
+                (click)="updateSelectedOption('LowToHigh')"
+                value="LowToHigh"
+                >Price: Low to High</mat-option
+              >
+              <mat-option
+                (click)="updateSelectedOption('HighToLow')"
+                value="HighToLow"
+                >Price: High to Low</mat-option
+              >
+
+              <mat-option
+                (click)="updateSelectedOption('OldestFirst')"
+                value="OldestFirst"
+                >Oldest First</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <p class="qty_vlue hide_in_mob">Sort by:</p>
+        </div>
+      </div>
+
+      <div class="marketContent">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+            <button class="clear-btn mb-3 mt-1">
+              <a (click)="ResetFilters()" style="cursor: pointer"
+                >Clear All Filters</a
+              >
+            </button>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+                [expanded]="isExpandedView"
+              >
+                <mat-expansion-panel-header expanded="first">
+                  <mat-panel-title> FILTER PRODUCTS </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="fillter_expansion">
+                  <h4>Price:</h4>
+
+                  <div>
+                    <section
+                      class="example_section"
+                      *ngFor="let priceOb of priceList"
+                    >
+                      <mat-checkbox
+                        class="example-margin"
+                        [value]="priceOb.value"
+                        (change)="onCheckChange($event, 'filterPrice')"
+                        [checked]="priceOb.checkedVal"
+                      >
+                        <p class="mb-0">{{ priceOb.description }}</p>
+                      </mat-checkbox>
+                    </section>
+                  </div>
+                  <h4>Size:</h4>
+                  <div>
+                    <section
+                      class="example_section"
+                      *ngFor="let sizeOb of sizeList"
+                    >
+                      <mat-checkbox
+                        class="example-margin"
+                        [value]="sizeOb._id"
+                        (change)="onCheckChange($event, 'filterSize')"
+                        [checked]="sizeOb.checkedVal"
+                      >
+                        <p class="mb-0">{{ sizeOb.size }}</p>
+                      </mat-checkbox>
+                    </section>
+                  </div>
+                  <h4>Color:</h4>
+                  <div>
+                    <section
+                      class="example_section"
+                      *ngFor="let colorOb of colorList"
+                    >
+                      <mat-checkbox
+                        class="example-margin"
+                        [value]="colorOb._id"
+                        (change)="onCheckChange($event, 'filterColor')"
+                        [checked]="colorOb.checkedVal"
+                      >
+                        <p class="mb-0">{{ colorOb.color }}</p>
+                      </mat-checkbox>
+                    </section>
+                  </div>
+                  <!-- <h4>Material:</h4>
+                  <div>
+                    <section
+                      class="example_section"
+                      *ngFor="let matOb of materialList"
+                    >
+                      <mat-checkbox
+                        class="example-margin"
+                        [value]="matOb._id"
+                        (change)="onCheckChange($event, 'filterMaterial')"
+                        [checked]="matOb.checkedVal"
+                      >
+                        <p class="mb-0">{{ matOb.material }}</p>
+                      </mat-checkbox>
+                    </section>
+                  </div> -->
+                  <h4>Exclude Out Of Stock:</h4>
+                  <div>
+                    <section class="example_section">
+                      <mat-checkbox
+                        class="example-margin"
+                        [checked]="excludeStocket"
+                        value="true"
+                        (change)="onCheckChange($event, 'filterStock')"
+                      >
+                        <p class="mb-0">Out of Stock</p>
+                      </mat-checkbox>
+                    </section>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+
+          <div class="col-lg-9 col-md-9 col-sm-12 center-content">
+            <div class="row" *ngIf="productListData.length > 0">
+              <div
+                class="col-lg-4 col-md-6 col-sm-12"
+                *ngFor="let product of productListData"
+              >
+                <div
+                  class="productcard_rugs"
+                  (click)="showProductModal(product)"
+                >
+                  <div class="productcard_box mb-3">
+                    <img
+                      src="{{ imgUrl }}/upload/bundle/{{ product._id }}/{{
+                        product.images[0]
+                      }}"
+                    />
+                  </div>
+                  <p class="mb-2 pro_name main_detail mt-2">
+                    {{ product.product.name }}
+                  </p>
+                  <div class="product_material_size_box">
+                    <p class="pro_name sub_main_detail">
+                      {{ product.color.color }}
+                    </p>
+                    <!-- <p class="pro_name sub_main_detail">
+                      {{ product.size.size }}
+                    </p> -->
+                  </div>
+                  <p class="pro_name main_detail mb-0">
+                    {{ product.sizeDetails[0]?.price }} ETH
+                  </p>
+                  <!-- <div
+                    *ngIf="
+                      product.sizeDetails.quantity -
+                        product.sizeDetails.soldQuantity ===
+                      0
+                    "
+                  >
+                    <img
+                      class="sold-out-sticker"
+                      src="../../../assets/Images/soldout-sticker.png"
+                      alt=""
+                    />
+                  </div> -->
+                </div>
+              </div>
+              <mat-paginator
+                class="pagination"
+                #paginator
+                [length]="recordCount"
+                [pageSize]="Size"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="handlePageEvent($event)"
+                aria-label="Select page"
+              >
+              </mat-paginator>
+            </div>
+
+            <div>
+              <div
+                class="no-data-center"
+                *ngIf="productListData.length === 0 && resultflag"
+              >
+                <div class="no-data-img">
+                  <img src="../../../assets/images/no_history_img.png" alt="" />
+                </div>
+                <div>
+                  <p class="no-data-found-txt">No Product Found</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ph_container row"
+              *ngIf="productListData.length === 0 && !resultflag"
+            >
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="productcard_rugs ph_card">
+                  <div class="ph-col-12">
+                    <div class="productcard_box mb-3">
+                      <div class="ph-picture ph_img"></div>
+                    </div>
+                    <div class="ph-row mt-2 mb-2">
+                      <div class="ph-col-4 mt-0"></div>
+                    </div>
+                    <div class="product_material_size_box ph-row mb-2">
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-2 empty"></div>
+                      <div class="ph-col-4"></div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-col-12"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="productcard_rugs ph_card">
+                  <div class="ph-col-12">
+                    <div class="productcard_box mb-3">
+                      <div class="ph-picture ph_img"></div>
+                    </div>
+                    <div class="ph-row mt-2 mb-2">
+                      <div class="ph-col-4 mt-0"></div>
+                    </div>
+                    <div class="product_material_size_box ph-row mb-2">
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-2 empty"></div>
+                      <div class="ph-col-4"></div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-col-12"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="productcard_rugs ph_card">
+                  <div class="ph-col-12">
+                    <div class="productcard_box mb-3">
+                      <div class="ph-picture ph_img"></div>
+                    </div>
+                    <div class="ph-row mt-2 mb-2">
+                      <div class="ph-col-4 mt-0"></div>
+                    </div>
+                    <div class="product_material_size_box ph-row mb-2">
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-2 empty"></div>
+                      <div class="ph-col-4"></div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-col-12"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="placeholder-card ph_card">
+                <div class="ph-item ph_item">
+                  <div class="ph-col-12">
+                    <div class="ph-picture ph_img"></div>
+                    <div class="ph-row mb-3">
+                      <div class="ph-col-4 big"></div>
+                      <div class="ph-col-8 empty big"></div>
+
+                      <div class="ph-col-6 placeholder-lg"></div>
+                      <div class="ph-col-4 empty placeholder-lg"></div>
+                      <div class="ph-col-2 placeholder-lg"></div>
+
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-6 empty"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="placeholder-card ph_card">
+                <div class="ph-item ph_item">
+                  <div class="ph-col-12">
+                    <div class="ph-picture ph_img"></div>
+                    <div class="ph-row mb-3">
+                      <div class="ph-col-4 big"></div>
+                      <div class="ph-col-8 empty big"></div>
+
+                      <div class="ph-col-6 placeholder-lg"></div>
+                      <div class="ph-col-4 empty placeholder-lg"></div>
+                      <div class="ph-col-2 placeholder-lg"></div>
+
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-6 empty"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="placeholder-card ph_card">
+                <div class="ph-item ph_item">
+                  <div class="ph-col-12">
+                    <div class="ph-picture ph_img"></div>
+                    <div class="ph-row mb-3">
+                      <div class="ph-col-4 big"></div>
+                      <div class="ph-col-8 empty big"></div>
+
+                      <div class="ph-col-6 placeholder-lg"></div>
+                      <div class="ph-col-4 empty placeholder-lg"></div>
+                      <div class="ph-col-2 placeholder-lg"></div>
+
+                      <div class="ph-col-6"></div>
+                      <div class="ph-col-6 empty"></div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
