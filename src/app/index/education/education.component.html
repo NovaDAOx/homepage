@@ -1,0 +1,356 @@
+  <app-menu-bar class="menu-bar"></app-menu-bar>
+  <div class="main_section education_mainsection">
+    <div class="educationsection">
+      <div class="new_topsection">
+        <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
+        <p>Welcome to Nova</p>
+        <img
+          class="animated_star2"
+          src="../../../assets/images/starimg.png"
+          alt="animate_img"
+        />
+        <img
+          class="animated_star1"
+          src="../../../assets/images/starimg.png"
+          alt="animate_img"
+        />
+      </div>
+      <div class="education_subjects_section">
+        <button id="ethereum" class="subjects" (click)="subject('eth')" ><p>Ethereum</p></button>
+        <div class="subject_detail"  *ngIf="eth" id="eth">
+          <button class="question" (click)="showAnswer('eth1')"><p>What is Ethereum?</p></button>
+          <div class="answer" *ngIf="eth1">
+            <p>Ethereum is an online public ledger. Using the new technology of the blockchain, Ethereum allows users to create smart contracts allowing for decentralised applications (Dapps) to be created. Ethereum improves on the restrictive code of Bitcoin which grants developers much more freedom in creating new applications and protocols.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth2')"><p>Why is it important?</p></button>
+          <div class="answer" *ngIf="eth2">
+            <p>Decentralization is important. So too is being in charge of your finances. The peer-to-peer finance system of the blockchain is one of the significant milestones in mankind. It allows a person to be in charge of their own finance on the chain. Ethereum allows the introduction of Dapps which are improvements to every application within web2 (such as facebook and Instagram) where those applications are owned by big corporations no one single entity will own Ethereum. That combined with the open-source nature means no one is trying to steal your data.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth3')"><p>What are Smart Contracts?</p></button>
+          <div class="answer" *ngIf="eth3">
+            <p>The simple way to understand smart contracts is they are code that acts as binding contract that is embedded into the application. Smart contracts are used within Dapps for purchasing agreements without the need for a third party.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth4')"><p>What are Decentralized Apps (Dapps)?</p></button>
+          <div class="answer" *ngIf="eth4">
+            <p>Applications that are decentralized and created for the blockchain. Dapps are created as open-source applications where the code can be found and improved on by anyone in the world.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth5')"><p>What is Ether?</p></button>
+          <div class="answer" *ngIf="eth5">
+            <p>Ether is the native token of Ethereum. When you buy Ethereum on an exchange you will receive its native token of Ether.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth6')"><p>What are Gas Fees?</p></button>
+          <div class="answer" *ngIf="eth6">
+            <p>Gas fees are payments made by users to compensate for the computing energy required to process and validate transactions on the Ethereum blockchain. "Gas limit" refers to the maximum amount of gas (or energy) that you're willing to spend on a particular transaction.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth7')"><p>What is Layer-1?</p></button>
+          <div class="answer" *ngIf="eth7">
+            <p>A layer-1 (L1) network is the name of the base blockchain. Ethereum (ETH) and Bitcoin (BTC) are layer-1 protocols. They are both considered the main networks in their respective ecosystem.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eth8')"><p>What is Layer-2?</p></button>
+          <div class="answer" *ngIf="eth8">
+            <p>A layer-2 (L2) network is a term to provide Ethereum scaling solutions. A layer 2 is a separate blockchain that extends Ethereum while keeping the security guarantees. For more information on Ethereum layer-1 and Layer-2 please visit the Ethereum foundation webpage <a href='https://ethereum.org/en/layer-2/'>https://ethereum.org/en/layer-2/</a></p>
+          </div>
+          <button class="question" (click)="showAnswer('eth9')"><p>What is the Ethereum merge?</p></button>
+          <div class="answer" *ngIf="eth9">
+            <p>The merge represents the joining of the Ethereum Mainnet (what we use at present) with its proof-of-stake Beacon Chain. This changes the consensus of Proof-of-work to a Proof-of-Stake model that scales, is more secure and provides far greater sustainability. For more information on the Ethereum merge please visit the Ethereum Foundation webpage https://ethereum.org/en/upgrades/merge/</p>
+          </div>
+        </div>
+        <button id="nfts" class="subjects" (click)="subject('nft')"><p>NFTs</p></button>
+        <div class="subject_detail"  *ngIf="nft">
+          <button class="question" (click)="showAnswer('nft1')"><p>What is a Non-Fungible Token (NFT)?</p></button>
+          <div class="answer" *ngIf="nft1">
+            <p>A NFT is the authenticity ownership of a digital product. The blockchain allows users to own a digital asset that is searchable by a public ledger. This means if someone owns a NFT you can look up on the internet who owns it.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft2')"><p>Why is digital ownership important?</p></button>
+          <div class="answer" *ngIf="nft2">
+            <p>The introduction of the Blockchain has allowed digital products to be owned as NFTs on-chain. Never before has it been possible to own a digital asset as a store of value or financial return on profit. As NFTs technology matures there will be endless use cases besides artwork in the form of ticketing, vouchers, medical data and more.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft3')"><p>What are digital NFT collectables?</p></button>
+          <div class="answer" *ngIf="nft3">
+            <p>Just like physical collectables, NFTs can also be a way for consumers to purchase digital, intangible products such as artwork and media on the blockchain. Some examples include generative art of Crypto Punks and the Bored Ape Yacht Club (BAYC). The Ethereum Name Service (ENS) and Media such as Books, music and films that have are enclosed within the NFT.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft4')"><p>What makes NFTs valuable?</p></button>
+          <div class="answer" *ngIf="nft4">
+            <p>NFTs provide digital scarcity on the blockchain that is secure. NFTs cannot be copied on chain, ownership is tied to the existing account and can be looked up like a public ledger at any time.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft5')"><p>Who buys NFTs?</p></button>
+          <div class="answer" *ngIf="nft5">
+            <p>In time NFT adoption will lead to the technology being used in ticketing, vouchers, gaming, films, music and books. At present, Crypto native customers with a love of the blockchain are experimenting, creating some great projects (and some out right scams). Its the wild wild west or digital gold rush.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft6')"><p>What are the Statistics on NFTs?</p></button>
+          <div class="answer" *ngIf="nft6">
+            <p>NFT sales in 2021 skyrocketed to XXX with it being projected to hit XXX in 2022. Opensea the largest marketplace for digital assets is a billion-dollar company.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft7')"><p>Why are NFTs being labelled as Ponzi schemes?</p></button>
+          <div class="answer" *ngIf="nft7">
+            <p>The sad reality of the Crypto space and due to its volatile nature of quick gains means many attempts to scam new entrants into the marketplace. It’s unfortunate as while some NFT use Ponzinomics its not a definition of all projects within the space.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft8')"><p>What is exit liquidity?</p></button>
+          <div class="answer" *ngIf="nft8">
+            <p>When a project is hyped, new entrants buy into the token or NFT. The founders then use the sustainable hype to sell their assets thus exiting their liquidity on new customers.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft9')"><p>What is Minting?</p></button>
+          <div class="answer" *ngIf="nft9">
+            <p>Minting is the process of being the first person to purchase an NFT from a smart contract listed on the Blockchain. Hence a person has been the first to “Mint” an NFT.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft10')"><p>Where are the NFT marketplaces?</p></button>
+          <div class="answer" *ngIf="nft10">
+            <p>The most common NFT marketplace is Opensea . Opensea has a great easy to use interface and also provides custom made smart contracts for artists. Other Market places include SuperRare, Rarable, LooksRare, Gem and Immutable X.</p>
+            <p>Opensea- <a href='https://opensea.io/'>https://opensea.io/</a></p>
+            <p>SuperRare- <a href='https://superrare.com/'>https://superrare.com/</a></p>
+            <p>LooksRare- <a href='https://looksrare.org/'>https://looksrare.org/</a></p>
+            <p>Gem (NFT agrigator)- <a href='https://www.gem.xyz/'>https://www.gem.xyz/</a></p>
+            <p>Immutable X- <a href='https://www.immutable.com/'>https://www.immutable.com/</a></p>
+          </div>
+          <button class="question" (click)="showAnswer('nft11')"><p>What are secondary sales?</p></button>
+          <div class="answer" *ngIf="nft11">
+            <p>After a NFT has been minted out, as in a collection has been exhausted. The only way consumers can purchase the NFT is on secondary marketplaces. The current most commondly used marketplace is Opensea.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nft12')"><p>Can I make an NFT?</p></button>
+          <div class="answer" *ngIf="nft12">
+            <p>There are two ways to make a NFT.</p>
+            <p>The first is by smart contract deployment on a website. This generally requires a website creation and a smart contract to be created for the project. Nova can provide newcomers with developers by emailing/contact via XXX.</p>
+            <p>The second way to create a NFT is to go through the custom contract on NFT marketplaces. Opensea has an easy to follow guide, process for creating new artworks as NFTs.</p>
+          </div>
+        </div>
+        <button id="nft_faq" class="subjects" (click)="subject('nftfaq')"><p>NFT FAQ</p></button>
+        <div class="subject_detail"  *ngIf="nftfaq">
+          <button class="question" (click)="showAnswer('nftfaq1')"><p>I am an Artist, how do I create my own project?</p></button>
+          <div class="answer" *ngIf="nftfaq1">
+            <p>The best place to start that is easy to use is Opensea with their instant custom contracts. For more detailed developer-made websites and smart contracts please contact the Nova team.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nftfaq2')"><p>Is this all a fad?</p></button>
+          <div class="answer" *ngIf="nftfaq2">
+            <p>Ethereum enables peer-to-peer transactions without the need for a third party. This means you are entirely in charge of your own currency. In addition, NFTs are the first time in history a person can own a digital product. The Blockchain acts as a public ledger that is always online and searchable.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nftfaq3')"><p>How can I avoid scams?</p></button>
+          <div class="answer" *ngIf="nftfaq3">
+            <p>The reality is scams are getting really good. Here are some quick tips. Never under no circumstances ever give out your seed phrase to anyone that asks. On discord be careful of direct messages, downloads and links that can hide malicious threats that can hack and drain your wallets.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nftfaq4')"><p>I think my NFT was stolen what can I do?</p></button>
+          <div class="answer" *ngIf="nftfaq4">
+            <p>At this stage it's the wild west or digital gold rush. If your funds or NFTs are stolen the only way is to track who stole it via the blockchain. However this may be much harder to achieve as scammers are able to cover their tracks. Talking directly to NFT communities in discords can be beneficial as people may work together to track down the person responsible.</p>
+          </div>
+          <button class="question" (click)="showAnswer('nftfaq5')"><p>Where do I go to view my NFT?</p></button>
+          <div class="answer" *ngIf="nftfaq5">
+            <p>Once you connect your wallet to Opensea webpage you can view your profile of NFTs.</p>
+          </div>
+        </div>
+        <button id="daos" class="subjects" (click)="subject('dao')"><p>DAOs</p></button>
+        <div class="subject_detail"  *ngIf="dao">
+          <button class="question" (click)="showAnswer('dao1')"><p>What are Decentralized Autonomous Organisations (DAOs)</p></button>
+          <div class="answer" *ngIf="dao1">
+            <p>A decentralised Autonomous organisation (DAO) is an organisation where the rules are encoded as a computer program that is controlled by organisation members which are not centralized by governess. This means there is no top-down hierarchy, no CEO to make decisions. A core team exists to guide the project but the governess is made by holders who have voting rights on the treasury.</p>
+          </div>
+          <button class="question" (click)="showAnswer('dao2')"><p>What makes DAOs unique?</p></button>
+          <div class="answer" *ngIf="dao2">
+            <p>A DAO is unique as it is not controlled by a centralized hierarchy system. DAOs are entirely decentralized from modern companies and instead the power is in the holders who have governing rights over the funds of the organisation, on the decision making decisions and proposals put forward are entirely made by holders of the DAO.</p>
+          </div>
+          <button class="question" (click)="showAnswer('dao3')"><p>How can DAOs operate?</p></button>
+          <div class="answer" *ngIf="dao3">
+            <p>DAOs are new ecosystems that are rapidly evolving entities. DAOs put forward proposals that are generally made by a core team. Members of the DAO then vote on these proposals which can range from where to place digital assets, to buy new assets for the treasury or where to put funds, allocate and invest in.</p>
+          </div>
+          <button class="question" (click)="showAnswer('dao4')"><p>How can I create a DAO?</p></button>
+          <div class="answer" *ngIf="dao4">
+            <p>A DAO can be created with four easy steps</p>
+            <p>1. Own an Ethereum Name service (ENS) domain</p>
+            <p>2. Create a DAO on Aragon <a href='https://aragon.org/aragon-client'>https://aragon.org/aragon-client</a></p>
+            <p>3. Configure settings, vote duration and percentage support for DAO launch</p>
+            <p>4. Create social media for the virtual community with Discord (and Twitter)</p>
+          </div>
+          <button class="question" (click)="showAnswer('dao5')"><p>What are the benefits of DAOs? </p></button>
+          <div class="answer" *ngIf="dao5">
+            <p>DAOs provide a number of benefits in the form of decentralized governance, membership, share-based membership and reputation-based memberships. For more information on DAOs please visit the Ethereum foundation website on DAOs. <a href='https://ethereum.org/en/dao/'>https://ethereum.org/en/dao/</a></p>
+          </div>
+        </div>
+        <button id="defi" class="subjects" (click)="subject('def')"><p>DeFi</p></button>
+        <div class="subject_detail"  *ngIf="def">
+          <button class="question" (click)="showAnswer('def1')"><p>What is Decentralized Finance (Defi)?</p></button>
+          <div class="answer" *ngIf="def1">
+            <p>DeFi is an emerging financial technology based on secure distributed ledgers similar to those used by cryptocurrencies. The system removes the control banks and institutions have on money, financial products, and financial services.</p>
+          </div>
+          <button class="question" (click)="showAnswer('def2')"><p>How can DeFi assist me?</p></button>
+          <div class="answer" *ngIf="def2">
+            <p>It eliminates the fees that banks and other financial companies charge for using their services. You hold your money in a secure digital wallet instead of keeping it in a bank. Anyone with an internet connection can use it without needing approval. You can transfer funds in seconds and minutes.</p>
+          </div>
+          <button class="question" (click)="showAnswer('def3')"><p>What are some Defi protocols I can look into?</p></button>
+          <div class="answer" *ngIf="def3">
+            <p>Other sources. The Ethereum foundation has a great insight into Defi with DAPPS and documents on understanding decentralised finance -<a href='https://ethereum.org/en/developers/docs/dapps/'>https://ethereum.org/en/developers/docs/dapps/</a>.</p>
+          </div>
+        </div>
+        <button id="digital_wallets" class="subjects" (click)="subject('wal')"><p>Digital Wallets</p></button>
+        <div class="subject_detail"  *ngIf="wal">
+          <button class="question" (click)="showAnswer('wal1')"><p>What is a digital wallet?</p></button>
+          <div class="answer" *ngIf="wal1">
+            <p>A digital wallet is an application that is made possible by the Blockchain and one that keeps a user’s funds (tokens and NFT assets) in an encrypted wallet (such as coin spot or metamask) wallet.</p>
+          </div>
+          <button class="question" (click)="showAnswer('wal2')"><p>Coinspot Wallet</p></button>
+          <div class="answer" *ngIf="wal2">
+            <p>A coin spot wallet can easily be made via their website. Coinspot is the most easy-to-access digital wallet that is centralized.</p>
+          </div>
+          <button class="question" (click)="showAnswer('wal3')"><p>Metamask Wallet</p></button>
+          <div class="answer" *ngIf="wal3">
+            <p>Metamask is the Ethereum native wallet that is decentralized. Please refer to the guide on how to set up a metamask wallet. This is also known as a hot wallet that is always connected to the internet and cryptocurrency network.</p>
+          </div>
+          <button class="question" (click)="showAnswer('wal4')"><p>Hardware Wallet (Ledger Nano X)</p></button>
+          <div class="answer" *ngIf="wal4">
+            <p>The hardware wallet is linked to a USB Dongle as further security as funds are placed on the USB device. This is also known as a cold wallet as its not connected to the internet.</p>
+          </div>
+          <button class="question" (click)="showAnswer('wal5')"><p>Seed Phase</p></button>
+          <div class="answer" *ngIf="wal5">
+            <p>The seed phase is a 16 word security code that enables users to encrypt their funds without another person having access to it. If a person loses their 16 word security code then there is no way to access the funds.</p>
+          </div>
+        </div>
+        <button id="ecosystem_terms" class="subjects" (click)="subject('eco')"><p>Ecosystem Terms</p></button>
+        <div class="subject_detail"  *ngIf="eco">
+          <button class="question" (click)="showAnswer('eco1')"><p>Airdrops</p></button>
+          <div class="answer" *ngIf="eco1">
+            <p>An airdrop is a claimable token or NFT that is awarded to existing holders that sign the TX. The holder pays nothing for the airdrop and it will appear in the chosen digital wallet.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eco2')"><p>Github</p></button>
+          <div class="answer" *ngIf="eco2">
+            <p>A provider of Internet hosting for software development and version control using Git. An open source website with information as a database. Each project can upload its GitHub URL for code which can be used by anyone all over the world. Acting as a hub for developers to seek grants, create new products and meet new associates.</p>
+          </div>
+          <button class="question" (click)="showAnswer('eco3')"><p>Web2</p></button>
+          <div class="answer" *ngIf="eco3">
+            <p>The internet as we know it. Controlled by a centralised company such as Facebook, Instagram and Youtube. There is no ownership of digital assets within web2</p>
+          </div>
+          <button class="question" (click)="showAnswer('eco4')"><p>Web3</p></button>
+          <div class="answer" *ngIf="eco4">
+            <p>The new internet. Decentralised and open source allows for anyone to build a new application. Digital ownership is enabled by the Blockchain.</p>
+          </div>
+        </div>
+        <button id="guides" class="subjects" (click)="subject('gud')"><p>Guides</p></button>
+        <div class="subject_detail"  *ngIf="gud">
+          <button class="question" (click)="showAnswer('gud1')"><p>How to set up a coinspot account.</p></button>
+          <div class="answer" *ngIf="gud1">
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/QNu4U2GQZLc" title="Coinspot account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <button class="question" (click)="showAnswer('gud2')"><p>How to set up a Metamask account.</p></button>
+          <div class="answer" *ngIf="gud2">
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/Af_lQ1zUnoM" title="Metamask account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <button class="question" (click)="showAnswer('gud3')"><p>How to set up a Ledger Nano X account (Hardware wallet).</p></button>
+          <div class="answer" *ngIf="gud3">
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/GPpZxOjvU10" title="Ledger Nano X account" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <button class="question" (click)="showAnswer('gud4')"><p>How to use Opensea</p></button>
+          <div class="answer" *ngIf="gud4">
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/2tBPp8MLS9E" title="Using Opensea" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <button class="question" (click)="showAnswer('gud5')"><p>How to use uniswap</p></button>
+          <div class="answer" *ngIf="gud5">
+            <div class="youtube_embed">
+              <iframe class="iframe_youtube" width="560" height="315" src="https://www.youtube.com/embed/QNu4U2GQZLc" title="Using Uniswap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <button id="acronyms" class="subjects" (click)="subject('acc')"><p>Acronyms</p></button>
+        <div class="subject_detail"  *ngIf="acc">
+          <button class="question" (click)="showAnswer('acc1')"><p>NFT</p></button>
+          <div class="answer" *ngIf="acc1">
+            <p>Non Fungible Token</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc2')"><p>ETH</p></button>
+          <div class="answer" *ngIf="acc2">
+            <p>Ether</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc3')"><p>DAPP</p></button>
+          <div class="answer" *ngIf="acc3">
+            <p>Decentralized Application</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc4')"><p>DAO</p></button>
+          <div class="answer" *ngIf="acc4">
+            <p>Decentralized Autonomous Organisation</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc5')"><p>FOMO</p></button>
+          <div class="answer" *ngIf="acc5">
+            <p>Fear of missing out</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc6')"><p>FUD</p></button>
+          <div class="answer" *ngIf="acc6">
+            <p>Fear, uncertainty, and Doubt</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc7')"><p>DYOR</p></button>
+          <div class="answer" *ngIf="acc7">
+            <p>Do your own homework</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc8')"><p>WAGMI</p></button>
+          <div class="answer" *ngIf="acc8">
+            <p>We are going to make it</p>
+          </div>
+          <button class="question" (click)="showAnswer('acc9')"><p>GMI</p></button>
+          <div class="answer" *ngIf="acc9">
+            <p>Going to make it</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="container">
+      <div class="newfooterbox newfooterboxedu">
+        <img
+          class="animated_star3"
+          src="../../../assets/images/starimg.png"
+          alt="animate_img"
+        />
+        <div class="newlogofooter d-flex align-items-center">
+          <img
+            class="newlogo me-2"
+            src="../../../assets/images/novadao_logo/icon.png"
+            alt=""
+          />
+          <span class="newlogo_heading">Nova DAO</span>
+        </div>
+        <div class="new_footer_icons">
+          <div>
+            <a
+              class="footerround_box"
+              href="https://discord.gg/D7FKzVFztf"
+              target="_blank"
+            >
+              <i class="fab fa-discord" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box ms-2 me-2"
+              href="https://medium.com/@Nova.DAO"
+              target="_blank"
+            >
+              <i class="fab fa-medium-m" aria-hidden="true"></i
+            ></a>
+          </div>
+          <div>
+            <a
+              class="footerround_box ms-2 me-2"
+              href="https://open.spotify.com/show/0n335tlzRaT8S9N2zyc6Kl"
+              target="_blank"
+            >
+              <i class="fab fa-spotify" aria-hidden="true"></i
+            ></a>
+          </div>
+
+          <div>
+            <a
+              class="footerround_box"
+              href="https://twitter.com/NovaDaoNFT"
+              target="_blank"
+            >
+              <i class="fab fa-twitter" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacebox"></div>
+  </div>
+  

@@ -1,0 +1,697 @@
+<mat-progress-bar *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+<div id="market_box" *ngIf="marketPlace">
+  <div class="productDes">
+    <div
+    *ngIf="orderLevel !== 3"
+    class="product_detail_heading"
+    routerLink="/shop"
+  >
+    <button
+      class="mr-1"
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon button with a heart icon"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h5 class="page_title">Back to Shop</h5>
+   </div>
+ 
+
+    <!--Buy Product-->
+    <div class="productDes_block product_detail_card" *ngIf="orderLevel === 0">
+  
+      <div class="carosel_part">
+        <h4 class="head_mob">{{ data?.name }}</h4>
+        <div id="carouselStatus">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let image of images">
+              <div class="cardcaro">
+                <img
+                  style="height: 100%"
+                  src="{{ imgUrl }}{{ selectedVariant }}/{{ image }} "
+                  alt=""
+                  srcset=""
+                />
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div class="right_s_caro">
+        <div class="pro_des_head">
+          <h4 class="head">{{ data?.name }}</h4>
+          <div class="pro_des_price">
+            <p class="mb-2">Current Price</p>
+            <h4>{{ current_price }} ETH</h4>
+            <p class="mb-2" *ngIf="remaining_qty > 0">
+              Available Quantity {{ remaining_qty }}
+            </p>
+            <p class="mb-2 mat-error" *ngIf="remaining_qty === 0">
+              Out of Stock
+            </p>
+          </div>
+          <div *ngIf="colours.length > 0" class="choice_color_size">
+            <div class="color_choice">
+              <p class="mb-2">
+                Color: <span> {{ colorList[colours[active_index]] }} </span>
+              </p>
+            </div>
+            <div class="color_choose">
+              <select
+                class="form-control form-select"
+                (change)="updateIndex($event)"
+                name="colurIndex"
+                [(ngModel)]="colurIndex"
+              >
+                <option
+                  *ngFor="let color of colours; let i = index"
+                  [value]="color"
+                  [selected]="color === colurIndex"
+                >
+                  {{ colorList[color] }}
+                </option>
+              </select>
+            </div>
+            <div class="color_choice">
+              <p class="mb-2">
+                Size: <span> {{ sizeList[defaultProductSize] }} </span>
+              </p>
+            </div>
+            <div class="size_chosse">
+              <select
+                class="form-control form-select"
+                (change)="updateSize($event)"
+                name="sizeIndex"
+                [(ngModel)]="sizeIndex"
+              >
+                <option
+                  *ngFor="let size of size_detail; let k = index"
+                  [value]="size.sizeId"
+                >
+                  {{ sizeList[size.sizeId] }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="purchase_qty_box mt-4 mb-2">
+            <div class="d-flex select_product_value_item">
+              <button (click)="increaseQty()" mat-button>
+                <mat-icon>add</mat-icon>
+              </button>
+              <input
+                matInput
+                [value]="purchaseQty"
+                (keydown)="updateChange($event)"
+                min="0"
+                [max]="data?.product_data?.total_qty"
+                type="text"
+                readonly
+                disabled
+              />
+              <button (click)="decreaseQty()" mat-button>
+                <mat-icon> remove </mat-icon>
+              </button>
+            </div>
+            <div class="pro_purch_btn">
+              <button mat-button (click)="buyNow()">BUY NOW</button>
+            </div>
+          </div>
+          <span *ngIf="quantityError" class="select_product_warning"
+            >Please Select Product Quantity</span
+          >
+
+          <div class="pro_detail">
+            <mat-accordion>
+              <mat-expansion-panel
+                class="mat-elevation-z0"
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Product Detail </mat-panel-title>
+                  <mat-panel-description>
+                    {{ panelOpenState ? "open" : "closed" }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div [ngClass]="{ limitTextHeight: isReadMore }">
+                  {{ data?.description }}
+                </div>
+                <a
+                  (click)="showText()"
+                  *ngIf="data?.description.length > 360"
+                  style="text-decoration: none; cursor: pointer"
+                  >{{ isReadMore ? "Read More" : "Read Less" }}</a
+                >
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Add Shipping Details-->
+    <div class="shipping_detail product_detail_card" *ngIf="orderLevel === 1">
+      <div class="row" *ngIf="shippingDetails.length > 0">
+        <h4 class="text-center font-weight-bold">DELIVERY ADDRESS</h4>
+        <div class="shipping_saved_address">
+          <div class="groupdetail">
+            <mat-radio-group
+              class="custom_addresses"
+              aria-label="Select an option"
+              [(ngModel)]="productObj.shippingId"
+            >
+              <div
+                *ngFor="let ship of shippingDetails"
+                class="shipping_detail_address"
+              >
+                <mat-radio-button
+                  class="select_address"
+                  [value]="ship._id"
+                  (change)="chooseShippingAddress(ship._id)"
+                >
+                  <strong>{{ ship.name }}</strong>
+                  <div class="full_shipping_address">
+                    <span>{{ ship.streetAddress }}</span
+                    >, <span>{{ ship.city }}</span> ,
+                    <span>{{ ship.state }}</span
+                    >-<span>{{ ship.zip }} , </span>
+                    <span>{{ ship.country }}</span
+                    >,
+                  </div>
+                  <span><strong>Contact</strong> : {{ ship.phone }}</span>
+                  <button
+                    mat-button
+                    class="ship_here_btn"
+                    *ngIf="productObj.shippingId === ship._id"
+                    (click)="addShippingDetail()"
+                  >
+                    DELIVER HERE
+                  </button>
+                </mat-radio-button>
+                <div class="icons-new">
+                  <i
+                    class="fas fa-edit new-icon"
+                    (click)="editShipping(ship)"
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt new-icon"
+                    (click)="deleteShipping(ship._id)"
+                  ></i>
+                </div>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="panelOpenState">
+          <mat-expansion-panel-header (click)="resetShipping()">
+            <mat-panel-title>
+              <mat-icon>add</mat-icon> {{ addressTitle }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <h4 class="text-center">Shipping Details</h4>
+          <form [formGroup]="shippingFormGroup" class="shipping_form">
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Name</mat-label>
+
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="name"
+                  placeholder="Enter Name"
+                />
+              </mat-form-field>
+              <mat-error *ngIf="controls.name.touched && controls.name.errors">
+                <mat-error
+                  *ngIf="controls.name.touched && controls.name.errors.required"
+                >
+                  Name is required.
+                </mat-error>
+                <mat-error
+                  *ngIf="controls.name.touched && controls.name.errors.pattern"
+                >
+                  Name is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Street Address</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="streetAddress"
+                  placeholder="Enter Street Address"
+                />
+              </mat-form-field>
+
+              <mat-error
+                *ngIf="
+                  controls.streetAddress.touched &&
+                  controls.streetAddress.errors
+                "
+              >
+                Street Address is required.
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">City/Province</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="city"
+                  placeholder="Enter City/Province"
+                />
+              </mat-form-field>
+              <mat-error *ngIf="controls.city.touched && controls.city.errors">
+                <mat-error *ngIf="controls.city.errors.required">
+                  City/Province is required.
+                </mat-error>
+                <mat-error *ngIf="controls.city.errors.pattern">
+                  City/Province is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">State</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="state"
+                  placeholder="Enter State"
+                />
+              </mat-form-field>
+              <mat-error
+                *ngIf="controls.state.touched && controls.state.errors"
+              >
+                <mat-error *ngIf="controls.state.errors.required">
+                  State is required.
+                </mat-error>
+                <mat-error *ngIf="controls.state.errors.pattern">
+                  State is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Zip</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="zip"
+                  placeholder="Enter Zip Code"
+                  minlength="2"
+                  maxlength="14"
+                />
+              </mat-form-field>
+
+              <mat-error *ngIf="controls.zip.touched && controls.zip.errors">
+                <mat-error *ngIf="controls.zip.errors.required">
+                  Zip is required.
+                </mat-error>
+                <mat-error *ngIf="controls.zip.errors.pattern">
+                  Zip is invalid.
+                </mat-error>
+                <mat-error *ngIf="controls.zip.errors.minlength">
+                  Minimum 2 digit required.
+                </mat-error>
+                <mat-error *ngIf="controls.zip.errors.maxlength">
+                  Zip should not be greater then 14 digit.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Country</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="country"
+                  placeholder="Enter Country Name"
+                />
+              </mat-form-field>
+              <mat-error
+                *ngIf="controls.country.touched && controls.country.errors"
+              >
+                <mat-error *ngIf="controls.country.errors.required">
+                  Country is required.
+                </mat-error>
+                <mat-error *ngIf="controls.country.errors.pattern">
+                  Country is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Email</mat-label>
+              <mat-form-field class="input_text_content" floatLabel="never">
+                <input
+                  matInput
+                  formControlName="email"
+                  placeholder="Enter Your Email"
+                />
+              </mat-form-field>
+
+              <mat-error
+                *ngIf="controls.email.touched && controls.email.errors"
+              >
+                <mat-error *ngIf="controls.email.errors.required">
+                  Email is required.
+                </mat-error>
+                <mat-error *ngIf="controls.email.errors.pattern">
+                  Email is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="shipping_form_detail">
+              <mat-label class="ship_label">Phone</mat-label>
+              <mat-form-field
+                class="input_text_content phone_country"
+                floatLabel="never"
+              >
+                <ngx-mat-intl-tel-input
+                  formControlName="phone"
+                  [preferredCountries]="['in']"
+                  class="slect_country"
+                  [enablePlaceholder]="false"
+                  placeholder="Enter Your Phone"
+                  [enableSearch]="true"
+                  name="phone"
+                  #phone
+                >
+                </ngx-mat-intl-tel-input>
+              </mat-form-field>
+              <mat-error
+                *ngIf="controls.phone.touched && controls.phone.errors"
+              >
+                <mat-error *ngIf="controls.phone.errors.required">
+                  Phone is required.
+                </mat-error>
+                <mat-error *ngIf="controls.phone.errors.pattern">
+                  Phone is invalid.
+                </mat-error>
+                <mat-error *ngIf="controls.phone.errors.validatePhoneNumber">
+                  Phone is invalid.
+                </mat-error>
+              </mat-error>
+            </div>
+            <div class="text-center">
+              <button
+                class="ship_here_btn"
+                [disabled]="shippingFormGroup.invalid"
+                (click)="addShippingDetail()"
+                mat-button
+              >
+                SAVE AND DELIVER HERE
+              </button>
+            </div>
+          </form>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <!--Order Summry-->
+    <div class="order-summary product_detail_card" *ngIf="orderLevel === 2">
+      <div class="order-heading">
+        <span>Order Summary</span>
+      </div>
+      <hr />
+
+      <div class="order-summary-contentdetail">
+        <div class="orderproduct-img">
+          <img
+            src="{{ imgUrl }}{{ selectedVariant }}/{{ images[0] }} "
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="order_detail_leftcontent">
+          <div class="orderproduct-detail">
+            <!-- <span class="price-heading">Product Detail</span>
+                <br /> -->
+            <span class="product-name">{{ data?.name }}</span>
+            <span
+              ><strong>Color</strong> :
+              {{ colorList[size_detail[0].colorId] }}</span
+            >
+            <span
+              ><strong>Material</strong> :
+              {{ materialList[size_detail[0].materialId] }}</span
+            >
+            <span
+              ><strong>Size</strong> :
+              {{ sizeList[size_detail[0].sizeId] }}</span
+            >
+            <span class="price-txt"
+              ><strong>Price</strong> : {{ productObj.price }} ETH
+            </span>
+            <span
+              ><strong>Collection</strong> :
+              {{ collectionAddress }}
+            </span>
+            <span><strong>Token Id</strong> : {{ tokenId }} </span>
+
+            <div *ngIf="productObj.shippingId">
+              <span class="price-txt">Shipping To : </span><br />
+
+              <strong>{{
+                shippingDetailsObj[productObj.shippingId].name
+              }}</strong>
+              <div class="full_shipping_address">
+                <span>{{
+                  shippingDetailsObj[productObj.shippingId].streetAddress
+                }}</span
+                >,
+                <span>{{
+                  shippingDetailsObj[productObj.shippingId].city
+                }}</span>
+                ,
+                <span>{{
+                  shippingDetailsObj[productObj.shippingId].state
+                }}</span
+                >-<span
+                  >{{ shippingDetailsObj[productObj.shippingId].zip }} ,
+                </span>
+                <span>{{
+                  shippingDetailsObj[productObj.shippingId].country
+                }}</span
+                >,
+              </div>
+              <span
+                ><strong>Contact</strong> :
+                {{ shippingDetailsObj[productObj.shippingId].phone }}</span
+              >
+            </div>
+
+            <div *ngIf="!productObj.shippingId && productObj.shippingDetails">
+              <span><strong>Shipping At</strong> : </span><br />
+              <strong>{{ productObj.shippingDetails?.name }}</strong>
+              <div class="full_shipping_address">
+                <span>{{ productObj.shippingDetails?.streetAddress }}</span
+                >,
+                <span>{{ productObj.shippingDetails?.city }}</span>
+                ,
+                <span>{{ productObj.shippingDetails?.state }}</span
+                >-<span>{{ productObj.shippingDetails?.zip }} , </span>
+                <span>{{ productObj.shippingDetails?.country }}</span>
+              </div>
+              <span
+                ><strong>Contact</strong> :
+                {{ productObj.shippingDetails?.phone }}</span
+              >
+            </div>
+          </div>
+          <div class="price-detail">
+            <div class="price-detail-heading">
+              <span class="price-heading">Price Details</span>
+            </div>
+            <div class="price-content">
+              <div class="price-quantity">
+                <span class="bold-txt"
+                  >Price ({{ productObj.quantity }} item) :
+                </span>
+              </div>
+              <div class="price">
+                <span>{{ productObj.cost }} ETH</span>
+              </div>
+            </div>
+            <div class="total-price-detail">
+              <div class="total-payable">
+                <span class="bold-txt">Total Payable :</span>
+              </div>
+              <div class="total-price">
+                <span>{{ productObj.cost }} ETH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="order-pay-btn mt-3">
+        <button mat-flat-button class="pay-btn" (click)="sendTransaction()">
+          <span> PAY {{ productObj.cost }} ETH</span>
+        </button>
+      </div>
+    </div>
+    <!--Thank you-->
+    <div *ngIf="orderLevel === 3" class="text-center">
+      <div class="order-summary-content">
+        <div class="order-content">
+          <img
+            src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png"
+            alt=""
+            style="width: 125px; height: 120px"
+          />
+          <p class="thankyou-txt">Thank You For Your Order!</p>
+        </div>
+        <div class="order-detail">
+          <!-- <p class="other-detail">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Praesentium iste ipsa numquam odio dolores, nam.
+              </p> -->
+          <p class="other-detail">
+            Your order #{{ orderData.orderId }} is placed successfully.
+          </p>
+
+          <div class="confirmation-heading mb-3">
+            <span>Order Confirmation #</span>
+            <span>{{ orderData.orderId }}</span>
+          </div>
+          <div class="details-order">
+            <div class="confirmation-detail mb-2">
+              <!-- <span>Product</span> -->
+              <span class="order_product_name">{{ data?.name }}</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Quantity</span>
+              <span>{{ orderData?.quantity }}</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Collection</span>
+              <span>{{ collectionAddress }}</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Token No</span>
+              <span>{{ tokenNo }}</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Sub Total</span>
+              <span>{{ orderData.cost }} ETH</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Shipping</span>
+              <span>0</span>
+            </div>
+            <div class="confirmation-detail mb-2">
+              <span>Sales Tax</span>
+              <span>0</span>
+            </div>
+            <hr />
+            <div class="total-paytxt">
+              <span>TOTAL</span>
+              <span>{{ orderData.cost }} ETH</span>
+            </div>
+            <hr />
+          </div>
+
+          <div class="address">
+            <div class="adrresses">
+              <span class="address-heading"> Delivery Address </span>
+              <span style="text-align: left">
+                <strong>{{ orderData.shippingDetail.name }}</strong>
+                <div>
+                  <span>{{ orderData.shippingDetail.streetAddress }}</span
+                  >,
+                  <span>{{ orderData.shippingDetail.city }}</span>
+                  ,
+                  <span>{{ orderData.shippingDetail.state }}</span
+                  >-<span>{{ orderData.shippingDetail.zip }} , </span>
+                  <span>{{ orderData.shippingDetail.country }}</span>
+                </div>
+                <span
+                  ><strong class="price-txt">Contact</strong> :
+                  {{ orderData.shippingDetail.phone }}</span
+                >
+              </span>
+            </div>
+          </div>
+          <!-- <button mat-raised-button class="pay-amt-btn" *ngIf="pending" >
+             PAY
+          </button> -->
+          <a href="javascript:void(0)" class="pending-pay"
+            ><span *ngIf="pending" routerLink="/order-history">
+              <!-- Please Complete the Order into Order History, Pending Payment {{ remainingPay.toFixed(6)}} -->
+              Order Pending due to incomplete payment. Click here to complete
+              your order.
+            </span></a
+          >
+        </div>
+        <div class="back">
+          <button mat-raised-button class="back-btn" routerLink="/shop">
+            Back to MarketPlace
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="orderLevel === 5">
+  <div class="productDes_block product_detail_card">
+    <form (ngSubmit)="checkOwner()" [formGroup]="nftForm">
+      <div class="custom_content">
+        <mat-label class="text-start"
+          ><strong>Collection List</strong>
+        </mat-label>
+        <select
+          class="form-control form-select custom_selection"
+          name="address"
+          (change)="onChange($event?.target)"
+          formControlName="address"
+        >
+          <option value="" for="address" selected>Collection</option>
+          <option *ngFor="let nft of nftAddress" [value]="nft?.address">
+            {{ nft?.title }}
+          </option>
+        </select>
+        <mat-error class="text-start" *ngIf="control.title.errors?.required"
+          ><small>Collection is Required.</small>
+        </mat-error>
+        <div class="custom_input_field">
+          <mat-label><strong>Token ID</strong> </mat-label>
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              formControlName="tokenId"
+              [(ngModel)]="tokenId"
+              placeholder="Token ID"
+              value=""
+            />
+            <mat-error *ngIf="control.tokenId.errors?.pattern"
+              >Only numbers are permitted!
+            </mat-error>
+            <mat-error *ngIf="control.tokenId.errors?.required"
+              >Required!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="submitbtn">
+          <button
+            mat-flat-button
+            class="custom_submit_btn"
+            type="submit"
+            [disabled]="!tokenId || !nftAddress || !nftForm"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<ngx-spinner
+  bdColor="transparent !important"
+  size="medium"
+  color="grey"
+  type="square-jelly-box"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>

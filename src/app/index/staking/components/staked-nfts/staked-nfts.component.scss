@@ -1,0 +1,41 @@
+.member_img {
+    // max-width: 248px;
+    width: unset !important;
+  }
+  @media (min-width: 768px) and (max-width: 816px) {
+    .member_img {
+      width: 120px !important;
+    }
+  }
+  .member_img {
+    width: 180px !important;
+    img {
+      border-radius: 20px !important;
+      width: 50%;
+    }
+  }
+
+ 
+  .list_format {
+    display: flex;
+
+  }
+
+  .nft_format {
+    display: flex;
+    align-items: center;
+    padding: 3.5px;
+ }
+
+  ul{
+    list-style-type: none;
+  }
+
+  .nft_list {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    overflow-y: auto;
+
+  }
+

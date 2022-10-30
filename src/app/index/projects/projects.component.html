@@ -1,0 +1,78 @@
+  <app-menu-bar class="menu-bar"></app-menu-bar>
+
+  <div class="main_section app_mainsection">
+      <div class="appsection">
+        <div id="landing">
+        <div class="new_topsection">
+          <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
+          <p >Let the age of Web3 Creation begin!</p>
+          
+          <img
+            class="animated_star2"
+            src="../../../assets/images/starimg.png"
+            alt="animate_img"
+          />
+          <img
+            class="animated_star1"
+            src="../../../assets/images/starimg.png"
+            alt="animate_img"
+          />
+        
+      </div>
+      
+
+
+      <div class="whole"> 
+          <div class="buttonIn">
+            <i class="fa fa-search Sicon" aria-hidden="true"></i>
+            <input class="icon" type="text" id="enter" >
+            <button class="srchBtn">Search</button>
+        
+        </div>
+        <div >
+          <div class="inH" >
+          <p class="lbl">Sort by</p>
+          <div class="btnH">
+          <div   id="word">
+            latest
+          </div><span  class="fa fa-chevron-down"></span>
+          </div>
+          </div>
+          <div id="down"  class="dropdown-contentAp">
+            <a  class="Ref" >Name</a>
+            <a  class="Ref" >Latest</a>
+            <a  href="#" class="Ref">Recent</a>
+          </div>
+          </div>
+        
+        </div> 
+        <div class="MarFun" style="overflow-x:auto;" >
+          
+          <div class="Pin" *ngFor="let item of recentPro" >
+            <div class="PDiv" >
+            <img class="imgPro" src="{{item['Img']}}"   >
+              </div>
+              <div class="PHolder">
+            <p class="left">{{item['Name']}}</p>
+            <p class="left">{{item['Description']}}</p>
+            
+        <div class="funreq">
+          <div class="funreqin"><p class="funt">Funding Required</p></div>
+          <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
+        
+        </div>
+        
+        <label class="Precieved">100% recieved</label>
+        <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
+        
+        <div class="BF">
+          <label class="faded">Voting expired</label>
+          <!-- <button class="Fv">Vote</button> -->
+        </div>
+        </div>
+        </div>
+          
+          
+          </div>
+          </div>
+          </div>
