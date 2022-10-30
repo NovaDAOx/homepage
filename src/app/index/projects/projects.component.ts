@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 @Component({
