@@ -1,0 +1,63 @@
+.main_section {
+    background-image: url("../../../assets/images/newhomebg_opt.png");
+    background-color: #0d0116 !important;
+    color: #ffffff !important;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 120px 20px 0px 20px;
+}
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  .appsection {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1150px;
+  }
+  .app_mainsection {
+    margin-top: 10px;
+  }
+
+  .new_topsection {
+    text-align: center;
+    padding-top: 15px !important;
+  
+    p {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 82px;
+      letter-spacing: -0.04em;
+      text-align: center;
+      color: #ffffff;
+      margin: 0 auto;
+      max-width: 871px;
+      margin-bottom: 58px;
+      position: relative;
+      z-index: 50;
+    }
+    .newconnect_btn {
+      width: 278px !important;
+      max-width: 278px;
+      position: relative;
+      z-index: 50;
+    }
+  }
+  .animated_star2 {
+    top: 142px;
+    left: 9px;
+    width: 50px;
+  }
+  .animated_star1 {
+    top: 456px;
+    right: 79px;
+    width: 50px;
+  }
+  div.mat-dialog-container
+  {
+    background-color:none !important;
+  }
