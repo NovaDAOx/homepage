@@ -10,6 +10,7 @@ import { ProjectpageComponent } from './projectpage/projectpage.component';
 import {DAOComponent} from './dao/dao.component'
 import { ProjectappComponent } from './projectapp/projectapp.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AllprojectsComponent } from './allprojects/allprojects.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'project', component:ProjectpageComponent},
   { path: 'DAO', component:DAOComponent},
   { path: 'application',component:ProjectappComponent},
-  { path: 'projectsduration',component:ProjectsComponent}
+  { path: 'projectsduration',component:ProjectsComponent},
+  { path: 'AllPro',component:AllprojectsComponent}
 ];
 
 @NgModule({

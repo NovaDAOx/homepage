@@ -28,6 +28,7 @@ import { ProjectpageComponent } from './index/projectpage/projectpage.component'
 import { DAOComponent } from './index/dao/dao.component';
 import { ProjectsComponent } from './index/projects/projects.component';
 import { ProjectappComponent } from './index/projectapp/projectapp.component';
+import { AllprojectsComponent } from './index/allprojects/allprojects.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
@@ -58,6 +59,7 @@ import { SearchPipe } from './index/dao/search.pipe'
     ProjectappComponent,
     ProjectsComponent,
     SearchPipe,
+    AllprojectsComponent
 
   ],
   imports: [

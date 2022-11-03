@@ -4,7 +4,7 @@
       color: #ffffff !important;
       background-position: top;
       background-repeat: no-repeat;
-      margin-top:6rem !important;
+      // margin-top:6rem !important;
       background-size: contain;
       padding: 120px 20px 0px 20px;
   }
@@ -183,6 +183,11 @@
         align-content: center;
         justify-content: center;
         align-items: center;
+      }
+      .MarL
+      {
+        margin-left: 0px !important;
+        width:343px !important;
       }
       .D2Container
       {

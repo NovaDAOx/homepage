@@ -118,7 +118,7 @@
     profileImg:string=null;
     URL = [];
     fileH = [];
-    isConnected :any = null;
+    
 
     loadFirstTime: boolean = true;
     dialogConfig = new MatDialogConfig();
@@ -345,7 +345,7 @@
       // if(this.ProjectName != "" || this.ProjectDes1 && this.ProjectDes2 !="")
       else    {
         console.log('submission triggered')
-        const us = localStorage.getItem('walletId').toString();
+        
         const t = "this";
         const ref = this.db.list("Projects")
         const teamone = []

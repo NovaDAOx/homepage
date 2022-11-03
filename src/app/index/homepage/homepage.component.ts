@@ -180,8 +180,8 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     }, 5000 )
       this.setTimeout(()=>{
         document.getElementById('ifraContainer2').style.visibility = 'visible';
-        const daoworkContainer = document.getElementsByClassName('daoNFTwork_container')[0]
-        daoworkContainer.style.marginTop = "234px"
+        const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
+        daoworkContainer.style.marginTop = "175px"
         // window.addEventListener('message', event => {
         //     if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
         //       // The data was sent from your site. It sent with postMessage is stored in event.data:
@@ -274,7 +274,7 @@ async message()
   subscribeHome()
   {
     document.getElementById('ifraContainer2').style.visibility = 'visible';
-    document.getElementsByClassName('daoNFTwork_container')[0].style.marginTop = '234px'
+    document.getElementsByClassName('daowork_container')[0].style.marginTop = '175px'
     
    
   }

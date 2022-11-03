@@ -14,6 +14,7 @@ import { ReviewpageComponent } from './reviewpage/reviewpage.component';
 import { ProjectpageComponent } from './projectpage/projectpage.component';
 import { ApplicationpageComponent } from './applicationpage/applicationpage.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AllprojectsComponent } from './allprojects/allprojects.component';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import { ProjectsComponent } from './projects/projects.component';
 
   
    
+  
+    
   ],
   imports: [CommonModule,
      IndexRoutingModule,

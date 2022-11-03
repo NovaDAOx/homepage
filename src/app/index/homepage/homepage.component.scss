@@ -538,7 +538,7 @@
   }
 }
 .daowork_container {
-  margin-top: 2rem !important;
+  margin-top: 2rem ;
   padding:16px !important;
 }
 
@@ -962,4 +962,15 @@
   {
   width:100% !important;
   }
+}
+@media (max-width: 600px) {
+  .fle-btn
+  {
+  display: flex !important;
+    flex-direction: column !important;
+    align-content: center !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 150px;
+}
 }
