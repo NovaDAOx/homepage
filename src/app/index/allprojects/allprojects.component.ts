@@ -7,6 +7,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class AllprojectsComponent implements OnInit {
   allPro = []
+  name = ""
   constructor(private db:FirebaseService) { }
 
   async allProjects()

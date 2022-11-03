@@ -5,7 +5,7 @@ import { MintComponent } from './mint/mint.component';
 import { StakeComponent } from './staking/stake.component';
 import { Education } from './education/education.component';
 import {ApplicationpageComponent } from './applicationpage/applicationpage.component';
-import { ReviewpageComponent } from './reviewpage/reviewpage.component';
+import { latestProComponent } from './latestPro/latestPro.component';
 import { ProjectpageComponent } from './projectpage/projectpage.component';
 import {DAOComponent} from './dao/dao.component'
 import { ProjectappComponent } from './projectapp/projectapp.component';
@@ -19,12 +19,12 @@ const routes: Routes = [
   { path: 'stake', component: StakeComponent },
   { path: 'education', component: Education },
   // { path: 'application', component:ApplicationpageComponent},
-  { path: 'review', component:ReviewpageComponent},
+  { path: 'latestProjects', component:latestProComponent},
   { path: 'project', component:ProjectpageComponent},
   { path: 'DAO', component:DAOComponent},
   { path: 'application',component:ProjectappComponent},
-  { path: 'projectsduration',component:ProjectsComponent},
-  { path: 'AllPro',component:AllprojectsComponent}
+  { path: 'pastProjects',component:ProjectsComponent},
+  { path: 'AllProjects',component:AllprojectsComponent}
 ];
 
 @NgModule({

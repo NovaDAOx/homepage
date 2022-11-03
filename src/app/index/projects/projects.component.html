@@ -25,7 +25,7 @@
       <div class="whole"> 
           <div class="buttonIn">
             <i class="fa fa-search Sicon" aria-hidden="true"></i>
-            <input class="icon" type="text" id="enter" >
+            <input class="icon" type="text" id="enter" [(ngModel)]="name">
             <button class="srchBtn">Search</button>
         
         </div>
@@ -48,11 +48,12 @@
         </div> 
         <div class="MarFun" style="overflow-x:auto;" >
           
-          <div class="Pin" *ngFor="let item of recentPro" >
+          <div class="Pin" *ngFor="let item of recentPro | itemnameFilter:name;let i = index">
             <div class="PDiv" >
             <img class="imgPro" src="{{item['Img']}}"   >
               </div>
               <div class="PHolder">
+                <p>{{i + 1}}</p>
             <p class="left">{{item['Name']}}</p>
             <p class="left">{{item['Description']}}</p>
             

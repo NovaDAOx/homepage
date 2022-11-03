@@ -73,7 +73,7 @@
 	background: linear-gradient(0deg, rgb(13, 14, 26), rgb(13, 15, 26));
 
   padding: 20px !important;
-  animation: 3s rotate linear infinite;
+  // animation: 3s rotate linear infinite;
   transition: 0.15s;
 }
 .btn2:hover {
@@ -437,7 +437,7 @@
 }
 .footerround_box, .round_box {
   --angle: 0;
-  animation: 3s rotate linear infinite;
+  // animation: 3s rotate linear infinite;
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -865,17 +865,17 @@
   height: 200px;
   width:305px;
   transform-style:preserve-3d;
-  animation: rotate 30s linear infinite;
+  // animation: rotate 30s linear infinite;
 }
-@keyframes rotate
-{
-  0%{
-    transform: perspective(1000px) rotateY(0deg);
-  }
-  100%{
-    transform: perspective(1000px) rotateY(360deg);
-  }
-}
+// @keyframes rotate
+// {
+//   0%{
+//     transform: perspective(1000px) rotateY(0deg);
+//   }
+//   100%{
+//     transform: perspective(1000px) rotateY(360deg);
+//   }
+// }
 
 .slider span 
 {
@@ -886,7 +886,7 @@
   height: 70%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+  // transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
 }
 
 .slider span img
@@ -903,7 +903,7 @@
 
 .slider span:hover img 
 {
-  transform: translateY(-50px) scale(1.2);
+  // transform: translateY(-50px) scale(1.2);
   width:90%;
   height: 90%;
 }

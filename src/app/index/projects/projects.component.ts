@@ -7,6 +7,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class ProjectsComponent implements OnInit {
 recentPro = [] ; 
+name = ""
   constructor( private db:FirebaseService) 
   {}
 

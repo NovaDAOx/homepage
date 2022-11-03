@@ -12,12 +12,14 @@ import {
   MatDialogRef,
 } from "@angular/material/dialog";
 @Component({
-  selector: 'app-reviewpage',
-  templateUrl: './reviewpage.component.html',
-  styleUrls: ['./reviewpage.component.scss']
+  selector: 'app-latestPro',
+  templateUrl: './latestPro.component.html',
+  styleUrls: ['./latestPro.component.scss']
 })
-export class ReviewpageComponent implements OnInit {
-latestPro =[]
+export class latestProComponent implements OnInit {
+latestPro =[];
+name = "" ;
+
 loadFirstTime: boolean = true;
 dialogConfig = new MatDialogConfig();
 "dialogueReference": MatDialogRef<MetamaskComponent>;

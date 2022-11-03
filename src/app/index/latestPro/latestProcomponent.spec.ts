@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReviewpageComponent } from './reviewpage.component';
+import { latestProComponent } from './latestPro.component';
 
-describe('ReviewpageComponent', () => {
-  let component: ReviewpageComponent;
-  let fixture: ComponentFixture<ReviewpageComponent>;
+describe('latestProComponent', () => {
+  let component: latestProComponent;
+  let fixture: ComponentFixture<latestProComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReviewpageComponent ]
+      declarations: [ latestProComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReviewpageComponent);
+    fixture = TestBed.createComponent(latestProComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
