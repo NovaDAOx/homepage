@@ -3,9 +3,8 @@
   import { style } from '@angular/animations';
   import { DIR_DOCUMENT } from '@angular/cdk/bidi';
   import { Component, OnInit } from '@angular/core';
-  import { AngularFireModule } from '@angular/fire/compat';
-  import { AngularFireDatabase } from '@angular/fire/compat/database';
-  import { AngularFireStorage } from '@angular/fire/compat/storage';
+  import { AngularFireDatabase } from '@angular/fire/database';
+  import { AngularFireStorage } from '@angular/fire/storage';
   import { MatSnackBar } from "@angular/material/snack-bar";
   import { NgxSpinnerService } from 'ngx-spinner';
   import { environment } from 'src/environments/environment';

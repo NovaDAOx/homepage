@@ -2,8 +2,8 @@
 import { style } from '@angular/animations';
 import { DIR_DOCUMENT } from '@angular/cdk/bidi';
 import { Component, OnInit } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'src/environments/environment';

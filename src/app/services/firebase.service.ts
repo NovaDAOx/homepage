@@ -1,10 +1,10 @@
           import { Injectable } from '@angular/core';
-          import { AngularFireModule } from '@angular/fire/compat';
-          import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-          import { AngularFireStorage } from '@angular/fire/compat/storage';
+          
+          import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+          import { AngularFireStorage } from '@angular/fire/storage';
           import { Observable } from 'rxjs';
           import { environment } from 'src/environments/environment';
-          import { getDatabase } from "firebase/database";
+          
 
           @Injectable({
             providedIn: 'root'

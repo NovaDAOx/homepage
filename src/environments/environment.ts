@@ -4,6 +4,7 @@ export const environment = {
      serverUrl : "https://jkj5ryrhl8gp.usemoralis.com:2053/server",
      apiKey:"JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF",
   },
+  production:false,
   firebaseConfig : {
     apiKey: "AIzaSyBtyzjPPu5IGYgjirr9VM9-_2wNGKkAAzA",
     authDomain: "nova-f0c13.firebaseapp.com",
@@ -13,7 +14,6 @@ export const environment = {
     appId: "1:894411903560:web:7bfa2e7d2f335933bdbe7d",
     measurementId: "G-C7E4NK716N"
   },
-  production: true,
   apiEndPoint: 'http://api.rugslocal.com',
   //apiEndPoint: 'http://localhost:3027',
   clientUrl: 'http://rugslocal.com',

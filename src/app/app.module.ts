@@ -28,8 +28,8 @@ import { ProjectpageComponent } from './index/projectpage/projectpage.component'
 import { DAOComponent } from './index/dao/dao.component';
 import { ProjectsComponent } from './index/projects/projects.component';
 import { ProjectappComponent } from './index/projectapp/projectapp.component';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { environment } from 'src/environments/environment';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
