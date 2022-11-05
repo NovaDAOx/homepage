@@ -511,7 +511,7 @@ text-align: left !important;
     padding-left:16px !important;
     padding-right:5px !important;
     background-color: #0d0116 !important;
-    margin-top:2rem !important;
+    // margin-top:2rem !important;
   }
   .selectedAppPage
   {
@@ -648,7 +648,7 @@ text-align: left !important;
   @media (max-width: 799px) {
     .AppPage
     {
-      margin-top:-3rem;
+      // margin-top:-3rem;
     }
     .Oteam
     {
@@ -914,6 +914,7 @@ text-align: left !important;
   display: flex;
   flex-direction: row;
   align-content: center;
+  height: 100vh !important;
   // margin-top:9rem !important;
   justify-content: center;
   align-items: center;
@@ -980,4 +981,15 @@ text-align: left !important;
   display: flex !important;
     flex-direction: column !important;
     
+}
+.protected
+{
+  
+  display: flex;
+  height: 100vh !important;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center !important;
 }

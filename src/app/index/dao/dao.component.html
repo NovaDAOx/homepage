@@ -112,9 +112,9 @@
                   </button>
                 </div>
             </div>
-            <div *ngIf="isConnected && !coreTeam">
-              <h3>This Page is for Core team members only</h3><br/>
-              <h4>please contact us on discord if you have any questions</h4>
+            <div *ngIf="isConnected && !coreTeam" class="protected">
+              <h3>Page protected (core team members only)</h3><br/>
+              <h4>Please contact us on discord if you have any questions</h4>
             </div>
               <div *ngIf="isConnected && coreTeam">
                 <div class="babaHolder" > 
@@ -214,10 +214,11 @@
                 </button>
               </div>
           </div>
-            <div class="babaHolder" > 
-            <button class="backBtn" (click)="back()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
-            </div>
             <div *ngIf="isConnected">
+              <div class="babaHolder" > 
+                <button class="backBtn" (click)="back()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
+                </div>
+    
             <p class="Allapp">Selected Projects</p>
             <p class="Oteam"><span>16</span>selected proposals - These proposals have been selected by the core team </p>
             <!-- <div>

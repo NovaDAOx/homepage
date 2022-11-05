@@ -44,7 +44,7 @@
                 const TimeRemaining = Item.payload.val()['Time']
                 // console.log('time now',Timenow)
                 // console.log('remaining time ',TimeRemaining)
-                console.log('submission time',Item.payload.val()['Time'])
+                // console.log('submission time',Item.payload.val()['Time'])
                 var d = new Date(TimeRemaining)
                 var d2 = new Date(Date.now())
                 var date = new Date(TimeRemaining + ( 3600 * 1000 * 24))
@@ -57,7 +57,7 @@
                   var hours:any = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + "hrs";
                   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                  console.log( " " + hours +" "+minutes +" " + seconds )
+                  // console.log( " " + hours +" "+minutes +" " + seconds )
                   if (distance < 0) {
                   hours = 'Expired';
                   const upV = Item.payload.val()['upVote']
@@ -72,7 +72,7 @@
                   Img:Item.payload.val()['ProfileImage'],
                   Time:hours  })
                     }
-                    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55',)
+                    // console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55',)
                 }
               // }, 1000);
                 
@@ -85,7 +85,7 @@
               })
                   });
                 // });  
-                console.log('jjjjjjjjjjhhhhhh',selected)
+                // console.log('jjjjjjjjjjhhhhhh',selected)
               return selected
               
             
@@ -102,7 +102,7 @@
               const  arraY =[]
               const selec = []
               
-              console.log('ssssssssssssssssssssssss',selec)
+              // console.log('ssssssssssssssssssssssss',selec)
           const Proj : AngularFireList<any> = this.db.list('Projects');
           let itemsRef = this.db.list('Projects')          
           itemsRef.snapshotChanges(['child_added'])
@@ -110,14 +110,14 @@
               arraY.push({Item:actions.length})
               actions.map(Item => {
               const upV = Item.payload.val()['upVote']
-              console.log(Item.key.length,'Yv')
+              // console.log(Item.key.length,'Yv')
                   const downV = Item.payload.val()['DownVote']
-                  console.log(downV,'Pu') 
+                  // console.log(downV,'Pu') 
                     if(upV > downV)
                     {
                       
                       this.selLen.push({ItemSelected:Item.payload.val()['ProjectName']})
-                      console.log('this is the bigger number ////////////////////////',upV)
+                      // console.log('this is the bigger number ////////////////////////',upV)
                   selec.push({ItemSelected:Item.payload.val()['ProjectName']
                   })
                   // if(this.selLen.length == 0)
@@ -127,18 +127,18 @@
                   // console.log('final',selec)
                   // }
                  
-                  console.log('[[[[[[[[[[[ prolen',this.selLen)
+                  // console.log('[[[[[[[[[[[ prolen',this.selLen)
                     }
                   })
-                  console.log('mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm',selec)
-                  console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',this.selLen)
+                  // console.log('mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm',selec)
+                  // console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',this.selLen)
                   this.selln = await selec.length.toString()
-                  console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn',selec.length)
-                  console.log('jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',this.selln)
+                  // console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn',selec.length)
+                  // console.log('jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',this.selln)
                   arraY.push({selected:this.selln})
             })
            
-            console.log('ffffffffffffffffffffffffffffffffffffffffffffffffff',this.selln)
+            // console.log('ffffffffffffffffffffffffffffffffffffffffffffffffff',this.selln)
             return arraY
             }
 
@@ -165,7 +165,7 @@
                 // arraY.push({Name:Item.payload.val().)
                 
                 this.length = await actions.length.toString();
-                console.log('!!!!!!!!!!!!!!!!!!!!!!!!1',this.length)
+                // console.log('!!!!!!!!!!!!!!!!!!!!!!!!1',this.length)
                 let arra = []
                 var Timenow = Date.now()
                 
@@ -187,7 +187,7 @@
             const TimeRemaining = Item.payload.val()['Time']
             // console.log('time now',Timenow)
             // console.log('remaining time ',TimeRemaining)
-            console.log('submission time',Item.payload.val()['Time'])
+            // console.log('submission time',Item.payload.val()['Time'])
             var d = new Date(TimeRemaining)
             var d2 = new Date(Date.now())
             var date = new Date(TimeRemaining + ( 3600 * 1000 * 24))
@@ -211,7 +211,7 @@
             // console.log('converted time ',date)
             // console.log('converted time Remain ',d)
             
-            console.log('converted time nowwwwwwwwww ',Item.payload.val()['ProjectName'].length)
+            // console.log('converted time nowwwwwwwwww ',Item.payload.val()['ProjectName'].length)
             arraY.push({Key:Item.key,Name:Item.payload.val()['ProjectName'],
             Description:Item.payload.val()['ProjectDescription'],
             Amount:Item.payload.val()['NovaAmount'],
@@ -229,15 +229,15 @@
             return Item
           })
          
-          console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkk',sweeterArray.length)
+          // console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkk',sweeterArray.length)
           const json = {length:sweeterArray.length}
           this.ProjectsLength.push(json)
               });
               
             // });  
             
-            console.log('yyyyyy',arraY)
-            console.log('xxxxxxxxxxxxxxxxxxxxxxx',this.length)
+            // console.log('yyyyyy',arraY)
+            // console.log('xxxxxxxxxxxxxxxxxxxxxxx',this.length)
           return arraY
               
         }
@@ -250,12 +250,12 @@
               itemsRef.update(_id, { DownVote:_vote })
               .then
               {
-                console.log('updated')
+                // console.log('updated')
               }
               }
               catch(e)
               {
-                console.log(e,'ddddddddddd')
+                // console.log(e,'ddddddddddd')
               }
             
 
@@ -405,20 +405,20 @@ getTeamAdress(_id:any)
             d.snapshotChanges(['child_added'])
             .subscribe(actions => {
             actions.map(Item => {
-              console.log('last',Item.key)
+              // console.log('last',Item.key)
               if(_id == Item.payload.val()['UserAddress'] && Item.payload.val()['TeamMeber'] != " " )
               {
-                console.log('this is right ',_id,Item.key)
-                console.log('team names',Item.payload.val()['TeamMe'])
+                // console.log('this is right ',_id,Item.key)
+                // console.log('team names',Item.payload.val()['TeamMe'])
                 if(array.length<= 0)
                 {
                 array.push(Item.payload.val())
                 arrEl.push(Item.payload.val()['TeamMembers'])
-                console.log(array,'Best')
-                console.log(arrEl,'element')
+                // console.log(array,'Best')
+                // console.log(arrEl,'element')
                 arrEl.map(Team => {
-                  console.log('TETETEAddress',Team)
-                  console.log('test teams array Address ',Team['teamtwo']['0']['TeamMeber'])
+                  // console.log('TETETEAddress',Team)
+                  // console.log('test teams array Address ',Team['teamtwo']['0']['TeamMeber'])
                   if(Team['teamone']['0']['TeamMeber'] != "")
                   {
                   TeamO.push(Team['teamone']['0'])
@@ -440,13 +440,13 @@ getTeamAdress(_id:any)
                         }
                       }
             })
-            console.log('up',arrEl)
+            // console.log('up',arrEl)
            
                        })
-                       console.log('middle',arrEl)
+            //            console.log('middle',arrEl)
                     
           
-            console.log('bottom',arrEl)
+            // console.log('bottom',arrEl)
           return TeamO
           }
 

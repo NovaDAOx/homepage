@@ -91,10 +91,10 @@ import { Scroll } from '@angular/router';
         const admin = environment.CoreTeam
         console.log(admin,'lllllllllllllllllllllllllllllllllllllllllllllllll')  
         console.log(userAddress,'#############################')
-        if(userAddress)
+        if(this.isConnected)
         {
-          this.isConnected = 'true';
-          if(userAddress === admin.toLocaleLowerCase())
+          
+          if(this.isConnected === admin.toLocaleLowerCase())
           {
 
                  
@@ -239,7 +239,7 @@ import { Scroll } from '@angular/router';
          
           if (!this.isConnected) {
             this.isConnected = null ;
-            console.log('8888888888888888888888888888888888888888888',this.isConnected)
+            console.log('8888888888888888888888888888888888888888888Connected',this.isConnected)
             console.log('8888888888888888888888888888888888888888888',this.data.length)
             this.not = 'true'
             
@@ -247,18 +247,24 @@ import { Scroll } from '@angular/router';
             localStorage.removeItem("walletId");
             
           } else {
-            console.log('8888888888888888888888888888888888888888888',this.data)
+            console.log('8888888888888888888888888888888888888888888Data',this.data)
             console.log('9999999999999999999999999999999999999999999999999999999999',this.datalength)
+            const len = document.getElementsByClassName('notLoggedHolder').length
+            for (var i = 0 ; i < len ; i++)
+            {
+              document.getElementsByClassName('notLoggedHolder')[i].style.display = "none"
+            }
           
             localStorage.setItem("walletId", this.isConnected);
             
-            this.isConnected = 'true'
+            // this.isConnected = 'true'
             this.getget();
+            this.t();
             const a = this.db.getByAddress(this.isConnected)
             const arrayT = []
             arrayT.push(await this.db.getByAddress(this.isConnected))
 
-            console.log(arrayT,'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&YYYYYYYYYY',this.isConnected)
             // if(arra > 0)
             // {
             //     this.data = null;
@@ -357,7 +363,7 @@ import { Scroll } from '@angular/router';
         }
         else
         {
-          this.isConnected = 'true'
+          // this.isConnected = 'true'
           this.not = null
         }
 

@@ -5,7 +5,7 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 120px 20px 0px 20px;
+    padding: 120px 20px 0px 20px !important;
   }
   @property --angle {
     syntax: '<angle>';
@@ -20,7 +20,7 @@
     max-width: 1150px;
   }
   .app_mainsection {
-    margin-top: 10px;
+    // margin-top: 10px;
   }
   
   .new_topsection {
@@ -163,7 +163,7 @@
     text-align: left !important;
     width:877px !important;
     padding: 22px !important;
-    margin-top:5rem !important;
+    // margin-top:5rem !important;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)), #0D0116 !important;
   border-radius: 18px !important;  
   }
@@ -587,7 +587,7 @@
   }
   .containAll
   {
-    margin-top:2rem !important;
+    // margin-top:2rem !important;
   }
   @media (max-width: 800px) {
     .DContainer

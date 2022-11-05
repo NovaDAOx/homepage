@@ -4,9 +4,9 @@
   color: #ffffff !important;
   background-position: top;
   background-repeat: no-repeat;
-  margin-top:6rem !important;
+  // margin-top:6rem !important;
   background-size: contain;
-  padding: 120px 20px 0px 20px;
+  padding: 120px 20px 0px 20px !important;
 }
 .new_topsection {
   text-align: center;
@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top:3rem !important;
     
   }
   .buttonIn {
@@ -456,12 +457,12 @@ element.style {
     height: 41px !important;
     font-family: Space Grotesk !important;
     font-size: 32px !important;
-    font-weight: 700;
-    margin-top: 2rem;
-    line-height: 41px;
-    letter-spacing: 0em;
-    text-align: left;
-    left: 133px;
-    top: 152px;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    line-height: 41px !important;
+    letter-spacing: 0em !important;
+    // text-align: left;
+    // left: 133px;
+    // top: 152px;
 
   }
