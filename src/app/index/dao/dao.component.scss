@@ -175,7 +175,12 @@ text-align: left !important;
     }
     .siD
     {
-      font-size: 14px !important;
+      
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      letter-spacing: 0em;
+      text-align: left;
     }
     .PaD
     {
@@ -992,4 +997,27 @@ text-align: left !important;
   justify-content: center;
   align-items: center;
   text-align: center !important;
+}
+.Nt{
+  // font-size: 34px !important;
+  height: 41px !important;
+  font-family: Space Grotesk !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  margin-top: 2rem !important;
+  line-height: 41px !important;
+  letter-spacing: 0em !important;
+  // text-align: left;
+  // left: 133px;
+  // top: 152px;
+
+}
+.DaoP
+{
+  font-family: Space Grotesk !important;
+  font-size: 21px !important;
+  font-weight: 700 !important;
+  /* margin-top: 2rem !important; */
+  /* line-height: 41px !important; */
+  letter-spacing: 0em !important;
 }

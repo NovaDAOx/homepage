@@ -24,7 +24,7 @@
             <div class="D2Container" (click)="applicationPage()">
                 <div class="D3Container">
                 <img src="../../../assets/images/Allapp.png" width="74px"/>
-                <p>All Applications</p>
+                <p class="Nt">All Applications</p>
                 <p class="grayMin"><span>{{selLen['0'].Item}}</span> active Projects</p><br/>
                 <button class="new_btn_D"> View All <span class="fa fa-arrow-right marD"></span></button>
                 </div>   
@@ -32,7 +32,7 @@
             <div class="D2Container" (click)="selectedProjects()">
                 <div class="D3Container">
                     <img src="../../../assets/images/Selected.png" width="74px"/>
-                    <p>Selected Projects</p>
+                    <p class="Nt">Selected Projects</p>
                     <p class="grayMin"><span>{{selLen['1'].selected}}</span> active Projects</p><br/>
                     <button class="new_btn_D">View <span class="fa fa-arrow-right marD "></span></button>
                 </div>    
@@ -40,7 +40,7 @@
             <div class="D2Container" (click)="ProAddress()">
                 <div class="D3Container">
                 <img src="../../../assets/images/Proposal.PNG" width="74px" />
-                <p>Proposals</p>
+                <p class="Nt">Proposals</p>
                 <p class="grayMin Hid">this is pro</p><br/>
                 <button class="new_btn_D">View SnapShot <span class="fa fa-arrow-right marD rotD"></span></button>
             </div>
@@ -48,13 +48,13 @@
     </div>    
     <div class="DContainer Ti">
         <div class="D2Container BackD">
-            <h1 class="marTD">What's new</h1>
+            <p class="marTD Nt">What's new</p>
             </div>
     </div>
     <div class="DContainer">
         <div class="D2Container PaD">
             <div class="D3Container">
-            <h4>The DAO recently voted to launch a new NFT collection</h4>
+            <p class="DaoP">The DAO recently voted to launch a new NFT collection</p>
             <p class="siD">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum egestas massa nec porta. Mauris posuere luctus felis, sit amet volutpat augue. Duis eros tortor, malesuada in enim quis, sagittis porta mauris.</p>
             <a class="YelD">View on SnapShot <span class="fa fa-arrow-right YelD "></span></a>
         </div>
@@ -62,7 +62,7 @@
         <div class="D2Container MarL"><img src="../../../assets/images/Midd.PNG" width="100%" height="100%"></div>
         <div class="D2Container PaD">
             <div class="D3Container">
-                <h4>Everything you need to know about PFPs</h4>
+                <p class="DaoP">Everything you need to know about PFPs</p>
                 <p class="siD">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum egestas massa nec porta. Mauris posuere luctus felis, sit amet volutpat augue. Duis eros tortor, malesuada in enim quis, sagittis porta mauris.</p>
                 <a class="YelD">View on SnapShot <span class="fa fa-arrow-right YelD rotD"></span></a>    
             </div>
@@ -72,7 +72,7 @@
         <div class="DContainer marTD2">
             <div class="D2Container PaD">
                 <div class="D3Container">
-                    <h4>Everything you need to know about PFPs</h4>
+                    <p class="DaoP">Everything you need to know about PFPs</p>
                     <p class="siD">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum egestas massa nec porta. Mauris posuere luctus felis, sit amet volutpat augue. Duis eros tortor, malesuada in enim quis, sagittis porta mauris.</p>
                     <a class="YelD">View on SnapShot <span class="fa fa-arrow-right YelD rotD"></span></a>    
                 </div>
@@ -81,7 +81,7 @@
             
             <div class="D2Container PaD">
                 <div class="D3Container">
-                    <h4>Everything you need to know about PFPs</h4>
+                    <p class="DaoP">Everything you need to know about PFPs</p>
                     <p class="siD">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum egestas massa nec porta. Mauris posuere luctus felis, sit amet volutpat augue. Duis eros tortor, malesuada in enim quis, sagittis porta mauris.</p>
                     <a class="YelD">View on SnapShot <span class="fa fa-arrow-right YelD rotD"></span></a>    
                 </div>
@@ -89,7 +89,7 @@
         
             <div class="D2Container PaD">
                 <div class="D3Container">
-                    <h4>Everything you need to know about PFPs</h4>
+                    <p class="DaoP">Everything you need to know about PFPs</p>
                     <p class="siD">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent elementum egestas massa nec porta. Mauris posuere luctus felis, sit amet volutpat augue. Duis eros tortor, malesuada in enim quis, sagittis porta mauris.</p>
                     <a class="YelD">View on SnapShot <span class="fa fa-arrow-right YelD rotD"></span></a>    
                 </div>
@@ -120,7 +120,7 @@
                 <div class="babaHolder" > 
               <button class="backBtn" (click)="back()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
               </div>
-              <p class="Allapp">All application</p>
+              <p class="Allapp Nt">All application</p>
                 <p class="Oteam">only for core team</p>
                 <!-- <div>
                   <input type="text"> -->
@@ -219,7 +219,7 @@
                 <button class="backBtn" (click)="back()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
                 </div>
     
-            <p class="Allapp">Selected Projects</p>
+            <p class="Allapp Nt">Selected Projects</p>
             <p class="Oteam"><span>16</span>selected proposals - These proposals have been selected by the core team </p>
             <!-- <div>
               <input type="text"> -->
@@ -300,7 +300,7 @@
               <img src="{{p['src']}}" class="IC">
             </div>
             <div class="dTwo">
-              <p (click)="ProposalPage">{{p['name']}}</p>
+              <p (click)="ProposalPage" class="Nt">{{p['name']}}</p>
               <div class="UHolder">
                 <p class="PN BB2">Funding required</p>
                 <p class="PN Ycolor">{{p['Amount']}}</p>
@@ -322,10 +322,10 @@
           </div>
           
         </div>
-        <p style="margin-top:2rem">More about the project</p>
+        <p style="margin-top:2rem" class="Nt">More about the project</p>
         <p class="PN">{{p['DescriptionT']}}</p><br/>
 
-        <p>Know the Team</p><br/>
+        <p class="Nt">Know the Team</p><br/>
 
         <div class="container flll" >
           <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
@@ -398,7 +398,7 @@
         <img src="{{p['src']}}" class="IC">
       </div>
       <div class="dTwo">
-        <p (click)="ProposalPage">{{p['Name']}}</p>
+        <p (click)="ProposalPage" class="Nt">{{p['Name']}}</p>
         <div class="UHolder">
           <p class="PN BB2">Funding required</p>
           <p class="PN Ycolor">{{p['Amount']}}</p>
@@ -420,10 +420,10 @@
     </div>
     
   </div>
-  <p class="centered">More about the project</p>
+  <p class="centered Nt">More about the project</p>
   <p class="PN">{{p['DescriptionT']}}</p><br/>
 
-  <p class="centered">Know the Team</p><br/>
+  <p class="centered Nt">Know the Team</p><br/>
 
   <div class="container flll" >
     <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of TeamAddress">
