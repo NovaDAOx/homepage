@@ -59,7 +59,12 @@
         </div>
       
       </div> 
-      <div class="MarFun" style="overflow-x:auto;" >
+
+
+      <!-- landing latest Projects -->
+     
+     
+      <div id="landingLatest" class="MarFun" style="overflow-x:auto;" >
         
         <div class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index" (click)="propos($event)" >
           <div class="PDiv" >
@@ -90,12 +95,14 @@
         </div>
         </div>
   
-        <div class="hoho" *ngFor="let p of prop" id="Data">
+        <!-- PROPOSALS LATEST (on click)-->
+
+        <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
           <div class="babaHolder" *ngIf="isConnected"> 
       
         <button class="backBtnn" (click)="backAppTwo()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
       
-          <div >
+          <div class="proposalLatest">
             
         <div class="holdeP">
           
@@ -103,13 +110,14 @@
             <img src="{{p['src']}}" class="IC">
           </div>
           <div class="dTwo">
-            <p class="DaoP">{{p['Name']}}</p>
+            <p class="DaoP">{{p['name']}}</p>
+            <p class="PN">{{p['Description']}}</p>
             <div class="UHolder">
               <p class="PN BB2">Funding required</p>
               <p class="PN Ycolor">{{p['Amount']}}</p>
             </div>
             <div class="DApholder">
-            <p class="PN">{{p['Description']}}</p>
+            
             <!-- <c-progress class="mb-3">
               <c-progress-bar [value]="25">25%</c-progress-bar>
             </c-progress> -->
@@ -159,7 +167,7 @@
           </div>
           </div>
           <div class="downPitch">
-          <img src="{{p['src']}}" class="imwi">
+          <img src="{{p['src']}}" class="IC">
           </div>
           </div>
           </div>

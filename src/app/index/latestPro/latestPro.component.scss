@@ -488,11 +488,14 @@ element.style {
       flex-direction: column !important;
     
     }
-    .flll
-    {
-      display: flex;
-      flex-direction: column !important;
-    }
+    // .flll
+    // {
+    //   display: flex !important;
+    //   flex-direction: row-reverse;
+    //   width: 100% !important;
+    //   justify-content: center;
+    //   align-content: center;
+    // }
     .dOne
     {
       width: 100%;
@@ -570,3 +573,125 @@ element.style {
   /* line-height: 41px !important; */
   letter-spacing: 0em !important;
 }
+.holdeP
+{
+  display: flex;
+  flex-direction: row !important;
+  align-content: center !important;
+  justify-content: center;
+  align-items: center;
+}
+.flll
+{
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  
+  justify-content: space-around;
+}
+.newfooterbox
+{
+  margin-top: 0px !important;
+}
+.newfooterboxedu
+{
+margin-top: 2rem !important;
+display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+border: none !important;
+padding-right: 46px !important;
+align-items: flex-start;
+}
+.newicons {
+  display: flex;
+  margin-top:1rem;
+  
+  a {
+    text-decoration: none !important;
+  }
+}
+.footer2box:hover,.round_box:hover {
+  background: conic-gradient(
+		from var(--angle),
+
+    #88fa6e,
+    #4af77c,
+    #00f28d,
+    #00eda1,
+    #00e7b6,
+    #00e0cd,
+
+    #00eda1,
+    #4af77c,
+    #88fa6e,
+    #88fa6e,
+    #4af77c,
+    #00f28d,
+    #00eda1,
+    #00e7b6,
+    #00e0cd,
+  
+    #00eda1,
+    #4af77c,
+    #88fa6e,
+    #88fa6e,
+    #4af77c,
+    #00f28d,
+    #00eda1,
+    #00e7b6,
+    #00e0cd,
+    #00d9e4,
+    #00d1fa,
+    #00c9ff,
+    #00c0ff,
+    #00b6ff,
+    #00acff,
+    #00b6ff,
+        #00e0cd,
+    #00eda1,
+    #4af77c,
+    #88fa6e
+
+	);
+}
+.footerround_box, .round_box {
+  --angle: 0;
+  // animation: 3s rotate linear infinite;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+
+  // background: conic-gradient(
+	// 	from var(--angle),
+
+ 
+
+  //   #8d37f7,
+  //   #8b36f8,
+  //   #8935f9,
+  //   #8734fa,
+  //   #8532fb,
+  //   #8331fc,
+  //   #8130fd,
+  //   #7f2ffe,
+  //   #7d2eff,
+  //   #7f2ffe,
+  //   #8331fc,
+  //   #8734fa,
+  //   #8b36f8,
+  //   #8d37f7
+
+	// );
+  background-color: #FAC905 !important;
+  background-size: 400%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    color: #1e1818;
+    font-size: 20px;
+  }
+}
+

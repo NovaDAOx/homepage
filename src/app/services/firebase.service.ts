@@ -296,7 +296,7 @@
             let TeamT = []
             let TeamTH= []
             let TeamF = []
-          
+          console.log('this is test id *************',_id)
             d.snapshotChanges(['child_added'])
             .subscribe(actions => {
             actions.map(Item => {

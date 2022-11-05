@@ -47,7 +47,7 @@
 
       this.db.getTeam(userAddress);
       this.Team =   this.db.getTeam(userAddress)
-      console.log(this.TeamAddress,'teamuuuuuuuuuuuuuuuuuu')
+      console.log(this.db.getTeam(userAddress),'teamuuuuuuuuuuuuuuuuuu')
     
     }
     backAppTwo()
@@ -59,24 +59,37 @@
     }
     propos = (event): void =>
     {
+      this.propzls();
       const arry = <any>[]
-      console.log(event,'ppppppppppppppppppppppp')
-      arry.push({name:event.path[2].children[1].children[1].innerHTML,Desctiption:event.path[2].children[1].children[2].innerHTML,
+      console.log(event.path[2].children[1].children[3].lastChild.childNodes[0].data,'ppppppppppppppppppppppp')
+      arry.push({name:event.path[2].children[1].children[1].innerHTML,Description:event.path[2].children[1].children[2].innerHTML,
         Amount:event.path[2].children[1].children[3].children[1].innerText,src:event.path[2].children[0].children[0].currentSrc,
         Key:event.path[2].children[1].children[3].lastChild.childNodes[0].data,
-        DescriptionT:event.path[2].children[1].children[3].children[3].childNodes[1].childNodes[1]
+        DescriptionT:event.path[2].children[1].children[3].children[3].childNodes[1].innerHTML
       }
         )
-        console.log('++++++++++++++++++++++++',arry)
+        console.log('++++++++++++++++++++++++',event.path[2].children[1].children[3].children[3].childNodes[0].innerHTML)
         const Array = arry.map(Item => {
           console.log('item',Item)
           return Item
         })
         this.prop = Array
-        const userAddress = localStorage.getItem('walletId')
+        const userAddress = event.path[2].children[1].children[3].lastChild.childNodes[0].data
         this.db.getTeam(userAddress);
-        this.Team =   this.db.getTeam(userAddress)
-        console.log(this.Team,'teamuuuuuuuuuuuuuuuuuu')      }
+        this.Team = this.db.getTeam(userAddress)
+        
+        
+        
+        console.log(this.Team,'teamuuuuuuuuuuuuuuuuuu') 
+        
+      }
+      propzls()
+      {
+        document.getElementById('prop').style.display = "block"
+        documeng.getElementById('landingLatest').style.display = "none"
+      
+      }
+
     
     ngOnInit(): void {
       this.latest();
@@ -154,7 +167,7 @@
       
         localStorage.setItem("walletId", this.isConnected);
         
-        this.isConnected = 'true'
+        // this.isConnected = 'true'
       
         const a = this.db.getByAddress(this.isConnected)
         const arrayT = []
