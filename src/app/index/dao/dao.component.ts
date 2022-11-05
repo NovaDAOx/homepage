@@ -39,7 +39,7 @@ import { Scroll } from '@angular/router';
       dialogConfig = new MatDialogConfig();
       "dialogueReference": MatDialogRef<MetamaskComponent>;
       not : any = null;
-      isConnected: any = null;
+      
 
         constructor(private db:FirebaseService,
           private metaMaskService: MetamaskService,
@@ -58,6 +58,10 @@ import { Scroll } from '@angular/router';
         {
           // document.getElementsByClassName('dessG')[0].classList.toggle("showw")
           document.getElementById('dessG').classList.toggle("showw")
+        }
+        toggleDesT()
+        {
+          document.getElementById('dessGT').classList.toggle("showw")
         }
         proposalFun()
         {
@@ -419,6 +423,10 @@ import { Scroll } from '@angular/router';
         // args.path[2].children[0].children[5].nextElementSibling.classList.toggle('showw')
         // args.style.display = 'block'
         args.path[2].children[1].lastChild.classList.toggle('showw');
+        }
+        CallbackFunctiontblT = (args: any):void =>{
+          console.log(',,,,,,,,,,,,,,,,,,,,kkkk',args.path[1].children[6])
+          args.path[1].children[6].classList.toggle('showw')
         }
         myCallbackFunctionupVote(args){
           console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling.innerHTML)

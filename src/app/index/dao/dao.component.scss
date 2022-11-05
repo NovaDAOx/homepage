@@ -1,3 +1,18 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+body {
+background-image: url("../../../assets/images/newhomebg_opt_black.png");
+  // background-color: black;
+color: white;
+padding: 0;
+margin: 0;
+text-align: left !important;
+}
   .main_section {
       background-image: url("../../../assets/images/newhomebg_opt.png");
       background-color: #0d0116 !important;
@@ -6,7 +21,8 @@
       background-repeat: no-repeat;
       // margin-top:6rem !important;
       background-size: contain;
-      padding: 120px 20px 0px 20px;
+      padding: 120px 20px 0px 20px !important;
+      text-align: left !important;
   }
   @property --angle {
       syntax: '<angle>';
@@ -500,13 +516,13 @@
   .selectedAppPage
   {
       display:none;
-      margin-top:4rem;
+      // margin-top:4rem;
       background-color: #0d0116 !important;
   }
   .proposalsPage
   {
     display: none;
-    margin-top:4rem;
+    // margin-top:4rem;
     background-color: #0d0116 !important;
     padding: 16px !important;
   }
@@ -567,9 +583,8 @@
     
   font-family: 'Space Grotesk';
   font-style: normal;
-  
   width: 106px !important;
-  margin-left: 60px;
+  margin-left: 60px !important;
   margin-top:-8px !important;
   font-weight: 400;
   font-size: 12px;
@@ -609,7 +624,6 @@
     width: 2rem;
     height: 2rem;
     margin-left: 1rem !important;
-    
     margin-top: 11px !important;
     border-radius: 2rem;
   }
