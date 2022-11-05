@@ -171,27 +171,28 @@
     height: 40px;
     border-radius: 100%;
   
-    background: conic-gradient(
-          from var(--angle),
+    // background: conic-gradient(
+    //       from var(--angle),
   
    
   
-      #8d37f7,
-      #8b36f8,
-      #8935f9,
-      #8734fa,
-      #8532fb,
-      #8331fc,
-      #8130fd,
-      #7f2ffe,
-      #7d2eff,
-      #7f2ffe,
-      #8331fc,
-      #8734fa,
-      #8b36f8,
-      #8d37f7
+    //   #8d37f7,
+    //   #8b36f8,
+    //   #8935f9,
+    //   #8734fa,
+    //   #8532fb,
+    //   #8331fc,
+    //   #8130fd,
+    //   #7f2ffe,
+    //   #7d2eff,
+    //   #7f2ffe,
+    //   #8331fc,
+    //   #8734fa,
+    //   #8b36f8,
+    //   #8d37f7
   
-      );
+    //   );
+    background-color: #FAC905 !important;
     background-size: 400%;
     display: flex;
     align-items: center;

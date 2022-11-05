@@ -23,10 +23,10 @@
       const Img = []
       const dataArray = []
       this.getData().subscribe(async data => {            
-  
+  console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnaaaaaaaa',data)
     for (var i = 0; i < data.length; i++) 
     {
-      if(data[i].type == 'dir' && data[i].name != 'Parsons')
+      if(data[i].type == 'dir' &&  data[i].name != 'Parsons' && data[i].path != 'ioToad')
       {
     
     const result=await fetch(data[i].url)

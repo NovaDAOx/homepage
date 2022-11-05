@@ -802,33 +802,34 @@
 }
 .footerround_box, .round_box {
   --angle: 0;
-  animation: 3s rotate linear infinite;
+  // animation: 3s rotate linear infinite;
   width: 40px;
   height: 40px;
   border-radius: 100%;
 
-  background: conic-gradient(
-		from var(--angle),
+  // background: conic-gradient(
+	// 	from var(--angle),
 
  
 
-    #8d37f7,
-    #8b36f8,
-    #8935f9,
-    #8734fa,
-    #8532fb,
-    #8331fc,
-    #8130fd,
-    #7f2ffe,
-    #7d2eff,
-    #eece4d,
-    #FAC905,
-    #8734fa,
-    #8b36f8,
-    yellow
+  //   #8d37f7,
+  //   #8b36f8,
+  //   #8935f9,
+  //   #8734fa,
+  //   #8532fb,
+  //   #8331fc,
+  //   #8130fd,
+  //   #7f2ffe,
+  //   #7d2eff,
+  //   #eece4d,
+  //   #FAC905,
+  //   #8734fa,
+  //   #8b36f8,
+  //   yellow
 
 
-	);
+	// );
+  background-color: #FAC905 !important;
   background-size: 400%;
   display: flex;
   align-items: center;
