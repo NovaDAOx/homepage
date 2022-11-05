@@ -4,11 +4,11 @@
 
     <div class="containAll">
       <div class="notLogged_Holder">
-        <div *ngIf="isConnected">
+        <div *ngIf="!isConnected">
           <button
             mat-flat-button
             class="newconnect_btn wid1 btn_x"
-            *ngIf="isConnected"
+            *ngIf="!isConnected"
             (click)="showMetamaskContent()"
           >
             Log in to Metamask to Continue...
@@ -17,7 +17,7 @@
     </div>
         <form name="appForm" [formGroup]="requiredForm" novalidate>
             <div class="DContainer">
-                <div class="D2Container" *ngIf="!isConnected">
+                <div class="D2Container" *ngIf="isConnected">
                   
                   <!-- <button (click)="checkck()">Test</button> -->
                     <p class="yelD">Application</p>

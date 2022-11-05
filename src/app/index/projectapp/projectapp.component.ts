@@ -187,8 +187,8 @@
       }
     init()
   {
-    AngularFireModule.initializeApp(environment.firebaseConfig)
-    console.log('initialized')
+    // AngularFireModule.initializeApp(environment.firebaseConfig)
+    // console.log('initialized')
   }
 
   test2() 
@@ -721,7 +721,7 @@
   // }
 
     ngOnInit(): void {
-      this.init();
+      // this.init();
       // this.click();
       // this.checkiIfLoaded();
 
@@ -782,8 +782,13 @@
         console.log('9999999999999999999999999999999999999999999999999999999999',this.datalength)
       
         localStorage.setItem("walletId", this.isConnected);
+        const len = document.getElementsByClassName('notLogged_Holder').length
+        for (var i = 0 ; i < len ; i++)
+        {
+          document.getElementsByClassName('notLogged_Holder')[i].style.display =" none";
+        }
         
-        this.isConnected = 'true'
+        // this.isConnected = 'true'
         this.getget();
         const a = this.db.getByAddress(this.isConnected)
         const arrayT = []
