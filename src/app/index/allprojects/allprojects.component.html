@@ -22,7 +22,44 @@
     
 
 
-    <div class="whole"> 
+    <div class="DContainer">
+      <a class="Nl" routerLink = "/latestProjects">
+      <div class="D2Container" >
+          <div class="D3Container">
+            
+          <img src="../../../assets/images/Allapp.png" width="74px"/>
+          <p class="Nt">Latest Projects</p>
+          <p class="grayMin"><span>10</span> active Projects</p><br/>
+          <button class="new_btn_D">View All<span class="fa fa-arrow-right marD"></span></button>
+          
+          </div>   
+      </div>
+      </a>
+      <a class="Nl" routerLink = "/pastProjects">
+      <div class="D2Container" >
+          <div class="D3Container">
+              <img src="../../../assets/images/Selected.png" width="74px"/>
+              <p class="Nt">Past Projects</p>
+              <p class="grayMin"><span>10</span> active Projects</p><br/>
+              <button class="new_btn_D">View <span class="fa fa-arrow-right marD "></span></button>
+          </div>    
+      </div>
+      </a>
+      <!-- <div class="D2Container" >
+          <div class="D3Container">
+          <img src="../../../assets/images/Proposal.PNG" width="74px" />
+          <p>Proposals</p>
+          <p class="grayMin Hid">this is pro</p><br/>
+          <button class="new_btn_D">View SnapShot <span class="fa fa-arrow-right marD rotD"></span></button>
+      </div> -->
+  </div>
+    
+</div> 
+
+<p class="Nt marN">All projects</p>      
+
+    <div class="whole">
+      
         <div class="buttonIn">
           <i class="fa fa-search Sicon" aria-hidden="true"></i>
           <input class="icon" type="text" id="enter" [(ngModel)]="name">
@@ -48,7 +85,8 @@
       </div> 
       <div class="MarFun" style="overflow-x:auto;" >
         
-        <div class="Pin" *ngFor="let item of allPro | itemnameFilter:name;let i = index" >
+        <div class="Pin" *ngFor="let item of allPro | itemnameFilter:name;let i = index" (click)="proposal($event)" >
+            
           <div class="PDiv" >
           <img class="imgPro" src="{{item['Img']}}"   >
             </div>

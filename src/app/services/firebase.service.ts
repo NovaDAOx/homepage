@@ -497,6 +497,7 @@ getTeamAdress(_id:any)
                   {
                 recent.push({Key:Item.key,Name:Item.payload.val()['ProjectName'],
                 Description:Item.payload.val()['ProjectDescription'],
+                DescriptionT:Item.payload.val()['ProjectDescription2'],
                 Amount:Item.payload.val()['NovaAmount'],
                 upVote:Item.payload.val()['upVote'],
                 downVote:Item.payload.val()['DownVote'],
@@ -546,7 +547,7 @@ getTeamAdress(_id:any)
               console.log('submission time',Item.payload.val()['Time'])
               var d = new Date(TimeRemaining)
               var d2 = new Date(Date.now())
-              var date = new Date(TimeRemaining + ( 3600 * 1000 * 72))
+              var date = new Date(TimeRemaining + ( 3600 * 1000 * 5000))
               var countDownDate = new Date(date).getTime();
             //   var x = setInterval(function() {
                 var now = new Date().getTime();
@@ -564,6 +565,7 @@ getTeamAdress(_id:any)
                  
                 latest.push({Key:Item.key,Name:Item.payload.val()['ProjectName'],
                 Description:Item.payload.val()['ProjectDescription'],
+                DescriptionT:Item.payload.val()['ProjectDescription2'],
                 Amount:Item.payload.val()['NovaAmount'],
                 upVote:Item.payload.val()['upVote'],
                 downVote:Item.payload.val()['DownVote'],

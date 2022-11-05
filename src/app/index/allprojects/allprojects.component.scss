@@ -234,21 +234,22 @@
     background: #190E22 !important;
     width: 317px !important;
     display: flex;
+    padding:5px !important;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     align-items: flex-start;
-    margin-top:1rem !important;
+    margin-top:2rem !important;
   
   }
   .funtT
   {
-    width: 77px;
+    
     height: 12px;
     
-    font-family: 'Clash Grotesk';
+    
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     // font-size: 10px;
     line-height: 12px;
     
@@ -287,7 +288,7 @@
     
     font-family: 'Clash Grotesk';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     // font-size: 10px;
     line-height: 12px;
     
@@ -391,6 +392,30 @@
   
   element.style {
   }
+  @media(max-width:600px)
+  {
+    .DContainer
+    {
+      display: flex;
+      flex-direction: column !important;
+      align-content: center !important;
+      align-items: center !important;
+    }
+    .D2Container
+    {
+      margin-top: 2rem !important;
+    }
+    .MarFun
+    {
+      margin-top: 27px !important;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-content: center !important;
+  
+    }
+  }
   @media (max-width: 799px)
   {
   .whole{
@@ -398,7 +423,17 @@
       flex-direction: column;
       justify-content: space-between;
       align-content: space-around;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+
+  .inH
+  {
+    margin-top: 38px !important;
+  }
+  .marN
+  {
+    text-align: center !important;
   }
   }
   .imgPro
@@ -415,4 +450,62 @@
   .faded
   {
     opacity: 0.5 !important;
+  }
+
+
+  .DContainer
+  {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+
+  }
+  .D2Container
+  {
+    text-align: center !important;
+    background: #1e1226 !important;
+    padding: 18px !important;
+    text-align: center !important;
+  
+    padding: 22px !important;
+    min-width: 55px !important;
+    width: 343px;
+  }
+  .D3Container
+  {
+    background-color: transparent !important;
+  }
+  .new_btn_D {
+    border-radius: 8px !important;
+    background-color: transparent;
+    border-color: yellow;
+    padding: 17px 25px !important;
+    color: #ffc107;
+    width: 275px;
+    max-width: 262px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 20px !important;
+    font-family: "Space Grotesk" !important;
+  }
+  .grayMin
+  {
+    color: gray !important;
+    font-size:21px !important;
+  }
+  .Nt{
+    font-size: 34px !important;
+
+  }
+  .Nl
+  {
+    color: transparent !important;
+
+  }
+  .marN
+  {
+    margin-top:2rem !important;
   }

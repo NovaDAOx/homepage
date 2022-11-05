@@ -636,13 +636,22 @@
     {
       margin-top:-3rem;
     }
+    .Oteam
+    {
+      text-align: center !important;
+    }
+    .Allapp
+    {
+      text-align: center !important;
+    }
     .whole
     {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-content: space-around;
-      align-items: flex-start;
+      align-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .buttonIn
     {
@@ -718,6 +727,7 @@
   background: #2D2335;
     border-radius: 1.5rem;
 }
+
 
 .mat-primary
 {

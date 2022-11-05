@@ -2,7 +2,8 @@
 
 <div class="main_section app_mainsection">
     <div class="appsection">
-      <div id="landing">
+      <div class="kingsLanding" id="kingsLanding">
+      <div id="landing" class="lal">
       <div class="new_topsection">
         <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
         <p >Let the age of Web3 Creation begin!</p>
@@ -59,7 +60,7 @@
       </div> 
       <div class="MarFun" style="overflow-x:auto;" >
         
-        <div class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index">
+        <div class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index" (click)="propos($event)" >
           <div class="PDiv" >
           <img class="imgPro" src="{{item['Img']}}"   >
             </div>
@@ -71,7 +72,7 @@
       <div class="funreq">
         <div class="funreqin"><p class="funt">Funding Required</p></div>
         <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
-      
+        <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
       </div>
       
       <label class="Precieved">100% recieved</label>
@@ -86,5 +87,81 @@
         
         
         </div>
+        </div>
+  
+        <div class="hoho" *ngFor="let p of prop" id="Data">
+          <div class="babaHolder" *ngIf="isConnected"> 
+      
+        <button class="backBtnn" (click)="backAppTwo()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
+      
+          <div >
+            
+        <div class="holdeP">
+          
+          <div class="dOne">
+            <img src="{{p['src']}}" class="IC">
+          </div>
+          <div class="dTwo">
+            <p >{{p['Name']}}</p>
+            <div class="UHolder">
+              <p class="PN BB2">Funding required</p>
+              <p class="PN Ycolor">{{p['Amount']}}</p>
+            </div>
+            <div class="DApholder">
+            <p class="PN">{{p['Description']}}</p>
+            <!-- <c-progress class="mb-3">
+              <c-progress-bar [value]="25">25%</c-progress-bar>
+            </c-progress> -->
+            <div class="mat">
+            <mat-progress-bar class="matPb" mode="determinate" value=50></mat-progress-bar>
+            <div class="BV">
+              <label>0.0 VOTES</label>
+              <button class="VT">Vote</button>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+        
+      </div>
+      <p class="centered">More about the project</p>
+      <p class="PN">{{p['DescriptionT']}}</p><br/>
+      
+      <p class="centered">Know the Team</p><br/>
+      
+      <div class="container flll" >
+        <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
+          <p class="PN" id="Tname">{{Tea['TeamMeber']}}</p>
+          <p class="PN" id="Trole">{{Tea['About']}}</p>
+          <div class="newicons">
+            <div class="me-2">
+              <a
+                class="round_box"
+                href=""
+                id="sty"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin" aria-hidden="true"></i
+              ></a>
+            </div>
+            <div class="me-2">
+              <a
+                class="round_box Ycolor"
+                href=""
+                target="_blank"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i
+              ></a>
+            </div>
+            </div> 
+        
+          </div>
+          </div>
+          <div class="downPitch">
+          <img src="{{p['src']}}" class="imwi">
+          </div>
+          </div>
+          </div>
+      
         </div>
         </div>

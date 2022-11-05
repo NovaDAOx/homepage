@@ -243,12 +243,12 @@ flex-grow: 0;
 }
 .funtT
 {
-  width: 77px;
+  
   height: 12px;
   
-  font-family: 'Clash Grotesk';
+  
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   // font-size: 10px;
   line-height: 12px;
   
@@ -282,10 +282,10 @@ color: #FAC905 !important;
 }
 .funt
 {
-  width: 121px;
+  
   height: 12px;
   
-  font-family: 'Clash Grotesk';
+  
   font-style: normal;
   font-weight: 400;
   // font-size: 10px;
@@ -391,16 +391,50 @@ color: #FAC905 !important;
 
 element.style {
 }
-@media (max-width: 799px)
-{
-.whole{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: space-around;
-    align-items: flex-start;
-}
-}
+@media(max-width:600px)
+  {
+    .DContainer
+    {
+      display: flex;
+      flex-direction: column !important;
+      align-content: center !important;
+      align-items: center !important;
+    }
+    .D2Container
+    {
+      margin-top: 2rem !important;
+    }
+    .MarFun
+    {
+      margin-top: 27px !important;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-content: center !important;
+  
+    }
+  }
+  @media (max-width: 799px)
+  {
+  .whole{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+  }
+
+  .inH
+  {
+    margin-top: 38px !important;
+  }
+  .marN
+  {
+    text-align: center !important;
+  }
+  }
 .imgPro
 {
   width:100% !important;

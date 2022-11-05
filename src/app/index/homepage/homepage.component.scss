@@ -974,3 +974,24 @@
     height: 150px;
 }
 }
+.heNe
+{
+  font-size: 64px;
+    font-weight: 700;
+    line-height: 82px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto;
+    max-width: 871px;
+    margin-bottom: 58px;
+    position: relative;
+    z-index: 50;
+}
+@media (max-width: 670px)
+{
+.heNe {
+    font-size: 40px !important;
+    line-height: normal !important;
+}
+}
