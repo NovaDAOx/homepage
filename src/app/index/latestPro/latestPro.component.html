@@ -67,7 +67,7 @@
             </div>
             <div class="PHolder">
               <p>{{i + 1}}</p>
-          <p class="left">{{item['Name']}}</p>
+          <p class="left DaoP">{{item['Name']}}</p>
           <p class="left">{{item['Description']}}</p>
           
       <div class="funreq">
@@ -103,7 +103,7 @@
             <img src="{{p['src']}}" class="IC">
           </div>
           <div class="dTwo">
-            <p >{{p['Name']}}</p>
+            <p class="DaoP">{{p['Name']}}</p>
             <div class="UHolder">
               <p class="PN BB2">Funding required</p>
               <p class="PN Ycolor">{{p['Amount']}}</p>
@@ -125,10 +125,10 @@
         </div>
         
       </div>
-      <p class="centered">More about the project</p>
+      <p class="centered DaoP">More about the project</p>
       <p class="PN">{{p['DescriptionT']}}</p><br/>
       
-      <p class="centered">Know the Team</p><br/>
+      <p class="centered DaoP">Know the Team</p><br/>
       
       <div class="container flll" >
         <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
