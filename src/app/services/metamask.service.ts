@@ -139,7 +139,7 @@ export class MetamaskService {
         if (metamask_connection_status) {
           window.localStorage.setItem('logout', 'false');
           this.firstTimeMetamaskConnect.next('firstTimeMetamaskConnect');
-          this.router.navigate([url]);
+          // this.router.navigate([url]);
           this.snackBar.open('Metamask Connected', 'X', {
             duration: 4000,
             panelClass: ['success-order'],
@@ -148,15 +148,16 @@ export class MetamaskService {
         }
       })
       .catch((error) => {
-        this.snackBar.open(
-          'Please check your metamask. Connect it manually',
-          'X',
-          {
-            duration: 4000,
-            panelClass: ['error-snackbar'],
-            horizontalPosition: 'end',
-          }
-        );
+        console.log('dddddddddddddddddddddd',error)
+      //   // this.snackBar.open(
+      //   //   'Please check your metamask. Connect it manually',
+      //   //   'X',
+      //   //   {
+      //   //     duration: 4000,
+      //   //     panelClass: ['error-snackbar'],
+      //   //     horizontalPosition: 'end',
+      //   //   }
+      //   );
       });
   }
 
