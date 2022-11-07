@@ -173,7 +173,7 @@
       flex-direction: column;
       margin: 0 auto;
       justify-content: space-between;
-      max-width: 1150px;
+      width: 100% !important;
     }
   
     input
@@ -252,7 +252,7 @@
     font-style: normal;
     font-weight: 700;
     // font-size: 10px;
-    line-height: 12px;
+    line-height: 26px;
     
     
   color: #FAC905 !important;
