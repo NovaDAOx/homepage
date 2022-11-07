@@ -417,7 +417,7 @@ element.style {
       align-content: center;
       justify-content: center;
       border: none !important;
-      width: 316px !important;
+      width:100% !important;
      padding-right: 0px !important;
       padding: 16px !important;
       align-items: center !important;
@@ -558,7 +558,7 @@ element.style {
   .DaoP
 {
   font-family: Space Grotesk !important;
-  font-size: 32px !important;
+  font-size: 23px !important;
   font-weight: 700 !important;
    margin-top: 2rem !important; 
    line-height: 41px !important; 
@@ -703,7 +703,7 @@ flex-direction: column;
 align-content: center;
 justify-content: center;
 border: none !important;
-width: 316px !important;
+width: 316px ;
 // padding-left: 46px;
 align-items: flex-start;
 }
@@ -828,12 +828,12 @@ align-items: flex-start;
     width: 100%;
   }
 }
-.dashed
-{
-  width: 100% !important;
-  padding: 16px;
-  border: 0.1rem rgb(145, 145, 36) dashed;
-}
+// .dashed
+// {
+//   width: 100% !important;
+//   padding: 16px;
+//   border: 0.1rem rgb(145, 145, 36) dashed;
+// }
 .ICT
 {
   width: 60% !important;
