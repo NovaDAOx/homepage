@@ -405,6 +405,10 @@ element.style {
 }
 @media(max-width:600px)
   {
+    .padPM
+    {
+      padding: 16px !important;
+    }
     .newfooterboxedu
     {
       margin-top: 2rem !important;
@@ -634,7 +638,7 @@ element.style {
   {
     width: 95% !important;
     height: 300px !important;
-    border-radius: 2rem !important;
+    border-radius: 1rem !important;
   }
   .nomar
 {
@@ -813,14 +817,30 @@ align-items: flex-start;
   align-items: center;
   align-content: center;
 }
-.proWid
-{
-  width: 94% !important;
-}
+// .proWid
+// {
+//   width: 94% !important;
+// }
 @media(max-width:480px)
 {
   .buttonIn
   {
     width: 100%;
   }
+}
+.dashed
+{
+  width: 100% !important;
+  padding: 16px;
+  border: 0.1rem rgb(145, 145, 36) dashed;
+}
+.ICT
+{
+  width: 60% !important;
+  height: 300px !important;
+  border-radius: 1rem !important;
+}
+.padPP
+{
+  padding: 16px;
 }

@@ -98,7 +98,7 @@
             </div>
             <div class="dTwo">
               <p class="DaoP nomar Fpro">{{p['name']}}</p>
-              <p class="PN">{{p['Description']}}</p>
+              <p class="PN padPM">{{p['Description']}}</p>
               <div class="UHolder">
                   <p class="PN BB2">Funding required</p>
                 <p class="PN Ycolor">{{p['Amount']}}</p>
@@ -120,16 +120,19 @@
           </div>
           
         </div>
+        <div style="padding: 16px;">
         <p class="centered DaoP">More about the project</p>
-        <p class="PN proWid">{{p['DescriptionT']}}</p><br/>
-        
+        <div>
+        <p class="PN proWid padPM">{{p['DescriptionT']}}</p><br/>
+        </div>
         <p class="centered DaoP">Know the Team</p><br/>
+        </div>
         
         <div class="container flll" >
           <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
-            <p class="PN Fpro proWid" id="Tname">{{Tea['TeamMeber']}}</p>
-            <p class="PN proWid" id="Trole">{{Tea['About']}}</p>
-            <div class="newicons">
+            <p class="PN Fpro proWid dashed" id="Tname">{{Tea['TeamMeber']}}</p>
+            <p class="PN proWid " id="Trole">{{Tea['About']}}</p>
+            <div class="newicons dashed">
               <div class="me-2">
                 <a
                   class="round_box"
@@ -154,7 +157,7 @@
             </div>
             </div>
             <div class="downPitch">
-            <img src="{{p['src']}}" class="IC">
+            <img src="{{p['src']}}" class="ICT">
             </div>
             </div>
             </div>
