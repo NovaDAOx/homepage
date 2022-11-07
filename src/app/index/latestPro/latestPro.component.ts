@@ -51,6 +51,12 @@ import { threadId } from 'worker_threads';
       console.log(this.db.getTeam(userAddress),'teamuuuuuuuuuuuuuuuuuu')
     
     }
+    toggle() {
+      document.getElementById("downlatestPro").classList.toggle("showw");
+      // document.getElementById("down").style.display = "flex";
+      // document.getElementById("navi").classList.toggle("rtoate180");
+      // document.getElementsByClassName("fa-chevron-down")[0].classList.toggle("rtoate180");
+    }
     backAppTwo()
     {
       const d = document.getElementById('Data')

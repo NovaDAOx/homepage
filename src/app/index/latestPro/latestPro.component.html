@@ -44,13 +44,13 @@
       <div >
         <div class="inH" >
         <p class="lbl">Sort by</p>
-        <div class="btnH">
-        <div   id="word">
+        <div class="btnH" (click)="toggle()">
+        <div   id="word" (click)="toggle()">
           latest
-        </div><span  class="fa fa-chevron-down"></span>
+        </div><span  class="fa fa-chevron-down" (click)="toggle()"></span>
         </div>
         </div>
-        <div id="down"  class="dropdown-contentAp">
+        <div id="downlatestPro"  class="dropdown-contentAp">
           <a  class="Ref" >Name</a>
           <a  class="Ref" >Latest</a>
           <a  href="#" class="Ref">Recent</a>
@@ -83,9 +83,9 @@
       <label class="Precieved">100% recieved</label>
       <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
       
-      <div class="BF">
-        <label class="faded">Voting expired</label>
-        <!-- <button class="Fv">Vote</button> -->
+      <div class="BV2nd">
+        <label class="faded">0.0 VOTES</label>
+        <button class="Fv">Vote</button>
       </div>
       </div>
       </div>

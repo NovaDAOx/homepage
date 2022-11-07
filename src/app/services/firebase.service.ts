@@ -190,7 +190,7 @@
             // console.log('submission time',Item.payload.val()['Time'])
             var d = new Date(TimeRemaining)
             var d2 = new Date(Date.now())
-            var date = new Date(TimeRemaining + ( 3600 * 1000 * 24))
+            var date = new Date(TimeRemaining + ( 3600 * 1000 * 5000))
             var countDownDate = new Date(date).getTime();
           //   var x = setInterval(function() {
               var now = new Date().getTime();
@@ -204,7 +204,12 @@
               if (distance < 0) {
               
               hours = 'Expired';
+              console.log('1171171717171771717171717171171','tyihs is test data')
               
+            }
+            if(distance > 0 )
+            {
+              console.log('16616116161616161616161616166116','this is test data')
             }
           // }, 1000);
             
@@ -300,7 +305,7 @@
             d.snapshotChanges(['child_added'])
             .subscribe(actions => {
             actions.map(Item => {
-              console.log('last',Item.key)
+              // console.log('last',Item.key)
               if(_id == Item.key && Item.payload.val()['TeamMeber'] != " " )
               {
                 console.log('this is right ',_id,Item.key)
