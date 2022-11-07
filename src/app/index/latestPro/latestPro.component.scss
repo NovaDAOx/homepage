@@ -394,6 +394,35 @@ element.style {
 }
 @media(max-width:600px)
   {
+
+    .newfooterboxedu
+    {
+      margin-top: 2rem !important;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      border: none !important;
+      width:100% !important; 
+      /* padding-right: 46px !important; */
+      align-items: flex-start;
+    }
+    .ICT
+    {
+      width:90% !important;
+    }
+    .marT
+    {
+      margin-top:3rem !important;
+    }
+    .Fpro
+    {
+      text-align: center !important;
+    }
+    .BV
+    {
+      width:100% !important;
+    }
     .holdeP
     {
       display: flex;
@@ -442,6 +471,11 @@ element.style {
     .dTwo
     {
       padding-left: 0px !important;
+      width:100% ;
+    }
+    .dOne
+    {
+      width: 100%;
     }
     // .flll
     // {
@@ -479,7 +513,7 @@ element.style {
     }
     .holdeP {
       display: flex !important;
-      flex-direction: row !important;
+      
       align-content: center !important;
       width: 100% !important;
       justify-content: center !important;
@@ -544,13 +578,13 @@ element.style {
   .dTwo
   {
     width:90%;
-    padding-left:50px !important;
+    padding-left:50px ;
   }
   .IC
   {
     width: 95% !important;
     height: 300px !important;
-    border-radius: 2rem !important;
+    border-radius: 1rem !important;
   }
   @media (max-width: 522px) {
     
@@ -669,6 +703,7 @@ element.style {
   display: flex !important;
   flex-direction: row ;
   width: 100% !important;
+  max-width: 100% !important;
   margin-top: -3rem !important;
   justify-content: space-around;
 }
@@ -684,7 +719,7 @@ flex-direction: column;
 align-content: center;
 justify-content: center;
 border: none !important;
-width: 316px !important;
+width: 316px ;
 padding-right: 46px !important;
 align-items: flex-start;
 }
@@ -836,12 +871,13 @@ mat-progress-bar
 .DApholder
 {
   margin-top:-34px !important;
+  background-color: transparent !important;
 }
 .Fpro
 {
   font-size: 23px !important;
   font-weight: 700 !important;
-  text-align: left !important;
+  text-align: left ;
 }
 .leftt
 {
@@ -853,4 +889,17 @@ mat-progress-bar
     margin-top: 2rem !important; 
     line-height: 41px !important; 
    letter-spacing: 0em !important;
+}
+.ICT
+{
+  width: 60% !important;
+  height: 300px !important;
+  border-radius: 1rem !important;
+}
+@media(max-width:480px)
+{
+  .buttonIn
+  {
+    width: 100%;
+  }
 }
