@@ -354,7 +354,7 @@
   {
     margin-top:3rem !important;
   }
-  .mat-progress-bar
+  mat-progress-bar
   {
     height: 8px !important;
     width:100% !important; 
@@ -375,11 +375,11 @@
     padding:16px !important;
     background-color:transparent !important;
   }
-  .mat-progress-bar-fill::after 
+  mat-progress-bar-fill::after
   {
     background-color: #47D7AC !important;
   }
-  .mat-progress-bar .mat-progress-bar-buffer
+  mat-progress-bar .mat-progress-bar-buffer
   {
       background-color: #190E22 !important;
   }
@@ -405,6 +405,15 @@
     .D2Container
     {
       margin-top: 2rem !important;
+    }
+    .flll
+    {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
     }
     .MarFun
     {

@@ -7,7 +7,6 @@
       <div class="new_topsection">
         <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
         <p class="Nt">Latest Projects</p>   
-        
         <img
           class="animated_star2"
           src="../../../assets/images/starimg.png"
@@ -72,7 +71,7 @@
             </div>
             <div class="PHolder">
               <p>{{i + 1}}</p>
-          <p class="left DaoP">{{item['Name']}}</p>
+          <p class="DaoP nomar leftt">{{item['Name']}}</p>
           <p class="left">{{item['Description']}}</p>
           
       <div class="funreq">
@@ -94,9 +93,11 @@
         
         </div>
         </div>
-  
-        <!-- PROPOSALS LATEST (on click)-->
+        
+        </div>
 
+        <!-- PROPOSALS LATEST (on click)-->
+        <div class="appsection">
         <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
           <div class="babaHolder" *ngIf="isConnected"> 
       
@@ -110,10 +111,10 @@
             <img src="{{p['src']}}" class="IC">
           </div>
           <div class="dTwo">
-            <p class="DaoP">{{p['name']}}</p>
+            <p class="DaoP nomar Fpro">{{p['name']}}</p>
             <p class="PN">{{p['Description']}}</p>
             <div class="UHolder">
-              <p class="PN BB2">Funding required</p>
+                <p class="PN BB2">Funding required</p>
               <p class="PN Ycolor">{{p['Amount']}}</p>
             </div>
             <div class="DApholder">
@@ -140,7 +141,7 @@
       
       <div class="container flll" >
         <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
-          <p class="PN" id="Tname">{{Tea['TeamMeber']}}</p>
+          <p class="PN Fpro" id="Tname">{{Tea['TeamMeber']}}</p>
           <p class="PN" id="Trole">{{Tea['About']}}</p>
           <div class="newicons">
             <div class="me-2">
@@ -174,3 +175,66 @@
       
         </div>
         </div>
+        <div class="spacebox"></div>
+        <div class="container">
+          <div class="newfooterbox">
+            <img
+              class="animated_star3"
+              src="../../../assets/images/starimg.png"
+              alt="animate_img"
+            />
+            <div class="newlogofooter d-flex align-items-center">
+              <img
+                class="newlogo me-2"
+                src="../../../assets/images/novadao_logo/icon.png"
+                alt=""
+              />
+              <span class="newlogo_heading">Nova DAO</span>
+            </div>
+            <div class="new_footer_icons">
+              <div class="padNew">
+                <a
+                  class="footerround_box"
+                  href="https://discord.gg/D7FKzVFztf"
+                  target="_blank"
+                >
+                  <i class="fab fa-discord" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div class="padNew">
+                <a
+                  class="footerround_box "
+                  href="https://medium.com/@Nova.DAO"
+                  target="_blank"
+                >
+                  <i class="fab fa-medium-m" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div class="padNew">
+                <a
+                  class="footerround_box"
+                  href="https://open.spotify.com/show/0n335tlzRaT8S9N2zyc6Kl"
+                  target="_blank"
+                >
+                  <i class="fab fa-spotify" aria-hidden="true"></i
+                ></a>
+              </div>
+  
+              <div class="padNew">
+                <a
+                  class="footerround_box"
+                  href="https://twitter.com/NovaDaoNFT"
+                  target="_blank"
+                >
+                  <i class="fab fa-twitter" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spacebox"></div>
+  
+
+</div>
+
+        

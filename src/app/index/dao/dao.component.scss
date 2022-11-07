@@ -798,6 +798,7 @@ text-align: left !important;
   display: flex;
   flex-direction: row;
   align-content: center;
+  margin-top:-3rem !important;
   justify-content: space-evenly;
   align-items: center;
 
@@ -942,6 +943,18 @@ text-align: left !important;
   height: 100vh !important;
   align-items: center;
 }
+@media (max-width: 600px) {
+
+.flll
+{
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+}
 @media (max-width: 522px) {
   .holdeP
   {
@@ -1020,4 +1033,22 @@ text-align: left !important;
   /* margin-top: 2rem !important; */
   /* line-height: 41px !important; */
   letter-spacing: 0em !important;
+}
+mat-progress-bar
+{
+  height:8px !important;
+  width:90%;
+}
+mat-progress-bar-fill::after 
+{
+  background-color: #47D7AC !important;
+}
+mat-progress-bar .mat-progress-bar-buffer
+{
+    background-color: #190E22 !important;
+}
+.Fpro
+{
+  font-size: 23px !important;
+  font-weight: 700 !important;
 }

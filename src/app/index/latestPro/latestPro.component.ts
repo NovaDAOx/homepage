@@ -11,6 +11,7 @@
     MatDialogConfig,
     MatDialogRef,
   } from "@angular/material/dialog";
+import { threadId } from 'worker_threads';
   @Component({
     selector: 'app-latestPro',
     templateUrl: './latestPro.component.html',
@@ -52,14 +53,15 @@
     }
     backAppTwo()
     {
-      const d = document.getElementById('data')
+      const d = document.getElementById('Data')
       const b = document.getElementById('kingsLanding')
       d.style.display = "none";
-      b.style.display  = "flex";
+      b.style.display  = "block";
     }
     propos = (event): void =>
     {
-      this.propzls();
+      // this.propzls();
+      // document.getElementsByClassName('hoho')[0].style.display = "flex";
       const arry = <any>[]
       console.log(event.path[2].children[1].children[3].lastChild.childNodes[0].data,'ppppppppppppppppppppppp')
       arry.push({name:event.path[2].children[1].children[1].innerHTML,Description:event.path[2].children[1].children[2].innerHTML,
@@ -77,16 +79,15 @@
         const userAddress = event.path[2].children[1].children[3].lastChild.childNodes[0].data
         this.db.getTeam(userAddress);
         this.Team = this.db.getTeam(userAddress)
+        const  page = document.getElementById('kingsLanding')
+        page.style.display ="none"
         
-        
-        
-        console.log(this.Team,'teamuuuuuuuuuuuuuuuuuu') 
-        
+      
       }
       propzls()
       {
-        document.getElementById('prop').style.display = "block"
-        documeng.getElementById('landingLatest').style.display = "none"
+        
+        // documeng.getElementById('landingLatest').style.display = "none"
       
       }
 
