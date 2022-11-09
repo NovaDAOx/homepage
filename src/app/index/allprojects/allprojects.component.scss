@@ -41,12 +41,13 @@
     {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      // justify-content: space-between;
       margin-top:3rem !important;
       
     }
     .buttonIn {
       width: 80%;
+      
       position: relative;
   }
   .Sicon
@@ -99,7 +100,7 @@
       }
       .lbl
     {
-      // width: 58px;
+      width: max-content;
     height: 20px;
   
     font-family: 'Space Grotesk';
@@ -159,10 +160,10 @@
   
   
   
-    .buttonIn {
-        width: 80%;
-        position: relative;
-    }
+    // .buttonIn {
+    //     width: 80%;
+    //     position: relative;
+    // }
     .Ref
     {
       text-decoration: none;
@@ -246,18 +247,14 @@
   }
   .funtT
   {
-    
+    text-align: right !important;
     height: 12px;
-    
-    
     font-style: normal;
+    width: 117px;
     font-weight: 700;
-    // font-size: 10px;
     line-height: 26px;
-    
-    
-  color: #FAC905 !important;
-  
+    text-align: right !important;
+    color: #FAC905 !important;
   }
   .funreq
   {
@@ -265,10 +262,10 @@
     flex-direction: row;
     background: transparent !important;
     align-content: center;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    width:100%;
-  }
+    }
   
   .funreqin
   {
@@ -279,16 +276,16 @@
     margin-top:2px !important;
     border-radius: 3px;
     padding: 5px;
-   height: 14px !important;
+   height: 28px !important;
   
   
   }
   .funt
   {
-    width: 121px;
+    width: max-content;
     height: 12px;
     
-    font-family: 'Clash Grotesk';
+    // font-family: 'Clash Grotesk';
     font-style: normal;
     font-weight: 700;
     // font-size: 10px;
@@ -358,7 +355,7 @@
   mat-progress-bar
   {
     height: 8px !important;
-    width:90% !important; 
+    width:100% !important; 
     background-color: #47D7AC !important;
   }
   .PDiv
@@ -496,6 +493,10 @@
   }
   @media (max-width: 800px)
   {
+    .Zhol
+    {
+      padding-left:0px !important;
+    }
     .MarFun
     {
       grid:auto-flow/1fr 1fr !important ;
@@ -878,3 +879,27 @@ mat-progress-bar
   {
     margin-top:2rem !important;
   }
+  .Zhol
+  {
+    padding-left:1rem ;
+  }
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color:#47D7AC !important;
+    
+  }
+  .BV2nd
+{
+  display: flex;
+    margin-top: 1.1rem;
+    height: 60px;
+    width: 100%;
+    padding: 23px !important;
+    left: 0px;
+    background: #2D2335 !important;
+    border-radius: 2px;
+    padding: 0px 8px 0px 8px;
+    justify: space-between;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -41,7 +41,7 @@
     {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      // justify-content: space-between;
       margin-top:3rem !important;
       
     }
@@ -99,7 +99,7 @@
       }
       .lbl
     {
-      // width: 58px;
+      width: max-content;
     height: 20px;
 
     font-family: 'Space Grotesk';
@@ -159,10 +159,10 @@
 
 
 
-    .buttonIn {
-        width: 80%;
-        position: relative;
-    }
+    // .buttonIn {
+    //     width: 75%;
+    //     position: relative;
+    // }
     .Ref
     {
       text-decoration: none;
@@ -247,8 +247,8 @@
   {
     
     height: 12px;
-    
-    
+    text-align: right !important;
+    width: 116px;
     font-style: normal;
     font-weight: 700;
     // font-size: 10px;
@@ -264,9 +264,9 @@
     flex-direction: row;
     background: transparent !important;
     align-content: center;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    width:100%;
   }
 
   .funreqin
@@ -278,7 +278,7 @@
     margin-top:2px !important;
     border-radius: 3px;
     padding: 5px;
-  height: 14px !important;
+  height: 28px !important;
 
 
   }
@@ -287,7 +287,7 @@
     
     height: 12px;
     
-    
+    width: max-content;
     font-style: normal;
     font-weight: 400;
     // font-size: 10px;
@@ -368,7 +368,7 @@
   mat-progress-bar
   {
     height: 8px !important;
-    width:90% !important; 
+    width:100% !important; 
     background-color: #47D7AC !important;
   }
   .PDiv
@@ -398,7 +398,7 @@
   {
     margin-top:27px !important;
     display: grid;
-    grid:auto-flow / 1fr 1fr 1fr 1fr ;
+    grid:auto-flow / 1fr 1fr 1fr 1fr;
     
     flex-wrap: wrap;
   }
@@ -510,6 +510,10 @@
     }
     @media (max-width: 800px)
     {
+      .Zhol
+      {
+        padding-left:0px !important;
+      }
       .MarFun
       {
         grid:auto-flow / 1fr 1fr !important;
@@ -517,7 +521,7 @@
     .whole{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-content: space-around;
         flex-wrap: wrap;
         align-items: center;
@@ -858,3 +862,27 @@
       grid:auto-flow/1fr 1fr 1fr;
     }
   }
+  .Zhol
+  {
+    padding-left:1rem;
+  }
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color:#47D7AC !important;
+    
+  }
+  .BV2nd
+{
+  display: flex;
+    margin-top: 1.1rem;
+    height: 60px;
+    width: 100%;
+    padding: 23px !important;
+    left: 0px;
+    background: #2D2335 !important;
+    border-radius: 2px;
+    padding: 0px 8px 0px 8px;
+    justify: space-between;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

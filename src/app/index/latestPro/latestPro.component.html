@@ -41,7 +41,7 @@
           <button class="srchBtn">Search</button>
       
       </div>
-      <div >
+      <div class="Zhol">
         <div class="inH" >
         <p class="lbl">Sort by</p>
         <div class="btnH" (click)="toggle()">
@@ -70,12 +70,12 @@
           <img class="imgPro" src="{{item['Img']}}"   >
             </div>
             <div class="PHolder">
-              <p>{{i + 1}}</p>
+              <p class="BD">{{i + 1}}</p>
           <p class="nomar leftt">{{item['Name']}}</p>
           <p class="left">{{item['Description']}}</p>
           
       <div class="funreq">
-        <div class="funreqin"><p class="funt">Funding Required</p></div>
+        <div class="funreqin"><p class="funt">Required pledge</p></div>
         <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
         <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
       </div>

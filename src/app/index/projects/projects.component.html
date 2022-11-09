@@ -30,7 +30,7 @@
             <button class="srchBtn">Search</button>
         
         </div>
-        <div >
+        <div class="Zhol">
           <div class="inH" >
           <p class="lbl">Sort by</p>
           <div class="btnH">
@@ -39,7 +39,7 @@
           </div><span  class="fa fa-chevron-down"></span>
           </div>
           </div>
-          <div id="down"  class="dropdown-contentAp">
+          <div id="downPast"  class="dropdown-contentAp">
             <a  class="Ref" >Name</a>
             <a  class="Ref" >Latest</a>
             <a  href="#" class="Ref">Recent</a>
@@ -54,12 +54,12 @@
             <img class="imgPro" src="{{item['Img']}}"   >
               </div>
               <div class="PHolder">
-                <p>{{i + 1}}</p>
+                <p class="BD">{{i + 1}}</p>
             <p class="leftt">{{item['Name']}}</p>
             <p class="left">{{item['Description']}}</p>
             
         <div class="funreq">
-          <div class="funreqin"><p class="funt">Funding Required</p></div>
+          <div class="funreqin"><p class="funt">Required Pledge</p></div>
           <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
           <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
         </div>
@@ -68,7 +68,7 @@
         <mat-progress-bar class="matPb" mode="determinate" value=80></mat-progress-bar>
         
         <div class="BF">
-          <label class="faded">Voting expired</label>
+          <label class="faded">Pleding Closed</label>
           <!-- <button class="Fv">Vote</button> -->
         </div>
         </div>

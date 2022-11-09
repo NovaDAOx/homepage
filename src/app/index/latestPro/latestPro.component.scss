@@ -41,12 +41,12 @@
   {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top:3rem !important;
     
   }
   .buttonIn {
-    width: 80%;
+    width: 80vw;
     position: relative;
 }
 .Sicon
@@ -99,7 +99,7 @@
     }
     .lbl
   {
-    // width: 58px;
+    width: max-content;
   height: 20px;
 
   font-family: 'Space Grotesk';
@@ -159,10 +159,10 @@
 
 
 
-  .buttonIn {
-      width: 80%;
-      position: relative;
-  }
+  // .buttonIn {
+  //     width: 80%;
+  //     position: relative;
+  // }
   .Ref
   {
     text-decoration: none;
@@ -233,7 +233,7 @@ flex-grow: 0;
 .Pin
 {
   background: #190E22 !important;
-  width: 317px !important;
+  max-width: 316px !important;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -246,15 +246,13 @@ flex-grow: 0;
 {
   
   height: 12px;
-  
-  
+  width: 117px;
   font-style: normal;
   font-weight: 700;
   // font-size: 10px;
   line-height: 26px;
-  
-  
-color: #FAC905 !important;
+  text-align: right !important;
+  color: #FAC905 !important;
 
 }
 .funreq
@@ -263,9 +261,9 @@ color: #FAC905 !important;
   flex-direction: row;
   background: transparent !important;
   align-content: center;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  width:100%;
 }
 
 .funreqin
@@ -277,13 +275,13 @@ color: #FAC905 !important;
   margin-top:2px !important;
   border-radius: 3px;
   padding: 5px;
- height: 14px !important;
+ height: 28px !important;
 
 
 }
 .funt
 {
-  width: 121px;
+  width: max-content;
   height: 12px;
   
 
@@ -356,7 +354,7 @@ color: #FAC905 !important;
 mat-progress-bar
 {
   height: 8px !important;
-  width:90% !important; 
+  width:100% !important; 
   background-color: #47D7AC !important;
 }
 .PDiv
@@ -386,7 +384,7 @@ mat-progress-bar .mat-progress-bar-buffer
 {
   margin-top:27px !important;
   display: grid;
-  grid:auto-flow 1fr 1fr 1fr;
+  grid:auto-flow / 1fr 1fr 1fr 1fr;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -523,6 +521,10 @@ element.style {
   }
   @media (max-width: 800px)
   {
+    .Zhol
+    {
+      padding-left:0px !important;
+    }
     .MarFun
     {
       grid:auto-flow / 1fr 1fr !important;
@@ -913,7 +915,7 @@ mat-progress-bar
   display: flex;
     margin-top: 1.1rem;
     height: 60px;
-    width: 91%;
+    width: 100%;
     padding: 23px !important;
     left: 0px;
     background: #2D2335 !important;
@@ -930,4 +932,13 @@ mat-progress-bar
   {
     grid:auto-flow/1fr 1fr 1fr;
   }
+}
+.Zhol
+{
+  padding-left:1rem;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color:#47D7AC !important;
+  
 }
