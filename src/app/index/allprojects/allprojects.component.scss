@@ -233,14 +233,15 @@
   .Pin
   {
     background: #190E22 !important;
-    width: 317px !important;
+    max-width: 316px !important;
     display: flex;
     padding:5px !important;
+    margin-left:5px !important;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     align-items: flex-start;
-    margin-top:2rem !important;
+    margin-top:4rem !important;
   
   }
   .funtT
@@ -385,10 +386,12 @@
   }
   .MarFun
   {
-    margin-top:27px !important;
-    display: flex;
-    justify-content: space-between;
+    margin-top: 27px !important;
+    display: grid;
+    grid:auto-flow / 1fr 1fr 1fr 1fr;
     flex-wrap: wrap;
+    justify-content: center;
+
   }
   
   element.style {
@@ -482,9 +485,21 @@
       align-content: center !important;
   
     }
+  
   }
-  @media (max-width: 799px)
+  @media (max-width: 1164px)
   {
+    .MarFun
+    {
+      grid:auto-flow/1fr 1fr 1fr;
+    }
+  }
+  @media (max-width: 800px)
+  {
+    .MarFun
+    {
+      grid:auto-flow/1fr 1fr !important ;
+    }
   .whole{
       display: flex;
       flex-direction: column;
