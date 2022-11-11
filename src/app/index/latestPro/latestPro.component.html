@@ -45,13 +45,13 @@
         <div class="inH" >
         <p class="lbl">Sort by</p>
         <div class="btnH" (click)="toggle()">
-        <div   id="word" (click)="toggle()">
+        <div   id="word" >
           latest
-        </div><span  class="fa fa-chevron-down" (click)="toggle()"></span>
+        </div><span  class="fa fa-chevron-down" ></span>
         </div>
         </div>
         <div id="downlatestPro"  class="dropdown-contentAp">
-          <a  class="Ref" >Name</a>
+          <a  class="Ref" (click)="sortDiv()" >Name</a>
           <a  class="Ref" >Latest</a>
           <a  href="#" class="Ref">Recent</a>
         </div>
@@ -63,15 +63,15 @@
       <!-- landing latest Projects -->
      
      
-      <div id="landingLatest" class="MarFun" style="overflow-x:auto;" >
+      <div id="landingLatest" id="MarFunLatest" class="MarFun" style="overflow-x:auto;" >
         
-        <div class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index" (click)="propos($event)" >
+        <div id="Pin" class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index" (click)="propos($event)" >
           <div class="PDiv" >
           <img class="imgPro" src="{{item['Img']}}"   >
             </div>
             <div class="PHolder">
               <p class="BD">{{i + 1}}</p>
-          <p class="nomar leftt">{{item['Name']}}</p>
+          <p class="nomar leftt names">{{item['Name']}}</p>
           <p class="left">{{item['Description']}}</p>
           
       <div class="funreq">

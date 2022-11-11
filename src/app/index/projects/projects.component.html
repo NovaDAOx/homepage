@@ -33,21 +33,21 @@
         <div class="Zhol">
           <div class="inH" >
           <p class="lbl">Sort by</p>
-          <div class="btnH">
+          <div class="btnH" (click)="toggle()">
           <div   id="word">
             latest
           </div><span  class="fa fa-chevron-down"></span>
           </div>
           </div>
           <div id="downPast"  class="dropdown-contentAp">
-            <a  class="Ref" >Name</a>
+            <a  class="Ref" (click)="sortDiv()">Name</a>
             <a  class="Ref" >Latest</a>
             <a  href="#" class="Ref">Recent</a>
           </div>
           </div>
         
         </div> 
-        <div class="MarFun" style="overflow-x:auto;" >
+        <div class="MarFun" id="MarFunPast" style="overflow-x:auto;" >
           
           <div class="Pin" *ngFor="let item of recentPro | itemnameFilter:name;let i = index" (click)="pastPropos($event)">
             <div class="PDiv" >
@@ -55,7 +55,7 @@
               </div>
               <div class="PHolder">
                 <p class="BD">{{i + 1}}</p>
-            <p class="leftt">{{item['Name']}}</p>
+            <p class="leftt names">{{item['Name']}}</p>
             <p class="left">{{item['Description']}}</p>
             
         <div class="funreq">

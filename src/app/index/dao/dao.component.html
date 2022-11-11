@@ -134,7 +134,7 @@
                 <div >
                   <div class="inH" >
                   <p class="lbl">Sort by</p>
-                  <div class="btnH">
+                  <div class="btnH" (click)="toggle()">
                   <div  (click)="toggle()" id="word">
                     latest
                   </div><span (click)="toggle()"  class="fa fa-chevron-down"></span>
@@ -170,7 +170,7 @@
                         <a class="dessG fo2" id="dessG" >{{item['Description']}}</a>
                       </td>
                       <td class="CenCen">
-                        <label class="Ycolor" >{{item['Amount']}} $NOVA</label>
+                        <label class="Ycolor amt" >{{item['Amount']}} $NOVA</label>
                         <!-- {{item['Amount']}} $NOVA -->
                       </td>
                       <td class="CenCen">
@@ -233,7 +233,7 @@
             <div >
               <div class="inH" >
               <p class="lbl">Sort by</p>
-              <div class="btnH">
+              <div class="btnH" (click)="toggleSelected()">
               <div  (click)="toggleSelected()" id="wordT" >
                 latest
               </div><span (click)="toggle()"  class="fa fa-chevron-down"></span>
@@ -267,7 +267,7 @@
                     <a class="dessG fo2" id="dessGT" >{{item['Description']}}</a>
                   </td>
                   <td class="CenCen">
-                    <label class="Ycolor">{{item['Amount']}} $NOVA</label>
+                    <label class="Ycolor amt">{{item['Amount']}} $NOVA</label>
                     <!-- {{item['Amount']}} $NOVA -->
                   </td>
                   <td class="CenCen">
@@ -303,7 +303,7 @@
               <p (click)="ProposalPage" class="Nt">{{p['name']}}</p>
               <div class="UHolder">
                 <p class="PN BB2">Funding required</p>
-                <p class="PN Ycolor">{{p['Amount']}}</p>
+                <p class="PN Ycolor amt">{{p['Amount']}}</p>
               </div>
               <div class="DApholder">
               <p class="PN">{{p['Description']}}</p>

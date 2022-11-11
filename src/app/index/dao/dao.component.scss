@@ -198,6 +198,12 @@ text-align: left !important;
       width: 380px !important;
     }
     @media (max-width: 800px) {
+      .downvote
+      {
+        margin-left:0px !important;
+        margin-top:5px !important;
+       
+      }
       .DContainer {
         display: flex;
         flex-direction: column;
@@ -408,7 +414,7 @@ text-align: left !important;
   //  {
   //   display: flex;
   //  }
-  .showw {display: flex !important;align-items: end;}
+  .showw {display: flex !important;align-items: center;}
   .lbl
   {
     // width: 58px;
@@ -586,12 +592,12 @@ text-align: left !important;
   .fo
   {
     
-  font-family: 'Space Grotesk';
-  font-style: normal;
+
+  
   width: 106px !important;
   margin-left: 60px !important;
   margin-top:-8px !important;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 12px;
   line-height: 22px;
   /* identical to box height, or 183% */
@@ -605,17 +611,16 @@ text-align: left !important;
   .fo2
   {
     
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 22px;
-  /* identical to box height, or 183% */
-  margin-top: -19px !important;
-  text-decoration: none !important;
-  align-items: center;
-
-  color: rgba(255, 255, 255, 0.6);
+   
+    font-weight: 400;
+    padding-left: 62px !important;
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: -19px !important;
+    text-decoration: none !important;
+    align-items: center;
+    width: 209px;
+    color: rgba(255, 255, 255, 0.6);
   }
   .BD
   {
@@ -1051,4 +1056,14 @@ mat-progress-bar .mat-progress-bar-buffer
 {
   font-size: 23px !important;
   font-weight: 700 !important;
+}
+.amt
+{
+  height: 12px;
+  font-style: normal;
+  width: 116px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left !important;
+  color: #FAC905 !important;
 }

@@ -1,262 +1,261 @@
-  <app-menu-bar class="menu-bar"></app-menu-bar>
+    <app-menu-bar class="menu-bar"></app-menu-bar>
 
-  <div class="main_section app_mainsection">
-      <div class="appsection">
-  <div id="allLand">
-        <div id="landing">
-        <div class="new_topsection">
-          <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
-          <p class="Nt">All Projects</p>   
+    <div class="main_section app_mainsection">
+        <div class="appsection">
+    <div id="allLand">
+          <div id="landing">
+          <div class="new_topsection">
+            <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
+            <p class="Nt">All Projects</p>             
+            <img
+              class="animated_star2"
+              src="../../../assets/images/starimg.png"
+              alt="animate_img"
+            />
+            <img
+              class="animated_star1"
+              src="../../../assets/images/starimg.png"
+              alt="animate_img"
+            />
           
-          <img
-            class="animated_star2"
-            src="../../../assets/images/starimg.png"
-            alt="animate_img"
-          />
-          <img
-            class="animated_star1"
-            src="../../../assets/images/starimg.png"
-            alt="animate_img"
-          />
+        </div>
         
-      </div>
-      
 
 
-      <div class="DContainer" id="Allpros">
-        <a class="Nl" routerLink = "/latestProjects">
-        <div class="D2Container" >
-            <div class="D3Container">
+        <div class="DContainer" id="Allpros">
+          <a class="Nl" routerLink = "/latestProjects">
+          <div class="D2Container" >
+              <div class="D3Container">
+                
+              <img src="../../../assets/images/Allapp.png" width="74px"/>
+              <p class="Nt cenTN">Latest Projects</p>
+              <p class="grayMin"><span>10</span> active Projects</p><br/>
+              <button class="new_btn_D">View All<span class="fa fa-arrow-right marD"></span></button>
               
-            <img src="../../../assets/images/Allapp.png" width="74px"/>
-            <p class="Nt cenTN">Latest Projects</p>
-            <p class="grayMin"><span>10</span> active Projects</p><br/>
-            <button class="new_btn_D">View All<span class="fa fa-arrow-right marD"></span></button>
+              </div>   
+          </div>
+          </a>
+          <a class="Nl" routerLink = "/pastProjects">
+          <div class="D2Container" >
+              <div class="D3Container">
+                  <img src="../../../assets/images/Selected.png" width="74px"/>
+                  <p class="Nt cenTN">Past Projects</p>
+                  <p class="grayMin"><span>10</span> active Projects</p><br/>
+                  <button class="new_btn_D">View <span class="fa fa-arrow-right marD "></span></button>
+              </div>    
+          </div>
+          </a>
+          <!-- <div class="D2Container" >
+              <div class="D3Container">
+              <img src="../../../assets/images/Proposal.PNG" width="74px" />
+              <p>Proposals</p>
+              <p class="grayMin Hid">this is pro</p><br/>
+              <button class="new_btn_D">View SnapShot <span class="fa fa-arrow-right marD rotD"></span></button>
+          </div> -->
+      </div>
+        
+    </div> 
+
+    <!-- <p class="Nt marN">All projects</p>       -->
+
+        <div class="whole">
+
+            <div class="buttonIn">
+              <i class="fa fa-search Sicon" aria-hidden="true"></i>
+              <input class="icon" type="text" id="enter" [(ngModel)]="name">
+              <button class="srchBtn">Search</button>
+          
+          </div>
+          <div class="Zhol">
+            <div class="inH" >
+            <p class="lbl">Sort by </p>
+            <div class="btnH" (click)="toggle()">
+            <div   id="word" class="cenTN">
+              latest
+            </div><span  class="fa fa-chevron-down"></span>
+            </div>
+            </div>
+            <div id="downAllP"  class="dropdown-contentAp">
+              <a  class="Ref" (click)="sortDiv()">Name</a>
+              <a  class="Ref" >Latest</a>
+              <a  href="#" class="Ref">Recent</a>
+            </div>
+            </div>
+          
+          </div> 
+          <div>
+          <div class="MarFun" style="overflow-x:auto;" id="MarFunLatest">
             
-            </div>   
-        </div>
-        </a>
-        <a class="Nl" routerLink = "/pastProjects">
-        <div class="D2Container" >
-            <div class="D3Container">
-                <img src="../../../assets/images/Selected.png" width="74px"/>
-                <p class="Nt cenTN">Past Projects</p>
-                <p class="grayMin"><span>10</span> active Projects</p><br/>
-                <button class="new_btn_D">View <span class="fa fa-arrow-right marD "></span></button>
-            </div>    
-        </div>
-        </a>
-        <!-- <div class="D2Container" >
-            <div class="D3Container">
-            <img src="../../../assets/images/Proposal.PNG" width="74px" />
-            <p>Proposals</p>
-            <p class="grayMin Hid">this is pro</p><br/>
-            <button class="new_btn_D">View SnapShot <span class="fa fa-arrow-right marD rotD"></span></button>
-        </div> -->
+            <div class="Pin" id="Pin" *ngFor="let item of allPro | itemnameFilter:name;let i = index" (click)="proposal($event)" >
+                <div>
+              <div class="PDiv">
+              <img class="imgPro" src="{{item['Img']}}">
+                </div>
+                <div class="PHolder">
+                    <p class="BD">{{i + 1 }}</p>
+              <p class="left name DaoP">{{item['Name']}}</p>
+              <p class="left">{{item['Description']}}</p>
+              <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
+              
+          <div class="funreq">
+            <div class="funreqin"><p class="funt">Required Pledge</p></div>
+            <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
+          
+          </div>
+          
+          <label class="Precieved">100% recieved</label>
+          <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
+          
+          <div class="BF">
+            <label class="faded">Pleding Closed</label>
+            <!-- <button class="Fv">Vote</button> -->
+          </div>
+          </div>
+          </div>
+          </div>
+            
+            
+            </div>
+            </div>
     </div>
+    <!-- Proposal page -->
+
+    <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
+      <div class="babaHolder" > 
+
+    <button class="backBtnn" (click)="backAppTwo()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
+
+      <div class="proposalLatest">
+        
+    <div class="holdeP">
       
-  </div> 
-
-  <!-- <p class="Nt marN">All projects</p>       -->
-
-      <div class="whole">
-        
-          <div class="buttonIn">
-            <i class="fa fa-search Sicon" aria-hidden="true"></i>
-            <input class="icon" type="text" id="enter" [(ngModel)]="name">
-            <button class="srchBtn">Search</button>
-        
+      <div class="dOne">
+        <img src="{{p['src']}}" class="IC">
+      </div>
+      <div class="dTwo">
+        <p class="DaoP nomar Fpro">{{p['name']}}</p>
+        <p class="PN">{{p['Description']}}</p>
+        <div class="UHolder">
+            <p class="PN BB2">Funding required</p>
+          <p class="PN Ycolor">{{p['Amount']}}</p>
         </div>
-        <div class="Zhol">
-          <div class="inH" >
-          <p class="lbl">Sort by</p>
-          <div class="btnH">
-          <div   id="word" class="cenTN">
-            latest
-          </div><span  class="fa fa-chevron-down"></span>
-          </div>
-          </div>
-          <div id="down"  class="dropdown-contentAp">
-            <a  class="Ref" >Name</a>
-            <a  class="Ref" >Latest</a>
-            <a  href="#" class="Ref">Recent</a>
-          </div>
-          </div>
+        <div class="DApholder">
         
+        <!-- <c-progress class="mb-3">
+          <c-progress-bar [value]="25">25%</c-progress-bar>
+        </c-progress> -->
+        <div class="mat">
+        <mat-progress-bar class="matPb" mode="determinate" value=50></mat-progress-bar>
+        <div class="BV">
+          <label>0.0 VOTES</label>
+          <button class="VT">Vote</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+    <p class="centered DaoP marTA">More about the project</p>
+    <p class="PN marT">{{p['DescriptionT']}}</p><br/>
+
+    <p class="centered DaoP">Know the Team</p><br/>
+
+    <div class="container flll" >
+    <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
+      <p class="PN Fpro dashed" id="Tname">{{Tea['TeamMeber']}}</p>
+      <p class="PN dashed" id="Trole">{{Tea['About']}}</p>
+      <div class="newicons">
+        <div class="me-2 dashed">
+          <a
+            class="round_box"
+            href=""
+            id="sty"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div class="me-2">
+          <a
+            class="round_box Ycolor"
+            href=""
+            target="_blank"
+          >
+            <i class="fab fa-twitter" aria-hidden="true"></i
+          ></a>
+        </div>
         </div> 
-        <div>
-        <div class="MarFun" style="overflow-x:auto;" >
-          
-          <div class="Pin" *ngFor="let item of allPro | itemnameFilter:name;let i = index" (click)="proposal($event)" >
-              <div>
-            <div class="PDiv" >
-            <img class="imgPro" src="{{item['Img']}}"   >
-              </div>
-              <div class="PHolder">
-                  <p class="BD">{{i + 1 }}</p>
-            <p class="left name DaoP" >{{item['Name']}}</p>
-            <p class="left">{{item['Description']}}</p>
-            <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
-            
-        <div class="funreq">
-          <div class="funreqin"><p class="funt">Required Pledge</p></div>
-          <div class="funreqint"><p class="funtT">{{item['Amount']}} $Nova</p></div><br/>
-        
-        </div>
-        
-        <label class="Precieved">100% recieved</label>
-        <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
-        
-        <div class="BF">
-          <label class="faded">Pleding Closed</label>
-          <!-- <button class="Fv">Vote</button> -->
-        </div>
-        </div>
-        </div>
-        </div>
-          
-          
-          </div>
-          </div>
-  </div>
-  <!-- Proposal page -->
 
-  <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
-    <div class="babaHolder" > 
-
-  <button class="backBtnn" (click)="backAppTwo()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
-
-    <div class="proposalLatest">
-      
-  <div class="holdeP">
-    
-    <div class="dOne">
-      <img src="{{p['src']}}" class="IC">
-    </div>
-    <div class="dTwo">
-      <p class="DaoP nomar Fpro">{{p['name']}}</p>
-      <p class="PN">{{p['Description']}}</p>
-      <div class="UHolder">
-          <p class="PN BB2">Funding required</p>
-        <p class="PN Ycolor">{{p['Amount']}}</p>
       </div>
-      <div class="DApholder">
-      
-      <!-- <c-progress class="mb-3">
-        <c-progress-bar [value]="25">25%</c-progress-bar>
-      </c-progress> -->
-      <div class="mat">
-      <mat-progress-bar class="matPb" mode="determinate" value=50></mat-progress-bar>
-      <div class="BV">
-        <label>0.0 VOTES</label>
-        <button class="VT">Vote</button>
-        </div>
       </div>
-    </div>
-
-  </div>
-
-  </div>
-  <p class="centered DaoP marTA">More about the project</p>
-  <p class="PN marT">{{p['DescriptionT']}}</p><br/>
-
-  <p class="centered DaoP">Know the Team</p><br/>
-
-  <div class="container flll" >
-  <div class="newfooterbox newfooterboxedu" *ngFor="let Tea of Team">
-    <p class="PN Fpro dashed" id="Tname">{{Tea['TeamMeber']}}</p>
-    <p class="PN dashed" id="Trole">{{Tea['About']}}</p>
-    <div class="newicons">
-      <div class="me-2 dashed">
-        <a
-          class="round_box"
-          href=""
-          id="sty"
-          target="_blank"
-        >
-          <i class="fab fa-linkedin" aria-hidden="true"></i
-        ></a>
+      <div class="downPitch">
+      <img src="{{p['src']}}" class="ICT">
       </div>
-      <div class="me-2">
-        <a
-          class="round_box Ycolor"
-          href=""
-          target="_blank"
-        >
-          <i class="fab fa-twitter" aria-hidden="true"></i
-        ></a>
       </div>
-      </div> 
-
-    </div>
-    </div>
-    <div class="downPitch">
-    <img src="{{p['src']}}" class="ICT">
-    </div>
-    </div>
-    </div>
+      </div>
 
 
 
 
 
-          </div>
-          <div class="spacebox"></div>
-          <div class="container">
-            <div class="newfooterbox">
-              <img
-                class="animated_star3"
-                src="../../../assets/images/starimg.png"
-                alt="animate_img"
-              />
-              <div class="newlogofooter d-flex align-items-center">
+            </div>
+            <div class="spacebox"></div>
+            <div class="container">
+              <div class="newfooterbox">
                 <img
-                  class="newlogo me-2"
-                  src="../../../assets/images/novadao_logo/icon.png"
-                  alt=""
+                  class="animated_star3"
+                  src="../../../assets/images/starimg.png"
+                  alt="animate_img"
                 />
-                <span class="newlogo_heading">Nova DAO</span>
-              </div>
-              <div class="new_footer_icons">
-                <div class="padNew">
-                  <a
-                    class="footerround_box"
-                    href="https://discord.gg/D7FKzVFztf"
-                    target="_blank"
-                  >
-                    <i class="fab fa-discord" aria-hidden="true"></i
-                  ></a>
+                <div class="newlogofooter d-flex align-items-center">
+                  <img
+                    class="newlogo me-2"
+                    src="../../../assets/images/novadao_logo/icon.png"
+                    alt=""
+                  />
+                  <span class="newlogo_heading">Nova DAO</span>
                 </div>
-                <div class="padNew">
-                  <a
-                    class="footerround_box "
-                    href="https://medium.com/@Nova.DAO"
-                    target="_blank"
-                  >
-                    <i class="fab fa-medium-m" aria-hidden="true"></i
-                  ></a>
-                </div>
-                <div class="padNew">
-                  <a
-                    class="footerround_box"
-                    href="https://open.spotify.com/show/0n335tlzRaT8S9N2zyc6Kl"
-                    target="_blank"
-                  >
-                    <i class="fab fa-spotify" aria-hidden="true"></i
-                  ></a>
-                </div>
-    
-                <div class="padNew">
-                  <a
-                    class="footerround_box"
-                    href="https://twitter.com/NovaDaoNFT"
-                    target="_blank"
-                  >
-                    <i class="fab fa-twitter" aria-hidden="true"></i
-                  ></a>
+                <div class="new_footer_icons">
+                  <div class="padNew">
+                    <a
+                      class="footerround_box"
+                      href="https://discord.gg/D7FKzVFztf"
+                      target="_blank"
+                    >
+                      <i class="fab fa-discord" aria-hidden="true"></i
+                    ></a>
+                  </div>
+                  <div class="padNew">
+                    <a
+                      class="footerround_box "
+                      href="https://medium.com/@Nova.DAO"
+                      target="_blank"
+                    >
+                      <i class="fab fa-medium-m" aria-hidden="true"></i
+                    ></a>
+                  </div>
+                  <div class="padNew">
+                    <a
+                      class="footerround_box"
+                      href="https://open.spotify.com/show/0n335tlzRaT8S9N2zyc6Kl"
+                      target="_blank"
+                    >
+                      <i class="fab fa-spotify" aria-hidden="true"></i
+                    ></a>
+                  </div>
+      
+                  <div class="padNew">
+                    <a
+                      class="footerround_box"
+                      href="https://twitter.com/NovaDaoNFT"
+                      target="_blank"
+                    >
+                      <i class="fab fa-twitter" aria-hidden="true"></i
+                    ></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="spacebox"></div>
-          </div>
+            <div class="spacebox"></div>
+            </div>
