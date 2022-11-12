@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -27,6 +28,8 @@ export class MetamaskService {
   async isMetaMaskConnected() {
     try {
       const networkId = await this.getNetwork();
+      console.log('this is networkId',this.networkID)
+      console.log('this is users networkId',networkId)
       // console.log(networkId + '===' + this.networkID);
       if (networkId === this.networkID) {
         return await this.web3Service.getAccount();
@@ -51,6 +54,7 @@ export class MetamaskService {
       // provider2.request({ method: 'eth_requestAccounts' });
       if (provider) {
         let netId = window.ethereum.chainId;
+        console.log('nnnnnnnnnnnnnnn',netId)
         switch (netId) {
           case '0x1':
             console.log('This is Ethereum Main Network (MainNet).');
@@ -96,13 +100,21 @@ export class MetamaskService {
               horizontalPosition: 'end',
             });
             break;
-          default:
-            console.log('This is an unknown network.');
-            this.snackBar.open('This is an unknown network.', 'X', {
-              duration: 4000,
-              panelClass: ['success-order'],
-              horizontalPosition: 'end',
-            });
+            case '0x11155111':
+              console.log('This is Sopolia Test Network');
+              this.snackBar.open('This is Sopolia Test Network', 'X',{
+                duration:3000,
+                panelClass:['success-order'],
+                horizontalPosition:'end',
+              });
+              break;
+          // default:
+          //   console.log('This is an unknown network.');
+          //   this.snackBar.open('This is an unknown network.', 'X', {
+          //     duration: 4000,
+          //     panelClass: ['success-order'],
+          //     horizontalPosition: 'end',
+          //   });
         }
         this.enableMetamask(url);
       }
@@ -226,6 +238,7 @@ export class MetamaskService {
     if (this.networkID === 4) {
       alert('Wrong Network, Please connect to a Test Network');
     }
+   
     this.logoutAccount();
   }
 

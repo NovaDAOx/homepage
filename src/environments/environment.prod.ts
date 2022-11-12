@@ -23,7 +23,7 @@ export const environment = {
   COIN:'0x0b646d450d95fa7091589e01da063fcf157c583a',
   provider: 'https://eth-goerli.g.alchemy.com/v2/vBBJ7stvGtqfLuR7c6U4H26R9rvQEjzB',
   networlink: 'https://rinkeby.etherscan.io/tx/',
-  networkId: 5,
+  networkId: 11155111,
   MINT_LIMIT: 5,
   RECEIVING_ADDRESS: '0xdaF42BEf6729bFf8F839933FBAc3ec720fD8Cae8',
   Githuburl: "https://api.github.com/repos/NovaDAOx/team/contents",
