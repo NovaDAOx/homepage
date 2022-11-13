@@ -29,5 +29,5 @@ export const environment = {
   Githuburl: "https://api.github.com/repos/NovaDAOx/team/contents",
   FINNEY: 1000000000000000,
   ALLOWED_ADDRESS: ['0x80E9B21C95368b09Fee2EE8cA1C4Ee4acfE32A8E','0x7a4688cEb14bD66bF4BC0D2BF027595b6Cbea373'],
-  CoreTeam:"0x80E9B21C95368b09Fee2EE8cA1C4Ee4acfE32A8E"  
+  CoreTeam:"0x93FC0C711c2dF516Bc442AD4B3Ed47Cc4001829B"  
 };
