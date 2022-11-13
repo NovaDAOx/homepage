@@ -139,6 +139,7 @@ export class MintComponent implements OnInit {
   checkStatus(userAddress: any) {
     this.nftService.getMintDetails(userAddress).subscribe((data) => {
       this.pendingNFT = data;
+      console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQq',this.pendingNFT)
     });
   }
   changeScrollbar() {

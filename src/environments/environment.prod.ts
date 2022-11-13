@@ -1,9 +1,10 @@
 export const environment = {
   moralis: {
-     appId : "xoAlRuF14AeLFxhYQe85ULfLxSX32kbyaLq5CCXB",
-     serverUrl : "https://jkj5ryrhl8gp.usemoralis.com:2053/server",
-     apiKey:"JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF",
+    appId : "xoAlRuF14AeLFxhYQe85ULfLxSX32kbyaLq5CCXB",
+    serverUrl : "https://jkj5ryrhl8gp.usemoralis.com:2053/server",
+    apiKey:"JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF",
   },
+  production:false,
   firebaseConfig : {
     apiKey: "AIzaSyBtyzjPPu5IGYgjirr9VM9-_2wNGKkAAzA",
     authDomain: "nova-f0c13.firebaseapp.com",
@@ -13,14 +14,13 @@ export const environment = {
     appId: "1:894411903560:web:7bfa2e7d2f335933bdbe7d",
     measurementId: "G-C7E4NK716N"
   },
-  production: true,
   apiEndPoint: 'http://api.rugslocal.com',
   //apiEndPoint: 'http://localhost:3027',
   clientUrl: 'http://rugslocal.com',
-  NFTContractAddress: '0xE693D5342ea38CBA9E3999d94a462520705dCfd2',
-  STAKE:'0x784cf0dcc3254067ac9fcd1d35ddf433122c7e79',
-  DAO:'0x9b48b05e7e85106113565727986b4df218802ad5',
-  COIN:'0x0b646d450d95fa7091589e01da063fcf157c583a',
+  NFTContractAddress: '0x4a6C879f1bC462bD7af507a3f3aCc2Db4782F7Be',
+  STAKE:'0x9FFC4c4450d2889902DaF65d3504d56Ed73DA4A2',
+  DAO:'0x4a6C879f1bC462bD7af507a3f3aCc2Db4782F7Be',
+  COIN:'0xb19f3C432529F79a6fCdd5bd6C946D1909Ae635f',
   provider: 'https://eth-goerli.g.alchemy.com/v2/vBBJ7stvGtqfLuR7c6U4H26R9rvQEjzB',
   networlink: 'https://rinkeby.etherscan.io/tx/',
   networkId: 11155111,
