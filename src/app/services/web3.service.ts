@@ -82,6 +82,7 @@ export class Web3Service {
     const contract = await this.rugsContract();
     const priceHex = await this.getNFTPrice();
     const nftCost = Number(this.web3Http.utils.fromWei(priceHex));
+    
 
     const finalCost = Number((nftCost * nftQuantity).toFixed(1));
 
@@ -119,7 +120,8 @@ export class Web3Service {
 
   async getNFTPrice() {
     const contract = await this.rugsContract();
-    const result = await contract.methods.getNftPrice().call();
+    console.log('ppppppp',contract)
+    const result = await contract.methods.price().call();
     return result;
   }
 
@@ -185,7 +187,7 @@ export class Web3Service {
         console.log('error', error);
       }
       if (success) {
-        console.log('succes fully unsbscribe');
+        console.log('succesfully unsbscribe');
       }
     });
   }
@@ -246,7 +248,7 @@ export class Web3Service {
           alert('Wrong Network, Please connect to Ethereum Mainnet');
         }
         if (this.networkID === 3) {
-          alert('Wrong Network, Please connect to Rinkeby Test Network');
+          alert('Wrong Network, Please connect to Sepolia Test Network');
         }
         return null;
       }

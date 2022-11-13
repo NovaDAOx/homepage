@@ -50,11 +50,25 @@ export class MetamaskService {
     if ( window && window.ethereum && window.ethereum.isMetaMask) {
      
       const provider = window.ethereum.isMetaMask
+      const providere = window.ethereum.provider
+      const pro = window.ethereum.isCoinbaseWallet
       // const provider2 = window.ethereum.providers.find((provider) => provider.isMetaMask);
       // provider2.request({ method: 'eth_requestAccounts' });
       if (provider) {
         let netId = window.ethereum.chainId;
         console.log('nnnnnnnnnnnnnnn',netId)
+        if(netId != '0xaa36a7')
+        {
+          this.snackBar.open(
+            'Wrong Network \n Please Connect to Sepolia Testnet','X',
+            {
+              panelClass:'error-snackbar',
+              duration:4000,
+              horizontalPosition:'end',
+            }
+          );
+          return false;
+        }
         switch (netId) {
           case '0x1':
             console.log('This is Ethereum Main Network (MainNet).');
@@ -91,7 +105,9 @@ export class MetamaskService {
               panelClass: ['success-order'],
               horizontalPosition: 'end',
             });
+            
             break;
+            
           case '0x42':
             console.log('This is Kovan Test Network.');
             this.snackBar.open('This is Kovan Test Network.', 'X', {
@@ -100,7 +116,7 @@ export class MetamaskService {
               horizontalPosition: 'end',
             });
             break;
-            case '0x11155111':
+            case '0xaa36a7':
               console.log('This is Sopolia Test Network');
               this.snackBar.open('This is Sopolia Test Network', 'X',{
                 duration:3000,
@@ -108,13 +124,13 @@ export class MetamaskService {
                 horizontalPosition:'end',
               });
               break;
-          // default:
-          //   console.log('This is an unknown network.');
-          //   this.snackBar.open('This is an unknown network.', 'X', {
-          //     duration: 4000,
-          //     panelClass: ['success-order'],
-          //     horizontalPosition: 'end',
-          //   });
+          default:
+            console.log('This is an unknown network.');
+            this.snackBar.open('This is an unknown network.', 'X', {
+              duration: 4000,
+              panelClass: ['success-order'],
+              horizontalPosition: 'end',
+            });
         }
         this.enableMetamask(url);
       }
