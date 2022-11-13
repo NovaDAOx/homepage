@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from './services/product.service';
-import Moralis from 'moralis/types'
+// import Moralis from 'moralis/types'
 import { MoralisService } from './services/moralis.service';
 
 @Component({

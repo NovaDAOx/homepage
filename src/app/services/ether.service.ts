@@ -46,6 +46,12 @@ export class EtherService {
       .call();
     return check;
   }
+  tested()
+  {
+    let NOVAcon = new web3.eth.Contract(this.ABI_DAO, this.DAO);
+    console.log("this is a contract to fetch the nft", NOVAcon);
+    return NOVAcon
+  }
 
   public async setApproval(): Promise<any> {
     const userAddress = localStorage.getItem("walletId");

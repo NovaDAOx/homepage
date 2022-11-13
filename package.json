@@ -37,7 +37,7 @@
     "i": "^0.3.7",
     "libphonenumber-js": "^1.9.43",
     "magic-sdk": "^8.1.1",
-    "moralis": "^1.8.1",
+    "moralis": "1.0.0",
     "ng2-odometer": "^1.1.3",
     "ng2-pdf-viewer": "^9.1.2",
     "ngx-extended-pdf-viewer": "^15.0.2",

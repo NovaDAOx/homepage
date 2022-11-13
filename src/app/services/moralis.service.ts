@@ -15,7 +15,10 @@ export class MoralisService {
     return defer(() =>
       from(
         Moralis.start({
-          ...environment.moralis,
+          
+            ...environment.moralis,
+            // ...and any other configuration
+          
         })
       )
     );
@@ -33,11 +36,11 @@ export class MoralisService {
         chain: "goerli",
         address: userAddress,
       });
-
+console.log(userEthNFTs,'+++++++++++++++++++++++++++_____________________')
       var array = [];
       var listContacts = function () {
         for (var i = 0; i < userEthNFTs.length; i++) {
-          if (userEthNFTs[i].name == "Nova Test Pass") {
+          if (userEthNFTs[i].name == "Nova Genesis Pass ") {
             const json = {
               name: userEthNFTs[i].name,
               url: userEthNFTs[i].token_uri,

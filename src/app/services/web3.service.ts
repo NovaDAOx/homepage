@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 import Web3 from 'web3';
-import { Moralis } from 'moralis'
+// import { Moralis } from 'moralis'
 let web3 = new Web3(Web3.givenProvider);
 
 const { NFTAbi } = require('../abi/nft.js');
@@ -127,9 +127,11 @@ export class Web3Service {
 
   async getMintedNFT(): Promise<any> {
     const contract = await this.rugsContract();
+    console.log('mmmmmmmmmmmmmmmmmmmmm',contract)
     const userAddress = localStorage.getItem('walletId');
     if (userAddress) {
       const result = await contract.methods.balanceOf(userAddress).call();
+      console.log('.................................ppppppppapppppp0',result)
       return result;
     } else {
       this.snackBar.open('Please connect metamask ', 'X', {

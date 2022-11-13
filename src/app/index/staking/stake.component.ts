@@ -19,7 +19,7 @@ import { Router } from "@angular/router";
 import { arrayify } from "ethers/lib/utils";
 import { CdkAccordion } from "@angular/cdk/accordion";
 import { threadId } from "worker_threads";
-
+import { Web3Service } from "src/app/services/web3.service";
 @Component({
   selector: "app-stake",
   templateUrl: "./stake.component.html",
@@ -550,6 +550,8 @@ export class StakeComponent implements OnInit {
   ngOnInit(): void {
     this.approveall();
     this.estimateClaim();
+    this.web3Service.getMintedNFT()
+    console.log(this.web3Service.getMintedNFT(),'ooooooooooooooooooooooooooo')
     if (!window.localStorage.getItem("logout")) {
       window.localStorage.setItem("logout", "false");
     }
