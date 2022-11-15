@@ -131,6 +131,10 @@ export class Web3Service {
     const userAddress = localStorage.getItem('walletId');
     if (userAddress) {
       const result = await contract.methods.balanceOf(userAddress).call();
+      const metadata = await contract.methods.tokenURI('4').call();
+      const name = await contract.methods.name().call();
+      console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',name)
+      console.log('kkkkkkkkkkkkkkkkkkkkkkkk',metadata)
       console.log('.................................ppppppppapppppp0',result)
       return result;
     } else {

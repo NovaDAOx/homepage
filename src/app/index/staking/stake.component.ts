@@ -71,6 +71,8 @@ export class StakeComponent implements OnInit {
   unstakingbtnControl: any = null;
   StakedNFTs: any = null;
 
+  newApproveBTN:boolean = false;
+
   async select_all() {
     this.Deselectbtn = "show";
     this.Selectbtn = null;
@@ -103,10 +105,15 @@ export class StakeComponent implements OnInit {
 
   async checkapproval() {
     this.etherService.checkapproval().then((data) => {
-      //console.log("staking approval check ", data);
+      console.log("staking approval check ", data);
+      if(data == false)
+      {
+        this.newApproveBTN = true ; 
+      }
       if (data == true && this.checkingNTP === "true") {
         this.checkingaprv = "approved";
         // this.allNFT();
+        this.newApproveBTN = false ;
         const co = document.getElementById("stakingsection").style;
         co.backgroundColor = "#200028";
         co.pointerEvents = "auto";
@@ -183,15 +190,16 @@ export class StakeComponent implements OnInit {
     }
   }
   allNFT() {
-    this.moralisservice.getnfts().then((data) => {
+    this.web3Service.getMintedNFT().then((data) => {
       const array = [];
+console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',data)
 
       for (var i = 0; i < data.length; i++) {
         const json = { data: data[i] };
         array.push(data[i]);
         this.list = array;
       }
-
+console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
       this.NFTbtn = "show";
       if (data) {
         this.loading1 = null;
@@ -548,11 +556,10 @@ export class StakeComponent implements OnInit {
   NFTtoadx: any = null;
   checkuser: any = null;
   ngOnInit(): void {
+    // this.allNFT();
     this.approveall();
     this.estimateClaim();
-    this.web3Service.getMintedNFT()
-    console.log(this.web3Service.getMintedNFT(),'ooooooooooooooooooooooooooo')
-    if (!window.localStorage.getItem("logout")) {
+        if (!window.localStorage.getItem("logout")) {
       window.localStorage.setItem("logout", "false");
     }
     this.metaMaskService.accountChanged.subscribe((data) => {
