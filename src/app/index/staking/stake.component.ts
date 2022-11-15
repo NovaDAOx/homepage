@@ -190,7 +190,7 @@ export class StakeComponent implements OnInit {
     }
   }
   allNFT() {
-    this.web3Service.getMintedNFT().then((data) => {
+    this.web3Service.getUserNFT().then((data) => {
       const array = [];
 console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',data)
 

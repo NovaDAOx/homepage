@@ -131,12 +131,49 @@ export class Web3Service {
     const userAddress = localStorage.getItem('walletId');
     if (userAddress) {
       const result = await contract.methods.balanceOf(userAddress).call();
-      const metadata = await contract.methods.tokenURI('4').call();
-      const name = await contract.methods.name().call();
-      console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',name)
-      console.log('kkkkkkkkkkkkkkkkkkkkkkkk',metadata)
-      console.log('.................................ppppppppapppppp0',result)
+      const array = []
+      for(var i = 0;i < result; i++)
+      {
+        
+        const metadata = await contract.methods.tokenURI('4').call();
+        const name = await contract.methods.name().call();
+        array.push({name:name,url:metadata})
+        console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',array)
+      }
+     
+     
+      
+      console.log(array)
       return result;
+    } else {
+      this.snackBar.open('Please connect metamask ', 'X', {
+        duration: 4000,
+        panelClass: ['error-snackbar'],
+        horizontalPosition: 'end',
+      });
+      return null;
+    }
+  }
+  async getUserNFT(): Promise<any> {
+    const contract = await this.rugsContract();
+    console.log('mmmmmmmmmmmmmmmmmmmmm',contract)
+    const userAddress = localStorage.getItem('walletId');
+    if (userAddress) {
+      const result = await contract.methods.balanceOf(userAddress).call();
+      const array = []
+      for(var i = 0;i < result; i++)
+      {
+        
+        const metadata = await contract.methods.tokenURI('4').call();
+        const name = await contract.methods.name().call();
+        array.push({name:name,url:metadata})
+        console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',array)
+      }
+     
+     
+      
+      console.log(array)
+      return array;
     } else {
       this.snackBar.open('Please connect metamask ', 'X', {
         duration: 4000,
