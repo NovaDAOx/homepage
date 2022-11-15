@@ -548,6 +548,17 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
         //this.estimateClaim();
       }
     });
+    this.etherService.checkapproval().then((data) => {
+      console.log('vvvvvvvvvvvvvvvvvvvvvvvvvv',data)
+      if(data == true)
+      {
+        this.newApproveBTN=false;
+      }
+      else
+      {
+        this.newApproveBTN = true;
+      }
+    })
   }
   dialogConfig = new MatDialogConfig();
   "dialogueReference": MatDialogRef<MetamaskComponent>;
