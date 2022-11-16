@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from './services/product.service';
 // import Moralis from 'moralis/types'
-import { MoralisService } from './services/moralis.service';
+// import { MoralisService } from './services/moralis.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent {
   
 
 
-  constructor(private moralisService: MoralisService,private productService: ProductService) {
+  constructor(private productService: ProductService) {
     const userAddress = localStorage.getItem('walletId')
    
     
@@ -23,14 +23,14 @@ export class AppComponent {
 
  
 
-  allNFT()
- {
-  this.moralisService.getnfts().then(data => {
-    console.log('stake.companent',data)
-    this.list=data
+//   allNFT()
+//  {
+//   this.moralisService.getnfts().then(data => {
+//     console.log('stake.companent',data)
+//     this.list=data
     
-  })
-}
+//   })
+// }
   ngOnInit(): void {
    
     if (localStorage.getItem('logout') == 'true') {

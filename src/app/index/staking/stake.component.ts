@@ -6,7 +6,7 @@ import { MetamaskService } from "src/app/services/metamask.service";
 import { Web3Service } from "src/app/services/web3.service";
 import { EtherService } from "src/app/services/ether.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-
+import axios from 'axios';
 import { NgxSpinnerService } from "ngx-spinner";
 import { NftService } from "src/app/services/nft.service";
 import { MetamaskComponent } from "src/app/dashboard/metamask/metamask.component";
@@ -20,6 +20,7 @@ import { arrayify } from "ethers/lib/utils";
 import { CdkAccordion } from "@angular/cdk/accordion";
 import { threadId } from "worker_threads";
 import { Web3Service } from "src/app/services/web3.service";
+import { async } from "rxjs";
 @Component({
   selector: "app-stake",
   templateUrl: "./stake.component.html",
@@ -35,7 +36,7 @@ export class StakeComponent implements OnInit {
   isMetamask: boolean = true;
   unstakeId = "";
 
-  public userOb = this.moralisservice.observeUser();
+  // public userOb = this.moralisservice.observeUser();
 
   constructor(
     private router: Router,
@@ -47,9 +48,9 @@ export class StakeComponent implements OnInit {
     private snack: MatSnackBar,
     private spinner: NgxSpinnerService
   ) {
-    this.moralisservice
-      .startMoralis()
-      .subscribe(() => console.log("Started Moralis"));
+    // this.moralisservice
+    //   .startMoralis()
+    //   .subscribe(() => console.log("Started Moralis"));
   }
 
   STAKEbtn: any = null;
@@ -189,17 +190,22 @@ export class StakeComponent implements OnInit {
       con.opacity = "1";
     }
   }
-  allNFT() {
-    this.web3Service.getUserNFT().then((data) => {
+ async allNFT(event) {
+    const userAddress = localStorage.getItem('walletId')
+    const lent= await this.moralisservice.getnftsLen()
+  
+    this.moralisservice.getnfts(userAddress).then( async(data) => {
+      this.list = data
+  
       const array = [];
-console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',data)
+console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
 
       for (var i = 0; i < data.length; i++) {
         const json = { data: data[i] };
         array.push(data[i]);
-        this.list = array;
+        // this.list = array;
       }
-console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
+
       this.NFTbtn = "show";
       if (data) {
         this.loading1 = null;
@@ -208,7 +214,7 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
         this.refreshData();
       }
       this.checkapproval();
-      if (data.length == 0) {
+      if (!data) {
         this.NFTtoadx = "noNTP collection found";
         this.NFTbtn = null;
         this.STAKEbtn = null;
@@ -221,7 +227,7 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
         this.approvebtn = "show";
       }
       if (!data) {
-        this.loading1 = "show";
+        this.loading1 = 'show';
       }
     });
   }
@@ -540,6 +546,7 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
     stakingbtn.style.display = "none";
   }
   async refreshData() {
+    
     this.etherService.refreshData().then((data) => {
       console.log("refreshed data", data);
       console.log("refreshed data length ", data.length);
@@ -566,8 +573,41 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
   loading1: any = null;
   NFTtoadx: any = null;
   checkuser: any = null;
-  ngOnInit(): void {
+//   fetching()
+//   {
+//   //   url: 'https://deep-index.moralis.io/api/v2/nft/0x80E9B21C95368b09Fee2EE8cA1C4Ee4acfE32A8E/metadata',
+//   //   params: {chain: 'sepolia', format: 'decimal', normalizeMetadata: 'false'},
+//   //   headers: {accept: 'application/json', 'X-API-Key': 'JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF'}
+//   //   // method: 'GET',
+//   //   // headers: { 'Accept': 'application/json', 'X-API-Key': 'JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF' },
+//   // };
+//     const options = {
+      
+//       method: 'GET',
+//       headers: { 'Accept': 'application/json', 'X-API-Key': 'JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF' },
+//     };
+//     fetch('https://deep-index.moralis.io/api/v2/0xa902C87614267a412E2F7a95E08E0f92f8106db5/nft?chain=sepolia', options)
+//       .then((response) => response.json())
+//       .then((response) =>  console.log(response,'pppppppppppppppppppppppppppppppppppp'))
+//       .catch((err) => console.error(err))
+//       console.log('55555555555555555555555555555555555555555',response.json)
+//   }
+//   async startMoralis()
+// {
+//   // const Moralis = require("moralis").default;
+//   //   await Moralis.start({
+//   //     apiKey: "JHYdYAbDQvpHYIWsyXb5Nyswvd8Sjnj4Jx3tvJJEuRgJeYSRuMRiSfWhGtORDJQF",
+//   //     // ...and any other configuration
+//   //   });
+//   //   // public observeUser(): Observable<undefined> {
+//   //   //   return this.userBS.asObservable();
+//   //   // }
+//   //   console.log('started')
+//   }
+ ngOnInit(): void {
     // this.allNFT();
+    // this.moralisservice.getnfts();
+    
     this.approveall();
     this.estimateClaim();
         if (!window.localStorage.getItem("logout")) {
@@ -614,9 +654,7 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
       this.loading1 = "null";
     } else {
       localStorage.setItem("walletId", this.isConnected);
-      this.moralisservice
-        .startMoralis()
-        .subscribe(() => console.log("Started Moralis"));
+     this.moralisservice.getnfts();
       this.loading1 = "show";
       const co = await document.getElementById("stakingsection").style;
       co.backgroundColor = "gray";
@@ -643,6 +681,14 @@ console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>>>>>>>>>>>..',array)
 
   myCallbackFunction = (args: any): void => {
     this.unstakeId = args;
+    if (args) {
+      this.unstakebtn2 = "show";
+    } else {
+      this.unstakebtn2 = null;
+    }
+  };
+  callbackFunction = (args: any): void => {
+    this.tokenids = args;
     if (args) {
       this.unstakebtn2 = "show";
     } else {

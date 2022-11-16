@@ -5,8 +5,8 @@ import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 const { ABI_STAKEJ, ABI_COINJ, ABI_DAOJ } = require("../abi/Abi_Contract.js");
 import Web3 from "web3";
-import { MoralisService } from "./moralis.service";
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+
+
 let web3 = new Web3(Web3.givenProvider);
 
 @Injectable({
@@ -29,7 +29,7 @@ export class EtherService {
   userAddress = localStorage.getItem("walletId");
   constructor(
     private http: HttpClient,
-    private moralisservice: MoralisService
+   
   ) {}
 
   public async stakeContract() {

@@ -61,7 +61,7 @@ import 'zone.js'; // Included with Angular CLI.
 
 import * as process from 'process';
 import { Buffer } from 'buffer';
-import {Moralis} from 'moralis';
+
 
 window.process = process;
 (window as any).global = window;
