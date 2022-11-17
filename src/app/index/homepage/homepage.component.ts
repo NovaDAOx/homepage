@@ -239,34 +239,34 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 // }
 //     }
 //   }
-  send()
-  {
-    const data = 'this is the msg'
-    const frame = document.getElementById('iframe');    
-    frame.contentWindow.postMessage(data, 'http://localhost:4228');
-    console.log('data poseted')
-  }
-  HearMsg()
-    {
-      window.addEventListener('message',function(event){
-        console.log('envent event event',event)
-      })
-    }
+  // send()
+  // {
+  //   const data = 'this is the msg'
+  //   const frame = document.getElementById('iframe');    
+  //   frame.contentWindow.postMessage(data, 'http://localhost:4228');
+  //   console.log('data poseted')
+  // }
+  // HearMsg()
+  //   {
+  //     window.addEventListener('message',function(event){
+  //       console.log('envent event event',event)
+  //     })
+  //   }
 
-async message()
-  {
-    window.addEventListener('message', event => {
-        if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
-          // The data was sent from your site. It sent with postMessage is stored in event.data:
-          console.log(event.data,'////////////////////');
-          console.log(event)
-        } else {
-          // The data was NOT sent from your site!
-          console.log(event.data,'```````````````````');
-          return;
-        }
-      });
-  }
+// async message()
+//   {
+//     window.addEventListener('message', event => {
+//         if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
+//           // The data was sent from your site. It sent with postMessage is stored in event.data:
+//           console.log(event.data,'////////////////////');
+//           console.log(event)
+//         } else {
+//           // The data was NOT sent from your site!
+//           console.log(event.data,'```````````````````');
+//           return;
+//         }
+//       });
+//   }
   ngAfterViewInit(): void {
    
   }
@@ -282,7 +282,7 @@ async message()
     this.gotoTop();
     this.getTeams();
     this.checkIfLoaded();   
-    this.message();
+    
    
    
      setTimeout(()=>{

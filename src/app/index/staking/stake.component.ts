@@ -21,6 +21,7 @@ import { CdkAccordion } from "@angular/cdk/accordion";
 import { threadId } from "worker_threads";
 import { Web3Service } from "src/app/services/web3.service";
 import { async } from "rxjs";
+import { ConsoleReporter } from "jasmine";
 @Component({
   selector: "app-stake",
   templateUrl: "./stake.component.html",
@@ -83,9 +84,10 @@ export class StakeComponent implements OnInit {
     const array = [];
     allElements.forEach((element) => {
       element.setAttribute("checked", "checked");
-      // console.log('gggggggggggggggggg',element.getAttribute('value'))
+      console.log('gggggggggggggggggg',element.getAttribute('value'))
       const value = parseInt(element.getAttribute("value"));
       array.push(value);
+      console.log('99999999999999999999999',array)
       this.tokenids = array;
     });
   }
@@ -99,6 +101,7 @@ export class StakeComponent implements OnInit {
     allElements.forEach((element) => {
       element.removeAttribute("checked");
     });
+    console.log('333333333333333333333333','deselected')
   }
   show() {
     this.loading3 = "show";
@@ -688,6 +691,7 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
     }
   };
   callbackFunction = (args: any): void => {
+    console.log('uuuuuuuuuuuuuuuuuuu',args)
     this.tokenids = args;
     if (args) {
       this.unstakebtn2 = "show";
@@ -697,6 +701,7 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
   };
 
   stakeCallbackFunction = (args: any): void => {
+    console.log('ssssssssssssssssssssssssssssstake',args)
     if (this.tokenids.indexOf(args) === -1) {
       this.tokenids.push(args);
     } else {
