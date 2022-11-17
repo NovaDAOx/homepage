@@ -193,22 +193,28 @@ export class StakeComponent implements OnInit {
       con.opacity = "1";
     }
   }
- async allNFT(event) {
+ async allNFT() {
     const userAddress = localStorage.getItem('walletId')
     const lent= await this.moralisservice.getnftsLen()
+  // await this.moralisservice.subscribe.getnftsLen().then((response) => { 
+  //    console.log(response['length'],'000000000000000000000000000000000000000>?')
+  //    console.log( response,'000000000000000000000000000000000000000>?')
+  // })
+
+  this.moralisservice.getData().subscribe((res) =>{
+    console.log(res.total,'6666666666666666666666666666666666666666')
   
     this.moralisservice.getnfts(userAddress).then( async(data) => {
       this.list = data
   
       const array = [];
-console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
+console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
 
       for (var i = 0; i < data.length; i++) {
         const json = { data: data[i] };
         array.push(data[i]);
         // this.list = array;
       }
-
       this.NFTbtn = "show";
       if (data) {
         this.loading1 = null;
@@ -217,7 +223,7 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
         this.refreshData();
       }
       this.checkapproval();
-      if (!data) {
+      if (res.total === 0) {
         this.NFTtoadx = "noNTP collection found";
         this.NFTbtn = null;
         this.STAKEbtn = null;
@@ -226,13 +232,14 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
         this.loading1 = null;
       }
 
-      if (data.length != 0 && this.checkingaprv == null) {
+      if (res.total != 0 && this.checkingaprv == null) {
         this.approvebtn = "show";
       }
       if (!data) {
         this.loading1 = 'show';
       }
     });
+  });
   }
 
   tokenID() {
@@ -669,12 +676,14 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent[0])
 
   showMetamaskContent() {
     this.dialogueReference = this.dialog.open(MetamaskComponent, {
-      panelClass: "custom-modalbox",
+      panelClass: 'custom-modalbox',
       disableClose: true,
       data: (this.dialogConfig.data = {
         metamaskContent: true,
       }),
     });
+    const data = document.getElementsByClassName('cdk-overlay-container')[0]
+    data.style.visibility = 'visible'
     this.dialogueReference.afterClosed().subscribe((result) => {});
   }
 

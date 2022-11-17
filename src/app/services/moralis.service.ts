@@ -15,6 +15,7 @@
 
     export class MoralisService {
       // private userBS = new BehaviorSubject<Moralis.User | undefined>(undefined);
+      Length =  ""
       constructor(private http:HttpClient) {}
       // public startMoralis(): Observable<void> {
       //   return defer(() =>
@@ -127,22 +128,28 @@
           return [];
         }
       }
-      public  async getnftsLen():Promise<any> {
+
+   async  getnftsLen() {
       var length = []
        var final_length = []
           const useAddress = localStorage.getItem('walletId')
           var lengthh = null
-          this.getData().subscribe(async data => {
+          const datta = this.getData().subscribe( async data => {
             length.push(data.result)
+            console.log(data.total,'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq')
             length.map(Item => {
+              console.log('33333333333333%%%%%%%%5',Item)
               final_length.push(Item.length)
+              this.Length = Item.length
               return Item.length
             })
             
-              console.log(data,'88888888888888888888888888888888')
-
+              console.log(datta,'88888888888888888888888888888888')
+              console.log(this.Length,'22222222222222222222222222222222222')
               console.log(final_length,'333333333333333333333333333333333e')
+              return await data.total
           })
+          console.log(datta,'101001010101010101010101010101010110')
         return final_length
       }
     }
