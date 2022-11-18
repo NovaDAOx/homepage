@@ -91,7 +91,7 @@ export class EtherService {
       staked.textContent = "Loading...";
       const rewards = await STAKEcon.methods.estimateClaim(userAddress).call();
       console.log("rewards", rewards);
-      const Totalrewards = rewards / this.FINNEY; // Must account for 18 decimals
+      const Totalrewards = rewards / this.FINNEY / 1000; // Must account for 18 decimals
       console.log(Totalrewards);
       const tokensStaked = await STAKEcon.methods
         .getStakerWallet(userAddress)

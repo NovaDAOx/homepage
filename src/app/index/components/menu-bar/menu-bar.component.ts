@@ -10,6 +10,7 @@ import {
     MatDialogConfig,
     MatDialogRef,
   } from '@angular/material/dialog';
+import { MoralisService } from 'src/app/services/moralis.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -39,6 +40,7 @@ export class MenuBarComponent implements OnInit {
       public dialog: MatDialog,
       private metaMaskService: MetamaskService,
       private nftService: NftService,
+      private moralisservice:MoralisService,
     ) {}
 
     toggle() {
@@ -48,7 +50,7 @@ export class MenuBarComponent implements OnInit {
     }
     
   ngOnInit(): void {
-    
+    // this.test();    
     if (!window.localStorage.getItem('logout')) {
         window.localStorage.setItem('logout', 'false');
       }
@@ -98,6 +100,7 @@ export class MenuBarComponent implements OnInit {
       localStorage.removeItem('walletId');
     } else {
       localStorage.setItem('walletId', this.isConnected);
+      
     }
   }
 
@@ -142,4 +145,13 @@ export class MenuBarComponent implements OnInit {
       }
     }
   }
+  async test()
+{
+ 
+  // this.moralisservice.getnfts().then(data => {
+  //   console.log('ttttttttttttttttttttttttttttt',data)
+  // })
+  // const data = await document.getElementById('ProtectedDAO')
+  // console.log(data,'???????????????????????????????????????????')
+}
 }

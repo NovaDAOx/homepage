@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from './services/product.service';
 // import Moralis from 'moralis/types'
-// import { MoralisService } from './services/moralis.service';
+import { MoralisService } from './services/moralis.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +13,22 @@ export class AppComponent {
   
 
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,private moralisservice:MoralisService) {
     const userAddress = localStorage.getItem('walletId')
    
     
     
   }
   list:String[]
-
+async test()
+{
  
-
+  this.moralisservice.getData().subscribe((res) =>{
+console.log(res, 'this is the best test from app section .ts !^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^!^')
+  })
+  const data = await document.getElementById('ProtectedDAO')
+  console.log(data,'???????????????????????????????????????????')
+}
 //   allNFT()
 //  {
 //   this.moralisService.getnfts().then(data => {
@@ -36,7 +42,7 @@ export class AppComponent {
     if (localStorage.getItem('logout') == 'true') {
       localStorage.removeItem('walletId');
     }
- 
+ this.test()
       
   }
 
