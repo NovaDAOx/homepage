@@ -4,6 +4,7 @@
   import { MetamaskComponent } from "src/app/dashboard/metamask/metamask.component";
   import { MetamaskService } from "src/app/services/metamask.service";
   import { environment } from 'src/environments/environment';
+  import { PledgingService } from 'src/app/services/pledging.service';
 
 
   import {
@@ -33,7 +34,7 @@ import { threadId } from 'worker_threads';
 
     constructor(private db:FirebaseService,
       private metaMaskService: MetamaskService,
-      public dialog: MatDialog,) { }
+      public dialog: MatDialog,private pledginservice:PledgingService) { }
     async latest()
     {
       const userAddress = localStorage.getItem('walletId')
@@ -254,6 +255,14 @@ import { threadId } from 'worker_threads';
     toggle()
     {
       document.getElementById('downlatestPro').classList.toggle('showw')
+    }
+
+
+   async Interaction()
+    {
+        this.pledginservice.pledgeContract().then(Item =>{
+          console.log(Item,'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCContract')
+        })
     }
   
   }

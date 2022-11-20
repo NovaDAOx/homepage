@@ -20,6 +20,7 @@
   import { ReadVarExpr } from '@angular/compiler';
   import { MetamaskComponent } from "src/app/dashboard/metamask/metamask.component";
   import { MetamaskService } from "src/app/services/metamask.service";
+  import { PledgingService } from 'src/app/services/pledging.service';
   import {
     MatDialog,
     MatDialogConfig,
@@ -120,6 +121,8 @@
     fileH = [];
     
 
+
+
     loadFirstTime: boolean = true;
     dialogConfig = new MatDialogConfig();
     "dialogueReference": MatDialogRef<MetamaskComponent>;
@@ -131,6 +134,7 @@
       private storage: AngularFireStorage,
       private fb:FormBuilder,
       private metaMaskService: MetamaskService,
+      private pledgeservice:PledgingService,
       public dialog: MatDialog
       ) { this.myForm()
           console.log('55555555555555555555',this.myForm())
@@ -266,7 +270,8 @@
       // }
       // const data = await array
       //   console.log(await array.length,'thisss is uploaded url')
-        
+     const projectserial = await this.generateSerial();
+      console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSEeeeeeeeeeeeeeeee',projectserial)  
       this.success();
       this.failures();
       console.log('project name',this.ProjectName)
@@ -344,6 +349,9 @@
       }
       // if(this.ProjectName != "" || this.ProjectDes1 && this.ProjectDes2 !="")
       else    {
+
+        const data =await this.createGrant();
+        console.log('This is Creating project with the smart contract',data)
         console.log('submission triggered')
         
         const t = "this";
@@ -366,11 +374,11 @@
         const teamjson= {teamone,teamtwo,teamthree,four,five}
         this.spinner.show();
         const user = localStorage.getItem('walletId').toString();
-        
+        this.data = 
         ref.push({UserAddress:userAddress,ProjectName:this.ProjectName,ProjectDescription:this.ProjectDes1,
           ProjectDescription2:this.ProjectDes2,TeamMembers:teamjson,SlideDeck:this.stringURL,
           GeneratedValue:this.chevalue,Failure:this.failuresArray,success:this.successArray,
-          NovaAmount:this.NovaAmount,ProfileImage:this.profileImg,upVote:0,DownVote:0,Time:Date.now()
+          NovaAmount:this.NovaAmount,ProfileImage:this.profileImg,upVote:0,DownVote:0,Time:Date.now(),ProjectSN:Date.now()
           
         }).then((resp)=>
         {
@@ -383,8 +391,8 @@
             panelClass: ["success-order"],
             horizontalPosition: "center",
           });
-          var frm = document.getElementsByName('appForm')[0];
-          frm.reset()
+          // var frm = document.getElementsByName('appForm')[0];
+          // frm.reset()
         }).catch((error)=>{
         //   console.log('this is the error',error)
         //   const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
@@ -894,6 +902,42 @@
     
     });
   }
+async createGrant()
+{
+  const userAddress = localStorage.getItem('walletId');
+  if(userAddress)
+  {
+    const projectSN = Date.now();
+ const creategrant = await this.pledgeservice.createGrant(projectSN,this.NovaAmount,userAddress);
+ return creategrant;
+  }
+  else
+  {
 
-
+    return false;
+  }
+}
+async  generateSerial() {
+    
+  'use strict';
+  
+  var chars = '1234567890',
+      
+      serialLength = 9,
+      
+      randomSerial = "",
+      
+      i,
+      
+      randomNumber;
+  
+  for (i = 0; i < serialLength; i = i + 1) {
+      
+      randomNumber = Math.floor(Math.random() * chars.length);
+      
+      randomSerial += chars.substring(randomNumber, randomNumber + 1);
+      
+  }
+  return randomSerial
+} 
   }

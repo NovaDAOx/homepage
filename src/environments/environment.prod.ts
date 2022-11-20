@@ -21,6 +21,7 @@ export const environment = {
   STAKE:'0x9FFC4c4450d2889902DaF65d3504d56Ed73DA4A2',
   DAO:'0x4a6C879f1bC462bD7af507a3f3aCc2Db4782F7Be',
   COIN:'0xb19f3C432529F79a6fCdd5bd6C946D1909Ae635f',
+  PLEDGE:'0xc9c9dB074a5F1AD17a4571224C2E0A93913628f9',
   provider: 'https://eth-goerli.g.alchemy.com/v2/vBBJ7stvGtqfLuR7c6U4H26R9rvQEjzB',
   networlink: 'https://rinkeby.etherscan.io/tx/',
   networkId: 11155111,
