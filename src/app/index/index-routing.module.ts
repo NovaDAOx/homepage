@@ -11,6 +11,7 @@ import {DAOComponent} from './dao/dao.component'
 import { ProjectappComponent } from './projectapp/projectapp.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AllprojectsComponent } from './allprojects/allprojects.component';
+import { AuthGuard } from '../services/auth.guard';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   // { path: 'application', component:ApplicationpageComponent},
   { path: 'latestProjects', component:latestProComponent},
   { path: 'project', component:ProjectpageComponent},
-  { path: 'DAO', component:DAOComponent},
+  { path: 'DAO',canActivate:[AuthGuard], component:DAOComponent},
   { path: 'application',component:ProjectappComponent},
   { path: 'pastProjects',component:ProjectsComponent},
   { path: 'AllProjects',component:AllprojectsComponent}

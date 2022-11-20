@@ -6,12 +6,14 @@
     import { MetamaskComponent } from "src/app/dashboard/metamask/metamask.component";
     import { MetamaskService } from "src/app/services/metamask.service";
     import { environment } from 'src/environments/environment';
+    import { MoralisService } from 'src/app/services/moralis.service';
     import {
       MatDialog,
       MatDialogConfig,
       MatDialogRef,
     } from "@angular/material/dialog";
 import { Scroll } from '@angular/router';
+import { isNgTemplate } from '@angular/compiler';
 
       @Component({
         selector: 'app-dao',
@@ -43,7 +45,8 @@ import { Scroll } from '@angular/router';
 
         constructor(private db:FirebaseService,
           private metaMaskService: MetamaskService,
-          public dialog: MatDialog,) { }
+          public dialog: MatDialog,
+          private moralisservice:MoralisService) { }
         toggle() {
           document.getElementById("down").classList.toggle("showw");
           // document.getElementById("down").style.display = "flex";
@@ -175,13 +178,16 @@ import { Scroll } from '@angular/router';
           // }
           // console.log('ttttttttt',array)
           
-          console.log('dddddddddd',array)
+          // console.log('dddddddddd',array)
           // document.getElementById('AppPage').style.display = 'none';
           // document.getElementById('ProposalPage').style.display = 'block'
-          console.log('gggggggggg',this.proposal)
+          // console.log('gggggggggg',this.proposal)
         }
+
+
         ngOnInit(): void {
         this.t();
+        this.moralisservice.protected();
        
         if (!window.localStorage.getItem("logout")) {
           window.localStorage.setItem("logout", "false");
@@ -239,16 +245,16 @@ import { Scroll } from '@angular/router';
          
           if (!this.isConnected) {
             this.isConnected = null ;
-            console.log('8888888888888888888888888888888888888888888Connected',this.isConnected)
-            console.log('8888888888888888888888888888888888888888888',this.data.length)
+            // console.log('8888888888888888888888888888888888888888888Connected',this.isConnected)
+            // console.log('8888888888888888888888888888888888888888888',this.data.length)
             this.not = 'true'
             
             localStorage.setItem("logout", "true");
             localStorage.removeItem("walletId");
-            
+            this.moralisservice.protected()
           } else {
-            console.log('8888888888888888888888888888888888888888888Data',this.data)
-            console.log('9999999999999999999999999999999999999999999999999999999999',this.datalength)
+            // console.log('8888888888888888888888888888888888888888888Data',this.data)
+            // console.log('9999999999999999999999999999999999999999999999999999999999',this.datalength)
             const len = document.getElementsByClassName('notLoggedHolder').length
             for (var i = 0 ; i < len ; i++)
             {
@@ -258,13 +264,14 @@ import { Scroll } from '@angular/router';
             localStorage.setItem("walletId", this.isConnected);
             
             // this.isConnected = 'true'
+           this.moralisservice.protected();
             this.getget();
             this.t();
             const a = this.db.getByAddress(this.isConnected)
             const arrayT = []
             arrayT.push(await this.db.getByAddress(this.isConnected))
 
-            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&YYYYYYYYYY',this.isConnected)
+            // console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&YYYYYYYYYY',this.isConnected)
             // if(arra > 0)
             // {
             //     this.data = null;
@@ -274,7 +281,7 @@ import { Scroll } from '@angular/router';
             //   this.data = null;
             // }
             const b = document.getElementById('Data')
-            console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$',b)
+            // console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$',b)
             this.not = null;
 
             const userAddress = localStorage.getItem('walletId')
@@ -326,7 +333,7 @@ import { Scroll } from '@angular/router';
       {
         this.data = 'true'
       }
-      console.log(a,'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+      // console.log(a,'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
       // setInterval()
     //  if(a.length)
     //   {
@@ -340,7 +347,7 @@ import { Scroll } from '@angular/router';
       {
         setInterval(this.checker(),1000)
         const check =await localStorage.getItem('walletId')
-        console.log('check check check check check',check)
+        // console.log('check check check check check',check)
         const d = this.db.getByAddress(check)
         console.log(d.length,'-----------------------------')
         const array = []

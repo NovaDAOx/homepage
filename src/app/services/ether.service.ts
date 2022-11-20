@@ -3,8 +3,11 @@ import { Injectable } from "@angular/core";
 import { ethers } from "ethers";
 import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
+// import { Observable } from 'rxjs/Observable'; 
 const { ABI_STAKEJ, ABI_COINJ, ABI_DAOJ } = require("../abi/Abi_Contract.js");
 import Web3 from "web3";
+import { Observable } from "rxjs";
+// import { off } from "process";
 
 
 let web3 = new Web3(Web3.givenProvider);
@@ -78,6 +81,8 @@ export class EtherService {
 
   async refreshData() {
     this.estimateClaim();
+    
+   
     const userAddress = localStorage.getItem("walletId");
     if (userAddress) {
       let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
@@ -93,6 +98,7 @@ export class EtherService {
       console.log("rewards", rewards);
       const Totalrewards = rewards / this.FINNEY / 1000; // Must account for 18 decimals
       console.log(Totalrewards);
+      
       const tokensStaked = await STAKEcon.methods
         .getStakerWallet(userAddress)
         .call();
@@ -111,9 +117,9 @@ export class EtherService {
       return tokensStaked;
     }
   }
-  async stakedNFTS() {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const data = await provider.send("eth_requestAccounts", []);
+ public async stakedNFTS() {
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // const data = await provider.send("eth_requestAccounts", []);
     const url = [];
     const array = this.ArrayofStakedtkn;
     console.log("fjal;dskjfadjslkf", this.ArrayofStakedtkn);
@@ -201,5 +207,14 @@ export class EtherService {
       console.log("claim---e--", e.message);
       return null;
     }
+  }
+ async checkStaked()
+  {
+    const userAddress = localStorage.getItem('walletId')
+    let STAKEcon = new web3.eth.Contract(this.ABI_STAKE, this.STAKE);
+    const tokensStaked = await STAKEcon.methods
+    .getStakerWallet(userAddress)
+    .call();
+    console.log('QQQQQQQQQQQQUUUUUUUUUUUUUURRRRRRRRRR',tokensStaked)
   }
 }
