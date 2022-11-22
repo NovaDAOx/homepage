@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { PledgingService } from 'src/app/services/pledging.service';
 @Component({
   selector: 'app-allprojects',
   templateUrl: './allprojects.component.html',
@@ -10,7 +11,7 @@ export class AllprojectsComponent implements OnInit {
   prop = []
   name = ""
   Team =[]
-  constructor(private db:FirebaseService) { }
+  constructor(private db:FirebaseService,private pledgingservice:PledgingService) { }
 
   async allProjects()
   {
@@ -116,5 +117,26 @@ export class AllprojectsComponent implements OnInit {
       word.innerHTML = "Name"
     }
   }
+  async sendPledge(event)
+    {
+      console.log(event.path[1].children[0].childNodes[0].innerHTML)
+      const pledgeamount = event.path[1].children[0].childNodes[0].innerHTML
+      console.log(pledgeamount)
+      const finalAmt = pledgeamount.replace(/[^,.,0-9]/g, '')
+      console.log(finalAmt)
+     const finalFi = Number(finalAmt).toFixed(18).toString()
+     console.log('.........................',finalAmt)
+      // const amount = await this.web3Http.utils.toHex(
+      //   this.web3Http.utils.toWei(Number(finalAmt).toFixed(18), 'ether'))
+      // console.log('this is pledge amount ---sending---', this.pledgeAmt)
+        const userAddress = localStorage.getItem('walletAddress')
+        const value = 0.1
+        const projectSN = 1 
+        const pledge  = await this.pledgingservice.sendPledge(finalAmt,projectSN)
+        console.log("Pledge latest projects",pledge)
+        return pledge
+        
+    }
+
 
 }
