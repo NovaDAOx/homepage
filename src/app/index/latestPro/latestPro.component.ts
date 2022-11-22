@@ -13,6 +13,7 @@
     MatDialogRef,
   } from "@angular/material/dialog";
 import { threadId } from 'worker_threads';
+import { from } from 'rxjs';
   @Component({
     selector: 'app-latestPro',
     templateUrl: './latestPro.component.html',
@@ -31,6 +32,7 @@ import { threadId } from 'worker_threads';
   not : any = null;
   isConnected: any = null;
   data: any = null;
+  amt = "";
 
     constructor(private db:FirebaseService,
       private metaMaskService: MetamaskService,
@@ -257,12 +259,21 @@ import { threadId } from 'worker_threads';
       document.getElementById('downlatestPro').classList.toggle('showw')
     }
 
-
-   async Interaction()
+    amount(event)
     {
-        this.pledginservice.pledgeContract().then(Item =>{
-          console.log(Item,'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCContract')
-        })
+      console.log(event)
+      return event
+    }
+   async sendPledge()
+    {
+      console.log('this is pledge amount ---sending---', this.pledgeAmt)
+        const userAddress = localStorage.getItem('walletAddress')
+        const value = 0.1
+        const projectSN = 1 
+        const pledge  = await this.pledginservice.sendPledge(parseInt(value),parseInt(projectSN))
+        console.log("Pledge latest projects",pledge)
+        return pledge
+        
     }
   
   }

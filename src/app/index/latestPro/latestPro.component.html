@@ -84,8 +84,8 @@
       <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
       
       <div class="BV2nd">
-        <label class="faded">0.0 VOTES</label>
-        <button class="Fv" (click)="Interaction()">Vote</button>
+        <label class="faded" ><span contenteditable="true" (change)="amount($event)">0.0 </span> NOVA$</label>
+        <button class="Fv" (click)="sendPledge()">Pledge</button>
       </div>
       </div>
       </div>
@@ -125,8 +125,8 @@
             <div class="mat">
             <mat-progress-bar class="matPb" mode="determinate" value=50></mat-progress-bar>
             <div class="BV">
-              <label>0.0 VOTES</label>
-              <button class="VT">Vote</button>
+              <label contentEditable="true">0.0 NOVA$</label>
+              <button class="VT">Pledge</button>
               </div>
             </div>
           </div>
