@@ -5,6 +5,7 @@
   import { MetamaskService } from "src/app/services/metamask.service";
   import { environment } from 'src/environments/environment';
   import { PledgingService } from 'src/app/services/pledging.service';
+  import Web3 from "web3";
 
 
   import {
@@ -19,8 +20,10 @@ import { from } from 'rxjs';
     templateUrl: './latestPro.component.html',
     styleUrls: ['./latestPro.component.scss']
   })
+  
   export class latestProComponent implements OnInit {
-  latestPro =[];
+    private web3Http = web3;
+    latestPro =[];
   name = "" ;
   Team = [];
   proposal = [] ;
@@ -264,13 +267,22 @@ import { from } from 'rxjs';
       console.log(event)
       return event
     }
-   async sendPledge()
+   async sendPledge(event)
     {
-      console.log('this is pledge amount ---sending---', this.pledgeAmt)
+      console.log(event.path[1].children[0].childNodes[0].innerHTML)
+      const pledgeamount = event.path[1].children[0].childNodes[0].innerHTML
+      console.log(pledgeamount)
+      const finalAmt = pledgeamount.replace(/[^,.,0-9]/g, '')
+      console.log(finalAmt)
+     const finalFi = Number(finalAmt).toFixed(18).toString()
+     console.log('.........................',finalAmt)
+      // const amount = await this.web3Http.utils.toHex(
+      //   this.web3Http.utils.toWei(Number(finalAmt).toFixed(18), 'ether'))
+      // console.log('this is pledge amount ---sending---', this.pledgeAmt)
         const userAddress = localStorage.getItem('walletAddress')
         const value = 0.1
         const projectSN = 1 
-        const pledge  = await this.pledginservice.sendPledge(parseInt(value),parseInt(projectSN))
+        const pledge  = await this.pledginservice.sendPledge(finalAmt,projectSN)
         console.log("Pledge latest projects",pledge)
         return pledge
         

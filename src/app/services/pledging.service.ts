@@ -1,95 +1,107 @@
-//@ts-nocheck
-import { Injectable } from '@angular/core';
-import { ethers } from "ethers";
-import { environment } from "src/environments/environment";
-import { HttpClient } from "@angular/common/http";
-// import { Observable } from 'rxjs/Observable'; 
-const { ABI_PLEDGE } = require("../abi/Abi_Contract.js");
-import Web3 from "web3";
+  //@ts-nocheck
+  import { Injectable } from '@angular/core';
+  import { ethers } from "ethers";
+  import { environment } from "src/environments/environment";
+  import { HttpClient } from "@angular/common/http";
+  // import { Observable } from 'rxjs/Observable'; 
+  const { ABI_PLEDGE } = require("../abi/Abi_Contract.js");
+  import Web3 from "web3";
 
-let web3 = new Web3(Web3.givenProvider);
-@Injectable({
-  providedIn: 'root'
-})
-export class PledgingService {
+  let web3 = new Web3(Web3.givenProvider);
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class PledgingService {
+    private web3Http = web3;
 
-  constructor() { }
+    constructor() { }
 
-  const PLEDGE = environment.PLEDGE
-  ABI_PLEDGE = ABI_PLEDGE
+    const PLEDGE = environment.PLEDGE
+    ABI_PLEDGE = ABI_PLEDGE
+    
+    public async pledgeContract() {
+      return new web3.eth.Contract(this.ABI_PLEDGE, this.PLEDGE);
+    }
+
+
+    async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
+  {
+    try
+    {
+
+  const amountt = this.web3Http.utils.toHex(
+    this.web3Http.utils.toWei(Number(_reqAmount).toFixed(18), 'ether'))
+    const contract = await this.pledgeContract()
+
+    const create = await contract.methods
   
-  public async pledgeContract() {
-    return new web3.eth.Contract(this.ABI_PLEDGE, this.PLEDGE);
+    .createGrant(_projectSN,amountt,_useraddress)
+    .send({from:_useraddress,value:amountt})
+    console.log(amountt,'0000000000000000000000000000000000')
+    return create
+    }
+    catch(e)
+    {
+      console.log('----Error create Grant-----',e)
+      return null
+    }
   }
 
-
-  async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
-{
-  try
+  async claim(_projectSN:any)
   {
-  const contract = await this.pledgeContract()
-  const create = await contract.methods
-  .createGrant(_projectSN,_reqAmount,_useraddress)
-  .send({from:_useraddress,value:_reqAmount})
-  console.log(create,'0000000000000000000000000000000000')
-  return create
+    const contract = await this.pledgeContract()
+    const claim = contract.methods.claimPledge(_projectSN)
+    return claim
   }
-  catch(e)
+
+  async sendPledge(_amount:any,_projectSN:any)
   {
-    console.log('----Error create Grant-----',e)
-    return null
+    try
+    {
+      // const amt = await _amount.replace(/[^,.,0-9]/g, '')
+      // console.log(amt,'ssssssssssssssss')
+      const amountt = this.web3Http.utils.toHex(
+        this.web3Http.utils.toWei(Number(_amount).toFixed(18), 'ether'))
+        // console.log('dddddddddddddddddddddddddd',amount)
+      const userAddress = localStorage.getItem('walletId')
+    const contract = await this.pledgeContract()
+    const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, to:this.PLEDGE, value: amountt})
+    console.log('----Returned Pledge-----',pledge)
+    console.log('--------------',amount)
+    return pledge
+    }
+    catch(e)
+    {
+      console.log('------sending Pledge----',e)
+      return null
+    }
   }
-}
 
-async claim(_projectSN:any)
-{
-  const contract = await this.pledgeContract()
-  const claim = contract.methods.claimPledge(_projectSN)
-  return claim
-}
-
-async sendPledge(_amount:any,_projectSN:any)
-{
-  try
+  async checkFunding(_projectSN:any)
   {
-    const userAddress = localStorage.getItem('walletId')
-  const contract = await this.pledgeContract()
-  const pledge = contract.methods.sendPledge(_amount,_projectSN).send({from:userAddress, to:this.PLEDGE, value: _amount})
-  console.log('----Returned Pledge-----',pledge)
-  return pledge
+    const contract = await this.pledgeContract();
+    const checkFunding = await contract.methods.checkFunding(_projectSN).call()
+    return checkFunding
   }
-  catch(e)
+
+  async fundingNeeded(_projectSN:any)
   {
-    console.log('------sending Pledge----',e)
-    return null
+    const contract = await this.pledgeContract();
+    const needed = await contract.methods.fundingNeeded(_projectSN).call()
+
+    return needed
   }
-}
+  async grantSuccess(_projectSN:any)
+  {
+    const contract = await this.pledgeContract();
+    const grant = await contract.methods.grantSuccess(_projectSN).call();
+    return grant
+  }
 
-async checkFunding(_projectSN:any)
-{
-  const contract = await this.pledgeContract();
-  const checkFunding = await contract.methods.checkFunding(_projectSN).call()
-  return checkFunding
-}
+  async viewWallet(_projectSN:any)
+  {
+    const contract = await this.pledgeContract();
+    const wallet = await contract.methods.viewWallet(_projectSN).call();
+  }
 
-async fundingNeeded(_projectSN:any)
-{
-  const contract = await this.pledgeContract();
-  const needed = await contract.methods.fundingNeeded(_projectSN).call()
-
-  return needed
-}
-async grantSuccess(_projectSN:any)
-{
-  const contract = await this.pledgeContract();
-  const grant = await contract.methods.grantSuccess(_projectSN).call();
-  return grant
-}
-
-async viewWallet(_projectSN:any)
-{
-  const contract = await this.pledgeContract();
-  const wallet = await contract.methods.viewWallet(_projectSN).call();
-}
-
-}
+  }

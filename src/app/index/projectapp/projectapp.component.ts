@@ -350,8 +350,7 @@
       // if(this.ProjectName != "" || this.ProjectDes1 && this.ProjectDes2 !="")
       else    {
 
-        const data =await this.createGrant();
-        console.log('This is Creating project with the smart contract',data)
+      
         console.log('submission triggered')
         
         const t = "this";
@@ -378,7 +377,7 @@
         ref.push({UserAddress:userAddress,ProjectName:this.ProjectName,ProjectDescription:this.ProjectDes1,
           ProjectDescription2:this.ProjectDes2,TeamMembers:teamjson,SlideDeck:this.stringURL,
           GeneratedValue:this.chevalue,Failure:this.failuresArray,success:this.successArray,
-          NovaAmount:this.NovaAmount,ProfileImage:this.profileImg,upVote:0,DownVote:0,Time:Date.now(),ProjectSN:Date.now()
+          NovaAmount:this.NovaAmount,ProfileImage:this.profileImg,upVote:0,DownVote:0,Time:Date.now()
           
         }).then((resp)=>
         {
