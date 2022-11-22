@@ -7,6 +7,7 @@
     import { MetamaskService } from "src/app/services/metamask.service";
     import { environment } from 'src/environments/environment';
     import { MoralisService } from 'src/app/services/moralis.service';
+    import { PledgingService } from 'src/app/services/pledging.service';
     import {
       MatDialog,
       MatDialogConfig,
@@ -46,7 +47,8 @@ import { isNgTemplate } from '@angular/compiler';
         constructor(private db:FirebaseService,
           private metaMaskService: MetamaskService,
           public dialog: MatDialog,
-          private moralisservice:MoralisService) { }
+          private moralisservice:MoralisService,
+          private pledgeservice:PledgingService) { }
         toggle() {
           document.getElementById("down").classList.toggle("showw");
           // document.getElementById("down").style.display = "flex";
@@ -97,7 +99,7 @@ import { isNgTemplate } from '@angular/compiler';
         if(this.isConnected)
         {
           
-          if(this.isConnected === admin[0].toLocaleLowerCase() || this.isConnected === admin[1].toLocaleLowerCase())
+          if(this.isConnected)
           {
 
                  
@@ -302,6 +304,9 @@ import { isNgTemplate } from '@angular/compiler';
       }
       selectedProjects()
       {
+        const access = environment.CoreTeam
+        const userAddress = localStorage.getItem('walletId').toLocaleLowerCase();
+       
         document.getElementById('landing').style.display="none";
         document.getElementById('selectedAppPage').style.display = "block";
         document.getElementById('PDT').style.display = "none";
@@ -309,6 +314,10 @@ import { isNgTemplate } from '@angular/compiler';
         if (pos > 0) {
             window.scrollTo(0, pos - 20);
         }
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@!!!!!!!!!!!!!!!!!!!!!!!!!!',userAddress)
+        console.log('access',access[0].toLocaleLowerCase())
+        console.log('access',access[1].toLocaleLowerCase)
+
       }
       gotoTop() {
         window.scroll({
@@ -617,6 +626,66 @@ import { isNgTemplate } from '@angular/compiler';
         //     console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',userAddress,this.isConnected)
         //   }
         // }
-      
+        async createGrant(event)
+        {
+          console.log(event.path[2].children[0].children[1].childNodes[0].data)
+          const access = environment.CoreTeam
+          const accessOne = access[0].toLocaleLowerCase();
+          const accessTwo = access[1].toLocaleLowerCase();
+          const accessThree = access[2].toLocaleLowerCase();
+          const userAddress = localStorage.getItem('walletId').toLocaleLowerCase();
+          const requiredAmt = event.path[2].children[1].firstChild.innerHTML;
+          console.log(userAddress)
+          console.log(accessOne)
+          console.log(accessTwo)
+          console.log(accessThree)
+          if(userAddress=== accessOne ||userAddress === accessTwo || accessThree)
+          {
+          console.log(event.path[2].children[1].firstChild.innerHTML)
+         
+          const finalamt = requiredAmt.replace(/\D/g, '');
+          console.log('this is final amount',finalamt)
+
+        
+            const projectSN = Date.now();
+         const creategrant = await this.pledgeservice.createGrant(projectSN,finalamt,userAddress);
+         console.log('------------grant created',creategrant)
+         if(creategrant != null)
+         {
+          const key = event.path[2].children[0].children[1].childNodes[0].data
+          this.db.createGrantDB(key,projectSN,true)
+         }
+         return creategrant;
+          }
+          else
+          {
+            window.alert('only cryptonasauros')
+            return false;
+          }
+        }
+        async  generateSerial() {
+            
+          'use strict';
+          
+          var chars = '1234567890',
+              
+              serialLength = 9,
+              
+              randomSerial = "",
+              
+              i,
+              
+              randomNumber;
+          
+          for (i = 0; i < serialLength; i = i + 1) {
+              
+              randomNumber = Math.floor(Math.random() * chars.length);
+              
+              randomSerial += chars.substring(randomNumber, randomNumber + 1);
+              
+          }
+          return randomSerial
+        } 
+        
 
       }

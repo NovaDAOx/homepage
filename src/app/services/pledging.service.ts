@@ -30,7 +30,7 @@ export class PledgingService {
   const contract = await this.pledgeContract()
   const create = await contract.methods
   .createGrant(_projectSN,_reqAmount,_useraddress)
-  .send({from:_useraddress,value:0})
+  .send({from:_useraddress,value:_reqAmount})
   console.log(create,'0000000000000000000000000000000000')
   return create
   }
