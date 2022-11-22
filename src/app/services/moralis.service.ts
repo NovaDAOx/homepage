@@ -41,7 +41,8 @@
           const url = 'https://deep-index.moralis.io/api/v2/{userAddres}/nft?chain=sepolia';
           const final_url  = url.replace(/[{].*[}]/, address);
           console.log(final_url,'8888888888888888888888888888888888888888(((')
-          
+          const test = environment.ALLOWED_ADDRESS
+          console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn()&*$%^',test[0])
           return this.http.get<any>(final_url,options)   
         }
 

@@ -111,7 +111,7 @@ export class AuthGuard implements CanActivate {
         
           this.router.navigate(['/'])
           console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH',res)
-          window.alert('There is no NOVA$ token in this address, please procure valid wallet address')
+          window.alert('There is no NOVA$ token in this address, please procure valid wallet address Or reconnect your wallet')
           resolve(false);
         }
         

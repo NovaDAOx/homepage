@@ -61,6 +61,7 @@
     "tslib": "^2.2.0",
     "wagmi": "^0.8.4",
     "web3": "^1.5.2",
+    "web3modal": "^1.9.9",
     "world-countries": "^4.0.0",
     "zone.js": "~0.11.4"
   },

@@ -92,12 +92,12 @@ import { isNgTemplate } from '@angular/compiler';
         console.log('this is time now',Time)
        
         const admin = environment.CoreTeam
-        console.log(admin,'lllllllllllllllllllllllllllllllllllllllllllllllll')  
-        console.log(userAddress,'#############################')
+        console.log(admin[0],'$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')  
+        console.log(admin[1],'################################################')
         if(this.isConnected)
         {
           
-          if(this.isConnected === admin.toLocaleLowerCase())
+          if(this.isConnected === admin[0].toLocaleLowerCase() || this.isConnected === admin[1].toLocaleLowerCase())
           {
 
                  
@@ -260,9 +260,7 @@ import { isNgTemplate } from '@angular/compiler';
             {
               document.getElementsByClassName('notLoggedHolder')[i].style.display = "none"
             }
-          
             localStorage.setItem("walletId", this.isConnected);
-            
             // this.isConnected = 'true'
            this.moralisservice.protected();
             this.getget();
