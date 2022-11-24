@@ -298,7 +298,7 @@ import { parseEther } from 'ethers/lib/utils';
           const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
           cdk.style.visibility = 'visible'
         console.log("Pledge latest projects",pledge)
-        this.snack.open('Pledged Successfully /n{0}',txn, 'X', {
+        this.snack.open('Pledged Successfully {0}',txn, 'X', {
           duration: 100000,
           panelClass: ['success-order'],
           horizontalPosition: 'end',
@@ -309,7 +309,7 @@ import { parseEther } from 'ethers/lib/utils';
           const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
           cdk.style.visibility = 'visible'
           console.log('uuuuuu',pledge)
-          this.snack.open('Transaction has been cancelled or failed', 'X', {
+          this.snack.open('Transaction has been cancelled or (Not enough NOVA$)', 'X', {
             duration: 10000,
             panelClass: ['error-snackbar'],
             horizontalPosition: 'center',
