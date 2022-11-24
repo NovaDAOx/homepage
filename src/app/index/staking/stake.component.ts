@@ -333,6 +333,8 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
       this.spinner.show();
       const txn = await this.etherService.unstakeAll(userAddress);
       if (txn) {
+        const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        cdk.style.visibility = 'visible'
         this.spinner.hide();
         this.refreshData();
         this.snack.open("All NFT has been unstaked sucessfully", "X", {
@@ -350,8 +352,10 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
         
 
       } else {
+        const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        cdk.style.visibility = 'visible'
         this.spinner.hide();
-        this.snack.open("Transaction has been cancelled or failed", "X", {
+        this.snack.open("unstakeable ", "X", {
           duration: 4000,
           panelClass: ["error-snackbar"],
           horizontalPosition: "center",
@@ -462,6 +466,8 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
       this.spinner.show();
       const txn = await this.etherService.unstake(userAddress, this.unstakeId);
       if (txn) {
+        const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        cdk.style.visibility = 'visible'
         this.spinner.hide();
         this.snack.open("NFT has been unstaked sucessfully", "X", {
           duration: 10000,
@@ -475,8 +481,10 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
       }, 11000)
         
       } else {
+        const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        cdk.style.visibility = 'visible'
         this.spinner.hide();
-        this.snack.open("Transaction has been cancelled or failed", "X", {
+        this.snack.open("Transaction has been cancelled or failed (unstakeable )", "X", {
           duration: 10000,
           panelClass: ["error-snackbar"],
           horizontalPosition: "center",

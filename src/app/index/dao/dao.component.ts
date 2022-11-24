@@ -448,16 +448,19 @@ import { isNgTemplate } from '@angular/compiler';
           console.log(',,,,,,,,,,,,,,,,,,,,kkkk',args.path[1].children[6])
           args.path[1].children[6].classList.toggle('showw')
         }
-        myCallbackFunctionupVote(args){
+        async myCallbackFunctionupVote(args){
           console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling.innerHTML)
           // var counter = 1
           const data = args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data;
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
           var val = parseInt(data.textContent)
+          const check = await this.db.getVoters();
+          console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
           val++;
           data.textContent = val;
           console.log(val,'parsed')
+          const address = localStorage.getItem('walletId')
           this.db.upVote(key,val)
           
         }
@@ -628,12 +631,14 @@ import { isNgTemplate } from '@angular/compiler';
         // }
         async createGrant(event)
         {
-          console.log(event.path[2].children[0].children[1].childNodes[0].data)
+          console.log(event)
+          console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOOO',event.path[2].children[0].children[1].childNodes[2].innerText)
           const access = environment.CoreTeam
           const accessOne = access[0].toLocaleLowerCase();
           const accessTwo = access[1].toLocaleLowerCase();
           const accessThree = access[2].toLocaleLowerCase();
           const userAddress = localStorage.getItem('walletId').toLocaleLowerCase();
+          const collectAddress = await event.path[2].children[0].children[1].childNodes[2].innerText.toLocaleLowerCase()
           const requiredAmt = event.path[2].children[1].firstChild.innerHTML;
           console.log(userAddress)
           console.log(accessOne)
@@ -648,19 +653,35 @@ import { isNgTemplate } from '@angular/compiler';
 
         
             const projectSN = Date.now();
-         const creategrant = await this.pledgeservice.createGrant(projectSN,finalamt,userAddress);
+         const creategrant = await this.pledgeservice.createGrant(projectSN,finalamt,collectAddress);
          console.log('------------grant created',creategrant)
          if(creategrant != null)
          {
+          console.log('this is grant ',creategrant)
           const key = event.path[2].children[0].children[1].childNodes[0].data
           this.db.createGrantDB(key,projectSN,true)
+       
+         }
+         else
+         {
+          const txn = creategrant.blockHash
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+        console.log("failed",creategrant)
+        this.snack.open('Failed','X', {
+          duration: 100000,
+          panelClass: ['success-order'],
+          horizontalPosition: 'end',
+        });
+        return creategrant
          }
          return creategrant;
           }
-          else
+          if(userAddress != accessOne ||userAddress != accessTwo || userAddress != accessThree)
           {
+          
             window.alert('only cryptonasauros')
-            return false;
+            return null;
           }
         }
         async  generateSerial() {

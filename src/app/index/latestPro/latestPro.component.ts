@@ -4,6 +4,7 @@
   import { MetamaskComponent } from "src/app/dashboard/metamask/metamask.component";
   import { MetamaskService } from "src/app/services/metamask.service";
   import { environment } from 'src/environments/environment';
+  import { MatSnackBar } from '@angular/material/snack-bar';
   import { PledgingService } from 'src/app/services/pledging.service';
   import Web3 from "web3";
 
@@ -15,6 +16,7 @@
   } from "@angular/material/dialog";
 import { threadId } from 'worker_threads';
 import { from } from 'rxjs';
+import { parseEther } from 'ethers/lib/utils';
   @Component({
     selector: 'app-latestPro',
     templateUrl: './latestPro.component.html',
@@ -39,6 +41,7 @@ import { from } from 'rxjs';
 
     constructor(private db:FirebaseService,
       private metaMaskService: MetamaskService,
+      private snack: MatSnackBar,
       public dialog: MatDialog,private pledginservice:PledgingService) { }
     async latest()
     {
@@ -269,23 +272,51 @@ import { from } from 'rxjs';
     }
    async sendPledge(event)
     {
+      console.log(event)
       console.log(event.path[1].children[0].childNodes[0].innerHTML)
-      const pledgeamount = event.path[1].children[0].childNodes[0].innerHTML
+      const pledgeamount = event.path[1].children[0].childNodes[0].innerText
       console.log(pledgeamount)
-      const finalAmt = pledgeamount.replace(/[^,.,0-9]/g, '')
-      console.log(finalAmt)
-     const finalFi = Number(finalAmt).toFixed(18).toString()
-     console.log('.........................',finalAmt)
+      const ethval = '1000000000000000000'
+      const OP = 100000000000000000n
+     const d = ethval.concat(pledgeamount)
+  
+      // const finalAmt = pledgeamount.replace(/[^,.,0-9]/g, '')
+    //   // console.log(finalAmt)
+     const finalFi = Number(pledgeamount).toFixed(18)
+     console.log('.........................',finalFi)
+    //  console.log(',,,,,,,,,,,,,,,,,',finalAmt)
       // const amount = await this.web3Http.utils.toHex(
       //   this.web3Http.utils.toWei(Number(finalAmt).toFixed(18), 'ether'))
       // console.log('this is pledge amount ---sending---', this.pledgeAmt)
         const userAddress = localStorage.getItem('walletAddress')
         const value = 0.1
         const projectSN = 1 
-        const pledge  = await this.pledginservice.sendPledge(finalAmt,projectSN)
+        const pledge  = await this.pledginservice.sendPledge(finalFi,projectSN)
+        if(pledge)
+        {
+          const txn = pledge.blockHash
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
         console.log("Pledge latest projects",pledge)
+        this.snack.open('Pledged Successfully /n{0}',txn, 'X', {
+          duration: 100000,
+          panelClass: ['success-order'],
+          horizontalPosition: 'end',
+        });
         return pledge
-        
+        }
+        else{
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+          console.log('uuuuuu',pledge)
+          this.snack.open('Transaction has been cancelled or failed', 'X', {
+            duration: 10000,
+            panelClass: ['error-snackbar'],
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+          return pledge
+        }
     }
   
   }

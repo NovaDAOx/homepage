@@ -3,9 +3,11 @@
   import { ethers } from "ethers";
   import { environment } from "src/environments/environment";
   import { HttpClient } from "@angular/common/http";
+  import { MatSnackBar } from '@angular/material/snack-bar';
   // import { Observable } from 'rxjs/Observable'; 
-  const { ABI_PLEDGE } = require("../abi/Abi_Contract.js");
+  const { ABI_PLEDGE,ABI_COINJ } = require("../abi/Abi_Contract.js");
   import Web3 from "web3";
+import { create } from 'domain';
 
   let web3 = new Web3(Web3.givenProvider);
   @Injectable({
@@ -14,30 +16,37 @@
   export class PledgingService {
     private web3Http = web3;
 
-    constructor() { }
+    constructor(private snack: MatSnackBar,) { }
 
     const PLEDGE = environment.PLEDGE
+    const COIN = environment.COIN
     ABI_PLEDGE = ABI_PLEDGE
+    ABI_COINJ = ABI_COINJ
     
     public async pledgeContract() {
       return new web3.eth.Contract(this.ABI_PLEDGE, this.PLEDGE);
     }
 
-
+public async CoinContract()
+{
+  return new web3.eth.Contract(this.ABI_COINJ,this.COIN)
+}
     async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
   {
     try
     {
 
+  // const amountt = this.web3Http.utils.toHex(
+  //   this.web3Http.utils.toWei(Number(_reqAmount).toFixed(18), 'ether'))
   const amountt = this.web3Http.utils.toHex(
-    this.web3Http.utils.toWei(Number(_reqAmount).toFixed(18), 'ether'))
+    this.web3Http.utils.toWei(Number(_reqAmount).toString(), 'ether'))
+    console.log('dddddddddddddddddddddddddd',amountt)
     const contract = await this.pledgeContract()
 
     const create = await contract.methods
-  
     .createGrant(_projectSN,amountt,_useraddress)
-    .send({from:_useraddress,value:amountt})
-    console.log(amountt,'0000000000000000000000000000000000')
+    .send({from:_useraddress,value:0})
+    console.log(create,'0000000000000000000000000000000000')
     return create
     }
     catch(e)
@@ -60,19 +69,58 @@
     {
       // const amt = await _amount.replace(/[^,.,0-9]/g, '')
       // console.log(amt,'ssssssssssssssss')
+      const decimal = 18 ;
       const amountt = this.web3Http.utils.toHex(
-        this.web3Http.utils.toWei(Number(_amount).toFixed(18), 'ether'))
-        // console.log('dddddddddddddddddddddddddd',amount)
+        this.web3Http.utils.toWei(Number(_amount).toString(), 'ether'))
+        console.log('dddddddddddddddddddddddddd',amountt)
+      // const amount = this.web3Http.utils.toWei(Number(_amount).toFixed())
+      // const hex = this.web3Http.utils.fromDecimal(_amount)
+    //  const BN =  web3.utils.BN;
+    //  const amt = new BN(decimal);
+    //  const numberOneAsBigNumber = new BN(_amount);
+    //  const numberTowAsBigNumber = new BN(2);
+    //  const numberTenAsBigNumber = new BN(10);
+
+
+    //  const oneCoin = numberOneAsBigNumber.mul(numberTenAsBigNumber.pow(amt));
+    // console.log(oneCoin,'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'); // BN { negative: 0, words: [ 1000000, <1 empty item> ], length: 1, red: null}
+    // console.log(oneCoin.toString(),'SSSSSSSSSSSSSSSSSSSSS'); // 1000000
+ 
+    // var amout = this.web3Http.utils.toWei(Number(_amount).toString(), "ether")
+    // console.log('llllllllllllllllll',amout)
+
+     const amountF =  parseInt(_amount)
+    //  console.log('llllllllllllllllll',amt)
       const userAddress = localStorage.getItem('walletId')
     const contract = await this.pledgeContract()
-    const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, to:this.PLEDGE, value: amountt})
+    const CoinContract = await this.CoinContract()
+    console.log('Contract contract contract',CoinContract)
+    const approve = await CoinContract.methods.approve(this.PLEDGE,amountt).send({from:userAddress,value:0})
+    console.log('approve',approve)
+    if(approve)
+    {
+      const testval = parseInt(_amount)
+      
+    const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, value:0})
     console.log('----Returned Pledge-----',pledge)
-    console.log('--------------',amount)
+    // console.log('aAAAAAAAAAAAAAAA',amount)
+     
+    if(pledge)
+    {
+    this.snack.open('Pledged Successfully', 'X', {
+      duration: 10000,
+      panelClass: ['success-order'],
+      horizontalPosition: 'end',
+    });
+   
+    }
     return pledge
     }
+  }
     catch(e)
-    {
-      console.log('------sending Pledge----',e)
+    {  
+      console.log(e)
+
       return null
     }
   }

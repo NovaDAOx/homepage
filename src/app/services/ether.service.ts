@@ -154,6 +154,7 @@ export class EtherService {
 
   async unstakeAll(userAddress: string) {
     try {
+      const userAddress = localStorage.getItem('walletId')
       const contract = await this.stakeContract();
       const txn = await contract.methods
         .unstakeAll()
@@ -167,14 +168,22 @@ export class EtherService {
 
   async unstake(userAddress: string, tokenid: string) {
     try {
+      console.log(',,,,,,,,,,,,,,,,,',tokenid)
       const contract = await this.stakeContract();
       const txn = await contract.methods
         .unstakePass(tokenid)
         .send({ from: userAddress, value: 0 });
+        if (txn)
+        {
       return txn;
+        }
+        else
+        {
+          console.log('unstakeable')
+        }
     } catch (e) {
       console.log("unstake---e--", e.message);
-      return null;
+      return ;
     }
   }
 
