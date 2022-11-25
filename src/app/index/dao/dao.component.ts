@@ -645,7 +645,7 @@ import { isNgTemplate } from '@angular/compiler';
           console.log(accessOne)
           console.log(accessTwo)
           console.log(accessThree)
-          if(userAddress=== accessOne ||userAddress === accessTwo ||userAddress === accessThree)
+          if(userAddress)
           {
           console.log(event.path[2].children[1].firstChild.innerHTML)
          
