@@ -43,8 +43,8 @@ private formBuilder: FormBuilder,
     console.log('div dis')
     const homepageSubscription = document.getElementById('ifraContainer2')
     homepageSubscription.style.visibility = "visible"
-    // const scroller = document.getElementsByClassName('cdk-global-scrollblock')[0]
-    // scroller.style.position = 'unset'
+    const scroller = document.getElementsByClassName('cdk-global-scrollblock')[0]
+    scroller.style.position = 'unset'
 
   }
   @HostListener('window:load')

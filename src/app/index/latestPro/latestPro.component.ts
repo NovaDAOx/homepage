@@ -202,12 +202,7 @@ import { parseEther } from 'ethers/lib/utils';
         console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$',b)
         this.not = null;
 
-        const userAddress = localStorage.getItem('walletId')
-
-      
-      
-      
-        
+        const userAddress = localStorage.getItem('walletId')        
       }
     }
 

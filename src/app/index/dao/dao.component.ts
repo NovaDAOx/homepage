@@ -190,6 +190,7 @@ import { isNgTemplate } from '@angular/compiler';
         ngOnInit(): void {
         this.t();
         this.moralisservice.protected();
+        this.db.getVoters();
        
         if (!window.localStorage.getItem("logout")) {
           window.localStorage.setItem("logout", "false");
@@ -644,7 +645,7 @@ import { isNgTemplate } from '@angular/compiler';
           console.log(accessOne)
           console.log(accessTwo)
           console.log(accessThree)
-          if(userAddress=== accessOne ||userAddress === accessTwo || accessThree)
+          if(userAddress=== accessOne ||userAddress === accessTwo ||userAddress === accessThree)
           {
           console.log(event.path[2].children[1].firstChild.innerHTML)
          

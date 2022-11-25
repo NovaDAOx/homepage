@@ -2,7 +2,7 @@
                 
                 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
                 import { AngularFireStorage } from '@angular/fire/storage';
-    import { AutoHeightService } from 'ngx-owl-carousel-o/lib/services/autoheight.service';
+    
                 import { Observable,from } from 'rxjs';
                 import { environment } from 'src/environments/environment';
                 
@@ -251,27 +251,34 @@
                     
               }
 
-            async getVoters():Promise<any>
+            getVoters():Observable<any>
             {
               let itemsRef = this.db.list('Voters')
                 const array = []
-                const userAddress = localStorage.getItem('walletId')
+                const userAddress = localStorage.getItem('walletId').toLocaleLowerCase()
               itemsRef.snapshotChanges(['child_added'])
                 .subscribe(actions => {
+                  console.log('jjjjjjjjjjjjjjjj',actions.length)
+                  console.log('GGGGGGGGGGGGGGGG',actions)
                   actions.map(Item => {
-                    console.log('Item',Item.payload.val()['address'].toLocaleLowerCase(),userAddress.toLocaleLowerCase())
-                    if(userAddress.toLocaleLowerCase() != Item.payload.val()['address'].toLocaleLowerCase())
+                    for(var i = 0; i < actions.length; i++)
+                    {
+                    console.log('Item',Item.payload.val())
+                    // console.log('OOOOOOOOOOOOO',Item.payload.val()['address'])
+                    if(Item.payload.val()['userAddres'].toLocaleLowerCase() != userAddress.toLocaleLowerCase())
+                    array.push({voters:Item.payload.val()['userAddres']})
+                    if(userAddress)
                     {
                       this.check = true;
-                    console.log('Item',Item.payload.val()['address'],userAddress)
-                    array.push(Item.payload.val()['address'],userAddress)
-                    }
-                
-                              })
+                    // console.log('Item',Item.payload.val()['address'],userAddress)
+                    console.log(array,'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
+                  }
+                  }
+                  })
                   
                 })
                 console.log(array,'pp')
-                return array
+                return <any>array
             }
 
 
@@ -302,16 +309,22 @@
                       
                       const vote =   await this.getVoters()
                       const dat = from(this.getVoters()) 
-                    const t = dat.subscribe(Item =>{
-                      console.log(Item.length,'{{{{{{{{{{{{{')
-                      return Item.length
-                    })   
-                      console.log(t,'VVVVVVVVVVVVVOOOOOOOOOOO')
-                      if(!vote)
+                      
+                      // this.getVoters()._subscribe((Item:data<any>) {
+                      //   console.log('SLLLLLLLL',Item)
+                      //   console.log('Cggggggggggggg',Item.length)
+                      // })
+                    // const t = dat.subscribe(Item =>{
+                    //   console.log(Item.length,'{{{{{{{{{{{{{')
+                    //   return Item.length
+                    // })   
+                      console.log(dat,'VVVVVVVVVVVVVOOOOOOOOOOO')
+                      console.log(vote,'DAOOOOOOOOA')
+                      if(vote)
                       {
                     const checkAddress = this.db.list('Voters')
                     const userAddres = localStorage.getItem('walletId')
-                    checkAddress.push({address: userAddres})
+                    checkAddress.push({userAddres:userAddres})
                     const itemsRef = this.db.list('Projects')
                     itemsRef.update(_id,{upVote:_vote})
                       
@@ -321,7 +334,7 @@
                     }
                   }
                   else{
-                    window.alert('you have alredy voted')
+                    window.alert('you have already voted')
                   
                   }
                     }

@@ -35,7 +35,10 @@ export class AppComponent {
       localStorage.removeItem('walletId');
     }
  
- this.moralisservice.protected()     
+ this.moralisservice.protected().then(Item =>{
+  console.log('')
+
+ }) 
   }
 
   getCSRF() {
