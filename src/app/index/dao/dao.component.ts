@@ -645,7 +645,7 @@ import { isNgTemplate } from '@angular/compiler';
           console.log(accessOne)
           console.log(accessTwo)
           console.log(accessThree)
-          if(userAddress)
+          if(userAddress=== accessOne ||userAddress === accessTwo ||userAddress ==  accessThree)
           {
           console.log(event.path[2].children[1].firstChild.innerHTML)
          
@@ -654,7 +654,7 @@ import { isNgTemplate } from '@angular/compiler';
 
         
             const projectSN = Date.now();
-         const creategrant = await this.pledgeservice.createGrant(projectSN,finalamt,collectAddress);
+         const creategrant = await this.pledgeservice.createGrant(projectSN,finalamt,userAddress);
          console.log('------------grant created',creategrant)
          if(creategrant != null)
          {
