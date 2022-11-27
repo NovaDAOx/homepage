@@ -454,9 +454,16 @@ import { isNgTemplate } from '@angular/compiler';
           const data = args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data;
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
+          
+        
+        
+
           var val = parseInt(data.textContent)
           // const check = await this.db.getVoters();
           // console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
+           this.db.checkVotes(Key,val,address).then(item => {
+            console.log('########################',Item)
+           })
           val++;
           data.textContent = val;
           console.log(val,'parsed')

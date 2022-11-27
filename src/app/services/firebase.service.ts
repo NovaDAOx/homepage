@@ -21,6 +21,7 @@
                   selLen = [] ;
                   selln = "" ;
                   length = "";
+                  checkVote = null;
                   check:boolean=null;
                   constructor(private db: AngularFireDatabase, private Storage:AngularFireStorage) {
                   
@@ -294,7 +295,7 @@
                 console.log('jjjjjjjjjjjjjjjj',actions.length)
                 console.log('4444444444444',actions)
                 actions.map(Item => {     
-                  console.log('((((((((((((((((((((',_id,Item.key) 
+                  console.log('((((((((((((((((((((',_id,Item) 
                   if(_id === Item.key)
                   {
                   
@@ -336,7 +337,7 @@
                 async upVote(_id:any,_vote:any,address:any)
                   {
                     
-
+                    const userAddres = localStorage.getItem('walletId')
                       let itemsRefV = this.db.list('Projects')
                       const itemsRef = this.db.list(`Projects/${_id}/votes`);
                       const array = []
@@ -345,34 +346,57 @@
                 .subscribe(actions => {
                   console.log('jjjjjjjjjjjjjjjj',actions.length)
                   console.log('4444444444444',actions)
-                  actions.map(Item => {     
-                    console.log('((((((((((((((((((((',_id,Item.key) 
+                  actions.map(Item => { 
                     if(_id === Item.key)
+                    {    
+                    console.log('((((((((((((((((((((',_id,Item.payload.val()['votes'][userAddres]['address'] )
+                    const arrayUsr =[]
+                    arrayUsr.push(Item.payload.val()['votes'][userAddres]['address'])
+                    console.log(arrayUsr,'RRRRRRRRRRRRRRRRRRRRRRR')
+                    console.log(arrayUsr.length,'iiiiiiiiiiiiii') 
+                    if(arrayUsr.length > 0)
                     {
-                    
-                    const userAddres = localStorage.getItem('walletId')
+                      console.log('One vote for one project (vote not allowed !)')
+                      this.checkVote = 'notAllowed'
+                      this.check = true;
+                      console.log('QQQQQQQQQQQQQQQQQQQQ',this.checkVote)
+                      
+                      
+                    }
+                    else
+                    {
+                      console.log(' new user (Vote allowed) ')
                     const arra = []
+                    this.check = false;
+                    this.checkVote = 'allowed';
                     arra.push({upVote:_vote,Address:address})
                     // const itemsRef = this.db.list('Projects'/ _id)
-                    
-                    itemsRef.set(userAddres,{upVote:_vote})
+                    itemsRef.set(userAddres,{address:userAddres,upVote:_vote})
                     itemsRefV.update(_id, { upVote:_vote })
-                    
-                   
                     .then
                       {
                       console.log('updated Down')
                     }
                   }
+                }
                   })
-                  
+                
                 })
                 
-                
+                return 
                     
                   }
 
-
+                async checkVotes(_id:any,_vote,)
+                  {
+                    
+                    
+                    const checker = await this.checkVote
+                    console.log('111111111111111111',checker)
+                    // const check = this.check
+                    // console.log('2222222222222222222',check)
+                    return checker
+                  }
                 // savedata(_img)
                 // {
                 //   const itemRef = this.db.list('Projects')
