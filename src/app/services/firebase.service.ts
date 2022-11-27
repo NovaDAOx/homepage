@@ -251,97 +251,124 @@
                     
               }
 
-            getVoters():Observable<any>
-            {
-              let itemsRef = this.db.list('Voters')
-                const array = []
+            // getVoters():Observable<any>
+            // {
+            //   let itemsRef = this.db.list('Voters')
+            //     const array = []
+            //     const userAddress = localStorage.getItem('walletId').toLocaleLowerCase()
+            //   itemsRef.snapshotChanges(['child_added'])
+            //     .subscribe(actions => {
+            //       console.log('jjjjjjjjjjjjjjjj',actions.length)
+            //       console.log('GGGGGGGGGGGGGGGG',actions)
+            //       actions.map(Item => {
+            //         for(var i = 0; i < actions.length; i++)
+            //         {
+            //         console.log('Item',Item.payload.val())
+            //         // console.log('OOOOOOOOOOOOO',Item.payload.val()['address'])
+            //         if(Item.payload.val()['userAddres'].toLocaleLowerCase() != userAddress.toLocaleLowerCase())
+            //         array.push({voters:Item.payload.val()['userAddres']})
+            //         if(userAddress)
+            //         {
+            //           this.check = true;
+            //         // console.log('Item',Item.payload.val()['address'],userAddress)
+            //         console.log(array,'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
+            //       }
+            //       }
+            //       })
+                  
+            //     })
+            //     console.log(array,'pp')
+            //     return <any>array
+            // }
+
+
+                  downVote(_id:any, _vote:any,address:any) {
+                    // const  itemsRef = this.db.list('Projects')
+                    
+                    let itemsRefV = this.db.list('Projects')
+                    const itemsRef = this.db.list(`Projects/${_id}/votes`);
+                    const array = []
+              const userAddress = localStorage.getItem('walletId').toLocaleLowerCase()
+            itemsRefV.snapshotChanges(['child_added'])
+              .subscribe(actions => {
+                console.log('jjjjjjjjjjjjjjjj',actions.length)
+                console.log('4444444444444',actions)
+                actions.map(Item => {     
+                  console.log('((((((((((((((((((((',_id,Item.key) 
+                  if(_id === Item.key)
+                  {
+                  
+                  const userAddres = localStorage.getItem('walletId')
+                  const arra = []
+                  // arra.push({upVote:_vote,Address:address})
+                  // const itemsRef = this.db.list('Projects'/ _id)
+                  
+                  itemsRef.set(userAddres,{DownVote:_vote})
+                  itemsRefV.update(_id, { DownVote:_vote })
+                  
+                 
+                  .then
+                    {
+                    console.log('updated Up')
+                  }
+                }
+                })
+                
+              })
+              
+                    // try
+                    // {
+                    //   const d = this.db.list('Projects')
+                    // itemsRef.update(_id, { DownVote:_vote })
+                    // .then
+                    // {
+                    //   // console.log('updated')
+                    // }
+                    // }
+                    // catch(e)
+                    // {
+                    //   // console.log(e,'ddddddddddd')
+                    // }
+                  
+                    
+                      
+                  }
+                async upVote(_id:any,_vote:any,address:any)
+                  {
+                    
+
+                      let itemsRefV = this.db.list('Projects')
+                      const itemsRef = this.db.list(`Projects/${_id}/votes`);
+                      const array = []
                 const userAddress = localStorage.getItem('walletId').toLocaleLowerCase()
-              itemsRef.snapshotChanges(['child_added'])
+              itemsRefV.snapshotChanges(['child_added'])
                 .subscribe(actions => {
                   console.log('jjjjjjjjjjjjjjjj',actions.length)
-                  console.log('GGGGGGGGGGGGGGGG',actions)
-                  actions.map(Item => {
-                    for(var i = 0; i < actions.length; i++)
+                  console.log('4444444444444',actions)
+                  actions.map(Item => {     
+                    console.log('((((((((((((((((((((',_id,Item.key) 
+                    if(_id === Item.key)
                     {
-                    console.log('Item',Item.payload.val())
-                    // console.log('OOOOOOOOOOOOO',Item.payload.val()['address'])
-                    if(Item.payload.val()['userAddres'].toLocaleLowerCase() != userAddress.toLocaleLowerCase())
-                    array.push({voters:Item.payload.val()['userAddres']})
-                    if(userAddress)
-                    {
-                      this.check = true;
-                    // console.log('Item',Item.payload.val()['address'],userAddress)
-                    console.log(array,'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
-                  }
+                    
+                    const userAddres = localStorage.getItem('walletId')
+                    const arra = []
+                    arra.push({upVote:_vote,Address:address})
+                    // const itemsRef = this.db.list('Projects'/ _id)
+                    
+                    itemsRef.set(userAddres,{upVote:_vote})
+                    itemsRefV.update(_id, { upVote:_vote })
+                    
+                   
+                    .then
+                      {
+                      console.log('updated Down')
+                    }
                   }
                   })
                   
                 })
-                console.log(array,'pp')
-                return <any>array
-            }
-
-
-                  downVote(_id:any, _vote:any) {
-                    const  itemsRef = this.db.list('Projects')
-                    
-                    try
-                    {
-                      const d = this.db.list('Projects')
-                    itemsRef.update(_id, { DownVote:_vote })
-                    .then
-                    {
-                      // console.log('updated')
-                    }
-                    }
-                    catch(e)
-                    {
-                      // console.log(e,'ddddddddddd')
-                    }
-                  
-
-                      
-                  }
-                async upVote(_id:any,_vote:any)
-                  {
-                    try
-                    {
-                      
-                      const vote =   await this.getVoters()
-                      const dat = from(this.getVoters()) 
-                      
-                      // this.getVoters()._subscribe((Item:data<any>) {
-                      //   console.log('SLLLLLLLL',Item)
-                      //   console.log('Cggggggggggggg',Item.length)
-                      // })
-                    // const t = dat.subscribe(Item =>{
-                    //   console.log(Item.length,'{{{{{{{{{{{{{')
-                    //   return Item.length
-                    // })   
-                      console.log(dat,'VVVVVVVVVVVVVOOOOOOOOOOO')
-                      console.log(vote,'DAOOOOOOOOA')
-                      if(vote)
-                      {
-                    const checkAddress = this.db.list('Voters')
-                    const userAddres = localStorage.getItem('walletId')
-                    checkAddress.push({userAddres:userAddres})
-                    const itemsRef = this.db.list('Projects')
-                    itemsRef.update(_id,{upVote:_vote})
-                      
-                    .then
-                    {
-                      console.log('updated Down')
-                    }
-                  }
-                  else{
-                    window.alert('you have already voted')
-                  
-                  }
-                    }
-                    catch(e)
-                    {
-                      console.log(e,'this is the error')
-                    }
+                
+                
                     
                   }
 

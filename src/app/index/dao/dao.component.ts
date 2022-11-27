@@ -190,7 +190,6 @@ import { isNgTemplate } from '@angular/compiler';
         ngOnInit(): void {
         this.t();
         this.moralisservice.protected();
-        this.db.getVoters();
        
         if (!window.localStorage.getItem("logout")) {
           window.localStorage.setItem("logout", "false");
@@ -456,13 +455,13 @@ import { isNgTemplate } from '@angular/compiler';
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data;
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
           var val = parseInt(data.textContent)
-          const check = await this.db.getVoters();
-          console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
+          // const check = await this.db.getVoters();
+          // console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
           val++;
           data.textContent = val;
           console.log(val,'parsed')
           const address = localStorage.getItem('walletId')
-          this.db.upVote(key,val)
+          this.db.upVote(key,val,address)
           
         }
         myCallbackFunctionDownVote = (args: any): void => {
@@ -479,8 +478,8 @@ import { isNgTemplate } from '@angular/compiler';
           data.textContent = val;
           
           console.log(val,'parsed')
-          
-          this.db.downVote(key,val.toString())
+          const address = localStorage.getItem('walletId')
+          this.db.downVote(key,val.toString(),address)
           
         }
 
