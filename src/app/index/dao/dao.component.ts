@@ -15,6 +15,7 @@
     } from "@angular/material/dialog";
 import { Scroll } from '@angular/router';
 import { isNgTemplate } from '@angular/compiler';
+import { __await } from 'tslib';
 
       @Component({
         selector: 'app-dao',
@@ -454,22 +455,32 @@ import { isNgTemplate } from '@angular/compiler';
           const data = args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data;
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
-          
         
+           this.db.checkVotes(key).subscribe(Item => {
+            console.log('this is the data we have been waiting for', Item.length)
+            
+          if(Item.length > 0)
+          {
+            const data =   Item
+            console.log('one vote per one project',Item)
+            window.alert('(you have vote)one vote per one project',data)
+          }
+          else
+          {
         
-
           var val = parseInt(data.textContent)
           // const check = await this.db.getVoters();
           // console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
-           this.db.checkVotes(Key,val,address).then(item => {
-            console.log('########################',Item)
-           })
+          
           val++;
           data.textContent = val;
           console.log(val,'parsed')
           const address = localStorage.getItem('walletId')
           this.db.upVote(key,val,address)
-          
+          }
+          return Item
+        })  
+
         }
         myCallbackFunctionDownVote = (args: any): void => {
           console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.lastChild.lastChild)
@@ -481,13 +492,25 @@ import { isNgTemplate } from '@angular/compiler';
           console.log(key , '*********************')
           
           var val = parseInt(data.textContent)
+          this.db.checkVotes(key).subscribe(Item => {
+            console.log('this is the data we have been waiting for', Item.length)
+            
+          if(Item.length > 0)
+          {
+            const data =   Item
+            console.log('one vote per one project',Item)
+            window.alert('one vote per one project',data)
+          }
+          else
+          {
           val++;
           data.textContent = val;
           
           console.log(val,'parsed')
           const address = localStorage.getItem('walletId')
           this.db.downVote(key,val.toString(),address)
-          
+          }
+        })
         }
 
       sortTable() {
