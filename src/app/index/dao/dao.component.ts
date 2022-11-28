@@ -467,11 +467,9 @@ import { __await } from 'tslib';
           }
           else
           {
-        
           var val = parseInt(data.textContent)
           // const check = await this.db.getVoters();
           // console.log('RRRRRRRRRRRRRRRRRRRRrrrrr',check)
-          
           val++;
           data.textContent = val;
           console.log(val,'parsed')
@@ -493,9 +491,9 @@ import { __await } from 'tslib';
           
           var val = parseInt(data.textContent)
           this.db.checkVotes(key).subscribe(Item => {
-            console.log('this is the data we have been waiting for', Item.length)
+            console.log('this is the data we have been waiting for', Item)
             
-          if(Item.length > 0)
+          if(Item === 'not')
           {
             const data =   Item
             console.log('one vote per one project',Item)

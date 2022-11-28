@@ -306,7 +306,7 @@
                   // arra.push({upVote:_vote,Address:address})
                   // const itemsRef = this.db.list('Projects'/ _id)
                   
-                  itemsRef.set(userAddres,{DownVote:_vote})
+                  itemsRef.set(userAddres,{address:userAddres,upVote:_vote})
                   itemsRefV.update(_id, { DownVote:_vote })
                   
                  
@@ -449,12 +449,7 @@
               })
             
             })
-                    //  data.
-                    // console.log('WWWWWWWWWWWWWWWWWWWWWWWWWWw',check)
-                    console.log('NNNNNNNNNNNNNNNNNNNNNNNNN',this.checkVoteT)
-                    console.log('TTTTTTTTTTTTTTTTTTTTTTTHhhhhhhhhhhhhhhhhhh2Two',this.checkVoteT)
-                    console.log('22222222222222222222222222222222222222$$$$$$4',arrayUsr.length)
-              return of(arrayUsr)      
+                    
                   }
                 // savedata(_img)
                 // {
