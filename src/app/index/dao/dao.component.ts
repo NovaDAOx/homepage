@@ -449,7 +449,7 @@ import { __await } from 'tslib';
           console.log(',,,,,,,,,,,,,,,,,,,,kkkk',args.path[1].children[6])
           args.path[1].children[6].classList.toggle('showw')
         }
-        async myCallbackFunctionupVote(args){
+        async myCallbackFunctionupVote(args:any){
           console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling.innerHTML)
           // var counter = 1
           const data = args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
@@ -457,9 +457,9 @@ import { __await } from 'tslib';
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
         
            this.db.checkVotes(key).subscribe(Item => {
-            console.log('this is the data we have been waiting for', Item.length)
+            console.log('this is the data we have been waiting for upvote part', Item)
             
-          if(Item.length > 0)
+          if(Item === 'not' )
           {
             const data =   Item
             console.log('one vote per one project',Item)

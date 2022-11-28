@@ -353,7 +353,7 @@
                     {    
                     // console.log('((((((((((((((((((((',_id,Item.payload.val()['votes'][userAddres]['address'] )
                     const arrayUsr =[]
-                               
+                                 
                     // const itemsRef = this.db.list('Projects'/ _id)
                     itemsRef.set(userAddres,{address:userAddres,upVote:_vote})
                     itemsRefV.update(_id, { upVote:_vote })
@@ -396,47 +396,53 @@
                   if(ch)
                   {
                   let g = Object.entries(ch)
-                  observer.next(g)
-                  console.log(g[0][0],'{{{{{{{{{{{{{')
+                  // observer.next(this.checkVoteT)
+                  
                   for (var i=0; i<g.length;i++)
                   {
-                    console.log(g[i][0],'{{{{{{{{{{{{{')
+                    console.log(g[i][0],'{{{{{{{{{{{{{',userAddres)
+                    
                   if(userAddres.toLocaleLowerCase() === g[i][0].toLocaleLowerCase())
                   {
-                    console.log('user address previously registered')
+                    
+                    this.checkVoteT ='not'
+                   observer.next(this.checkVoteT)
+                   {
+                    console.log('UUUUUUUUUUUUUUUUUU',this.checkVoteT)
+                   }
+                   observer.complete()
                   
-                  // observer.next(arrayUsr.length)
-                  arrayUsr.push(Item.payload.val()['votes'][userAddres]['address'])
-                  console.log(arrayUsr[0],'RRRRRRRRRRRRRRRRRRRRRRR')
-                  console.log(arrayUsr.length,'iiiiiiiiiiiiii') 
-                    const checker =  this.checkVote
-                    console.log('111111111111111111',checker)
+                    console.log('user address previously registered',userAddres,g[i][0])
                   }
-                    if(arrayUsr.length > 0)
+                  if(userAddres.toLocaleLowerCase() != g[i][0].toLocaleLowerCase())
+                  {
+                   
+                    
+                    observer.next(this.checkVoteT)
                     {
-                      
-                      
-                      this.checkVote = 'notallowed'
-                      this.checkVoteT ="YEs"
-                      console.log('voted voted voted voted voted voted voted',this.checkVote)
-                      // return this.checkVoteT
-                    }
-                    else
-                    {
-                      this.checkVoteT = 'Not'
-                      console.log('not not not not not not not not not not not')
-                      // return this.checkVoteT
-                    }
+                      console.log('uuuuuuuuuu2',this.checkVoteT)
+                    
+                  }
+                  observer.complete()
+                  this.checkVoteT = 'yes'
+                    
                   }
                 }
-                else
+                  }
+                if(!ch)
                 {
-                  observer.next(0)
+                 
+                  this.checkVoteT = 'yes'
+                  observer.next(this.checkVoteT)
+                  {
+                    console.log('UUUUUUUUUUUuuu3',this.checkVoteT)
+                  }
+                
                 }
                 }
-                  console.log('TTTTTTTTTTTTTTTTTTTTTTTHhhhhhhhhhhhhhhhhhh!one',this.checkVote)
+                     
                 })
-            
+              
               
                 console.log('TTTTTTTTTTTTTTTTTTTTTTTHhhhhhhhhhhhhhhhhhh2Two',this.checkVoteT)
                 
