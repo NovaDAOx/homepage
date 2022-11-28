@@ -95,7 +95,7 @@
                     <p class="BD">{{i + 1 }}</p>
               <p class="left name DaoP">{{item['Name']}}</p>
               <p class="left">{{item['Description']}}</p>
-              <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
+              <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span><span name="SN">{{item['ProjectSN']}}</span></label>
               
           <div class="funreq">
             <div class="funreqin"><p class="funt">Required Pledge</p></div>
@@ -103,11 +103,11 @@
           
           </div>
           
-          <label class="Precieved">100% recieved</label>
-          <mat-progress-bar class="matPb" mode="determinate" value=100></mat-progress-bar>
+          <label class="Precieved"><span>{{item['Percent']}}</span>% recieved</label>
+          <mat-progress-bar class="matPb" mode="determinate" value="{{item['Percent']}}"></mat-progress-bar>
           
           <div class="BV2nd">
-            <label class="faded" ><span contenteditable="true" >0.0 </span> NOVA$</label>
+            <label class="faded" ><span contenteditable="true" (keyup)="changeProgressBar($event)">0.0</span> NOVA$</label>
             <button class="Fv" (click)="sendPledge($event)">Pledge</button>
           </div>
           </div>

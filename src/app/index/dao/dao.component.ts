@@ -463,7 +463,7 @@ import { __await } from 'tslib';
           {
             const data =   Item
             console.log('one vote per one project',Item)
-            window.alert('(you have vote)one vote per one project',data)
+            window.alert('Only one vote, Allowed !',data)
           }
           else
           {
@@ -497,7 +497,7 @@ import { __await } from 'tslib';
           {
             const data =   Item
             console.log('one vote per one project',Item)
-            window.alert('one vote per one project',data)
+            window.alert('Only one vote, Allowed !',data)
           }
           else
           {

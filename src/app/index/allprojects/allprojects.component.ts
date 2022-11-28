@@ -10,14 +10,45 @@ export class AllprojectsComponent implements OnInit {
   allPro = []
   prop = []
   name = ""
+  pledgePro = " "
   Team =[]
   constructor(private db:FirebaseService,private pledgingservice:PledgingService) { }
 
   async allProjects()
   {
-    const data =await this.db.getData();
+    const data =await this.db.getCreatedGrant();
     this.allPro = data
+    console.log('this is data',data)
+    console.log('data length',data.length)
+    const progress = document.getElementsByClassName('matPb')
+    console.log('progress bar progress bar',progress)
+   const getDoc =  document.getElementsByName('SN')
+   console.log('')
+  
+   for(var i=0; i < 2 ; i++)
+   {
+    const SN =  document.getElementsByName('SN')[i].childNodes[0].textContent
+    console.log('THIS THIS THIS THSI THSI',SN)
+    const data = this.pledgingservice.fundingNeeded(1)
+    console.log('this is funding needed from the all projects page',data)
+   }
+   console.log('progress bar progress bar progress bar',this.pledgePro)
     
+  }
+  async changeProgressBar(args:any)
+  {
+    console.log(args.path[3].children[5].childNodes[0].innerText)
+    console.log('progress bar progress bar progress bar',args.path[0].innerText)
+    var event = args.path[3].children[5].childNodes[0].innerText
+    const pledgeV = parseInt(args.path[0].innerText)
+    const requiredAmt = parseInt(args.path[3].children[4].childNodes[1].innerText)
+    console.log(requiredAmt,'required amount ',requiredAmt)
+    console.log(args)
+    var final = (pledgeV / 100)* requiredAmt
+    final = final + event
+    console.log(final,'this is final percentage for the progress bar',final)
+    args.path[3].childNodes[5].childNodes[0].innerText = final
+    console.log(event,'event event event')
   }
   toggle()
   {

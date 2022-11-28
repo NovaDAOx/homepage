@@ -2,7 +2,7 @@
                 
                 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
                 import { AngularFireStorage } from '@angular/fire/storage';
-    
+                import { PledgingService } from './pledging.service';
                 import { Observable,from, of, observable } from 'rxjs';
                 import { environment } from 'src/environments/environment';
 
@@ -25,7 +25,7 @@
                   checkVote = null;
                   check:boolean=null;
                   checkVoteT: any = null;
-                  constructor(private db: AngularFireDatabase, private Storage:AngularFireStorage) {
+                  constructor(private db: AngularFireDatabase, private Storage:AngularFireStorage,private pledgeservice:PledgingService) {
                   
                     
                   }
@@ -779,6 +779,74 @@
                   }
                   
                 }
+
+
+
+
+
+
+
+                async getCreatedGrant()
+                {
+                  
+                  const  arraY =[]
+              const Proj : AngularFireList<any> = this.db.list('Projects');
+              let itemsRef = this.db.list('Projects')              
+              itemsRef.snapshotChanges(['child_added'])
+                .subscribe(async actions => {
+                                      
+                    // this.length = await actions.length.toString(); 
+                    const sweeterArray = actions.map(async Item => {
+                      const dataTeam = Item.payload.val()['TeamMembers']
+                      const grantchecker = Item.payload.val()['Granted']
+                      const SN = Item.payload.val()['ProjectSN']
+                      console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgranted',grantchecker)
+                    
+                      if(grantchecker === true)
+                      {
+                        console.log('this is SN from firebase service',SN)
+                        const fundingNeeded = await this.pledgeservice.fundingNeeded(SN)
+                        const collectedfund = await this.pledgeservice.checkFunding(SN)
+                        console.log(fundingNeeded,'this is funding needed from firebase service')
+                        console.log(collectedfund,'this is collected funding from firebase service')
+
+                        const fundedPercentage = (collectedfund/fundingNeeded)*100
+                        console.log('this is percentage of the progress bar',fundedPercentage)
+                arraY.push({Key:Item.key,Name:Item.payload.val()['ProjectName'],
+                Description:Item.payload.val()['ProjectDescription'],
+                Amount:Item.payload.val()['NovaAmount'],
+                upVote:Item.payload.val()['upVote'],
+                downVote:Item.payload.val()['DownVote'],
+                Img:Item.payload.val()['ProfileImage'],
+                DescriptionT:Item.payload.val()['ProjectDescription2'],
+                Team:Item.payload.val()['TeamMembers'],
+                UserAddress:Item.payload.val()['UserAddress'],
+                ProjectSN:Item.payload.val()['ProjectSN'],
+                Percent:fundedPercentage,
+                  })
+
+                
+              this.ProjectsLength.push(arraY.length)
+            console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkk',Item.payload.val())
+          return Item     
+          }
+          else
+          {
+            console.log('not granted yet!')
+            return false
+          }
+                
+              })
+            
+           
+              const json = {length:sweeterArray.length}
+              this.ProjectsLength.push(json)
+                  });
+             console.log('xxxxxxxxxxxxxxxxxxxxxxx',arraY)
+              return arraY
+                  
+            }
+
 
 
 
