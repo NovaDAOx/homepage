@@ -31,6 +31,7 @@ import { ProjectappComponent } from './index/projectapp/projectapp.component';
 import { AllprojectsComponent } from './index/allprojects/allprojects.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AdminComponent } from './index/admin/admin.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { environment } from 'src/environments/environment';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
@@ -59,7 +60,8 @@ import { SearchPipe } from './index/dao/search.pipe'
     ProjectappComponent,
     ProjectsComponent,
     SearchPipe,
-    AllprojectsComponent
+    AllprojectsComponent,
+    AdminComponent,
 
   ],
   imports: [

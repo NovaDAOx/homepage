@@ -18,7 +18,9 @@ export class AllprojectsComponent implements OnInit {
   {
     const data =await this.db.getCreatedGrant();
     this.allPro = data
-    console.log('this is data',data)
+    const latest = await this.db.getCreatedGrantLatest();
+
+    console.log('this is data',latest.length)
     console.log('data length',data.length)
     const progress = document.getElementsByClassName('matPb')
     console.log('progress bar progress bar',progress)

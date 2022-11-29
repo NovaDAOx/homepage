@@ -15,8 +15,8 @@ Team = [] ;
 
 async recent()
 {
-  this.db.recentPro();
-  const recPro = <any> await this.db.recentPro()
+  this.db.getCreatedGrantPast();
+  const recPro = <any> await this.db.getCreatedGrantPast()
   this.recentPro =<any>await recPro
   console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^7',this.recentPro)
 

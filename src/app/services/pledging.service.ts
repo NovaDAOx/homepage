@@ -31,22 +31,18 @@ public async CoinContract()
 {
   return new web3.eth.Contract(this.ABI_COINJ,this.COIN)
 }
-    async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
+async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
   {
     try
     {
-
-  // const amountt = this.web3Http.utils.toHex(
-  //   this.web3Http.utils.toWei(Number(_reqAmount).toFixed(18), 'ether'))
-  const amountt = this.web3Http.utils.toHex(
+    const amountt = this.web3Http.utils.toHex(
     this.web3Http.utils.toWei(Number(_reqAmount).toString(), 'ether'))
     console.log('dddddddddddddddddddddddddd',amountt)
     const contract = await this.pledgeContract()
-
     const create = await contract.methods
     .createGrant(_projectSN,amountt,_useraddress)
     .send({from:_useraddress,value:0})
-    console.log(create,'0000000000000000000000000000000000')
+    console.log(create,'000000000000')
     return create
     }
     catch(e)
@@ -62,7 +58,22 @@ public async CoinContract()
     const claim = contract.methods.claimPledge(_projectSN)
     return claim
   }
+async changeWallet(SN:any,_useraddress:any)
+{
+  try
+  {
+  const contract = await this.pledgeContract();
+  const transactionAddress = localStorage.getItem('walletId')
+  const change = contract.methods.changeWallet(SN,_useraddress).send({from:transactionAddress,value:0})
+  return change
+  }
+  catch(e)
+  {
+    console.log(e)
 
+    return null
+  }
+}
   async sendPledge(_amount:any,_projectSN:any)
   {
     try
@@ -129,6 +140,7 @@ public async CoinContract()
   {
     const contract = await this.pledgeContract();
     const checkFunding = await contract.methods.checkFunding(_projectSN).call()
+    console.log('this is collected amount',checkFunding)
     return checkFunding
   }
 
@@ -136,7 +148,7 @@ public async CoinContract()
   {
     const contract = await this.pledgeContract();
     const needed = await contract.methods.fundingNeeded(_projectSN).call()
-
+    console.log('this is funding needed',needed)
     return needed
   }
   async grantSuccess(_projectSN:any)

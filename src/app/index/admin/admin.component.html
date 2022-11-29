@@ -6,7 +6,7 @@
       <div id="landing" class="lal">
       <div class="new_topsection">
         <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
-        <p class="Nt">Latest Projects</p>   
+        <p class="Nt">Selected Projects - waiting for Grant</p>   
         <img
           class="animated_star2"
           src="../../../assets/images/starimg.png"
@@ -44,14 +44,14 @@
       <div class="Zhol">
         <div class="inH" >
         <p class="lbl">Sort by</p>
-        <div class="btnH" (click)="toggle()">
+        <div class="btnH" >
         <div   id="word" >
           latest
         </div><span  class="fa fa-chevron-down" ></span>
         </div>
         </div>
         <div id="downlatestPro"  class="dropdown-contentAp">
-          <a  class="Ref" (click)="sortDiv()" >Name</a>
+          <a  class="Ref"  >Name</a>
           <a  class="Ref" >Latest</a>
           <a  href="#" class="Ref">Recent</a>
         </div>
@@ -65,7 +65,7 @@
      
       <div id="landingLatest" id="MarFunLatest" class="MarFun" style="overflow-x:auto;" >
         
-        <div id="Pin" class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index" (click)="propos($event)" >
+        <div id="Pin" class="Pin" *ngFor="let item of latestPro | itemnameFilter:name;let i = index"  >
           <div class="PDiv" >
           <img class="imgPro" src="{{item['Img']}}"   >
             </div>
@@ -79,26 +79,57 @@
         <div class="funreqint"><p class="funtT">{{item['Amount']}} $NOVA</p></div><br/>
         <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
       </div>
-      
-      <label class="Precieved">{{item['Percent']}}% recieved</label>
-      <mat-progress-bar class="matPb" mode="determinate" value="{{item['Percent']}}"></mat-progress-bar>
-      
+     
+      <!-- Create Grant -->
+      <div class="creatGrant" id="grantForm">
+        ProjectSN<label class="likeTB" contenteditable="true">{{item['SN']}}</label><br/>
+        Required Amount<label class="likeTB" contenteditable="true">{{item['Amount']}}</label><br/>
+        UserAddress<label class="likeTB" contenteditable="true"></label> 
+        
+        <button class="creG" (click)="createGrant($event)">create</button>
+        <!-- <label class="createddd">Grant is Created</label> -->
+        </div>
       <div class="BV2nd">
-        <label class="faded" ><span contenteditable="true" >0.0 </span> NOVA$</label>
-        <button class="Fv" (click)="sendPledge($event);">Pledge</button>
+      
+        <div class="faded" ><button class="Fv" (click)="toggleGrant($event)">Creat Grant</button></div>
+       
       </div>
-      </div>
-      </div>
-        
-        
-        </div>
-        </div>
-        
-        </div>
 
-        <!-- PROPOSALS LATEST (on click)-->
-        <div class="appsection">
-        <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
+      <!-- change Wallet -->
+      <div class="Walletcng" id="walletForm">
+        ProjectSN<label class="likeTB" contenteditable="true">{{item['SN']}}</label><br/>
+        UserAddress<label class="likeTB" contenteditable="true"></label>
+        <button class="creG" (click)="changeWallet($event)">Change</button>
+        </div>
+      <div class="BV2nd">
+      
+        <div class="faded" ><button class="Fv" (click)="togglechangeWallet($event)">Change Wallet</button></div>
+       
+        
+      </div>
+      <!-- remove Grant -->
+      <div class="removeGrant" id="removeForm">
+        ProjectSN<label class="likeTB" contenteditable="true">{{item['SN']}}</label>
+        <button class="creG" >Remove</button>
+        </div>
+      <div class="BV2nd">
+      
+        <div class="faded" ><button class="Fv" (click)="removeG($event)">Remove Grant</button></div>
+       
+        
+      </div>
+      </div>
+      </div>
+        
+        
+        </div>
+        </div>
+        
+        </div>
+<!-- 
+         PROPOSALS LATEST (on click)-->
+         <!-- <div class="appsection"> -->
+        <!--<div class="hoho" id="prop" *ngFor="let p of prop" id="Data">
           <div class="babaHolder" > 
       
         <button class="backBtnn" (click)="backAppTwo()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
@@ -119,10 +150,10 @@
             </div>
             <div class="DApholder">
             
-            <!-- <c-progress class="mb-3">
+             <c-progress class="mb-3">
               <c-progress-bar [value]="25">25%</c-progress-bar>
             </c-progress> -->
-            <div class="mat">
+            <!-- <div class="mat">
             <mat-progress-bar class="matPb" mode="determinate" value=50></mat-progress-bar>
             <div class="BV">
               <label contentEditable="true">0.0 NOVA$</label>
@@ -173,8 +204,8 @@
           </div>
           </div>
       
-        </div>
-        </div>
+        </div> 
+            </div>  -->
         <div class="spacebox"></div>
         <div class="container">
           <div class="newfooterbox">

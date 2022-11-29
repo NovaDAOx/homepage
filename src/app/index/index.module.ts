@@ -18,6 +18,7 @@ import { AllprojectsComponent } from './allprojects/allprojects.component';
 import { SearchPipe } from './allprojects/search.pipe';
 
 
+
 @NgModule({
   declarations: [
    
@@ -28,7 +29,8 @@ import { SearchPipe } from './allprojects/search.pipe';
   
     
   
-    SearchPipe
+    SearchPipe,
+                                      
   ],
   imports: [CommonModule,
      IndexRoutingModule,

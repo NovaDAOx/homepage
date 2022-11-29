@@ -46,8 +46,8 @@ import { parseEther } from 'ethers/lib/utils';
     async latest()
     {
       const userAddress = localStorage.getItem('walletId')
-      this.db.latestPro();
-      const recPro = <any> await this.db.latestPro()
+      this.db.getCreatedGrantLatest();
+      const recPro = <any> await this.db.getCreatedGrantLatest();
       this.latestPro =<any>await recPro
       console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^6',this.latestPro)
       // const d = document.getElementById('data')

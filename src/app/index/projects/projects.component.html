@@ -64,8 +64,8 @@
           <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
         </div>
         
-        <label class="Precieved">100% recieved</label>
-        <mat-progress-bar class="matPb" mode="determinate" value=80></mat-progress-bar>
+        <label class="Precieved">{{item['Percent']}}% recieved</label>
+        <mat-progress-bar class="matPb" mode="determinate" value="{{item['Percent']}}"></mat-progress-bar>
         
         <div class="BF">
           <label class="faded">Pledging Closed</label>
