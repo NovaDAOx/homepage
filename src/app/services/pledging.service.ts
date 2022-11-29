@@ -58,19 +58,35 @@ async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
     const claim = contract.methods.claimPledge(_projectSN)
     return claim
   }
-async changeWallet(SN:any,_useraddress:any)
+  async changeWallet(SN:any,_useraddress:any)
+  {
+    try
+    {
+    const contract = await this.pledgeContract();
+    const transactionAddress = localStorage.getItem('walletId')
+    const change = contract.methods.changeWallet(SN,_useraddress).send({from:transactionAddress,value:0})
+    return change
+    }
+    catch(e)
+    {
+      console.log(e)
+  
+      return null
+    }
+  }
+async removeGrant(_SN:any,_address)
 {
   try
   {
   const contract = await this.pledgeContract();
   const transactionAddress = localStorage.getItem('walletId')
-  const change = contract.methods.changeWallet(SN,_useraddress).send({from:transactionAddress,value:0})
-  return change
+  const remove = contract.methods.removeGrant(_SN).send({from:_address,value:0})
+  return remove
   }
   catch(e)
   {
     console.log(e)
-
+  
     return null
   }
 }

@@ -114,7 +114,7 @@ export class AdminComponent implements OnInit {
         //     return null;
         //   }
         }
-       async changeWallet(event:any)
+        async changeWallet(event:any)
         {
           console.log(event)
           let SN = event.path[2].children[6].childNodes[1].innerText
@@ -127,7 +127,40 @@ export class AdminComponent implements OnInit {
           return data
           
         }
+async removeGranT(event)
+{
+  console.log('tttttttttttt',event)
+  const SN = event.path[2].children[8].childNodes[1].innerText
+  console.log('this is SN',SN)
+const address = localStorage.getItem('walletId')
+  const remove = await this.pledginservice.removeGrant(SN,address)
+  console.log('removing grant returned result',remove)
+  return remove
+  // if(remove != null)
+  // {
+  //   const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+  //   cdk.style.visibility = 'visible'
+  // console.log("success",remove)
+  // this.snack.open('Wallet Changed Successfully','X', {
+  //   duration: 100000,
+  //   panelClass: ['success-order'],
+  //   horizontalPosition: 'end',
+  // });
+  // }
+  // else
+  // {
+  //   const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+  //   cdk.style.visibility = 'visible'
+  // console.log("failed",remove)
+  // this.snack.open('Failed','X', {
+  //   duration: 100000,
+  //   panelClass: ['success-order'],
+  //   horizontalPosition: 'end',
+  // });
+  // }
+  // return remove
 
+}
   async toggleGrant(event:any)
   {
     console.log('dara')
