@@ -1030,3 +1030,8 @@
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 4px !important;
   }
+  .cdk-overlay-container
+  {
+    display: block !important;
+    visibility: hidden;
+  }

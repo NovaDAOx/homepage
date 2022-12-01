@@ -57,27 +57,39 @@ export class AdminComponent implements OnInit {
   }
   async createGrant(event)
         {
-          console.log(event,'crating grant ...')
+          console.log(event,'creating grant ...')
           let SN = event.path[2].children[4].childNodes[1].innerText
+          const ProSn = parseInt(SN)
           let amt = event.path[2].children[4].childNodes[4].innerText
-          let userAdd = event.path[2].children[4].childNodes[7].innerText
+          
+          const  userAdd = event.path[2].children[4].childNodes[7].innerText
+          const address = userAdd.toString();
           let use = '0xa902C87614267a412E2F7a95E08E0f92f8106db5'
           const amtFinal = amt.replace(/\D/g, '');
-          console.log(SN,'sns sns sns sns')
-          console.log(amtFinal,'sns sns sns sns')
-          console.log(userAdd,'sns sns sns sns')
-        // if(SN === "")
-        // {
-          SN = Date.now()
-          console.log('SN snsnsnsnsnns',SN)
-        // }
-        //     let projectSN = Date.now();
-         const creategrant = await this.pledginservice.createGrant(SN,amtFinal,userAdd);
+          const Famt = Number(amtFinal).toFixed(18)
+          let projectSN = ""
+          const pp = event.path[2].childNodes[3].children[3].innerText
+          console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiii',pp)
+          console.log(typeof(SN),'sns sns sns sns')
+          console.log(typeof(amtFinal),'sns sns sns sns')
+          console.log(typeof(userAdd),'sns sns sns sns')
+          console.log(address, 'fnf fnf fnf fnf fnf')
+        if(SN === "")
+        {
+          projectSN = Date.now()
+          console.log('SN snsnsnsnsnns',projectSN)
+        }
+        else
+        {
+          projectSN = event.path[2].children[4].childNodes[1].innerText
+        }
+        console.log('pppppppppppppppppp',projectSN)
+         const creategrant =  await this.pledginservice.createGrant(projectSN,Famt,address);
          console.log('------------grant created',creategrant)
-         if(creategrant != null)
+         if(creategrant)
          {
           console.log('this is grant ',creategrant)
-        //   const key = event.path[2].children[0].children[1].childNodes[0].data
+           const key = event.path[2].childNodes[3].children[3].innerText
           this.db.createGrantDB(key,projectSN,true)
           const txn = creategrant.blockHash
           const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
@@ -135,7 +147,39 @@ async removeGranT(event)
 const address = localStorage.getItem('walletId')
   const remove = await this.pledginservice.removeGrant(SN,address)
   console.log('removing grant returned result',remove)
-  return remove
+  if(remove)
+         {
+        const  projectSNremoval = 0
+          console.log('this is grant removal ',remove)
+           const key = event.path[2].childNodes[3].children[3].innerText
+          this.db.createGrantDB(key,projectSNremoval,false)
+          
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+        console.log("grant created",creategrant)
+        this.snack.open('Grant Created Successfully','X', {
+          duration: 100000,
+          panelClass: ['success-order'],
+          horizontalPosition: 'end',
+        });
+        return remove
+
+       
+         }
+         else
+         {
+          // const txn = creategrant.blockHash
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+        console.log("failed",remove)
+        this.snack.open('Failed','X', {
+          duration: 100000,
+          panelClass: ['success-order'],
+          horizontalPosition: 'end',
+        });
+        return remove
+         }
+  // return remove
   // if(remove != null)
   // {
   //   const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
