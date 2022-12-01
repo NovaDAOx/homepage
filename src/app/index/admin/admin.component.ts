@@ -100,6 +100,8 @@ export class AdminComponent implements OnInit {
           panelClass: ['success-order'],
           horizontalPosition: 'end',
         });
+        const recPro = <any> await this.db.selected();
+        this.latestPro =<any>await recPro
         return creategrant
 
        
@@ -156,13 +158,13 @@ const address = localStorage.getItem('walletId')
           
           const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
           cdk.style.visibility = 'visible'
-        console.log("grant created",creategrant)
-        this.snack.open('Grant Created Successfully','X', {
+       
+        this.snack.open('Grant Removed Successfully','X', {
           duration: 100000,
           panelClass: ['success-order'],
           horizontalPosition: 'end',
         });
-        return remove
+        
 
        
          }
@@ -177,7 +179,7 @@ const address = localStorage.getItem('walletId')
           panelClass: ['success-order'],
           horizontalPosition: 'end',
         });
-        return remove
+        
          }
   // return remove
   // if(remove != null)
