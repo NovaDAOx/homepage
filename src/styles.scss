@@ -716,8 +716,12 @@ h1 {
 // dialog/css
 .conct_wallet_link {
   display: flex;
+  flex-direction: column !important;
+  align-content: center;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
   cursor: pointer;
   .wallet_img {
     min-width: 60px;
@@ -2658,4 +2662,14 @@ text-shadow: none;
 .padNew
 {
   padding-right:16px !important;
+}
+.wallet_meta_connect
+{
+  display: flex !important;
+  flex-direction: column !important;
+  align-content: center !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+
 }

@@ -53,7 +53,7 @@ export class MenuBarComponent implements OnInit {
    
   ngOnInit(): void {
     // this.test();    
-    this.init();
+    
     if (!window.localStorage.getItem('logout')) {
         window.localStorage.setItem('logout', 'false');
       }
