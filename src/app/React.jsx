@@ -1,43 +1,21 @@
-// import { useAccount, useConnect } from 'wagmi'
-// export const Connectors = () => {
-//   const [{ data, error }, connect] = useConnect()
-//   const [{ data: accountData }, disconnect] = useAccount({
-//       fetchEns: true,
-//   })
-//   if (accountData) {
-//       return (
-//           <div>
-//               <div>
-//                 <img src={accountData.ens?.avatar} alt="ENS Avatar" />
-//                 <div>
-//                     {accountData.ens?.name
-//                         ? `${accountData.ens?.name} (${accountData.address})`
-//                           : accountData.address}
-//                 </div>
-//                 <div>Connected to {accountData.connector.name}</div>
-//                 <button
-//                 onClick={disconnect}>
-//                   Disconnect
-//              </button>
-//               </div>
-//           </div>
-//       )
-//     }
-//   return (
-//     <div>
-//       <div>
-//         {data.connectors.map((connector) => (
-//           <button
-//             disabled={!connector.ready}
-//             key={connector.id}
-//             onClick={() => connect(connector)}
-//           >
-//             {connector.name}
-//             {!connector.ready && ' (unsupported)'}
-//           </button>
-//         ))}
-//         {error && <div>{error?.message ?? 'Failed to connect'}</div>}
-//       </div>
-//     </div>
-//   )
-// }
+import * as React from 'react'
+import web3Modal from 'web3Modal'
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+
+
+const providerOptions = {
+    /* See Provider Options Section */
+  };
+  
+  const web3Modal = new Web3Modal({
+    network: "mainnet", // optional
+    cacheProvider: true, // optional
+    providerOptions // required
+  });
+  
+  const provider = await web3Modal.connect();
+  
+  const web3 = new Web3(provider);
+
+  export default provider;

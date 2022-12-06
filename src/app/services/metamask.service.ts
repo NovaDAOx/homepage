@@ -47,7 +47,7 @@ export class MetamaskService {
   }
 
   navigationUser(url: string): void {
-    if ( window && window.ethereum) {
+    if ( window && window.ethereum ) {
      
       const provider = window.ethereum
       const providere = window.ethereum.provider

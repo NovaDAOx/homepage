@@ -50,10 +50,7 @@ export class MenuBarComponent implements OnInit {
       // document.getElementById("navi").classList.toggle("rtoate180");
       document.getElementsByClassName("fa-chevron-down")[0].classList.toggle("rtoate180");
     }
-    connect()
-    {
-      const provider = this.web
-    }
+   
   ngOnInit(): void {
     // this.test();    
     this.init();
@@ -126,19 +123,19 @@ export class MenuBarComponent implements OnInit {
      
     });
   }
-async connect()
-{
-  const data = this.web3service.init();
+// async connect()
+// {
+//   const data = this.web3service.init();
   
-  this.web3service.onConnect();
-  const test = this.web3service.onConnect();
-  console.log('this is test data from menubar menubar menubar components')
-}
-async init()
-{
-  this.web3service.init();
-  console.log('this is the data initialization of ....')
-}
+//   this.web3service.onConnect();
+//   const test = this.web3service.onConnect();
+//   console.log('this is test data from menubar menubar menubar components')
+// }
+// async init()
+// {
+//   this.web3service.init();
+//   console.log('this is the data initialization of ....')
+// }
   // dialog box for alert
   alertDialog() {
     this.dialogueReference = this.dialog.open(MetamaskComponent, {

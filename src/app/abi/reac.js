@@ -1,69 +1,4 @@
-//@ts-nocheck
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MetamaskService } from 'src/app/services/metamask.service';
 
-
-@Component({
-  selector: 'app-metamask',
-  templateUrl: './metamask.component.html',
-  styleUrls: ['./metamask.component.scss'],
-})
-
-
-export class MetamaskComponent implements OnInit {
-  metamaskContent = false;
-  alertBox = false;
-  marketPlace = false;
-  hideMarketPlace = false;
-  emailSubscribe = false;
-  loader = false;
-  routing = '';
-
-
-Web3Modal = window.Web3Modal;
-WalletConnectProvider = window.WalletConnectProvider;
-EvmChains = window.EvmChains;
-Fortmatic = window.Fortmatic;
-
-
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dailogRef: MatDialogRef<MetamaskComponent>,
-    private metaMaskService: MetamaskService
-  ) {
-    if (data) {
-      this.metamaskContent = data.metamaskContent;
-      this.marketPlace = data.marketPlace;
-      this.alertBox = data.alertBox;
-      this.emailSubscribe = data.emailSubscribe;
-      this.routing = data.routing;
-    }
-  }
-
-  ngOnInit(): void {
-   this.start();
-  }
-
-  closeDialog() {
-    this.dailogRef.close();
-    // const faded = document.getElementsByClassName('cdk-overlay-container')[0]
-    // faded.style.visibility = 'hidden'
-  }
-  connectMetamask() {
-    this.dailogRef.close();
-     
-    this.metaMaskService.navigationUser(this.routing);
-    window.localStorage.setItem('logout', 'false');
-    const faded = document.getElementsByClassName('cdk-overlay-container')[0]
-    faded.style.visibility = 'visible !important'   
-    $('.new_strokedbtn').click(function() {
-      console.log('this is it ')
-   });
-  }
-
-
-  
 // import { useConnected, ConnectButton, useConnectModal } from '@web3modal/react'
 // export default function YourAppContent() {
 //   const { isOpen, open, close } = useConnectModal()
@@ -84,32 +19,35 @@ Fortmatic = window.Fortmatic;
  */
 
  // Unpkg imports
-
+const Web3Modal = window.Web3Modal.default;
+const WalletConnectProvider = window.WalletConnectProvider.default;
+const EvmChains = window.EvmChains;
+const Fortmatic = window.Fortmatic;
 
 // Web3modal instance
-web3Modal:any 
+let web3Modal
 
 // Chosen wallet provider given by the dialog window
-provider:any;
+let provider;
 
 
 // Address of the selected account
-selectedAccount:any;
+let selectedAccount;
 
 
 /**
  * Setup the orchestra
  */
- async start() {
+function init() {
 
   console.log("Initializing example");
   console.log("WalletConnectProvider is", WalletConnectProvider);
-  
+  console.log("Fortmatic is", Fortmatic);
 
   // Tell Web3modal what providers we have available.
   // Built-in web browser provider (only one can exist as a time)
   // like MetaMask, Brave or Opera is added automatically by Web3modal
-  let providerOptions = {
+  const providerOptions = {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
@@ -118,36 +56,30 @@ selectedAccount:any;
       }
     },
 
-  //   fortmatic: {
-  //     package: Fortmatic,
-  //     options: {
-  //       // Mikko's TESTNET api key
-  //       key: "pk_test_391E26A3B43A3350"
-  //     }
-  //   }
-   };
- const Web3Modal = window.Web3Modal;
-  
+    fortmatic: {
+      package: Fortmatic,
+      options: {
+        // Mikko's TESTNET api key
+        key: "pk_test_391E26A3B43A3350"
+      }
+    }
+  };
 
-  
-  this.web3Modal = new Web3Modal({
+  web3Modal = new Web3Modal({
     cacheProvider: false, // optional
     providerOptions, // required
   });
-  const arr = []
-  arr.push(this.web3Modal)
-  console.log('tttttttttttttttttttttttt',arr)
-return this.web3Modal
+
 }
 
 
 /**
  * Kick in the UI action after Web3modal dialog has chosen a provider
  */
-async  fetchAccountData() {
+async function fetchAccountData() {
 
   // Get a Web3 instance for the wallet
-  const web3 = new Web3(this.provider);
+  const web3 = new Web3(provider);
 
   console.log("Web3 instance is", web3);
 
@@ -205,7 +137,7 @@ async  fetchAccountData() {
  * - User switches networks in wallet
  * - User connects wallet initially
  */
-async  refreshAccountData() {
+async function refreshAccountData() {
 
   // If any current data is displayed when
   // the user is switching acounts in the wallet
@@ -218,7 +150,7 @@ async  refreshAccountData() {
   // with Ethereum node via JSON-RPC and loads chain data
   // over an API call.
   document.querySelector("#btn-connect").setAttribute("disabled", "disabled")
-  await this.fetchAccountData(provider);
+  await fetchAccountData(provider);
   document.querySelector("#btn-connect").removeAttribute("disabled")
 }
 
@@ -226,46 +158,28 @@ async  refreshAccountData() {
 /**
  * Connect wallet button pressed.
  */
-async onConnect() {
-  const providerOptionss = {
-    walletconnect: {
-      package: WalletConnectProvider,
-      options: {
-        // Mikko's test key - don't copy as your mileage may vary
-        infuraId: "0605aa1e6f894991bbba609c93062b80",
-      }
-    }
-  }
-console.log(providerOptionss,'ppppppppppppppoooooooooooo')
-  let Web3MOdal = window.Web3Modal.default;
-  this.web3Modal = new Web3MOdal({
-    cacheProvider: false, // optional
-    providerOptionss,
-    
-  });
-   console.log("Opening a dialog......", this.web3Modal);
-  const arra = []
- 
+async function onConnect() {
+
+  console.log("Opening a dialog", web3Modal);
   try {
-    this.provider = await this.web3Modal.connect();
-    console.log('connected connected connected ',this.provider)
+    provider = await web3Modal.connect();
   } catch(e) {
     console.log("Could not get a wallet connection", e);
     return;
   }
 
   // Subscribe to accounts change
-  this.provider.on("accountsChanged", (accounts) => {
+  provider.on("accountsChanged", (accounts) => {
     fetchAccountData();
   });
 
   // Subscribe to chainId change
-  this.provider.on("chainChanged", (chainId) => {
+  provider.on("chainChanged", (chainId) => {
     fetchAccountData();
   });
 
   // Subscribe to networkId change
-  this.provider.on("networkChanged", (networkId) => {
+  provider.on("networkChanged", (networkId) => {
     fetchAccountData();
   });
 
@@ -275,7 +189,7 @@ console.log(providerOptionss,'ppppppppppppppoooooooooooo')
 /**
  * Disconnect wallet button pressed.
  */
-async  onDisconnect() {
+async function onDisconnect() {
 
   console.log("Killing the wallet connection", provider);
 
@@ -302,10 +216,8 @@ async  onDisconnect() {
 /**
  * Main entry point.
  */
-// window: any.addEventListener('load', async () => {
-//   init();
-//   document.querySelector("#btn-connect").addEventListener("click", onConnect);
-//   document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
-// });
-
-}
+window.addEventListener('load', async () => {
+  init();
+  document.querySelector("#btn-connect").addEventListener("click", onConnect);
+  document.querySelector("#btn-disconnect").addEventListener("click", onDisconnect);
+});

@@ -3,22 +3,9 @@
   import { MatSnackBar } from '@angular/material/snack-bar';
   import { environment } from 'src/environments/environment';
   import Web3 from 'web3';
-  // import { Web3ModalService } from '@mindsorg/web3modal-angular';
-  import WalletConnectProvider from '@walletconnect/web3-provider';
-  
-  
-  // import Torus from '@toruslabs/torus-embed';
-  // import Portis from '@portis/web3';
 
 
-
-
-
-  // const Web3Modal = window.Web3Modal.default;
-  // const WalletConnectProvider = window.WalletConnectProvider.default;
-  // const EvmChains = window.EvmChains;
-  // const Fortmatic = window.Fortmatic;
-  
+    
   
   let web3 = new Web3(Web3.givenProvider);
 
