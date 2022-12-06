@@ -35,7 +35,8 @@ import { AdminComponent } from './index/admin/admin.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { environment } from 'src/environments/environment';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { SearchPipe } from './index/dao/search.pipe'
+import { SearchPipe } from './index/dao/search.pipe';
+
 
 
 

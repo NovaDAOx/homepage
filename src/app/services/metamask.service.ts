@@ -47,9 +47,9 @@ export class MetamaskService {
   }
 
   navigationUser(url: string): void {
-    if ( window && window.ethereum && window.ethereum.isMetaMask) {
+    if ( window && window.ethereum) {
      
-      const provider = window.ethereum.isMetaMask
+      const provider = window.ethereum
       const providere = window.ethereum.provider
       const pro = window.ethereum.isCoinbaseWallet
       // const provider2 = window.ethereum.providers.find((provider) => provider.isMetaMask);

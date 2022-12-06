@@ -37,10 +37,6 @@ export class MetamaskComponent implements OnInit {
     // const faded = document.getElementsByClassName('cdk-overlay-container')[0]
     // faded.style.visibility = 'hidden'
   }
-visible()
-{
-  
-}
   connectMetamask() {
     this.dailogRef.close();
      

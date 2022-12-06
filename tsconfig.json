@@ -2,6 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "jsx": "react",
+    "types": [
+      "node"
+    ],
     "baseUrl": "./",
     "paths": {
       "crypto": ["./node_modules/crypto-browserify"],
@@ -31,6 +35,9 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+ 
   }
 }

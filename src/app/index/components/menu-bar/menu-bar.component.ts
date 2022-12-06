@@ -4,6 +4,7 @@ import { Component, OnInit,Input, HostListener } from '@angular/core';
 import { MetamaskService } from 'src/app/services/metamask.service';
 import { MetamaskComponent } from 'src/app/dashboard/metamask/metamask.component';
 import { NftService } from 'src/app/services/nft.service';
+import { Web3Service } from 'src/app/services/web3.service';
 
 import {
     MatDialog,
@@ -41,6 +42,7 @@ export class MenuBarComponent implements OnInit {
       private metaMaskService: MetamaskService,
       private nftService: NftService,
       private moralisservice:MoralisService,
+      private web3service:Web3Service,
     ) {}
 
     toggle() {
@@ -48,9 +50,13 @@ export class MenuBarComponent implements OnInit {
       // document.getElementById("navi").classList.toggle("rtoate180");
       document.getElementsByClassName("fa-chevron-down")[0].classList.toggle("rtoate180");
     }
-    
+    connect()
+    {
+      const provider = this.web
+    }
   ngOnInit(): void {
     // this.test();    
+    this.init();
     if (!window.localStorage.getItem('logout')) {
         window.localStorage.setItem('logout', 'false');
       }
@@ -120,7 +126,19 @@ export class MenuBarComponent implements OnInit {
      
     });
   }
-
+async connect()
+{
+  const data = this.web3service.init();
+  
+  this.web3service.onConnect();
+  const test = this.web3service.onConnect();
+  console.log('this is test data from menubar menubar menubar components')
+}
+async init()
+{
+  this.web3service.init();
+  console.log('this is the data initialization of ....')
+}
   // dialog box for alert
   alertDialog() {
     this.dialogueReference = this.dialog.open(MetamaskComponent, {

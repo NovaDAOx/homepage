@@ -1,8 +1,23 @@
-  import { Injectable } from '@angular/core';
+  import {Injectable } from '@angular/core';
+  // import { WEB3 } from '../../core/web3';
   import { MatSnackBar } from '@angular/material/snack-bar';
   import { environment } from 'src/environments/environment';
   import Web3 from 'web3';
-  // import { Moralis } from 'moralis'
+  // import { Web3ModalService } from '@mindsorg/web3modal-angular';
+  import WalletConnectProvider from '@walletconnect/web3-provider';
+  
+  
+  // import Torus from '@toruslabs/torus-embed';
+  // import Portis from '@portis/web3';
+
+
+
+
+
+  // const Web3Modal = window.Web3Modal.default;
+  // const WalletConnectProvider = window.WalletConnectProvider.default;
+  // const EvmChains = window.EvmChains;
+  // const Fortmatic = window.Fortmatic;
   
   
   let web3 = new Web3(Web3.givenProvider);
@@ -14,6 +29,7 @@
 
 
   declare let window: any;
+  declare let web3modal:any;
 
   @Injectable({
     providedIn: 'root',
@@ -31,7 +47,9 @@
 
     public async getAccount(): Promise<any> {
       try {
-        if (window && window.ethereum && window.ethereum.isMetaMask) {
+        const accounts = await web3.eth.getAccounts();
+        if (window && window.ethereum ) {
+         
           const data = await window.ethereum.request({
             method: 'eth_accounts',
           });
@@ -301,4 +319,68 @@
         return null;
       }
     }
+
+
+    // Web3modal instance
+
+
+// Chosen wallet provider given by the dialog window
+
+
+
+// Address of the selected account
+
+
+
+/**
+ * Setup the orchestra
+ */
+// init() {
+
+//   console.log("Initializing example");
+//   console.log("WalletConnectProvider is", WalletConnectProvider);
+//   console.log("Fortmatic is", Fortmatic);
+
+//   // Tell Web3modal what providers we have available.
+//   // Built-in web browser provider (only one can exist as a time)
+//   // like MetaMask, Brave or Opera is added automatically by Web3modal
+//   const providerOptions = {
+//     walletconnect: {
+//       package: WalletConnectProvider,
+//       options: {
+//         // Mikko's test key - don't copy as your mileage may vary
+//         infuraId: "0605aa1e6f894991bbba609c93062b80",
+//       }
+//     },
+
+//     // fortmatic: {
+//     //   package: Fortmatic,
+//     //   options: {
+//     //     // Mikko's TESTNET api key
+//     //     key: "pk_test_391E26A3B43A3350"
+//     //   }
+//     // }
+//   };
+
+//   web3modal = new Web3Modal({
+//     cacheProvider: false, // optional
+//     providerOptions, // required
+//   });
+
+// }
+
+// async onConnect() {
+
+//   console.log("Opening a dialog", web3modal);
+//   try {
+//     const provider = await web3modal.connect();
+//   } catch(e) {
+//     console.log("Could not get a wallet connection", e);
+//     return;
+//   }
+//   }
+
+
+  
+
   }
