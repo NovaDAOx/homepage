@@ -2,6 +2,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MetamaskService } from 'src/app/services/metamask.service';
+declare var WalletConnect: any;
+declare var WalletConnectQRCodeModal: any;
 
 
 @Component({
@@ -44,6 +46,62 @@ Fortmatic = window.Fortmatic;
   ngOnInit(): void {
    this.start();
   }
+  async tested()
+  {
+  const connector = new WalletConnect.default({
+    bridge: 'https://bridge.walletconnect.org',
+    qrcodeModal: WalletConnectQRCodeModal.default,
+  });
+
+  // Check if connection is already established
+  connector.createSession();
+
+  // Subscribe to connection events
+  connector.on('connect', (error, payload) => {
+    if (error) {
+      throw error;
+    }
+
+    // Get provided accounts and chainId
+    const { accounts, chainId } = payload.params[0];
+
+    console.log(accounts);
+
+    debugger;
+
+    const msgParams = [
+      accounts[0],
+      `0x${this.toHex('testing message')}`, // Required
+    ];
+
+    // Sign message
+    connector
+      .signPersonalMessage(msgParams)
+      .then((sig) => {
+        // Returns signature.
+        console.log(sig);
+      })
+      .catch((error) => {
+        // Error returned when rejected
+        console.error(error);
+      });
+  });
+
+  connector.on('session_update', (error, payload) => {
+    if (error) {
+      throw error;
+    }
+
+    // Get updated accounts and chainId
+    const { accounts, chainId } = payload.params[0];
+  });
+
+  connector.on('disconnect', (error, payload) => {
+    if (error) {
+      throw error;
+    }
+  });
+}
 
   closeDialog() {
     this.dailogRef.close();
@@ -238,12 +296,12 @@ async onConnect() {
   }
 console.log(providerOptionss,'ppppppppppppppoooooooooooo')
   let Web3MOdal = window.Web3Modal.default;
-  this.web3Modal = new Web3MOdal({
-    cacheProvider: false, // optional
-    providerOptionss,
+  this.web3Mmodal = new Web3MOdal({
+   bridge:"https://bridge.walletconnect.org",
+   qrcodeModal:QRCodeModal,
     
   });
-   console.log("Opening a dialog......", this.web3Modal);
+   console.log("Opening a dialog......", this.web3Mmodal);
   const arra = []
  
   try {

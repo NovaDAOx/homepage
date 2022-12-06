@@ -29,7 +29,10 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"], 
+    "typeRoots": [
+      "node_modules/@types"
+    ],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -37,7 +40,10 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "enableIvy": true,
+    "fullTemplateTypeCheck": true,
+    
  
   }
 }
