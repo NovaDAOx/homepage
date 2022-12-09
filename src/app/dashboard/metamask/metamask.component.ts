@@ -64,22 +64,21 @@ Fortmatic = window.Fortmatic;
 
     // Get provided accounts and chainId
     const { accounts, chainId } = payload.params[0];
-
-    console.log(accounts);
-
+    console.log(chainId,'is chainid is chainid is chain id is chain id')
+    console.log(accounts,'this is account this is accounts this is account this is account this is account this is account');
     debugger;
-
     const msgParams = [
       accounts[0],
       `0x${this.toHex('testing message')}`, // Required
     ];
-
     // Sign message
     connector
       .signPersonalMessage(msgParams)
       .then((sig) => {
         // Returns signature.
+     
         console.log(sig);
+        
       })
       .catch((error) => {
         // Error returned when rejected
@@ -102,7 +101,12 @@ Fortmatic = window.Fortmatic;
     }
   });
 }
-
+private toHex(stringToConvert: string) {
+  return stringToConvert
+    .split('')
+    .map((c) => c.charCodeAt(0).toString(16).padStart(2, '0'))
+    .join('');
+}
   closeDialog() {
     this.dailogRef.close();
     // const faded = document.getElementsByClassName('cdk-overlay-container')[0]
@@ -299,7 +303,6 @@ console.log(providerOptionss,'ppppppppppppppoooooooooooo')
   this.web3Mmodal = new Web3MOdal({
    bridge:"https://bridge.walletconnect.org",
    qrcodeModal:QRCodeModal,
-    
   });
    console.log("Opening a dialog......", this.web3Mmodal);
   const arra = []

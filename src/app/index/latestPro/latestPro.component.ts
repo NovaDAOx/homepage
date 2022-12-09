@@ -267,7 +267,7 @@ import { parseEther } from 'ethers/lib/utils';
     }
    async sendPledge(event)
     {
-      console.log(event)
+      console.log(event.path[2].children[3].children[3].childNodes[2].innerText)
       console.log(event.path[1].children[0].childNodes[0].innerHTML)
       const pledgeamount = event.path[1].children[0].childNodes[0].innerText
       console.log(pledgeamount)
@@ -285,7 +285,7 @@ import { parseEther } from 'ethers/lib/utils';
       // console.log('this is pledge amount ---sending---', this.pledgeAmt)
         const userAddress = localStorage.getItem('walletAddress')
         const value = 0.1
-        const projectSN = 1 
+        const projectSN = event.path[2].children[3].children[3].childNodes[2].innerText
         const pledge  = await this.pledginservice.sendPledge(finalFi,projectSN)
         if(pledge)
         {

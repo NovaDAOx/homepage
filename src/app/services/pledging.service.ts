@@ -5,7 +5,7 @@
   import { HttpClient } from "@angular/common/http";
   import { MatSnackBar } from '@angular/material/snack-bar';
   // import { Observable } from 'rxjs/Observable'; 
-  const { ABI_PLEDGE,ABI_COINJ } = require("../abi/Abi_Contract.js");
+  const { ABI_PLEDGE,ABI_COINJ,ABI_DAOJ  } = require("../abi/Abi_Contract.js");
   import Web3 from "web3";
 import { create } from 'domain';
 
@@ -17,12 +17,13 @@ import { create } from 'domain';
     private web3Http = web3;
 
     constructor(private snack: MatSnackBar,) { }
-
+    ABI_DAO = ABI_DAOJ;
+    public DAO = environment.DAO;
     const PLEDGE = environment.PLEDGE
     const COIN = environment.COIN
     ABI_PLEDGE = ABI_PLEDGE
     ABI_COINJ = ABI_COINJ
-    
+    checkingaprv:boolean = null;
     public async pledgeContract() {
       return new web3.eth.Contract(this.ABI_PLEDGE, this.PLEDGE);
     }
@@ -75,6 +76,10 @@ async createGrant(_projectSN:any,_reqAmount:any,_useraddress:any)
       return null
     }
   }
+  async checkapproval()
+  {
+
+  }
 async removeGrant(_SN:any,_address)
 {
   try
@@ -95,43 +100,76 @@ async removeGrant(_SN:any,_address)
   {
     try
     {
+      const userAddress = localStorage.getItem('walletId')
       // const amt = await _amount.replace(/[^,.,0-9]/g, '')
       // console.log(amt,'ssssssssssssssss')
+
+
       const decimal = 18 ;
       const amountt = this.web3Http.utils.toHex(
         this.web3Http.utils.toWei(Number(_amount).toString(), 'ether'))
         console.log('dddddddddddddddddddddddddd',amountt)
-      // const amount = this.web3Http.utils.toWei(Number(_amount).toFixed())
-      // const hex = this.web3Http.utils.fromDecimal(_amount)
-    //  const BN =  web3.utils.BN;
-    //  const amt = new BN(decimal);
-    //  const numberOneAsBigNumber = new BN(_amount);
-    //  const numberTowAsBigNumber = new BN(2);
-    //  const numberTenAsBigNumber = new BN(10);
 
 
-    //  const oneCoin = numberOneAsBigNumber.mul(numberTenAsBigNumber.pow(amt));
-    // console.log(oneCoin,'TTTTTTTTTTTTTTTTTTTTTTTTTTTT'); // BN { negative: 0, words: [ 1000000, <1 empty item> ], length: 1, red: null}
-    // console.log(oneCoin.toString(),'SSSSSSSSSSSSSSSSSSSSS'); // 1000000
- 
-    // var amout = this.web3Http.utils.toWei(Number(_amount).toString(), "ether")
-    // console.log('llllllllllllllllll',amout)
-
-     const amountF =  parseInt(_amount)
-    //  console.log('llllllllllllllllll',amt)
-      const userAddress = localStorage.getItem('walletId')
+        const amo = this.web3Http.utils.toHex(
+          this.web3Http.utils.toWei(Number(_amount).toFixed(18), 'ether'))
+          console.log('ccccccccccccccc',_amount)
+     const amountF =  _amount * 1000000000000000000
+     console.log('llllllllllllllllll',amountF)
     const contract = await this.pledgeContract()
     const CoinContract = await this.CoinContract()
+    const cheche = await CoinContract.methods.allowance(userAddress,this.PLEDGE).call()
+    console.log('ammmmmmmmmmmmmmmmmttttttttttttt',amountt)
+    // const approve = await CoinContract.methods.approve(this.PLEDGE,amountt).call({from:userAddress, value:0})
+    // console.log('test test test app app app ',approve)
+
+    let NOVAcon = new web3.eth.Contract(this.ABI_DAO, this.DAO);
+    let checkApprove = await NOVAcon.methods
+      .isApprovedForAll(userAddress, this.PLEDGE)
+      .call();
+      
+      // let set = await NOVAcon.methods
+      // .setApprovalForAll(this.PLEDGE, false)
+      // .send({ from: userAddress, value: 0 });      
+      console.log('ttttttttttttttttttttttttt',checkApprove)
+    console.log('this is checking the approval using allowance',cheche)
+    console.log('uiouiouuoi',typeof(cheche))
     console.log('Contract contract contract',CoinContract)
+    if(parseInt(cheche) > 0 && parseInt(amountF) <= parseInt(cheche))
+    {
+      this.checkingaprv = true;
+    }
+    else
+    {
+      this.checkingaprv = false;
+      console.log('again again again again again again again again')
+    }
+    console.log('hhhhhhhhhhhhhhhhhhhhhhh',this.checkingaprv)
+    if(this.checkingaprv == false)
+    {
+      const increaseAllowance = await CoinContract.methods.increaseAllowance(userAddress,amountt).send({from:userAddress,value:0})
+      console.log('&&&&&&&&&&&&&&&&&&&7',increaseAllowance)
     const approve = await CoinContract.methods.approve(this.PLEDGE,amountt).send({from:userAddress,value:0})
     console.log('approve',approve)
+
     if(approve)
     {
-      const testval = parseInt(_amount)
+      this.checkingaprv = true ;
+      // let set = await NOVAcon.methods
+      // .setApprovalForAll(this.PLEDGE, true)
+      // .send({ from: userAddress, value: 0 });
       
-    const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, value:0})
-    console.log('----Returned Pledge-----',pledge)
-    // console.log('aAAAAAAAAAAAAAAA',amount)
+
+      // console.log('ssssssssssssssssssssssseeeeeeeeeeeeeet',set)
+    }
+    }
+    if(this.checkingaprv == true)
+    {
+      const testval = parseInt(_amount)
+      console.log('pppppppppppppppppppppppppppppppssssssssssssssssssssssssnnnnnnn',_projectSN)
+      const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, to:this.PLEDGE,value:0})
+      console.log('----Returned Pledge-----',pledge)
+    
      
     if(pledge)
     {

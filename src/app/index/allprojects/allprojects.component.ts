@@ -1,6 +1,9 @@
+//@ts-nocheck
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { PledgingService } from 'src/app/services/pledging.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-allprojects',
   templateUrl: './allprojects.component.html',
@@ -12,7 +15,10 @@ export class AllprojectsComponent implements OnInit {
   name = ""
   pledgePro = " "
   Team =[]
-  constructor(private db:FirebaseService,private pledgingservice:PledgingService) { }
+  constructor(
+    private db:FirebaseService,
+    private pledgingservice:PledgingService,
+    private snack: MatSnackBar) { }
 
   async allProjects()
   {
@@ -152,7 +158,7 @@ export class AllprojectsComponent implements OnInit {
   }
   async sendPledge(event)
     {
-      console.log(event.path[1].children[0].childNodes[0].innerHTML)
+      console.log(event.path[2].children[3].children.SN.innerText)
       const pledgeamount = event.path[1].children[0].childNodes[0].innerHTML
       console.log(pledgeamount)
       const finalAmt = pledgeamount.replace(/[^,.,0-9]/g, '')
@@ -164,10 +170,36 @@ export class AllprojectsComponent implements OnInit {
       // console.log('this is pledge amount ---sending---', this.pledgeAmt)
         const userAddress = localStorage.getItem('walletAddress')
         const value = 0.1
-        const projectSN = 1 
+        const projectSN = event.path[2].children[3].children.SN.innerText
         const pledge  = await this.pledgingservice.sendPledge(finalAmt,projectSN)
         console.log("Pledge latest projects",pledge)
+        if(pledge)
+        {
+          const txn = pledge.blockHash
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+        console.log("Pledge latest projects",pledge)
+        this.snack.open('Pledged Successfully {0}',txn, 'X', {
+          duration: 100000,
+          panelClass: ['success-order'],
+          horizontalPosition: 'end',
+        });
         return pledge
+        }
+        else{
+          const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+          cdk.style.visibility = 'visible'
+          console.log('uuuuuu',pledge)
+          this.snack.open('Transaction has been cancelled or (Not enough NOVA$)', 'X', {
+            duration: 10000,
+            panelClass: ['error-snackbar'],
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+          return pledge
+        }
+
+
         
     }
 
