@@ -109,8 +109,6 @@ async removeGrant(_SN:any,_address)
       const amountt = this.web3Http.utils.toHex(
         this.web3Http.utils.toWei(Number(_amount).toString(), 'ether'))
         console.log('dddddddddddddddddddddddddd',amountt)
-
-
         const amo = this.web3Http.utils.toHex(
           this.web3Http.utils.toWei(Number(_amount).toFixed(18), 'ether'))
           console.log('ccccccccccccccc',_amount)
@@ -122,7 +120,6 @@ async removeGrant(_SN:any,_address)
     console.log('ammmmmmmmmmmmmmmmmttttttttttttt',amountt)
     // const approve = await CoinContract.methods.approve(this.PLEDGE,amountt).call({from:userAddress, value:0})
     // console.log('test test test app app app ',approve)
-
     let NOVAcon = new web3.eth.Contract(this.ABI_DAO, this.DAO);
     let checkApprove = await NOVAcon.methods
       .isApprovedForAll(userAddress, this.PLEDGE)
@@ -142,13 +139,13 @@ async removeGrant(_SN:any,_address)
     else
     {
       this.checkingaprv = false;
-      console.log('again again again again again again again again')
+      console.log('again again again again again again again again',this.checkingaprv)
     }
     console.log('hhhhhhhhhhhhhhhhhhhhhhh',this.checkingaprv)
     if(this.checkingaprv == false)
     {
-      const increaseAllowance = await CoinContract.methods.increaseAllowance(userAddress,amountt).send({from:userAddress,value:0})
-      console.log('&&&&&&&&&&&&&&&&&&&7',increaseAllowance)
+      // const increaseAllowance = await CoinContract.methods.increaseAllowance(userAddress,amountt).send({from:userAddress,value:0})
+      // console.log('&&&&&&&&&&&&&&&&&&&7',increaseAllowance)
     const approve = await CoinContract.methods.approve(this.PLEDGE,amountt).send({from:userAddress,value:0})
     console.log('approve',approve)
 
@@ -158,8 +155,6 @@ async removeGrant(_SN:any,_address)
       // let set = await NOVAcon.methods
       // .setApprovalForAll(this.PLEDGE, true)
       // .send({ from: userAddress, value: 0 });
-      
-
       // console.log('ssssssssssssssssssssssseeeeeeeeeeeeeet',set)
     }
     }
@@ -169,8 +164,6 @@ async removeGrant(_SN:any,_address)
       console.log('pppppppppppppppppppppppppppppppssssssssssssssssssssssssnnnnnnn',_projectSN)
       const pledge = await contract.methods.sendPledge(amountt,_projectSN).send({from:userAddress, to:this.PLEDGE,value:0})
       console.log('----Returned Pledge-----',pledge)
-    
-     
     if(pledge)
     {
     this.snack.open('Pledged Successfully', 'X', {
@@ -178,7 +171,6 @@ async removeGrant(_SN:any,_address)
       panelClass: ['success-order'],
       horizontalPosition: 'end',
     });
-   
     }
     return pledge
     }
@@ -190,6 +182,7 @@ async removeGrant(_SN:any,_address)
       return null
     }
   }
+
 
   async checkFunding(_projectSN:any)
   {
