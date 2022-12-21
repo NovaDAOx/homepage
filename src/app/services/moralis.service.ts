@@ -79,6 +79,13 @@
             let url= Item[i].token_uri
             let TokenId= Item[i].token_id
             let Address=Item[i].token_address
+            var dataaa =  url
+            fetch(url)
+.then(res => res.json())
+.then(out =>
+  console.log('Checkout this JSON! ', out))
+.catch(err => { throw err });
+            console.log('dataaa  dataaa dataa dataaa dataaa',dataaa)
             let amount=Item[i].amount
             let length= Item.length
             dataa.push({name:name,url:url,TokenId:TokenId,Address:Address,amount:amount,length:length})

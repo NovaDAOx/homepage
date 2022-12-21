@@ -21,7 +21,8 @@
                   
                   <!-- <button (click)="checkck()">Test</button> -->
                     <p class="yelD">Application</p>
-                    <p class="fil1">Fill out the application form which will be reviewed by all DAO members and voted.<br/>if it recieves majority votes it will pass for funding.</p>
+                    <p class="fil1">Fill out the application form which will be reviewed by all DAO members and voted upon.<br/>
+                      Applications that pass the DAO vote will be opened up for funding</p>
                     <hr/>
                     <div class="form-group">
                         <p class="title1">Project Name*</p>
@@ -33,7 +34,7 @@
                         </div>
                     </div>
                         <br/>
-                    <p class="title1 Wcount">15 word description about the project*</p> <span id="wordcountIn"></span>
+                    <p class="title1 Wcount">15 word description of the project*</p> <span id="wordcountIn"></span>
                     <input type="text" class="input" id="myWordsToCountUp"  placeholder="Project description" class="form-control" formControlName="DescriptionOne" (keyup)="onTextChangeIn($event)" [(ngModel)]="ProjectDes1">
                     <div *ngIf="requiredForm.controls['DescriptionOne'].invalid && requiredForm.controls['DescriptionOne'].touched" class=" redB alert alert-danger">
                         <div class="" *ngIf="requiredForm.controls['DescriptionOne'].errors.required">
@@ -41,7 +42,7 @@
                         </div>
                     </div>
                         <br/>
-                    <p class="title1 Wcount">500 word description about the project*</p><span id="wordcount"></span>
+                    <p class="title1 Wcount">500 word description of the project*</p><span id="wordcount"></span>
   
                         <!-- <input class="FHDes" type="textarea" placeholder="Project Description"> -->
                     <textarea class="FHDes" id="myWordsToCount"   (keyup)="onTextChange($event)" placeholder="Project Description" [(ngModel)]="ProjectDes2" class="form-control" formControlName="DescriptionTwo"></textarea>
@@ -313,7 +314,7 @@
 <div class="cen" ng-controller="MyCtrl">
   <label class="checkCon">
     <input type="checkbox" class="checkoption"(change)="checkCheckBoxvalue($event)" value="Not Generated">
-    <span class="checkmark"></span><p class="infoD">Not generated any revenu</p>
+    <span class="checkmark"></span><p class="infoD">Not generated any revenue</p>
   </label><br/>
 </div>
 
@@ -372,7 +373,7 @@
   </div>
   <br/>
   <!-- <button (click)="test2()" >test</button> -->
-  <p>How Much $Nova do you want?*</p><br/>
+  <p>How much $NOVA are you looking for? [10,000 $NOVA = 1 $ETH]</p><br/>
   <input type="text" placeholder="Enter Nova$ amount?" [(ngModel)]="NovaAmount" class="form-control" formControlName="AmountNov">
   <div *ngIf="requiredForm.controls['AmountNov'].invalid && requiredForm.controls['AmountNov'].touched" class=" redB alert alert-danger">
     <div class="" *ngIf="requiredForm.controls['AmountNov'].errors.required">

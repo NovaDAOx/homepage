@@ -152,11 +152,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
    
     });
    
-    // this.snack.open(x.className = 'show', "X", {
-    //   duration: 10000,
-    //   panelClass: ["popUp"],
-    //   horizontalPosition: "center",
-    // });
+    
     
   }
    checkIfLoaded() {
@@ -169,19 +165,19 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     setTimeout(()=>{                          
       
        console.log('t2t2t2t2t2t2t2',test)
-      const iframe = document.getElementById('ifraContainer')                               
-              iframe.style.visibility = "visible"
-        const faded = document.getElementsByClassName('cdk-overlay-container')[0]
-        faded.style.visibility = 'visible'
-        const iframee = document.getElementById('iframe2')
+      // const iframe = document.getElementById('ifraContainer')                               
+      //         iframe.style.visibility = "visible"
+      //   const faded = document.getElementsByClassName('cdk-overlay-container')[0]
+      //   faded.style.visibility = 'visible'
+      //   const iframee = document.getElementById('iframe2')
         
         // var innerDoc = iframee.contentDocument || iframee.contentWindow.document;
         
-    }, 5000 )
+    }, 1000 )
       this.setTimeout(()=>{
-        document.getElementById('ifraContainer2').style.visibility = 'visible';
-        const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
-        daoworkContainer.style.marginTop = "175px"
+        // document.getElementById('ifraContainer2').style.visibility = 'visible';
+        // const daoworkContainer = document.getElementsByClassName('daowork_container')[0]
+        // daoworkContainer.style.marginTop = "175px"
         // window.addEventListener('message', event => {
         //     if (event.origin.startsWith('http://localhost:4228')) { //check the origin of the data!
         //       // The data was sent from your site. It sent with postMessage is stored in event.data:
@@ -287,13 +283,13 @@ export class HomepageComponent implements OnInit,AfterViewInit {
    
      setTimeout(()=>{
       this.subscribeHome();
-     },12000)
+     },1000)
      setTimeout(()=>{
-      this.send();
+      // this.send();
       
      },13000)
      setTimeout(()=>{
-      this.HearMsg()
+      
      },14000)
     if (history.state.routedFrom == 'mint') {
       location.href = 'home#roadmap';

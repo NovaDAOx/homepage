@@ -22,7 +22,7 @@
         
 
 
-        <div class="DContainer" id="Allpros">
+        <!-- <div class="DContainer" id="Allpros">
           <a class="Nl" routerLink = "/latestProjects">
           <div class="D2Container" >
               <div class="D3Container">
@@ -45,15 +45,9 @@
               </div>    
           </div>
           </a>
-          <!-- <div class="D2Container" >
-              <div class="D3Container">
-              <img src="../../../assets/images/Proposal.PNG" width="74px" />
-              <p>Proposals</p>
-              <p class="grayMin Hid">this is pro</p><br/>
-              <button class="new_btn_D">View SnapShot <span class="fa fa-arrow-right marD rotD"></span></button>
-          </div> -->
+ 
       </div>
-        
+         -->
     </div> 
 
     <!-- <p class="Nt marN">All projects</p>       -->
@@ -116,8 +110,39 @@
             
             
             </div>
+            <!-- past projects -->
+            <p class="Nt Znewmar">Past Projects</p>
+<div class="MarFun" id="MarFunPast" style="overflow-x:auto;" >
+          
+  <div class="Pin" *ngFor="let item of recentPro ">
+    <div class="PDiv" >
+    <img class="imgPro" src="{{item['Img']}}"   >
+      </div>
+      <div class="PHolder">
+        <!-- <p class="BD">{{i + 1}}</p> -->
+    <p class="leftt names">{{item['Name']}}</p>
+    <p class="left">{{item['Description']}}</p>
+    
+<div class="funreq">
+  <div class="funreqin"><p class="funt">Required Pledge</p></div>
+  <div class="funreqint"><p class="funtT">{{item['Amount']}} $NOVA</p></div><br/>
+  <label class="BD" value="">{{item['Key']}}<span>{{item['DescriptionT']}}</span></label>
+</div>
+
+<label class="Precieved">{{item['Percent']}}% recieved</label>
+<mat-progress-bar class="matPb" mode="determinate" value="{{item['Percent']}}"></mat-progress-bar>
+
+<div class="BF">
+  <label class="faded">Pledging Closed</label>
+  <!-- <button class="Fv">Vote</button> -->
+</div>
+</div>
+</div>
+
             </div>
     </div>
+
+
     <!-- Proposal page -->
 
     <div class="hoho" id="prop" *ngFor="let p of prop" id="Data">

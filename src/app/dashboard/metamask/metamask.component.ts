@@ -108,9 +108,9 @@ private toHex(stringToConvert: string) {
     .join('');
 }
   closeDialog() {
-    this.dailogRef.close();
-    // const faded = document.getElementsByClassName('cdk-overlay-container')[0]
-    // faded.style.visibility = 'hidden'
+    this.dailogRef.close()
+    const faded = document.getElementsByClassName('cdk-overlay-container')[0]
+    faded.style.visibility = 'hidden'
   }
   connectMetamask() {
     this.dailogRef.close();

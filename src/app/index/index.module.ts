@@ -12,7 +12,7 @@ import { NftsComponent } from './staking/components/nfts/nfts.component';
 import { StakedNFTSComponent } from './staking/components/staked-nfts/staked-nfts.component';
 import { latestProComponent} from './latestPro/latestPro.component';
 import { ProjectpageComponent } from './projectpage/projectpage.component';
-import { ApplicationpageComponent } from './applicationpage/applicationpage.component';
+// import { ApplicationpageComponent } from './applicationpage/applicationpage.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AllprojectsComponent } from './allprojects/allprojects.component';
 import { SearchPipe } from './allprojects/search.pipe';

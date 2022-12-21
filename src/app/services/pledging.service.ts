@@ -203,6 +203,7 @@ async removeGrant(_SN:any,_address)
   {
     const contract = await this.pledgeContract();
     const grant = await contract.methods.grantSuccess(_projectSN).call();
+    console.log('Zion This is the new grantsuccess Data',grant)
     return grant
   }
 

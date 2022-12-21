@@ -47,7 +47,7 @@
                       
                       const TimeRemaining = Item.payload.val()['Time']
                       // console.log('time now',Timenow)
-                      // console.log('remaining time ',TimeRemaining)
+                      console.log('remaining time ',TimeRemaining)
                       // console.log('submission time',Item.payload.val()['Time'])
                       var d = new Date(TimeRemaining)
                       var d2 = new Date(Date.now())
@@ -877,13 +877,16 @@
                     console.log('this is SN from firebase service',SN)
                     const fundingNeeded = await this.pledgeservice.fundingNeeded(SN)
                     const collectedfund = await this.pledgeservice.checkFunding(SN)
+                    const grantsuccess = await this.pledgeservice.grantSuccess(SN)
                     console.log(fundingNeeded,'this is funding needed from firebase service')
                     console.log(collectedfund,'this is collected funding from firebase service')
+                    console.log(grantsuccess, 'this is returned data if project grant is success')
 
                     let fundedPercentage = (collectedfund/fundingNeeded)*100
                     console.log('this is percentage of the progress bar',fundedPercentage)
-                    if(fundedPercentage > 100)
+                    if(grantsuccess === true)
                     {
+                      console.log('this is the data data data data',fundedPercentage)
                       fundedPercentage = 100
             arraY.push({Key:Item.key,Name:Item.payload.val()['ProjectName'],
             Description:Item.payload.val()['ProjectDescription'],
@@ -900,12 +903,12 @@
 
                     }
           this.ProjectsLength.push(arraY.length)
-        console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkk',Item.payload.val())
+        console.log('Data Data Data Data',arraY)
       return Item     
       }
       else
       {
-        console.log('There are no Projects which received 100%')
+        console.log('There are no Projects which received 100%',arraY)
         return false
       }
             
@@ -915,7 +918,7 @@
           const json = {length:sweeterArray.length}
           this.ProjectsLength.push(json)
               });
-         console.log('xxxxxxxxxxxxxxxxxxxxxxx',arraY)
+         console.log('Data2 Data2 Data2 Data2 Data2 Data2 Data2',arraY)
           return arraY
               
         }

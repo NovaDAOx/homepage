@@ -120,7 +120,8 @@ export class MenuBarComponent implements OnInit {
     const data = document.getElementsByClassName('cdk-overlay-container')[0]
     data.style.visibility = 'visible'
     this.dialogueReference.afterClosed().subscribe((result) => {
-     
+      const data = document.getElementsByClassName('cdk-overlay-container')[0]
+      data.style.visibility = 'hidden'
     });
   }
 // async connect()

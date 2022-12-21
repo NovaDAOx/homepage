@@ -17,6 +17,7 @@ async recent()
 {
   this.db.getCreatedGrantPast();
   const recPro = <any> await this.db.getCreatedGrantPast()
+  console.log('this is the new data (tested)')
   this.recentPro =<any>await recPro
   console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^7',this.recentPro)
 
@@ -36,7 +37,8 @@ pastPropos = (event): void =>
       const arry = <any>[]
       console.log(event.path[2].children[1].children[3].lastChild.childNodes[0].data,'ppppppppppppppppppppppp')
       arry.push({name:event.path[2].children[1].children[1].innerHTML,Description:event.path[2].children[1].children[2].innerHTML,
-        Amount:event.path[2].children[1].children[3].children[1].innerText,src:event.path[2].children[0].children[0].currentSrc,
+        Amount:event.path[2].children[1].children[3].children[1].innerText,
+        src:event.path[2].children[0].children[0].currentSrc,
         Key:event.path[2].children[1].children[3].lastChild.childNodes[0].data,
         DescriptionT:event.path[2].children[1].children[3].children[3].childNodes[1].innerHTML
       }

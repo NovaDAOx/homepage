@@ -125,10 +125,12 @@ export class EtherService {
     console.log("fjal;dskjfadjslkf", this.ArrayofStakedtkn);
     console.log("xxxxxxxxxxxxxxxx", array.length);
     let NOVAcon = new web3.eth.Contract(this.ABI_DAO, this.DAO);
+    console.log('TTTTTTTTTTTTTTTTTTT',NOVAcon)
     const name = await NOVAcon.methods.name().call();
 
     for (var i = 0; i < array.length; i++) {
       let tokenURL = await NOVAcon.methods.tokenURI(i).call();
+      console.log('YYYYYYYYYYYYYY Znew',tokenURL)
       let tokenID = this.ArrayofStakedtkn[i];
       console.log("tokenID", tokenID);
       console.log("token", tokenURL);

@@ -22,7 +22,7 @@ import { NftsComponent } from './index/staking/components/nfts/nfts.component';
 import { StakedNFTSComponent } from './index/staking/components/staked-nfts/staked-nfts.component';
 import { Education } from './index/education/education.component';
 import { MenuBarComponent } from './index/components/menu-bar/menu-bar.component';
-import { ApplicationpageComponent } from './index/applicationpage/applicationpage.component';
+// import { ApplicationpageComponent } from './index/applicationpage/applicationpage.component';
 import { latestProComponent } from './index/latestPro/latestPro.component';
 import { ProjectpageComponent } from './index/projectpage/projectpage.component';
 import { DAOComponent } from './index/dao/dao.component';
@@ -54,7 +54,7 @@ import { SearchPipe } from './index/dao/search.pipe';
     StakedNFTSComponent,
     Education,
     MenuBarComponent,
-    ApplicationpageComponent,
+    // ApplicationpageComponent,
     ProjectpageComponent,
     latestProComponent,
     DAOComponent,

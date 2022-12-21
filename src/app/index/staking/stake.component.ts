@@ -332,6 +332,7 @@ console.log('mmmmmmmmmmmmmmmmm>>>>>>>>>>>>>>>>>>>>>><<<<<<<',lent)
     if (userAddress) {
       this.spinner.show();
       const txn = await this.etherService.unstakeAll(userAddress);
+      console.log('this is transaction of unstaking function Znew')
       if (txn) {
         const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
         cdk.style.visibility = 'visible'

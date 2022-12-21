@@ -12,6 +12,8 @@
       <li>
         <div class="nft_format">
           <div class="member_img"><img src="{{lis['url']}}" /></div>
+
+          <div class="ZdivH">
           <div class="nft_format">
             <input
               id="checklists"
@@ -21,11 +23,12 @@
               (change)="callbackFunction(lis['TokenId'])"
             />
           </div>
-          <div class="nft_format">{{ lis["TokenId"] }}</div>
+          <div class="nft_format"></div>
 
           <div class="nft_format">
-            <p style="color: white; margin-top: 0.3rem">{{ lis["name"] }}</p>
+            <p style="color: white; margin-top: 0.3rem">{{ lis["name"] }}   #{{ lis["TokenId"] }}</p>
           </div>
+        </div>
         </div>
       </li>
     </ul>

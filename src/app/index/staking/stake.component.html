@@ -41,7 +41,7 @@
     <div class="full">
       <div class="Scontainer">
         <br />
-        <div class="heading">Current Staked</div>
+        <div class="heading">Staked</div>
         <br />
         <div class="value" id="staked">Unavailable</div>
         <br />
@@ -110,7 +110,7 @@
             *ngIf="!isConnected"
             (click)="showMetamaskContent()"
           >
-            Log in to Metamask to Stake
+          Connect Wallet to Stake
           </button>
         </div>
 
@@ -177,14 +177,14 @@
             (click)="unstakeAll()"
             *ngIf="UnSTAKEbtn"
           >
-            UNSTAKEALL
+            Unstake All
           </button>
           <button
             class="new_strokedbtn"
             (click)="unstake()"
             *ngIf="unstakebtn2"
           >
-            UNSTAKE SELECTED
+            Unstake Selected
           </button>
 
           <button
@@ -218,5 +218,5 @@
   type="square-jelly-box"
   [fullScreen]="true"
 >
-  <h1 style="color: white">Please check wallet --OR-- Transaction in progress...</h1>
+  <p style="color: white;padding:16px;font-size:28px">Checking Wallet ...</p>
 </ngx-spinner>

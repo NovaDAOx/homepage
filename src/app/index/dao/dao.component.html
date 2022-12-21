@@ -121,7 +121,7 @@
               <button class="backBtn" (click)="back()"><span class="fa fa-arrow-left PArr"></span>Back</button><br/>
               </div>
               <p class="Allapp Nt">All application</p>
-                <p class="Oteam">only for core team</p>
+                <!-- <p class="Oteam">only for core team</p> -->
                 <!-- <div>
                   <input type="text"> -->
                   <div class="whole"> 
@@ -253,7 +253,7 @@
                 <th>Ask amount</th>
                 <th>Time remaining</th>
                 <th>Votes recieved</th>
-                <th>Grant (Admin Only)</th>
+                
                 </tr>
                 <tr *ngFor="let item of selected | itemnameFilter:name;let i = index" >
                   <td class="Wid">
@@ -279,9 +279,9 @@
                     <label><span class="padA" ><img src="../../../assets/images/vectorDown.svg"></span>{{item['downVote']}}</label>
                       </div>
                   </td>
-                  <td>
+                  <!-- <td>
                     <button class="upvote grant" (click)="createGrant($event)">Create Grant</button>
-                    </td>
+                    </td> -->
                   <!-- <td class="fl">
                     <button class="upvote"><span class="padA"><img src="../../../assets/images/Vector.svg"></span>Upvote</button>
                     <button class="downvote" ><span class="padA" ><img src="../../../assets/images/vectorDown.svg"></span>Downvote</button>

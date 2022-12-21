@@ -15,6 +15,7 @@ export class AllprojectsComponent implements OnInit {
   name = ""
   pledgePro = " "
   Team =[]
+  recentPro = []
   constructor(
     private db:FirebaseService,
     private pledgingservice:PledgingService,
@@ -108,6 +109,7 @@ export class AllprojectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.allProjects();
+    this.recent();
   }
  async sortDiv() {
     var word, div, rows, switching, i, x, y, shouldSwitch;
@@ -203,5 +205,13 @@ export class AllprojectsComponent implements OnInit {
         
     }
 
-
+    async recent()
+    {
+      this.db.getCreatedGrantPast();
+      const recPro = <any> await this.db.getCreatedGrantPast()
+      this.recentPro =<any>await recPro
+      console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^7',this.recentPro)
+    
+    }
+    
 }
