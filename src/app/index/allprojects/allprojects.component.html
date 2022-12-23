@@ -6,7 +6,7 @@
           <div id="landing">
           <div class="new_topsection">
             <img class="newbiglogo" src="../../../assets/images/novadao_logo/logo_medium.png" alt="" />
-            <p class="Nt">All Projects</p>             
+            <p class="Nt">Live Projects</p>             
             <img
               class="animated_star2"
               src="../../../assets/images/starimg.png"
@@ -101,7 +101,7 @@
           <mat-progress-bar class="matPb" mode="determinate" value="{{item['Percent']}}"></mat-progress-bar>
           
           <div class="BV2nd">
-            <label class="faded" ><span contenteditable="true" (keyup)="changeProgressBar($event)">0.0</span> NOVA$</label>
+            <label class="faded" ><span contenteditable="true" >0.0</span> NOVA$</label>
             <button class="Fv" (click)="sendPledge($event)">Pledge</button>
           </div>
           </div>
@@ -111,15 +111,15 @@
             
             </div>
             <!-- past projects -->
-            <p class="Nt Znewmar">Past Projects</p>
-<div class="MarFun" id="MarFunPast" style="overflow-x:auto;" >
+           
+<!-- <div class="MarFun" id="MarFunPast" style="overflow-x:auto;" >
           
   <div class="Pin" *ngFor="let item of recentPro ">
     <div class="PDiv" >
     <img class="imgPro" src="{{item['Img']}}"   >
       </div>
       <div class="PHolder">
-        <!-- <p class="BD">{{i + 1}}</p> -->
+       
     <p class="leftt names">{{item['Name']}}</p>
     <p class="left">{{item['Description']}}</p>
     
@@ -134,10 +134,9 @@
 
 <div class="BF">
   <label class="faded">Pledging Closed</label>
-  <!-- <button class="Fv">Vote</button> -->
+ </div>
 </div>
-</div>
-</div>
+</div> -->
 
             </div>
     </div>
@@ -224,6 +223,9 @@
 
 
 
+            </div>
+            <div class="ZnewBholder">
+              <button class="newconnect_btn ZnewSBB" routerLink = "/pastProjects" ><a  routerLink = "/pastProjects" class="ZnewA">View Past Projects</a></button>
             </div>
             <div class="spacebox"></div>
             <div class="container">

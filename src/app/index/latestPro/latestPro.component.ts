@@ -45,6 +45,7 @@ import { parseEther } from 'ethers/lib/utils';
       public dialog: MatDialog,private pledginservice:PledgingService) { }
     async latest()
     {
+      
       const userAddress = localStorage.getItem('walletId')
       this.db.getCreatedGrantLatest();
       const recPro = <any> await this.db.getCreatedGrantLatest();
@@ -54,7 +55,7 @@ import { parseEther } from 'ethers/lib/utils';
       // const b = document.getElementById('kingsLanding')
       // b.style.display = "none";
       // d.style.display = "flex";
-
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       this.db.getTeam(userAddress);
       this.Team =   this.db.getTeam(userAddress)
       console.log(this.db.getTeam(userAddress),'teamuuuuuuuuuuuuuuuuuu')

@@ -22,7 +22,7 @@
                   <!-- <button (click)="checkck()">Test</button> -->
                     <p class="yelD">Application</p>
                     <p class="fil1">Fill out the application form which will be reviewed by all DAO members and voted upon.<br/>
-                      Applications that pass the DAO vote will be opened up for funding</p>
+                      Applications that pass the DAO vote will be opened up for funding.</p>
                     <hr/>
                     <div class="form-group">
                         <p class="title1">Project Name*</p>
@@ -35,7 +35,7 @@
                     </div>
                         <br/>
                     <p class="title1 Wcount">15 word description of the project*</p> <span id="wordcountIn"></span>
-                    <input type="text" class="input" id="myWordsToCountUp"  placeholder="Project description" class="form-control" formControlName="DescriptionOne" (keyup)="onTextChangeIn($event)" [(ngModel)]="ProjectDes1">
+                    <input type="text" class="input" id="myWordsToCountUp" data-max-words="16" data-announce="true"  placeholder="Project description" class="form-control" formControlName="DescriptionOne" (keydown)="onTextChangeIn($event)" [(ngModel)]="ProjectDes1">
                     <div *ngIf="requiredForm.controls['DescriptionOne'].invalid && requiredForm.controls['DescriptionOne'].touched" class=" redB alert alert-danger">
                         <div class="" *ngIf="requiredForm.controls['DescriptionOne'].errors.required">
                             <p class="redUp">Description is required.</p>
@@ -45,7 +45,7 @@
                     <p class="title1 Wcount">500 word description of the project*</p><span id="wordcount"></span>
   
                         <!-- <input class="FHDes" type="textarea" placeholder="Project Description"> -->
-                    <textarea class="FHDes" id="myWordsToCount"   (keyup)="onTextChange($event)" placeholder="Project Description" [(ngModel)]="ProjectDes2" class="form-control" formControlName="DescriptionTwo"></textarea>
+                    <textarea class="FHDes" id="myWordsToCount"  data-max-words="500" data-announce="true"    (keydown)="onTextChange($event)" placeholder="Project Description" [(ngModel)]="ProjectDes2" class="form-control" formControlName="DescriptionTwo"></textarea>
                     <div *ngIf="requiredForm.controls['DescriptionTwo'].invalid && requiredForm.controls['DescriptionTwo'].touched" class=" redB alert alert-danger">
                         <div class="" *ngIf="requiredForm.controls['DescriptionTwo'].errors.required">
                             <p class="redUp">Description is required.</p>
@@ -344,7 +344,7 @@
     <span class="checkmark"></span><p class="infoD">Generated 1,000,000$+</p>
   </label><br/>  
 </div><br/>
-  <p>Last 3 Successs(even minute ones) in your venture? *</p><br/>
+  <p>Last 3 successes (big or small) in your venture?*</p><br/>
   <div  class="successL" id="suc">
     <ul >
       <li contenteditable="true" id="success1" class="success1" >Success 1</li>
@@ -358,7 +358,7 @@
   </div>
   </div><br/>
 
-  <p>Last 3 failures(even minute ones) in your venture? *</p><br/>
+  <p>Last 3 failure (big or small) in your venture?*</p><br/>
   <div  class="successL" id="fail">
     <ul >
       <li contenteditable="true">Failure 1</li>

@@ -23,10 +23,11 @@ export class AllprojectsComponent implements OnInit {
 
   async allProjects()
   {
-    const data =await this.db.getCreatedGrant();
+    
+    const data =await this.db.getCreatedGrantLatest();
     this.allPro = data
     const latest = await this.db.getCreatedGrantLatest();
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     console.log('this is data',latest.length)
     console.log('data length',data.length)
     const progress = document.getElementsByClassName('matPb')

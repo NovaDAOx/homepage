@@ -450,12 +450,20 @@ import { __await } from 'tslib';
           args.path[1].children[6].classList.toggle('showw')
         }
         async myCallbackFunctionupVote(args:any){
-          console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling.innerHTML)
+          console.log('jjjjjjjjjjjjjjjjjjjjj',args)
           // var counter = 1
           const data = args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data;
           console.log(key ,'*********************',args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data)
-        
+          let timeChecker = args.path[2].children[3].innerText
+          console.log('this is time projects time checker',timeChecker)
+          if(timeChecker === 'Expired')
+          {
+            console.log('Reeeeeeeeeeeeeeeeessssssssssssssssssssttttt',timeChecker)
+            window.alert('This Project is Expired')
+          }
+          else
+          {
            this.db.checkVotes(key).subscribe(Item => {
             console.log('this is the data we have been waiting for upvote part', Item)
             
@@ -478,21 +486,27 @@ import { __await } from 'tslib';
           }
           return Item
         })  
-
+      }
         }
         myCallbackFunctionDownVote = (args: any): void => {
-          console.log('jjjjjjjjjjjjjjjjjjjjj',args.path[2].children[4].firstChild.lastChild.lastChild)
+          console.log('jjjjjjjjjjjjjjjjjjjjjDDDDDDD',args)
           // var counter = 1
           // args.path[2].children[4].firstChild.firstChild.firstChild.nextElementSibling;
           const data = args.path[2].children[4].firstChild.lastChild.lastChild
 
           let key = args.path[2]['children'][1]['childNodes'][1]['childNodes'][0].data
           console.log(key , '*********************')
-          
+          const timeChecker = args.path[2].children[3].innerText
           var val = parseInt(data.textContent)
+          if(timeChecker === 'Expired')
+          {
+            window.alert('This Project is already Expired')
+          }
+          else
+          {
           this.db.checkVotes(key).subscribe(Item => {
             console.log('this is the data we have been waiting for', Item)
-            
+         
           if(Item === 'not')
           {
             const data =   Item
@@ -509,6 +523,7 @@ import { __await } from 'tslib';
           this.db.downVote(key,val.toString(),address)
           }
         })
+      }
         }
 
       sortTable() {

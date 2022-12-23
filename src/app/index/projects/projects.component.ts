@@ -15,10 +15,12 @@ Team = [] ;
 
 async recent()
 {
+  
   this.db.getCreatedGrantPast();
   const recPro = <any> await this.db.getCreatedGrantPast()
   console.log('this is the new data (tested)')
   this.recentPro =<any>await recPro
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^7',this.recentPro)
 
 }

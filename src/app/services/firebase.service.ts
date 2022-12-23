@@ -29,6 +29,12 @@
                   
                     
                   }
+
+                  // ################################################
+                  // ####### selected projects for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
+                  
                   async selected()
                   {
                     const selected =[]
@@ -51,7 +57,7 @@
                       // console.log('submission time',Item.payload.val()['Time'])
                       var d = new Date(TimeRemaining)
                       var d2 = new Date(Date.now())
-                      var date = new Date(TimeRemaining + ( 3600 * 1000 * 24))
+                      var date = new Date(TimeRemaining + ( 3600 * 1000 * 72))
                       var countDownDate = new Date(date).getTime();
                     //   var x = setInterval(function() {
                         var now = new Date().getTime();
@@ -99,7 +105,10 @@
                   }
 
 
-
+                    // ################################################
+                  // ####### length for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
 
 
                   async Glength()
@@ -147,6 +156,12 @@
                   // console.log('ffffffffffffffffffffffffffffffffffffffffffffffffff',this.selln)
                   return arraY
                   }
+
+
+                    // ################################################
+                  // ####### Allprojects for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
 
                 async getData()
                   {
@@ -197,26 +212,29 @@
                   // console.log('submission time',Item.payload.val()['Time'])
                   var d = new Date(TimeRemaining)
                   var d2 = new Date(Date.now())
-                  var date = new Date(TimeRemaining + ( 3600 * 1000 * 5000))
+                  var date = new Date(TimeRemaining + ( 3600 * 1000 * 72))
                   var countDownDate = new Date(date).getTime();
                 //   var x = setInterval(function() {
                     var now = new Date().getTime();
                     var distance = countDownDate - now;
 
-                //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24)) + "Days";
                     var hours:any = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + "hrs";
+                   
                     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 // console.log( " " + hours +" "+minutes +" " + seconds )
+                        var finalTime = ''
                     if (distance < 0) {
                     
-                    hours = 'Expired';
+                    finalTime = 'Expired';
                     console.log('1171171717171771717171717171171','this is test data')
                     
                   }
                   if(distance > 0 )
                   {
                     console.log('16616116161616161616161616166116','this is test data')
+                     finalTime = days +" "+ hours  
                   }
                 // }, 1000);
                   
@@ -233,7 +251,7 @@
                   DescriptionT:Item.payload.val()['ProjectDescription2'],
                   Team:Item.payload.val()['TeamMembers'],
                   UserAddress:Item.payload.val()['UserAddress'],
-                  Time:hours  })
+                  Time:finalTime  })
 
                   // this.ProjectsLengtharraY.length.toString();
                 this.ProjectsLength.push(arraY.length)
@@ -285,7 +303,10 @@
             //     return <any>array
             // }
 
-
+                // ################################################
+                  // ####### Vote Down for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
                   downVote(_id:any, _vote:any,address:any) {
                     // const  itemsRef = this.db.list('Projects')
                     
@@ -337,6 +358,11 @@
                     
                       
                   }
+
+                    // ################################################
+                  // ####### upVote for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
                 async upVote(_id:any,_vote:any,address:any)
                   {
                     
@@ -371,7 +397,10 @@
                  
                     
                   }
-
+                    // ################################################
+                  // ####### check vote in DAO page #########                 
+                  // #######                                #########
+                  // ################################################
                 checkVotes(_id:any):Observable<any> 
                   {
                     const arrayUsr =[]  
@@ -456,7 +485,10 @@
                 // {
                 //   const itemRef = this.db.list('Projects')
                 // }
-                  
+                    // ################################################
+                  // ####### Team for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
               getTeam(_id:any)
                 {            
                   const d = this.db.list('Projects')
@@ -529,7 +561,10 @@
                   console.log('bottom',arrEl)
                 return TeamO
                 }
-
+  // ################################################
+                  // ####### Team By address for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
 
       getByAddress(id)
       {
@@ -559,7 +594,10 @@
 
 
 
-
+  // ################################################
+                  // ####### Team by address for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
 
       getTeamAdress(_id:any)
                 {
@@ -627,7 +665,10 @@
 
 
 
-
+  // ################################################
+                  // ####### selected projects for DAO page #########                 
+                  // #######                                #########
+                  // ################################################
                 async recentPro()
                 {
                   const recent =[]
@@ -650,7 +691,7 @@
                     console.log('submission time',Item.payload.val()['Time'])
                     var d = new Date(TimeRemaining)
                     var d2 = new Date(Date.now())
-                    var date = new Date(TimeRemaining + ( 3600 * 1000 * 24))
+                    var date = new Date(TimeRemaining + ( 3600 * 1000 * 72))
                     var countDownDate = new Date(date).getTime();
                   //   var x = setInterval(function() {
                       var now = new Date().getTime();
@@ -719,7 +760,7 @@
                     console.log('submission time',Item.payload.val()['Time'])
                     var d = new Date(TimeRemaining)
                     var d2 = new Date(Date.now())
-                    var date = new Date(TimeRemaining + ( 3600 * 1000 * 5000))
+                    var date = new Date(TimeRemaining + ( 3600 * 1000 * 72))
                     var countDownDate = new Date(date).getTime();
                   //   var x = setInterval(function() {
                       var now = new Date().getTime();
@@ -881,7 +922,7 @@
                     console.log(fundingNeeded,'this is funding needed from firebase service')
                     console.log(collectedfund,'this is collected funding from firebase service')
                     console.log(grantsuccess, 'this is returned data if project grant is success')
-
+                    
                     let fundedPercentage = (collectedfund/fundingNeeded)*100
                     console.log('this is percentage of the progress bar',fundedPercentage)
                     if(grantsuccess === true)
@@ -937,11 +978,13 @@
             // this.length = await actions.length.toString(); 
             const sweeterArray = actions.map(async Item => {
               const dataTeam = Item.payload.val()['TeamMembers']
-              const grantchecker = Item.payload.val()['Granted']
+              const grantchecker = Item.payload.val()['Granted'] 
               const SN = Item.payload.val()['ProjectSN']
+              const grantSuccessckr = await this.pledgeservice.grantSuccess(SN)
               console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgranted',grantchecker)
+              console.log('TTTTTTTTTTTTTTTTTTTTTTDdddddddddddddddddd',grantSuccessckr)
             
-              if(grantchecker === true)
+              if(grantchecker === true && grantSuccessckr === false)
               {
                 console.log('this is SN from firebase service',SN)
                 const fundingNeeded = await this.pledgeservice.fundingNeeded(SN)
@@ -949,8 +992,13 @@
                 console.log(fundingNeeded,'this is funding needed from firebase service')
                 console.log(collectedfund,'this is collected funding from firebase service')
 
-                let fundedPercentage = (collectedfund/fundingNeeded)*100
-                console.log('this is percentage of the progress bar',fundedPercentage)
+                let fundedPercentage = (collectedfund/fundingNeeded)* 100 
+                let finalPercent = fundedPercentage.toFixed(2)
+                var a = 150
+                console.log('this is percentage of the progress barrrrrrrrrr',fundedPercentage.toFixed(2)+"%")
+                console.log(a.toFixed(2)+"%")
+
+              
                 if(fundedPercentage < 100)
                 {
                   
@@ -964,7 +1012,7 @@
         Team:Item.payload.val()['TeamMembers'],
         UserAddress:Item.payload.val()['UserAddress'],
         ProjectSN:Item.payload.val()['ProjectSN'],
-        Percent:fundedPercentage,
+        Percent:finalPercent,
           })
 
                 }

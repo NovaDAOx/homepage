@@ -53,6 +53,8 @@
     NFbtn: any = null;
     Slist: any = null;
     Flist:any = null;
+    fckr :any = null;
+    sckr :any = null;
     ProjectName:string=null;
     
     isChecked:string="";
@@ -275,29 +277,34 @@
       this.success();
       this.failures();
       console.log('project name',this.ProjectName)
-      console.log('project name',this.ProjectDes1)
+      console.log('project name',this.ProjectDes1.length)
       console.log('project name',this.ProjectDes2)
       console.log('project name',this.TeamName1)
       console.log('project name',this.TeamSocialLink1)
       console.log('project name',this.Designation1)
       console.log('project name',this.NovaAmount)
+      console.log('check checkbox',this.chevalue)
+      console.log('check success',this.Flist)
+      console.log('check failure',this.Slist)
       if(this.successArray[0] == 'Success 1' || this.successArray[1] == 'Success 2' || this.successArray[2] == 'Success 3' 
       ||this.successArray[0] == '' || this.successArray[1] == '' || this.successArray[2] == '' )
       {
         this.Slist= "show";
-      
+        this.Sckr = null;
+      return false
       }
       else
       {
         console.log('oneo one one')
         this.Slist = null;
+        this.sckr = 'true'
         
       }
     if(this.failuresArray[0] == 'Failure 1' || this.failuresArray[1] == 'Failure 2' || this.failuresArray[2] == 'Failure 1 3' 
       ||this.failuresArray[0] == '' || this.failuresArray[1] == '' || this.failuresArray[2] == '')
       {
-        this.Flist = "show"
-        
+        this.Flist = "show";
+        this.Fckr = null;
         
       }
       else
@@ -305,6 +312,7 @@
         console.log('oneo one one')
         
         this.Flist = null;
+        this.fckr = 'true'
       }
     
       // console.log(this.chevalue,'this is checkvalue')
@@ -314,8 +322,14 @@
       // console.log(faded,'faded')
 
       if(this.ProjectName == null || this.ProjectDes1 == null || this.ProjectDes2 == null || this.TeamName1 == null 
-      || this.TeamSocialLink1 == null || this.Designation1 == null || this.NovaAmount == null)
+      || this.TeamSocialLink1 == null || this.Designation1 == null || this.NovaAmount == null || this.chevalue ==null || this.fckr == null || this.sckr == null)
       {
+        console.log('Zion zion zion zion zion zion ',this.chevalue)
+        console.log('sckr sckr sckr sckr sckr sckr ',this.sckr)
+        console.log('fckr fckr fckr fckr fckr fckr',this.fckr)
+        // const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        // // cdk.style.display = 'block'
+        // cdk.style.visibility = 'visible'
         this.snack.open("Please fill all the reqiured fields", "X", {
           duration: 10000,
           panelClass: ["error-snackbar"],
@@ -336,21 +350,25 @@
             }
           }
         }
-        if(this.chevalue == null)
-        {
-            this.snack.open("Please Check at least one checkbox", "X", {
-                duration: 10000,
-                panelClass: ["error-snackbar"],
-                horizontalPosition: "center",
-              });
+        // if(this.chevalue == null)
+        // {
+        //   console.log('this this this checkvalue',this.chevalue)
+        //   const cdk = document.getElementsByClassName("cdk-overlay-container")[0]
+        //   cdk.style.display = 'block'
+        //     this.snack.open("Please Check at least one checkbox", "X", {
+        //         duration: 10000,
+        //         panelClass: ["error-snackbar"],
+        //         horizontalPosition: "center",
+        //       });
+
               
-        }
+        // }
       
       }
       // if(this.ProjectName != "" || this.ProjectDes1 && this.ProjectDes2 !="")
       else    {
 
-      
+        console.log('Zion zion zion zion zion zion Two Two Two',this.chevalue)
         console.log('submission triggered')
         
         const t = "this";
@@ -612,20 +630,41 @@
   }
   public onTextChangeIn(event: any)
   {
+    console.log('Qwerty Qwerty Qwerty')
       var myInputElement = document.getElementById("myWordsToCountUp");
       var wordsIn = myInputElement.value;
-
-      console.log('this is data',faded)
-
+      // document.querySelectorAll('input[data-max-words]').forEach(input => {
+        // Remember the word limit for the current input
+        let maxWords = parseInt(myInputElement.getAttribute('data-max-words') || 0)
+        // Add an eventlistener to test for key inputs
+        
+          let target = event.currentTarget
+          console.log('target target target ',target)
+          // Split the text in the input and get the current number of words
+          let words = target.value.split(/\s+/).length
+          console.log('words words words length',words)
+          // If the word count is > than the max amount and a space is pressed
+          // Don't allow for the space to be inserted
+          var haveByNowIn = 1;
+          // for (var i = 0; i < wordsIn.length; i++) {
+          //     if (wordsIn[i] == " ") {
+          //         haveByNowIn += 1;
+          //     }
+          // }
+          document.getElementById("wordcountIn").innerHTML = words;
+          if (!target.getAttribute('data-announce'))
+          
+            // Note: this is a shorthand if statement
+            // If the first two tests fail allow the key to be inserted
+            // Otherwise we prevent the default from happening
     
+            words >= maxWords && event.keyCode == 32 && event.preventDefault()
+          else
+            words >= maxWords && event.keyCode == 32 && (event.preventDefault() || alert('Word Limit Reached'))
+        // })
+      
       console.log('vvvvvvvvvvvvvvvv')
-      var haveByNowIn = 1;
-      for (var i = 0; i < wordsIn.length; i++) {
-          if (wordsIn[i] == " ") {
-              haveByNowIn += 1;
-          }
-      }
-      document.getElementById("wordcountIn").innerHTML = haveByNowIn;
+     
   }
 
   public onTextChange(event: any) {
@@ -633,16 +672,45 @@
       console.log(event.target,'target')
       console.log(event,'event')
       var myTextareaElement = document.getElementById("myWordsToCount");
-      var words = myTextareaElement.value;
-
+      // var words = myTextareaElement.value;
+      let maxWords = parseInt(myTextareaElement.getAttribute('data-max-words') || 0)
+      // Add an eventlistener to test for key inputs
+      
+        let target = event.currentTarget
+        console.log('target target target ',target)
+        // Split the text in the input and get the current number of words
+        let words = target.value.split(/\s+/).length
+        console.log('words words words length',words)
+        // If the word count is > than the max amount and a space is pressed
+        // Don't allow for the space to be inserted
+        var haveByNowIn = 1;
+        // for (var i = 0; i < wordsIn.length; i++) {
+        //     if (wordsIn[i] == " ") {
+        //         haveByNowIn += 1;
+        //     }
+        // }
+        
+        if (!target.getAttribute('data-announce'))
+        
+          // Note: this is a shorthand if statement
+          // If the first two tests fail allow the key to be inserted
+          // Otherwise we prevent the default from happening
+  
+          words >= maxWords && event.keyCode == 32 && event.preventDefault()
+        else
+          words >= maxWords && event.keyCode == 32 && (event.preventDefault() || alert('Word Limit Reached'))
+      // })
+    
+    console.log('vvvvvvvvvvvvvvvv')
+   
       // console.log(words,'99999999')
-      var haveByNow = 1;
-      for (var i = 0; i < words.length; i++) {
-          if (words[i] == " ") {
-              haveByNow += 1;
-          }
-      }
-      document.getElementById("wordcount").innerHTML = haveByNow;
+      // var haveByNow = 1;
+      // for (var i = 0; i < words.length; i++) {
+      //     if (words[i] == " ") {
+      //         haveByNow += 1;
+      //     }
+      // }
+      document.getElementById("wordcount").innerHTML =words
 
   }
   team1()
