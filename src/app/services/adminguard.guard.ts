@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { windowCount } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AdminguardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise(( resolve, reject) => {
 
-      const userAddres = localStorage.getItem('walletId').toLocaleLowerCase();
+      const userAddres = localStorage.getItem('walletId');
       const admin = environment.CoreTeam
       console.log('00000000000000000000',admin[2])
       
@@ -22,17 +23,29 @@ export class AdminguardGuard implements CanActivate {
         console.log('please  connect wallet to proceed')
         window.alert('Please connect wallet to proceed')
       }
-      if(userAddres.toString() != admin[0].toString() && userAddres.toString() != admin[1].toString() && userAddres.toString() != admin[2].toString().toLocaleLowerCase() )
+     
+      if(userAddres.toLowerCase() === admin[0].toLowerCase() )
       {
-        console.log('You are not an Admin')
-        window.alert('You are not an Admin')
+       resolve(true)
+      }
+      else if(userAddres.toLocaleLowerCase() === admin[1].toLocaleLowerCase())
+      {
+        resolve(true)
+      }
+      else if (userAddres.toLocaleLowerCase() === admin[2].toLocaleLowerCase())
+      {
+        resolve(true)
       }
       else
       {
-        resolve(true);
-        
+        window.alert('you are not admin')
       }
-
+    
+    // if(userAddres.toLowerCase() != admin[0].toLowerCase() && userAddres.toLocaleLowerCase()!=admin[1] && userAddres.toLocaleLowerCase()!=admin[2])
+    //   {
+    //     window.alert('Admin only')
+    //   }
+   
     
     });
   }
